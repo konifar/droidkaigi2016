@@ -107,6 +107,8 @@ dependencies {
 
     compile "com.squareup.okhttp3:okhttp:3.0.0-RC1"
     compile "com.jakewharton.threetenabp:threetenabp:1.0.2"
+    compile "org.parceler:parceler-api:1.0.4"
+    apt "org.parceler:parceler:1.0.4"
 
     compile "com.squareup.picasso:picasso:2.5.2"
 }
