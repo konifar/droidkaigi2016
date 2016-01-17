@@ -16,7 +16,9 @@ def packageName = "com.konifar.confsched"
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
-    dataBinding.enabled = true
+    dataBinding {
+        enabled = true
+    }
 
     dexOptions {
         // Skip pre-dexing when running on CI or when disabled via -Dpre-dex=false.
