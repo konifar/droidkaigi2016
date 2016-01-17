@@ -12,7 +12,7 @@ dependencies:
   cache_directories:
     - ~/.android
   override:
-    - ./gradlew dependencies --debug
+    - ./gradlew clean dependencies
 
 test:
   override:
