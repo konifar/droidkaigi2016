@@ -1,34 +1,21 @@
 package com.konifar.confsched.models;
 
+import com.google.gson.annotations.SerializedName;
+
 import org.parceler.Parcel;
 
 @Parcel
 public class Speaker {
 
-    int id;
-    String name;
-    String imageUrl;
-    String twitterName;
-    String githubName;
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public String getTwitterName() {
-        return twitterName;
-    }
-
-    public String getGithubName() {
-        return githubName;
-    }
+    @SerializedName("id")
+    public int id;
+    @SerializedName("name")
+    public String name;
+    @SerializedName("image_url")
+    public String imageUrl;
+    @SerializedName("twitter_name")
+    public String twitterName;
+    @SerializedName("github_name")
+    public String githubName;
 
 }

@@ -1,5 +1,7 @@
 package com.konifar.confsched.models;
 
+import com.google.gson.annotations.SerializedName;
+
 import org.parceler.Parcel;
 
 import java.util.Date;
@@ -8,35 +10,20 @@ import java.util.List;
 @Parcel
 public class Session {
 
-    int id;
-    String title;
-    Speaker speaker;
-    Date sTime;
-    Date eTime;
-    List<Category> categories;
+    @SerializedName("id")
+    public int id;
+    @SerializedName("title")
+    public String title;
+    @SerializedName("speaker")
+    public Speaker speaker;
+    @SerializedName("s_time")
+    public Date sTime;
+    @SerializedName("e_time")
+    public Date eTime;
+    @SerializedName("categories")
+    public List<Category> categories;
 
-    public int getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public Speaker getSpeaker() {
-        return speaker;
-    }
-
-    public Date getsTime() {
-        return sTime;
-    }
-
-    public Date geteTime() {
-        return eTime;
-    }
-
-    public List<Category> getCategories() {
-        return categories;
+    public Session() {
     }
 
 }
