@@ -1,8 +1,8 @@
-package com.konifar.confsched.utils;
+package com.konifar.confsched.util;
 
 import android.support.annotation.NonNull;
 
-public class AppUtils {
+public class AppUtil {
 
     private static final String TWITTER_URL = "https://twitter.com/";
     private static final String GITHUB_URL = "https://github.com/";

@@ -1,4 +1,4 @@
-package com.konifar.confsched.models;
+package com.konifar.confsched.model;
 
 import com.google.gson.annotations.SerializedName;
 

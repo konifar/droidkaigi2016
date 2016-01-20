@@ -1,4 +1,4 @@
-package com.konifar.confsched.fragments;
+package com.konifar.confsched.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,10 +13,10 @@ import android.view.ViewGroup;
 import com.konifar.confsched.R;
 import com.konifar.confsched.databinding.FragmentSessionsBinding;
 import com.konifar.confsched.databinding.ItemSessionBinding;
-import com.konifar.confsched.models.Session;
-import com.konifar.confsched.widgets.ArrayRecyclerAdapter;
-import com.konifar.confsched.widgets.BindingHolder;
-import com.konifar.confsched.widgets.OnItemClickListener;
+import com.konifar.confsched.model.Session;
+import com.konifar.confsched.widget.ArrayRecyclerAdapter;
+import com.konifar.confsched.widget.BindingHolder;
+import com.konifar.confsched.widget.OnItemClickListener;
 
 public class SessionsFragment extends Fragment implements OnItemClickListener<Session> {
 

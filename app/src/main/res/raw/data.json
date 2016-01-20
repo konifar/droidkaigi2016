@@ -1,0 +1,209 @@
+[
+  {
+    "id": 1,
+    "title": "基調講演",
+    "speaker": {
+      "id": 1,
+      "name": "-",
+      "image_url": "",
+      "twitter_name": "",
+      "github_name": ""
+    },
+    "stime": "2015-02-18 10:00:00",
+    "etime": "2015-02-18 11:00:00",
+    "categories": [
+      {
+        "id": 1,
+        "name": "基調講演"
+      }
+    ],
+    "place": {
+      "id": 1,
+      "name": "基調講演"
+    }
+  },
+  {
+    "id": 2,
+    "title": "明日から使えるRxjava頻出パターン",
+    "speaker": {
+      "id": 2,
+      "name": "kazy",
+      "image_url": "",
+      "twitter_name": "",
+      "github_name": ""
+    },
+    "stime": "2015-02-18 11:30:00",
+    "etime": "2015-02-18 12:00:00",
+    "categories": [
+      {
+        "id": 2,
+        "name": ""
+      }
+    ],
+    "place": {
+      "id": 2,
+      "name": "Room A"
+    }
+  },
+  {
+    "id": 3,
+    "title": "Master of Canvas",
+    "speaker": {
+      "id": 3,
+      "name": "Yuki Mima",
+      "image_url": "",
+      "twitter_name": "amyu_san",
+      "github_name": ""
+    },
+    "stime": "2015-02-18 11:30:00",
+    "etime": "2015-02-18 12:00:00",
+    "categories": [
+      {
+        "id": 3,
+        "name": ""
+      }
+    ],
+    "place": {
+      "id": 3,
+      "name": "Room B"
+    }
+  },
+  {
+    "id": 4,
+    "title": "TV向けAndroidアプリの開発TIPSと最新事情",
+    "speaker": {
+      "id": 5,
+      "name": "小林 剛士",
+      "image_url": "",
+      "twitter_name": "",
+      "github_name": ""
+    },
+    "stime": "2015-02-18 11:30:00",
+    "etime": "2015-02-18 12:00:00",
+    "categories": [
+      {
+        "id": 4,
+        "name": ""
+      }
+    ],
+    "place": {
+      "id": 4,
+      "name": "Room C"
+    }
+  },
+  {
+    "id": 5,
+    "title": "Advanced RecyclerView Techniques",
+    "speaker": {
+      "id": 5,
+      "name": "Joshua Jamison",
+      "image_url": "",
+      "twitter_name": "",
+      "github_name": ""
+    },
+    "stime": "2015-02-18 11:30:00",
+    "etime": "2015-02-18 12:00:00",
+    "categories": [
+      {
+        "id": 5,
+        "name": ""
+      }
+    ],
+    "place": {
+      "id": 5,
+      "name": "Room D"
+    }
+  },
+  {
+    "id": 6,
+    "title": "史上最速のAndroid",
+    "speaker": {
+      "id": 6,
+      "name": "kmt-t",
+      "image_url": "",
+      "twitter_name": "",
+      "github_name": ""
+    },
+    "stime": "2015-02-18 13:00:00",
+    "etime": "2015-02-18 13:50:00",
+    "categories": [
+      {
+        "id": 2,
+        "name": ""
+      }
+    ],
+    "place": {
+      "id": 2,
+      "name": "Room A"
+    }
+  },
+  {
+    "id": 7,
+    "title": "Android Lintで正しさを学ぼう",
+    "speaker": {
+      "id": 7,
+      "name": "中川幸哉",
+      "image_url": "",
+      "twitter_name": "Nkzn",
+      "github_name": ""
+    },
+    "stime": "2015-02-18 13:00:00",
+    "etime": "2015-02-18 13:50:00",
+    "categories": [
+      {
+        "id": 2,
+        "name": ""
+      }
+    ],
+    "place": {
+      "id": 3,
+      "name": "Room B"
+    }
+  },
+  {
+    "id": 8,
+    "title": "Go MobileでAndroidアプリ開発",
+    "speaker": {
+      "id": 8,
+      "name": "tenntenn",
+      "image_url": "",
+      "twitter_name": "",
+      "github_name": ""
+    },
+    "stime": "2015-02-18 13:00:00",
+    "etime": "2015-02-18 13:50:00",
+    "categories": [
+      {
+        "id": 2,
+        "name": ""
+      }
+    ],
+    "place": {
+      "id": 4,
+      "name": "Room C"
+    }
+  },
+  {
+    "id": 9,
+    "title": "Fragments Why, How, and What For?",
+    "speaker": {
+      "id": 9,
+      "name": "Brenda Cook",
+      "image_url": "",
+      "twitter_name": "",
+      "github_name": ""
+    },
+    "stime": "2015-02-18 13:00:00",
+    "etime": "2015-02-18 13:50:00",
+    "categories": [
+      {
+        "id": 2,
+        "name": ""
+      }
+    ],
+    "place": {
+      "id": 4,
+      "name": "Room D"
+    }
+  }
+]

@@ -1,4 +1,4 @@
-package com.konifar.confsched.widgets;
+package com.konifar.confsched.widget;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

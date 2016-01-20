@@ -1,4 +1,4 @@
-package com.konifar.confsched.utils;
+package com.konifar.confsched.util;
 
 import android.support.test.runner.AndroidJUnit4;
 
@@ -12,12 +12,12 @@ public class AppUtilsTest {
 
     @Test
     public void testTwitterUrl() throws Exception {
-        assertThat(AppUtils.getTwitterUrl("konifar")).isEqualTo("https://twitter.com/konifar");
+        assertThat(AppUtil.getTwitterUrl("konifar")).isEqualTo("https://twitter.com/konifar");
     }
 
     @Test
     public void testGitHubUrl() throws Exception {
-        assertThat(AppUtils.getGitHubUrl("konifar")).isEqualTo("https://github.com/konifar");
+        assertThat(AppUtil.getGitHubUrl("konifar")).isEqualTo("https://github.com/konifar");
     }
 
 }

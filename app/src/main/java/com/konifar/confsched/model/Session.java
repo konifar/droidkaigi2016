@@ -1,4 +1,4 @@
-package com.konifar.confsched.models;
+package com.konifar.confsched.model;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -16,12 +16,14 @@ public class Session {
     public String title;
     @SerializedName("speaker")
     public Speaker speaker;
-    @SerializedName("s_time")
+    @SerializedName("stime")
     public Date sTime;
-    @SerializedName("e_time")
+    @SerializedName("etime")
     public Date eTime;
     @SerializedName("categories")
     public List<Category> categories;
+    @SerializedName("place")
+    public Place place;
 
     public Session() {
     }
