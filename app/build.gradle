@@ -59,6 +59,8 @@ android {
             shrinkResources true
             debuggable true
             zipAlignEnabled true
+
+            buildConfigField("String", "GA_TRACKING_ID", "\"${ga_tracking_id_debug}\"")
         }
         release {
             signingConfig signingConfigs.debug
@@ -67,6 +69,8 @@ android {
             zipAlignEnabled true
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            buildConfigField("String", "GA_TRACKING_ID", "\"${ga_tracking_id_release}\"")
         }
     }
 
@@ -81,6 +85,7 @@ android {
 
     lintOptions {
         abortOnError false
+        disable 'InvalidPackage'
     }
 
     aaptOptions {
@@ -107,8 +112,13 @@ dependencies {
 
     compile "com.google.android.gms:play-services-analytics:${play_services_lib_version}"
 
+    compile 'com.google.dagger:dagger:2.0.2'
+    apt 'com.google.dagger:dagger-compiler:2.0.2'
+    provided 'javax.annotation:jsr250-api:1.0'
     compile 'com.google.code.gson:gson:2.4'
     compile "com.squareup.okhttp3:okhttp:3.0.1"
+    compile 'io.reactivex:rxjava:1.1.0'
+    compile 'io.reactivex:rxandroid:1.1.0'
     compile "com.jakewharton.threetenabp:threetenabp:1.0.2"
     compile "org.parceler:parceler-api:1.0.4"
     apt "org.parceler:parceler:1.0.4"
