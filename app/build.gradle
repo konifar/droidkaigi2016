@@ -16,7 +16,9 @@ def packageName = "com.konifar.confsched"
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
-    dataBinding.enabled = true
+    dataBinding {
+        enabled = true
+    }
 
     dexOptions {
         // Skip pre-dexing when running on CI or when disabled via -Dpre-dex=false.
@@ -29,6 +31,7 @@ android {
         targetSdkVersion 23
         versionCode versionMajor * 100 + versionMinor * 10 + versionPatch
         versionName "${versionMajor}.${versionMinor}.${versionPatch}"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     packagingOptions {
@@ -95,7 +98,6 @@ android {
 }
 
 dependencies {
-    testCompile 'junit:junit:4.12'
     compile "com.android.support:support-v4:${support_lib_version}"
     compile "com.android.support:appcompat-v7:${support_lib_version}"
     compile "com.android.support:support-annotations:${support_lib_version}"
@@ -105,10 +107,25 @@ dependencies {
 
     compile "com.google.android.gms:play-services-analytics:${play_services_lib_version}"
 
-    compile "com.squareup.okhttp3:okhttp:3.0.0-RC1"
+    compile 'com.google.code.gson:gson:2.4'
+    compile "com.squareup.okhttp3:okhttp:3.0.1"
     compile "com.jakewharton.threetenabp:threetenabp:1.0.2"
     compile "org.parceler:parceler-api:1.0.4"
     apt "org.parceler:parceler:1.0.4"
 
     compile "com.squareup.picasso:picasso:2.5.2"
+    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta3'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta3'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta3'
+
+    testCompile 'junit:junit:4.12'
+    androidTestCompile('com.android.support.test:runner:0.4.1') {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestCompile('com.android.support.test:rules:0.4.1') {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestCompile('com.squareup.assertj:assertj-android:1.0.1') {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
 }

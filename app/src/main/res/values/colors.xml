@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <!-- Based on http://www.google.com/design/spec/style/color.html -->
+
+    <!-- Theme & Accent -->
+    <color name="theme50">#E0F7FA</color>
+    <color name="theme500">#00BCD4</color>
+    <color name="theme600">#00ACC1</color>
+    <color name="accent100">#FFFF8D</color>
+
+    <!-- Greyscales -->
+    <color name="grey200">#EEEEEE</color>
+    <color name="grey600">#757575</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black_alpha_12">#1F000000</color>
+    <color name="black_alpha_30">#4D000000</color>
 </resources>
