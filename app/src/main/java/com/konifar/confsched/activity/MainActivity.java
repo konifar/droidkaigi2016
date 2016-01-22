@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import com.konifar.confsched.MainApplication;
 import com.konifar.confsched.R;
 import com.konifar.confsched.api.DroidKaigiClient;
+import com.konifar.confsched.dao.SessionDao;
 import com.konifar.confsched.util.AnalyticsUtil;
 
 import javax.inject.Inject;
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity
     SharedPreferences prefs;
     @Inject
     DroidKaigiClient client;
+    @Inject
+    SessionDao dao;
     @Inject
     CompositeSubscription compositeSubscription;
 
@@ -64,8 +67,13 @@ public class MainActivity extends AppCompatActivity
         Subscription sub = client.getSessions()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(sessions -> Log.e(TAG, "sessions: " + sessions.size()),
-                        throwable -> Log.e(TAG, throwable.getMessage(), throwable));
+                .subscribe(sessions -> {
+                            Log.e(TAG, "sessions: " + sessions.size());
+                            dao.deleteAll();
+                            dao.insertAll(sessions);
+                        },
+                        throwable -> Log.e(TAG, throwable.getMessage(), throwable)
+                );
         compositeSubscription.add(sub);
     }
 

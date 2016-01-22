@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.konifar.confsched.R;
+import com.konifar.confsched.dao.SessionDao;
 import com.konifar.confsched.databinding.FragmentSessionsBinding;
 import com.konifar.confsched.databinding.ItemSessionBinding;
 import com.konifar.confsched.model.Session;
@@ -18,9 +19,14 @@ import com.konifar.confsched.widget.ArrayRecyclerAdapter;
 import com.konifar.confsched.widget.BindingHolder;
 import com.konifar.confsched.widget.OnItemClickListener;
 
+import javax.inject.Inject;
+
 public class SessionsFragment extends Fragment implements OnItemClickListener<Session> {
 
     private static String TAG = SessionsFragment.class.getSimpleName();
+
+    @Inject
+    SessionDao dao;
 
     private SessionsAdapter adapter;
     private FragmentSessionsBinding binding;
