@@ -48,6 +48,8 @@ public class MainApplication extends Application {
                 .appModule(new AppModule(this))
                 .build();
 
+        new StethoWrapper(this).setup();
+
         AndroidThreeTen.init(this);
     }
 

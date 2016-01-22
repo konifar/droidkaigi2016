@@ -9,6 +9,7 @@ import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
 import com.konifar.confsched.BuildConfig;
 import com.konifar.confsched.api.RequestInterceptor;
+import com.konifar.confsched.model.OrmaDatabase;
 
 import java.io.File;
 
@@ -80,6 +81,12 @@ public class AppModule {
     @Provides
     public CompositeSubscription provideCompositeSubscription() {
         return new CompositeSubscription();
+    }
+
+    @Singleton
+    @Provides
+    public OrmaDatabase provideOrmaDatabase(Context context) {
+        return OrmaDatabase.builder(context).build();
     }
 
 }

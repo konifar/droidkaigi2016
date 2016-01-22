@@ -12,12 +12,10 @@
     },
     "stime": "2015-02-18 10:00:00",
     "etime": "2015-02-18 11:00:00",
-    "categories": [
-      {
-        "id": 1,
-        "name": "基調講演"
-      }
-    ],
+    "category": {
+      "id": 1,
+      "name": "基調講演"
+    },
     "place": {
       "id": 1,
       "name": "基調講演"
@@ -38,12 +36,10 @@
     },
     "stime": "2015-02-18 11:30:00",
     "etime": "2015-02-18 12:00:00",
-    "categories": [
-      {
-        "id": 2,
-        "name": "Others"
-      }
-    ],
+    "category": {
+      "id": 2,
+      "name": "Others"
+    },
     "place": {
       "id": 2,
       "name": "Room:A"
@@ -64,12 +60,10 @@
     },
     "stime": "2015-02-18 11:30:00",
     "etime": "2015-02-18 12:00:00",
-    "categories": [
-      {
-        "id": 3,
-        "name": "UI and Design"
-      }
-    ],
+    "category": {
+      "id": 3,
+      "name": "UI and Design"
+    },
     "place": {
       "id": 3,
       "name": "Room:B"
@@ -90,12 +84,10 @@
     },
     "stime": "2015-02-18 11:30:00",
     "etime": "2015-02-18 12:00:00",
-    "categories": [
-      {
-        "id": 4,
-        "name": "Hardware"
-      }
-    ],
+    "category": {
+      "id": 4,
+      "name": "Hardware"
+    },
     "place": {
       "id": 4,
       "name": "Room:C"
@@ -116,12 +108,10 @@
     },
     "stime": "2015-02-18 11:30:00",
     "etime": "2015-02-18 12:00:00",
-    "categories": [
-      {
-        "id": 3,
-        "name": "UI and Design"
-      }
-    ],
+    "category": {
+      "id": 3,
+      "name": "UI and Design"
+    },
     "place": {
       "id": 5,
       "name": "Room:D"
@@ -142,12 +132,10 @@
     },
     "stime": "2015-02-18 13:00:00",
     "etime": "2015-02-18 13:50:00",
-    "categories": [
-      {
-        "id": 5,
-        "name": "Platform"
-      }
-    ],
+    "category": {
+      "id": 5,
+      "name": "Platform"
+    },
     "place": {
       "id": 2,
       "name": "Room:A"
@@ -168,12 +156,10 @@
     },
     "stime": "2015-02-18 13:00:00",
     "etime": "2015-02-18 13:50:00",
-    "categories": [
-      {
-        "id": 6,
-        "name": "Productivity and Tooling"
-      }
-    ],
+    "category": {
+      "id": 6,
+      "name": "Productivity and Tooling"
+    },
     "place": {
       "id": 3,
       "name": "Room:B"
@@ -194,12 +180,10 @@
     },
     "stime": "2015-02-18 13:00:00",
     "etime": "2015-02-18 13:50:00",
-    "categories": [
-      {
-        "id": 6,
-        "name": "Productivity and Tooling"
-      }
-    ],
+    "category": {
+      "id": 6,
+      "name": "Productivity and Tooling"
+    },
     "place": {
       "id": 4,
       "name": "Room:C"
@@ -220,12 +204,10 @@
     },
     "stime": "2015-02-18 13:00:00",
     "etime": "2015-02-18 13:50:00",
-    "categories": [
-      {
-        "id": 5,
-        "name": "Platform"
-      }
-    ],
+    "category": {
+      "id": 5,
+      "name": "Platform"
+    },
     "place": {
       "id": 4,
       "name": "Room:D"
