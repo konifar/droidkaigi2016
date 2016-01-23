@@ -19,7 +19,6 @@ import com.konifar.confsched.model.Session;
 import com.konifar.confsched.util.DateUtil;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -77,7 +76,6 @@ public class SessionsFragment extends Fragment {
                             dao.deleteAll();
                             dao.insertAll(sessions);
                             groupByDateSessions(sessions);
-
                         },
                         throwable -> Log.e(TAG, throwable.getMessage(), throwable)
                 );
@@ -86,15 +84,15 @@ public class SessionsFragment extends Fragment {
 
     private void groupByDateSessions(List<Session> sessions) {
         Observable.from(sessions)
-                .groupBy(session -> session.stime)
-                .subscribe(grouped -> grouped.toList().subscribe(list -> addFragment(grouped.getKey(), list)),
+                .groupBy(session -> DateUtil.getMonthDate(session.stime, getActivity()))
+                .subscribe(grouped ->
+                                grouped.toList().subscribe(list -> addFragment(grouped.getKey(), list)),
                         throwable -> Log.e(TAG, throwable.getMessage(), throwable),
                         () -> binding.tabLayout.setupWithViewPager(binding.viewPager)
                 );
     }
 
-    private void addFragment(Date date, List<Session> sessions) {
-        String title = DateUtil.getMonthDate(date, getActivity());
+    private void addFragment(String title, List<Session> sessions) {
         SessionsTabFragment fragment = SessionsTabFragment.newInstance(title, sessions);
         Log.e(TAG, "sessions " + title + ": " + sessions.size());
         adapter.add(title, fragment);

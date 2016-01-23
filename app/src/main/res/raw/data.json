@@ -214,5 +214,53 @@
     },
     "language_id": "en",
     "slide_url": ""
+  },
+  {
+    "id": 23,
+    "title": "Support Libraryノススメ | Support Library Internal",
+    "description": "",
+    "speaker": {
+      "id": 23,
+      "name": "Yuichi Araki",
+      "image_url": "https://avatars2.githubusercontent.com/u/1237536?v=3&s=400.jpg",
+      "twitter_name": "yuichi_araki",
+      "github_name": "yaraki"
+    },
+    "stime": "2015-02-19 10:00:00",
+    "etime": "2015-02-19 11:00:00",
+    "category": {
+      "id": 1,
+      "name": "基調講演"
+    },
+    "place": {
+      "id": 1,
+      "name": "基調講演"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 24,
+    "title": "クックパッドにおけるAndroidエンジニアの役割とその変遷",
+    "description": "私が2013年10月にクックパッドに入社した当時、社内のエンジニア60名ほどに対してAndroidエンジニアは私を含めて3名でした。現在ではAndroidエンジニアは10名を越え、iOSやQAを含めたモバイルチーム全体は25名まで成長しました。私が入社する前のモバイルエンジニア0~1人時代から現在に至るまで、どのようにモバイルチームがどのような課題に直面し、改善を行っていったかを時系列で話します。モバイル開発プロセスの構築と改善に役立てれば幸いです。",
+    "speaker": {
+      "id": 24,
+      "name": "sys1yagi",
+      "image_url": "https://pbs.twimg.com/profile_images/562623123518787584/st_WXQ8e.png",
+      "twitter_name": "sys1yagi",
+      "github_name": "sys1yagi"
+    },
+    "stime": "2015-02-19 11:30:00",
+    "etime": "2015-02-19 12:00:00",
+    "category": {
+      "id": 2,
+      "name": "Others"
+    },
+    "place": {
+      "id": 2,
+      "name": "Room:A"
+    },
+    "language_id": "ja",
+    "slide_url": ""
   }
 ]
