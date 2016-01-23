@@ -1,9 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.konifar.confsched.util.DateUtil" />
+
+        <variable
+            name="session"
+            type="com.konifar.confsched.model.Session" />
+    </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txt_stime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{DateUtil.getHourMinute(session.stime)}" />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_small"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_toEndOf="@id/txt_stime"
+            android:layout_toRightOf="@+id/txt_stime"
+            app:cardBackgroundColor="@color/white"
+            app:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing">
+
+                <TextView
+                    android:id="@+id/txt_title"
+                    style="@style/TextTitle.OfList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{session.title}" />
+
+                <org.apmem.tools.layouts.FlowLayout
+                    android:id="@+id/tag_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_title"
+                    android:layout_marginTop="@dimen/spacing_xsmall">
+
+                    <TextView
+                        android:id="@+id/txt_place"
+                        style="@style/Tag"
+                        android:layout_marginEnd="@dimen/spacing_xsmall"
+                        android:layout_marginRight="@dimen/spacing_xsmall"
+                        android:layout_marginTop="@dimen/spacing_xsmall"
+                        android:background="@drawable/tag_language"
+                        android:text="@{session.place.name}" />
+
+                    <com.konifar.confsched.widget.CategoryView
+                        android:id="@+id/txt_category"
+                        style="@style/Tag"
+                        android:layout_marginEnd="@dimen/spacing_xsmall"
+                        android:layout_marginRight="@dimen/spacing_xsmall"
+                        android:layout_marginTop="@dimen/spacing_xsmall"
+                        app:category="@{session.category}" />
+
+                    <TextView
+                        android:id="@+id/txt_language"
+                        style="@style/Tag"
+                        android:layout_marginEnd="@dimen/spacing_xsmall"
+                        android:layout_marginRight="@dimen/spacing_xsmall"
+                        android:layout_marginTop="@dimen/spacing_xsmall"
+                        android:background="@drawable/tag_language"
+                        android:text="@{session.getLanguageResId()}"
+                        android:textColor="@color/grey600" />
+
+                </org.apmem.tools.layouts.FlowLayout>
+
+                <ImageView
+                    android:id="@+id/img_speaker"
+                    android:layout_width="@dimen/user_image_thumb"
+                    android:layout_height="@dimen/user_image_thumb"
+                    android:layout_below="@id/tag_container"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:contentDescription="@string/speaker"
+                    app:speakerImageUrl="@{session.speaker.imageUrl}" />
+
+                <TextView
+                    style="@style/TextSub"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/img_speaker"
+                    android:layout_alignTop="@id/img_speaker"
+                    android:layout_below="@id/tag_container"
+                    android:layout_marginLeft="@dimen/icon_spacing"
+                    android:layout_marginStart="@dimen/icon_spacing"
+                    android:layout_toEndOf="@id/img_speaker"
+                    android:layout_toRightOf="@id/img_speaker"
+                    android:gravity="center_vertical"
+                    android:text="@{session.speaker.name}" />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
 
     </RelativeLayout>
 

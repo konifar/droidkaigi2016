@@ -81,7 +81,9 @@ public class SessionDao {
     }
 
     public List<Session> findAll() {
-        return sessionRelation().selector().toList();
+        return Observable.from(sessionRelation().selector().toList())
+                .map(session -> session.initAssociations(orma))
+                .toList().toBlocking().single();
     }
 
     public void deleteAll() {

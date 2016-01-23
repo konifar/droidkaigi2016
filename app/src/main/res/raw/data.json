@@ -18,7 +18,7 @@
     },
     "place": {
       "id": 1,
-      "name": "基調講演"
+      "name": "基調講演会場"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -38,11 +38,11 @@
     "etime": "2015-02-18 12:00:00",
     "category": {
       "id": 2,
-      "name": "Others"
+      "name": "その他"
     },
     "place": {
       "id": 2,
-      "name": "Room:A"
+      "name": "ルームA"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -62,11 +62,11 @@
     "etime": "2015-02-18 12:00:00",
     "category": {
       "id": 3,
-      "name": "UI and Design"
+      "name": "UI・デザイン"
     },
     "place": {
       "id": 3,
-      "name": "Room:B"
+      "name": "ルームB"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -86,11 +86,11 @@
     "etime": "2015-02-18 12:00:00",
     "category": {
       "id": 4,
-      "name": "Hardware"
+      "name": "ハードウェア"
     },
     "place": {
       "id": 4,
-      "name": "Room:C"
+      "name": "ルームC"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -110,11 +110,11 @@
     "etime": "2015-02-18 12:00:00",
     "category": {
       "id": 3,
-      "name": "UI and Design"
+      "name": "UI・デザイン"
     },
     "place": {
       "id": 5,
-      "name": "Room:D"
+      "name": "ルームD"
     },
     "language_id": "en",
     "slide_url": ""
@@ -134,11 +134,11 @@
     "etime": "2015-02-18 13:50:00",
     "category": {
       "id": 5,
-      "name": "Platform"
+      "name": "プラットフォーム"
     },
     "place": {
       "id": 2,
-      "name": "Room:A"
+      "name": "ルームA"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -158,11 +158,11 @@
     "etime": "2015-02-18 13:50:00",
     "category": {
       "id": 6,
-      "name": "Productivity and Tooling"
+      "name": "開発環境・ツール"
     },
     "place": {
       "id": 3,
-      "name": "Room:B"
+      "name": "ルームB"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -182,11 +182,11 @@
     "etime": "2015-02-18 13:50:00",
     "category": {
       "id": 6,
-      "name": "Productivity and Tooling"
+      "name": "開発環境・ツール"
     },
     "place": {
       "id": 4,
-      "name": "Room:C"
+      "name": "ルームC"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -206,11 +206,11 @@
     "etime": "2015-02-18 13:50:00",
     "category": {
       "id": 5,
-      "name": "Platform"
+      "name": "プラットフォーム"
     },
     "place": {
       "id": 4,
-      "name": "Room:D"
+      "name": "ルームD"
     },
     "language_id": "en",
     "slide_url": ""
@@ -234,7 +234,7 @@
     },
     "place": {
       "id": 1,
-      "name": "基調講演"
+      "name": "基調講演会場"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -254,11 +254,11 @@
     "etime": "2015-02-19 12:00:00",
     "category": {
       "id": 2,
-      "name": "Others"
+      "name": "その他"
     },
     "place": {
       "id": 2,
-      "name": "Room:A"
+      "name": "ルームA"
     },
     "language_id": "ja",
     "slide_url": ""

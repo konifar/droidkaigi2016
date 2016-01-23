@@ -89,7 +89,8 @@ public class SessionsTabFragment extends Fragment implements OnItemClickListener
 
         @Override
         public void onBindViewHolder(BindingHolder<ItemSessionBinding> holder, int position) {
-
+            ItemSessionBinding binding = holder.binding;
+            binding.setSession(getItem(position));
         }
 
     }

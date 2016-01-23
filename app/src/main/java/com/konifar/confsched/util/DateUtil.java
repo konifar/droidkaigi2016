@@ -13,6 +13,7 @@ import java.util.Locale;
 public class DateUtil {
 
     private static final String FORMAT_MMDD = "MMMd";
+    private static final String FORMAT_KKMM = "kk:mm";
 
     @NonNull
     public static String getMonthDate(Date date, Context context) {
@@ -29,6 +30,11 @@ public class DateUtil {
             int flag = DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NO_YEAR;
             return DateUtils.formatDateTime(context, date.getTime(), flag);
         }
+    }
+
+    @NonNull
+    public static String getHourMinute(Date date) {
+        return String.valueOf(DateFormat.format(FORMAT_KKMM, date));
     }
 
 }

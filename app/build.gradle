@@ -131,6 +131,8 @@ dependencies {
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta3'
     compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta3'
 
+    compile 'org.apmem.tools:layouts:1.10@aar'
+
     debugCompile 'com.facebook.stetho:stetho:1.2.0'
 
     testCompile 'junit:junit:4.12'
