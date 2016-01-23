@@ -87,26 +87,26 @@ public class SessionsFragment extends Fragment {
     private void groupByDateSessions(List<Session> sessions) {
         Observable.from(sessions)
                 .groupBy(session -> session.stime)
-                .subscribe(grouped -> {
-                    grouped.toList().subscribe(list -> addFragment(grouped.getKey(), list));
-                });
+                .subscribe(grouped -> grouped.toList().subscribe(list -> addFragment(grouped.getKey(), list)),
+                        throwable -> Log.e(TAG, throwable.getMessage(), throwable),
+                        () -> binding.tabLayout.setupWithViewPager(binding.viewPager)
+                );
     }
 
     private void addFragment(Date date, List<Session> sessions) {
-        String dateString = DateUtil.getMonthDate(date, getActivity());
-        SessionsTabFragment fragment = SessionsTabFragment.newInstance(dateString, sessions);
-        Log.e(TAG, "sessions " + dateString + ": " + sessions.size());
-        adapter.add(fragment);
-        binding.tabLayout.addTab(binding.tabLayout.newTab().setText(fragment.getDate()));
+        String title = DateUtil.getMonthDate(date, getActivity());
+        SessionsTabFragment fragment = SessionsTabFragment.newInstance(title, sessions);
+        Log.e(TAG, "sessions " + title + ": " + sessions.size());
+        adapter.add(title, fragment);
     }
 
     private class SessionsPagerAdapter extends FragmentPagerAdapter {
 
-        private List<SessionsTabFragment> fragments;
+        private final List<SessionsTabFragment> fragments = new ArrayList<>();
+        private final List<String> titles = new ArrayList<>();
 
         public SessionsPagerAdapter(FragmentManager fm) {
             super(fm);
-            fragments = new ArrayList<>();
         }
 
         @Override
@@ -121,11 +121,12 @@ public class SessionsFragment extends Fragment {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return fragments.get(position).getDate();
+            return titles.get(position);
         }
 
-        public void add(SessionsTabFragment fragment) {
+        public void add(String title, SessionsTabFragment fragment) {
             fragments.add(fragment);
+            titles.add(title);
             notifyDataSetChanged();
         }
 

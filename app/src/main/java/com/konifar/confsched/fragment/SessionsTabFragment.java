@@ -26,20 +26,17 @@ import java.util.List;
 public class SessionsTabFragment extends Fragment implements OnItemClickListener<Session> {
 
     private static final String TAG = SessionsTabFragment.class.getSimpleName();
-    private static final String ARG_DATE = "date";
     private static final String ARG_SESSIONS = "sessions";
 
     private SessionsAdapter adapter;
     private FragmentSessionsTabBinding binding;
 
-    private String date;
     private List<Session> sessions;
 
     @NonNull
     public static SessionsTabFragment newInstance(String date, List<Session> sessions) {
         SessionsTabFragment fragment = new SessionsTabFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_DATE, date);
         args.putParcelable(ARG_SESSIONS, Parcels.wrap(sessions));
         fragment.setArguments(args);
         return fragment;
@@ -49,7 +46,6 @@ public class SessionsTabFragment extends Fragment implements OnItemClickListener
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         sessions = Parcels.unwrap(getArguments().getParcelable(ARG_SESSIONS));
-        date = getArguments().getString(ARG_DATE);
     }
 
     @Override
@@ -78,10 +74,6 @@ public class SessionsTabFragment extends Fragment implements OnItemClickListener
     @Override
     public void onItemClick(@NonNull View view, Session item) {
         // TODO
-    }
-
-    public String getDate() {
-        return date;
     }
 
     private class SessionsAdapter extends ArrayRecyclerAdapter<Session, BindingHolder<ItemSessionBinding>> {
