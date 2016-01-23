@@ -77,6 +77,7 @@ public class SessionsFragment extends Fragment {
                             dao.deleteAll();
                             dao.insertAll(sessions);
                             groupByDateSessions(sessions);
+
                         },
                         throwable -> Log.e(TAG, throwable.getMessage(), throwable)
                 );
