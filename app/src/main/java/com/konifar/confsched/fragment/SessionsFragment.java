@@ -1,5 +1,6 @@
 package com.konifar.confsched.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.konifar.confsched.MainApplication;
 import com.konifar.confsched.api.DroidKaigiClient;
 import com.konifar.confsched.dao.SessionDao;
 import com.konifar.confsched.databinding.FragmentSessionsBinding;
@@ -50,12 +52,18 @@ public class SessionsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentSessionsBinding.inflate(inflater, container, false);
-        initView();
+        initViewPager();
         loadData();
         return binding.getRoot();
     }
 
-    private void initView() {
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        MainApplication.getComponent(this).inject(this);
+    }
+
+    private void initViewPager() {
         adapter = new SessionsPagerAdapter(getFragmentManager());
         binding.viewPager.setAdapter(adapter);
         binding.tabLayout.setupWithViewPager(binding.viewPager);
@@ -66,7 +74,6 @@ public class SessionsFragment extends Fragment {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(sessions -> {
-                            Log.e(TAG, "sessions: " + sessions.size());
                             dao.deleteAll();
                             dao.insertAll(sessions);
                             groupByDateSessions(sessions);
@@ -78,7 +85,7 @@ public class SessionsFragment extends Fragment {
 
     private void groupByDateSessions(List<Session> sessions) {
         Observable.from(sessions)
-                .groupBy(session -> session.sTime)
+                .groupBy(session -> session.stime)
                 .subscribe(grouped -> {
                     grouped.toList().subscribe(list -> addFragment(grouped.getKey(), list));
                 });
@@ -87,7 +94,9 @@ public class SessionsFragment extends Fragment {
     private void addFragment(Date date, List<Session> sessions) {
         String dateString = DateUtil.getMonthDate(date, getActivity());
         SessionsTabFragment fragment = SessionsTabFragment.newInstance(dateString, sessions);
+        Log.e(TAG, "sessions " + dateString + ": " + sessions.size());
         adapter.add(fragment);
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText(fragment.getDate()));
     }
 
     private class SessionsPagerAdapter extends FragmentPagerAdapter {
@@ -115,7 +124,8 @@ public class SessionsFragment extends Fragment {
         }
 
         public void add(SessionsTabFragment fragment) {
-            this.fragments.add(fragment);
+            fragments.add(fragment);
+            notifyDataSetChanged();
         }
 
     }

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.konifar.confsched.MainApplication;
 import com.konifar.confsched.R;
 import com.konifar.confsched.databinding.FragmentSessionsTabBinding;
 import com.konifar.confsched.databinding.ItemSessionBinding;
@@ -49,6 +50,12 @@ public class SessionsTabFragment extends Fragment implements OnItemClickListener
         super.onCreate(savedInstanceState);
         sessions = Parcels.unwrap(getArguments().getParcelable(ARG_SESSIONS));
         date = getArguments().getString(ARG_DATE);
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        MainApplication.getComponent(this).inject(this);
     }
 
     @Nullable

@@ -19,4 +19,5 @@
     <!-- Component -->
     <dimen name="drawer_header">152sp</dimen>
     <dimen name="image_thumb">64sp</dimen>
+    <dimen name="tab_height">48sp</dimen>
 </resources>
