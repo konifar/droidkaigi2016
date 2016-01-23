@@ -35,11 +35,11 @@ public class Session {
 
     @Column
     @SerializedName("stime")
-    public Date sTime;
+    public Date stime;
 
     @Column
     @SerializedName("etime")
-    public Date eTime;
+    public Date etime;
 
     @Column
     public int categoryId;
