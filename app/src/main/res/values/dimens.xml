@@ -1,12 +1,14 @@
 <resources>
     <!-- space -->
+    <dimen name="spacing_xsmall">4sp</dimen>
     <dimen name="spacing_small">8sp</dimen>
     <dimen name="spacing">16sp</dimen>
+    <dimen name="icon_spacing">4sp</dimen>
 
     <!-- Text -->
     <dimen name="text_small">12sp</dimen>
     <dimen name="text">14sp</dimen>
-    <dimen name="text_large">18sp</dimen>
+    <dimen name="text_large">16sp</dimen>
     <dimen name="text_xlarge">24sp</dimen>
 
     <!-- Line -->
@@ -19,4 +21,10 @@
     <!-- Component -->
     <dimen name="drawer_header">152sp</dimen>
     <dimen name="image_thumb">64sp</dimen>
+    <dimen name="user_image_thumb">28sp</dimen>
+    <dimen name="tag_radius">4sp</dimen>
+    <dimen name="tag_spacing">2sp</dimen>
+    <dimen name="tag_padding_horizontal">8sp</dimen>
+    <dimen name="tag_padding_vertical">4sp</dimen>
+    <dimen name="tag_border_width">1sp</dimen>
 </resources>

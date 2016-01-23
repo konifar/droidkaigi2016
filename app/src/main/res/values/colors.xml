@@ -15,4 +15,13 @@
     <color name="white">#FFFFFF</color>
     <color name="black_alpha_12">#1F000000</color>
     <color name="black_alpha_30">#4D000000</color>
+
+    <!-- Others -->
+    <color name="indigo500">#3F51B5</color>
+    <color name="teal500">#009688</color>
+    <color name="pink500">#E91E63</color>
+    <color name="amber500">#FFC107</color>
+    <color name="orange500">#FF5722</color>
+    <color name="purple500">#9C27B0</color>
+
 </resources>

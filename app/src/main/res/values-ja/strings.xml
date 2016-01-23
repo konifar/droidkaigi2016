@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">DroidKaigi 2016</string>
+
+    <string name="open">ひらく</string>
+    <string name="close">とじる</string>
+
+    <string name="action_settings">設定</string>
+    <string name="speaker">スピーカー</string>
+
+    <string name="lang_en">英語</string>
+    <string name="lang_ja">日本語</string>
+
+</resources>

@@ -6,6 +6,7 @@ import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.github.gfx.android.orma.annotation.Table;
 import com.google.gson.annotations.SerializedName;
+import com.konifar.confsched.R;
 
 import org.parceler.Parcel;
 
@@ -72,25 +73,22 @@ public class Session {
         placeId = place.id;
     }
 
-    public Category getCategory(OrmaDatabase orma) {
-        if (category != null) {
-            category = orma.selectFromCategory().idEq(categoryId).get(0);
-        }
-        return category;
+    public Session initAssociations(OrmaDatabase orma) {
+        if (category == null) category = orma.selectFromCategory().idEq(categoryId).get(0);
+        if (place == null) place = orma.selectFromPlace().idEq(placeId).get(0);
+        if (speaker == null) speaker = orma.selectFromSpeaker().idEq(speakerId).get(0);
+
+        return this;
     }
 
-    public Place getPlace(OrmaDatabase orma) {
-        if (place != null) {
-            place = orma.selectFromPlace().idEq(placeId).get(0);
+    public int getLanguageResId() {
+        if ("en".equals(languageId)) {
+            return R.string.lang_en;
+        } else if ("ja".equals(languageId)) {
+            return R.string.lang_ja;
+        } else {
+            return R.string.lang_en;
         }
-        return place;
-    }
-
-    public Speaker getSpeaker(OrmaDatabase orma) {
-        if (speaker != null) {
-            speaker = orma.selectFromSpeaker().idEq(speakerId).get(0);
-        }
-        return speaker;
     }
 
 }

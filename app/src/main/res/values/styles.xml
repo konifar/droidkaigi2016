@@ -1,3 +1,44 @@
 <resources>
 
+    <!-- Text -->
+    <style name="TextTitle">
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextTitle.OfList">
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="TextSub">
+        <item name="android:textSize">@dimen/text</item>
+        <item name="android:textColor">@color/grey600</item>
+        <item name="android:lines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+
+    <!-- Component -->
+    <style name="BaseRecyclerView">
+        <item name="android:clipToPadding">false</item>
+        <item name="android:fadingEdge">none</item>
+        <item name="android:padding">@dimen/spacing_small</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:scrollingCache">false</item>
+    </style>
+
+    <style name="Tag">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingBottom">@dimen/tag_padding_vertical</item>
+        <item name="android:paddingEnd">@dimen/tag_padding_horizontal</item>
+        <item name="android:paddingLeft">@dimen/tag_padding_horizontal</item>
+        <item name="android:paddingTop">@dimen/tag_padding_vertical</item>
+        <item name="android:paddingRight">@dimen/tag_padding_horizontal</item>
+        <item name="android:paddingStart">@dimen/tag_padding_horizontal</item>
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:textColor">@color/grey600</item>
+    </style>
+
 </resources>
