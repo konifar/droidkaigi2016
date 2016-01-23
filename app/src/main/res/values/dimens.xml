@@ -5,12 +5,16 @@
 
     <!-- Text -->
     <dimen name="text_small">12sp</dimen>
-    <dimen name="text_medium">14sp</dimen>
+    <dimen name="text">14sp</dimen>
     <dimen name="text_large">18sp</dimen>
     <dimen name="text_xlarge">24sp</dimen>
 
     <!-- Line -->
     <dimen name="line">2sp</dimen>
+
+    <!-- Elevation -->
+    <dimen name="elevation_small">2dp</dimen>
+    <dimen name="elevation">4dp</dimen>
 
     <!-- Component -->
     <dimen name="drawer_header">152sp</dimen>

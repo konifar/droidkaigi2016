@@ -1,7 +1,7 @@
 package com.konifar.confsched.di;
 
 import com.konifar.confsched.di.scope.FragmentScope;
-import com.konifar.confsched.fragment.SessionsFragment;
+import com.konifar.confsched.fragment.SessionsTabFragment;
 
 import dagger.Subcomponent;
 
@@ -9,6 +9,6 @@ import dagger.Subcomponent;
 @Subcomponent(modules = {FragmentModule.class})
 public interface FragmentComponent {
 
-    void inject(SessionsFragment fragment);
+    void inject(SessionsTabFragment fragment);
 
 }
