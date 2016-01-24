@@ -2,6 +2,7 @@ package com.konifar.confsched.widget;
 
 import android.content.Context;
 import android.databinding.BindingAdapter;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
@@ -28,30 +29,11 @@ public class CategoryView extends TextView {
     @BindingAdapter("category")
     public static void setCategory(CategoryView categoryView, @Nullable Category category) {
         if (category != null) {
-            categoryView.setTextColor(categoryView.getTextColorResId(category.id));
+            categoryView.setTextColor(ContextCompat.getColor(categoryView.getContext(), category.getTextColorResId()));
             categoryView.setBackgroundResource(R.drawable.tag_language);
             categoryView.setText(category.name);
         } else {
             categoryView.setVisibility(INVISIBLE);
-        }
-    }
-
-    private int getTextColorResId(int categoryId) {
-        switch (categoryId) {
-            case 1:
-                return R.color.amber500;
-            case 2:
-                return R.color.indigo500;
-            case 3:
-                return R.color.orange500;
-            case 4:
-                return R.color.pink500;
-            case 5:
-                return R.color.purple500;
-            case 6:
-                return R.color.teal500;
-            default:
-                return R.color.indigo500;
         }
     }
 

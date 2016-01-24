@@ -30,9 +30,9 @@
                 android:layout_height="match_parent"
                 android:background="@color/white"
                 app:contentScrim="@color/theme500"
+                app:expandedTitleMarginBottom="@dimen/spacing_large"
                 app:expandedTitleTextAppearance="@style/ExpandedToolbarTitle"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                app:statusBarScrim="@color/theme600"
                 app:title="@{session.title}">
 
                 <RelativeLayout
@@ -57,7 +57,7 @@
                         android:layout_alignRight="@id/img_cover"
                         android:layout_alignStart="@id/img_cover"
                         android:layout_alignTop="@id/img_cover"
-                        android:background="@color/indigo500_alpha_30" />
+                        app:coverFadeBackground="@{session.category}" />
 
                 </RelativeLayout>
 
