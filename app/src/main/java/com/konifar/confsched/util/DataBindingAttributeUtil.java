@@ -18,7 +18,7 @@ public class DataBindingAttributeUtil {
 
         Picasso.with(imageView.getContext())
                 .load(imageUrl)
-                .placeholder(R.color.grey600)
+                .placeholder(R.drawable.ic_speaker_placeholder)
                 .transform(new CropCircleTransformation())
                 .into(imageView);
     }

@@ -19,7 +19,8 @@
     <dimen name="elevation">4dp</dimen>
 
     <!-- Component -->
-    <dimen name="drawer_header">152sp</dimen>
+    <dimen name="drawer_header">172sp</dimen>
+    <dimen name="drawer_header_icon">68sp</dimen>
     <dimen name="image_thumb">64sp</dimen>
     <dimen name="user_image_thumb">28sp</dimen>
     <dimen name="tag_radius">4sp</dimen>
