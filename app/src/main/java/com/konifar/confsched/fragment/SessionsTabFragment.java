@@ -127,7 +127,6 @@ public class SessionsTabFragment extends Fragment implements OnItemClickListener
                 public void unLiked(LikeButton likeButton) {
                     session.checked = false;
                     dao.updateChecked(session);
-
                 }
             });
         }

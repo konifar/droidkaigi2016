@@ -21,6 +21,8 @@ import com.konifar.confsched.util.DateUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import javax.inject.Inject;
 
@@ -88,14 +90,23 @@ public class SessionsFragment extends Fragment {
     }
 
     private void groupByDateSessions(List<Session> sessions) {
-        Observable.from(sessions)
-                .groupBy(session ->
-                        DateUtil.getMonthDate(session.stime, AppUtil.getLocale(), getActivity()))
-                .subscribe(grouped ->
-                                grouped.toList().subscribe(list -> addFragment(grouped.getKey(), list)),
-                        throwable -> Log.e(TAG, throwable.getMessage(), throwable),
-                        () -> binding.tabLayout.setupWithViewPager(binding.viewPager)
-                );
+        Map<String, List<Session>> sessionsByDate = new TreeMap<>();
+        for (Session session : sessions) {
+            String key = DateUtil.getMonthDate(session.stime, AppUtil.getLocale(), getActivity());
+            if (sessionsByDate.containsKey(key)) {
+                sessionsByDate.get(key).add(session);
+            } else {
+                List<Session> list = new ArrayList<>();
+                list.add(session);
+                sessionsByDate.put(key, list);
+            }
+        }
+
+        for (Map.Entry<String, List<Session>> e : sessionsByDate.entrySet()) {
+            addFragment(e.getKey(), e.getValue());
+        }
+
+        binding.tabLayout.setupWithViewPager(binding.viewPager);
     }
 
     private void addFragment(String title, List<Session> sessions) {
