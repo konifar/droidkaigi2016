@@ -19,6 +19,7 @@ import com.konifar.confsched.model.Session;
 import com.konifar.confsched.widget.ArrayRecyclerAdapter;
 import com.konifar.confsched.widget.BindingHolder;
 import com.konifar.confsched.widget.OnItemClickListener;
+import com.konifar.confsched.widget.SpaceItemDecoration;
 import com.like.LikeButton;
 import com.like.OnLikeListener;
 
@@ -76,6 +77,8 @@ public class SessionsTabFragment extends Fragment implements OnItemClickListener
 
         binding.recyclerView.setAdapter(adapter);
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        int spacing = getResources().getDimensionPixelSize(R.dimen.spacing_xsmall);
+        binding.recyclerView.addItemDecoration(new SpaceItemDecoration(spacing));
         adapter.addAll(sessions);
     }
 
@@ -101,7 +104,18 @@ public class SessionsTabFragment extends Fragment implements OnItemClickListener
             ItemSessionBinding binding = holder.binding;
             binding.setSession(session);
 
-            binding.btnStar.setLiked(true);
+            if (position > 0 && position < getItemCount()) {
+                Session prevSession = getItem(position - 1);
+                if (prevSession.stime.getTime() == session.stime.getTime()) {
+                    binding.txtStime.setVisibility(View.INVISIBLE);
+                } else {
+                    binding.txtStime.setVisibility(View.VISIBLE);
+                }
+            } else {
+                binding.txtStime.setVisibility(View.VISIBLE);
+
+            }
+
             binding.btnStar.setOnLikeListener(new OnLikeListener() {
                 @Override
                 public void liked(LikeButton likeButton) {
