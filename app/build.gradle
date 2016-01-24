@@ -132,6 +132,7 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta3'
 
     compile 'org.apmem.tools:layouts:1.10@aar'
+    compile 'com.github.jd-alexander:LikeButton:0.1.7'
 
     debugCompile 'com.facebook.stetho:stetho:1.2.0'
 

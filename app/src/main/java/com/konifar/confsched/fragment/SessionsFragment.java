@@ -16,6 +16,7 @@ import com.konifar.confsched.api.DroidKaigiClient;
 import com.konifar.confsched.dao.SessionDao;
 import com.konifar.confsched.databinding.FragmentSessionsBinding;
 import com.konifar.confsched.model.Session;
+import com.konifar.confsched.util.AppUtil;
 import com.konifar.confsched.util.DateUtil;
 
 import java.util.ArrayList;
@@ -69,22 +70,27 @@ public class SessionsFragment extends Fragment {
     }
 
     private void loadData() {
-        Subscription sub = client.getSessions()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(sessions -> {
-                            dao.deleteAll();
-                            dao.insertAll(sessions);
-                            groupByDateSessions(sessions);
-                        },
-                        throwable -> Log.e(TAG, throwable.getMessage(), throwable)
-                );
-        compositeSubscription.add(sub);
+        Observable<List<Session>> cachedSessions = dao.findAll();
+        if (cachedSessions.isEmpty().toBlocking().single()) {
+            Subscription sub = client.getSessions()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(sessions -> {
+                                dao.updateAll(sessions);
+                                groupByDateSessions(sessions);
+                            },
+                            throwable -> Log.e(TAG, throwable.getMessage(), throwable)
+                    );
+            compositeSubscription.add(sub);
+        } else {
+            groupByDateSessions(cachedSessions.toBlocking().single());
+        }
     }
 
     private void groupByDateSessions(List<Session> sessions) {
         Observable.from(sessions)
-                .groupBy(session -> DateUtil.getMonthDate(session.stime, getActivity()))
+                .groupBy(session ->
+                        DateUtil.getMonthDate(session.stime, AppUtil.getLocale(), getActivity()))
                 .subscribe(grouped ->
                                 grouped.toList().subscribe(list -> addFragment(grouped.getKey(), list)),
                         throwable -> Log.e(TAG, throwable.getMessage(), throwable),
@@ -93,7 +99,7 @@ public class SessionsFragment extends Fragment {
     }
 
     private void addFragment(String title, List<Session> sessions) {
-        SessionsTabFragment fragment = SessionsTabFragment.newInstance(title, sessions);
+        SessionsTabFragment fragment = SessionsTabFragment.newInstance(sessions);
         Log.e(TAG, "sessions " + title + ": " + sessions.size());
         adapter.add(title, fragment);
     }
