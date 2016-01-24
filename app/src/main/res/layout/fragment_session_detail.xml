@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.SessionDetailActivity">
+
+    <data>
+
+        <import type="com.konifar.confsched.util.DateUtil" />
+
+        <variable
+            name="session"
+            type="com.konifar.confsched.model.Session" />
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/elevation">
+
+            <net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                app:contentScrim="@color/theme500"
+                app:expandedTitleMarginBottom="@dimen/spacing_large"
+                app:expandedTitleTextAppearance="@style/ExpandedToolbarTitle"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:title="@{session.title}">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/detail_header_height">
+
+                    <ImageView
+                        android:id="@+id/img_cover"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/session_detail"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_default_cover" />
+
+                    <View
+                        android:id="@+id/fade_cover"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/img_cover"
+                        android:layout_alignEnd="@id/img_cover"
+                        android:layout_alignLeft="@id/img_cover"
+                        android:layout_alignRight="@id/img_cover"
+                        android:layout_alignStart="@id/img_cover"
+                        android:layout_alignTop="@id/img_cover"
+                        app:coverFadeBackground="@{session.category}" />
+
+                </RelativeLayout>
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin" />
+
+            </net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/nested_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</layout>

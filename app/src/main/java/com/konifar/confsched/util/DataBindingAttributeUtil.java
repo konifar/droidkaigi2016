@@ -3,9 +3,11 @@ package com.konifar.confsched.util;
 import android.databinding.BindingAdapter;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.konifar.confsched.R;
+import com.konifar.confsched.model.Category;
 import com.konifar.confsched.widget.transformation.CropCircleTransformation;
 import com.squareup.picasso.Picasso;
 
@@ -21,6 +23,12 @@ public class DataBindingAttributeUtil {
                 .placeholder(R.drawable.ic_speaker_placeholder)
                 .transform(new CropCircleTransformation())
                 .into(imageView);
+    }
+
+    @SuppressWarnings("unused")
+    @BindingAdapter("coverFadeBackground")
+    public static void setSpeakerImageUrl(View view, @Nullable Category category) {
+        view.setBackgroundResource(category.getCoverColorResId());
     }
 
 }

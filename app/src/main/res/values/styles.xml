@@ -41,4 +41,9 @@
         <item name="android:textColor">@color/grey600</item>
     </style>
 
+    <style name="ExpandedToolbarTitle">
+        <item name="android:textSize">@dimen/text_xlarge</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
 </resources>
