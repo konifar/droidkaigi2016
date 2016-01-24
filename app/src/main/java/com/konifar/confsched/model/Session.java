@@ -3,7 +3,6 @@ package com.konifar.confsched.model;
 import android.support.annotation.Nullable;
 
 import com.github.gfx.android.orma.annotation.Column;
-import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.github.gfx.android.orma.annotation.Table;
 import com.google.gson.annotations.SerializedName;
 import com.konifar.confsched.R;
@@ -16,7 +15,7 @@ import java.util.Date;
 @Table
 public class Session {
 
-    @PrimaryKey
+    @Column(indexed = true)
     @SerializedName("id")
     public int id;
 

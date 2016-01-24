@@ -70,16 +70,21 @@ public class SessionsFragment extends Fragment {
     }
 
     private void loadData() {
-        Subscription sub = client.getSessions()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(sessions -> {
-                            dao.updateAll(sessions);
-                            groupByDateSessions(sessions);
-                        },
-                        throwable -> Log.e(TAG, throwable.getMessage(), throwable)
-                );
-        compositeSubscription.add(sub);
+        Observable<List<Session>> cachedSessions = dao.findAll();
+        if (cachedSessions.isEmpty().toBlocking().single()) {
+            Subscription sub = client.getSessions()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(sessions -> {
+                                dao.updateAll(sessions);
+                                groupByDateSessions(sessions);
+                            },
+                            throwable -> Log.e(TAG, throwable.getMessage(), throwable)
+                    );
+            compositeSubscription.add(sub);
+        } else {
+            groupByDateSessions(cachedSessions.toBlocking().single());
+        }
     }
 
     private void groupByDateSessions(List<Session> sessions) {

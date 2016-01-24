@@ -81,10 +81,10 @@ public class SessionDao {
         }
     }
 
-    public List<Session> findAll() {
+    public Observable<List<Session>> findAll() {
         return Observable.from(sessionRelation().selector().toList())
                 .map(session -> session.initAssociations(orma))
-                .toList().toBlocking().single();
+                .toList();
     }
 
     public void deleteAll() {
