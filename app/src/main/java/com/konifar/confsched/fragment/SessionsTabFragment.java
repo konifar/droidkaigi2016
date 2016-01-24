@@ -91,6 +91,7 @@ public class SessionsTabFragment extends Fragment implements OnItemClickListener
         public void onBindViewHolder(BindingHolder<ItemSessionBinding> holder, int position) {
             ItemSessionBinding binding = holder.binding;
             binding.setSession(getItem(position));
+            binding.btnStar.setLiked(true);
         }
 
     }

@@ -16,6 +16,7 @@ import com.konifar.confsched.api.DroidKaigiClient;
 import com.konifar.confsched.dao.SessionDao;
 import com.konifar.confsched.databinding.FragmentSessionsBinding;
 import com.konifar.confsched.model.Session;
+import com.konifar.confsched.util.AppUtil;
 import com.konifar.confsched.util.DateUtil;
 
 import java.util.ArrayList;
@@ -84,7 +85,8 @@ public class SessionsFragment extends Fragment {
 
     private void groupByDateSessions(List<Session> sessions) {
         Observable.from(sessions)
-                .groupBy(session -> DateUtil.getMonthDate(session.stime, getActivity()))
+                .groupBy(session ->
+                        DateUtil.getMonthDate(session.stime, AppUtil.getLocale(), getActivity()))
                 .subscribe(grouped ->
                                 grouped.toList().subscribe(list -> addFragment(grouped.getKey(), list)),
                         throwable -> Log.e(TAG, throwable.getMessage(), throwable),
