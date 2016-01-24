@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.konifar.confsched.MainApplication;
 import com.konifar.confsched.R;
+import com.konifar.confsched.dao.MySessionDao;
 import com.konifar.confsched.databinding.FragmentSessionsTabBinding;
 import com.konifar.confsched.databinding.ItemSessionBinding;
 import com.konifar.confsched.model.Session;
@@ -23,10 +24,15 @@ import org.parceler.Parcels;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 public class SessionsTabFragment extends Fragment implements OnItemClickListener<Session> {
 
     private static final String TAG = SessionsTabFragment.class.getSimpleName();
     private static final String ARG_SESSIONS = "sessions";
+
+    @Inject
+    MySessionDao dao;
 
     private SessionsAdapter adapter;
     private FragmentSessionsTabBinding binding;
@@ -34,7 +40,7 @@ public class SessionsTabFragment extends Fragment implements OnItemClickListener
     private List<Session> sessions;
 
     @NonNull
-    public static SessionsTabFragment newInstance(String date, List<Session> sessions) {
+    public static SessionsTabFragment newInstance(List<Session> sessions) {
         SessionsTabFragment fragment = new SessionsTabFragment();
         Bundle args = new Bundle();
         args.putParcelable(ARG_SESSIONS, Parcels.wrap(sessions));

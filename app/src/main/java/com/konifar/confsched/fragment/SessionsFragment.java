@@ -95,7 +95,7 @@ public class SessionsFragment extends Fragment {
     }
 
     private void addFragment(String title, List<Session> sessions) {
-        SessionsTabFragment fragment = SessionsTabFragment.newInstance(title, sessions);
+        SessionsTabFragment fragment = SessionsTabFragment.newInstance(sessions);
         Log.e(TAG, "sessions " + title + ": " + sessions.size());
         adapter.add(title, fragment);
     }
