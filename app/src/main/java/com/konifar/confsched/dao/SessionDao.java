@@ -10,6 +10,7 @@ import com.konifar.confsched.model.Place;
 import com.konifar.confsched.model.Place_Relation;
 import com.konifar.confsched.model.Session;
 import com.konifar.confsched.model.Session_Relation;
+import com.konifar.confsched.model.Session_Updater;
 import com.konifar.confsched.model.Speaker;
 import com.konifar.confsched.model.Speaker_Relation;
 
@@ -91,6 +92,44 @@ public class SessionDao {
         speakerRelation().deleter().execute();
         categoryRelation().deleter().execute();
         placeRelation().deleter().execute();
+    }
+
+    public void updateAll(List<Session> sessions) {
+        orma.transactionAsync(new TransactionTask() {
+            @Override
+            public void execute() throws Exception {
+                speakerRelation().deleter().execute();
+                categoryRelation().deleter().execute();
+                placeRelation().deleter().execute();
+
+                Observable.from(sessions).forEach(session -> {
+                    session.prepareSave();
+                    insertSpeaker(session.speaker);
+                    insertCategory(session.category);
+                    insertPlace(session.place);
+                    update(session);
+                });
+            }
+        });
+    }
+
+    private void update(Session session) {
+        Session_Updater updater = sessionRelation().updater()
+                .idEq(session.id)
+                .title(session.title)
+                .description(session.description)
+                .speakerId(session.speaker.id)
+                .stime(session.stime)
+                .etime(session.etime)
+                .placeId(session.place.id)
+                .languageId(session.languageId)
+                .slideUrl(session.slideUrl);
+
+        if (session.category != null) {
+            updater.categoryId(session.category.id);
+        }
+
+        updater.execute();
     }
 
 }

@@ -74,8 +74,7 @@ public class SessionsFragment extends Fragment {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(sessions -> {
-                            dao.deleteAll();
-                            dao.insertAll(sessions);
+                            dao.updateAll(sessions);
                             groupByDateSessions(sessions);
                         },
                         throwable -> Log.e(TAG, throwable.getMessage(), throwable)

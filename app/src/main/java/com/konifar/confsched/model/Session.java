@@ -64,6 +64,9 @@ public class Session {
     @SerializedName("slide_url")
     public String slideUrl;
 
+    @Column
+    public boolean checked;
+
     public Session() {
     }
 
