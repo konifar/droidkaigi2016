@@ -10,6 +10,7 @@
 
     <!-- Greyscales -->
     <color name="grey200">#EEEEEE</color>
+    <color name="grey300">#E0E0E0</color>
     <color name="grey600">#757575</color>
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
