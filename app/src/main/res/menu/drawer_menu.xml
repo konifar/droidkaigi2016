@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_all_sessions"
+            android:icon="@drawable/ic_event_note_grey_600_24dp"
+            android:title="@string/all_sessions" />
+        <item
+            android:id="@+id/nav_my_schedule"
+            android:icon="@drawable/ic_access_time_grey_600_24dp"
+            android:title="@string/my_schedule" />
+        <item
+            android:id="@+id/nav_map"
+            android:icon="@drawable/ic_place_grey_600_24dp"
+            android:title="@string/map" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings_grey_600_24dp"
+            android:title="@string/settings" />
+        <item
+            android:id="@+id/nav_sponsors"
+            android:icon="@drawable/ic_people_grey_600_24dp"
+            android:title="@string/sponsors" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_info_outline_grey_600_24dp"
+            android:title="@string/about" />
+    </group>
+
+</menu>

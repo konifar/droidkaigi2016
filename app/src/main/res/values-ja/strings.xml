@@ -1,11 +1,19 @@
 <resources>
     <string name="app_name">DroidKaigi 2016</string>
+    <string name="tag_line">Androidエンジニアが主役のカンファレンス</string>
 
     <string name="open">ひらく</string>
     <string name="close">とじる</string>
 
     <string name="action_settings">設定</string>
     <string name="speaker">スピーカー</string>
+
+    <string name="all_sessions">すべてのセッション</string>
+    <string name="my_schedule">マイスケジュール</string>
+    <string name="map">マップ</string>
+    <string name="settings">設定</string>
+    <string name="sponsors">スポンサー</string>
+    <string name="about">詳細</string>
 
     <string name="lang_en">英語</string>
     <string name="lang_ja">日本語</string>

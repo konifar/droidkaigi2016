@@ -6,7 +6,7 @@
         <item name="colorPrimaryDark">@color/theme600</item>
         <item name="colorAccent">@color/accent100</item>
         <item name="android:textColorPrimary">@color/white</item>
-        <item name="android:textColorSecondary">@color/grey200</item>
+        <item name="android:textColorSecondary">@color/grey600</item>
         <item name="android:windowBackground">@color/grey200</item>
         <item name="colorControlNormal">@color/grey200</item>
         <item name="colorControlActivated">@color/theme500</item>

@@ -19,6 +19,7 @@
             android:id="@+id/txt_stime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xsmall"
             android:text="@{DateUtil.getHourMinute(session.stime)}" />
 
         <android.support.v7.widget.CardView
