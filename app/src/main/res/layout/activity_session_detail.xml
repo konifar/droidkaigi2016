@@ -2,11 +2,8 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <FrameLayout
-        android:id="@+id/content"
+        android:id="@+id/content_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-    </FrameLayout>
+        android:layout_height="match_parent" />
 
 </layout>

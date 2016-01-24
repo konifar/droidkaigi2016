@@ -19,6 +19,7 @@
 
     <!-- Others -->
     <color name="indigo500">#3F51B5</color>
+    <color name="indigo500_alpha_30">#4D3F51B5</color>
     <color name="teal500">#009688</color>
     <color name="pink500">#E91E63</color>
     <color name="amber500">#FFC107</color>

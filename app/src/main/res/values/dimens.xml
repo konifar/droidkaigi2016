@@ -28,5 +28,5 @@
     <dimen name="tag_padding_horizontal">8dp</dimen>
     <dimen name="tag_padding_vertical">4dp</dimen>
     <dimen name="tag_border_width">1dp</dimen>
-    <dimen name="detail_header_height">240dp</dimen>
+    <dimen name="detail_header_height">220dp</dimen>
 </resources>
