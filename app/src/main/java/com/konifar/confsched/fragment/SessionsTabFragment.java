@@ -12,21 +12,29 @@ import android.view.ViewGroup;
 
 import com.konifar.confsched.MainApplication;
 import com.konifar.confsched.R;
+import com.konifar.confsched.dao.SessionDao;
 import com.konifar.confsched.databinding.FragmentSessionsTabBinding;
 import com.konifar.confsched.databinding.ItemSessionBinding;
 import com.konifar.confsched.model.Session;
 import com.konifar.confsched.widget.ArrayRecyclerAdapter;
 import com.konifar.confsched.widget.BindingHolder;
 import com.konifar.confsched.widget.OnItemClickListener;
+import com.like.LikeButton;
+import com.like.OnLikeListener;
 
 import org.parceler.Parcels;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 public class SessionsTabFragment extends Fragment implements OnItemClickListener<Session> {
 
     private static final String TAG = SessionsTabFragment.class.getSimpleName();
     private static final String ARG_SESSIONS = "sessions";
+
+    @Inject
+    SessionDao dao;
 
     private SessionsAdapter adapter;
     private FragmentSessionsTabBinding binding;
@@ -89,9 +97,25 @@ public class SessionsTabFragment extends Fragment implements OnItemClickListener
 
         @Override
         public void onBindViewHolder(BindingHolder<ItemSessionBinding> holder, int position) {
+            Session session = getItem(position);
             ItemSessionBinding binding = holder.binding;
-            binding.setSession(getItem(position));
+            binding.setSession(session);
+
             binding.btnStar.setLiked(true);
+            binding.btnStar.setOnLikeListener(new OnLikeListener() {
+                @Override
+                public void liked(LikeButton likeButton) {
+                    session.checked = true;
+                    dao.updateChecked(session);
+                }
+
+                @Override
+                public void unLiked(LikeButton likeButton) {
+                    session.checked = false;
+                    dao.updateChecked(session);
+
+                }
+            });
         }
 
     }

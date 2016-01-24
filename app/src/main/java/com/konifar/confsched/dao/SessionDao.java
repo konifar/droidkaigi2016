@@ -107,7 +107,11 @@ public class SessionDao {
                     insertSpeaker(session.speaker);
                     insertCategory(session.category);
                     insertPlace(session.place);
-                    update(session);
+                    if (sessionRelation().idEq(session.id).count() == 0) {
+                        sessionRelation().inserter().execute(session);
+                    } else {
+                        update(session);
+                    }
                 });
             }
         });
@@ -130,6 +134,13 @@ public class SessionDao {
         }
 
         updater.execute();
+    }
+
+    public void updateChecked(Session session) {
+        sessionRelation().updater()
+                .idEq(session.id)
+                .checked(session.checked)
+                .execute();
     }
 
 }
