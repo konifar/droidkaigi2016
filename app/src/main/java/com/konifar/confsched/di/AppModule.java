@@ -8,6 +8,7 @@ import android.net.ConnectivityManager;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
 import com.konifar.confsched.BuildConfig;
+import com.konifar.confsched.activity.ActivityNavigator;
 import com.konifar.confsched.api.RequestInterceptor;
 import com.konifar.confsched.model.OrmaDatabase;
 
@@ -87,6 +88,12 @@ public class AppModule {
     @Provides
     public OrmaDatabase provideOrmaDatabase(Context context) {
         return OrmaDatabase.builder(context).build();
+    }
+
+    @Singleton
+    @Provides
+    public ActivityNavigator provideActivityNavigator() {
+        return new ActivityNavigator();
     }
 
 }

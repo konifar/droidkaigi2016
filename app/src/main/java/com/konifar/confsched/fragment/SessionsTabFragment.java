@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.konifar.confsched.MainApplication;
 import com.konifar.confsched.R;
+import com.konifar.confsched.activity.ActivityNavigator;
 import com.konifar.confsched.dao.SessionDao;
 import com.konifar.confsched.databinding.FragmentSessionsTabBinding;
 import com.konifar.confsched.databinding.ItemSessionBinding;
@@ -36,6 +37,8 @@ public class SessionsTabFragment extends Fragment implements OnItemClickListener
 
     @Inject
     SessionDao dao;
+    @Inject
+    ActivityNavigator activityNavigator;
 
     private SessionsAdapter adapter;
     private FragmentSessionsTabBinding binding;
@@ -129,6 +132,9 @@ public class SessionsTabFragment extends Fragment implements OnItemClickListener
                     dao.updateChecked(session);
                 }
             });
+
+            binding.cardView.setOnClickListener(v ->
+                    activityNavigator.showSessionDetail(getActivity(), session));
         }
 
     }
