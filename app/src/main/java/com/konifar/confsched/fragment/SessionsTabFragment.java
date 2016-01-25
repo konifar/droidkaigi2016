@@ -17,7 +17,6 @@ import com.konifar.confsched.dao.SessionDao;
 import com.konifar.confsched.databinding.FragmentSessionsTabBinding;
 import com.konifar.confsched.databinding.ItemSessionBinding;
 import com.konifar.confsched.model.Session;
-import com.konifar.confsched.util.DateUtil;
 import com.konifar.confsched.widget.ArrayRecyclerAdapter;
 import com.konifar.confsched.widget.BindingHolder;
 import com.konifar.confsched.widget.OnItemClickListener;
@@ -135,12 +134,6 @@ public class SessionsTabFragment extends Fragment implements OnItemClickListener
 
             binding.cardView.setOnClickListener(v ->
                     activityNavigator.showSessionDetail(getActivity(), session));
-
-            String timeRange = getString(R.string.session_time_range,
-                    DateUtil.getHourMinute(session.stime),
-                    DateUtil.getHourMinute(session.etime),
-                    DateUtil.getMinutes(session.stime, session.etime));
-            binding.txtTime.setText(timeRange);
         }
 
     }
