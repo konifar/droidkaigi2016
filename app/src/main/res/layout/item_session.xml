@@ -48,13 +48,28 @@
                     style="@style/TextTitle.OfList"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:lineSpacingExtra="@dimen/line_spacing"
                     android:text="@{session.title}" />
+
+                <TextView
+                    android:id="@+id/txt_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_title"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:drawableLeft="@drawable/ic_access_time_grey_500_12dp"
+                    android:drawablePadding="@dimen/icon_spacing_small"
+                    android:drawableStart="@drawable/ic_access_time_grey_500_12dp"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:textColor="@color/grey500"
+                    android:textSize="@dimen/text_small" />
 
                 <org.apmem.tools.layouts.FlowLayout
                     android:id="@+id/tag_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/txt_title"
+                    android:layout_below="@id/txt_time"
                     android:layout_marginTop="@dimen/spacing_xsmall">
 
                     <TextView

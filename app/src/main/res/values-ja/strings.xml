@@ -8,6 +8,7 @@
 
     <string name="action_settings">設定</string>
     <string name="speaker">スピーカー</string>
+    <string name="session_time_range">%1$s 〜 %2$s（%3$s分）</string>
 
     <string name="all_sessions">すべてのセッション</string>
     <string name="my_schedule">マイスケジュール</string>

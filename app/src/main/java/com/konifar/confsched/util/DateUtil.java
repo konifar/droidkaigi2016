@@ -9,6 +9,7 @@ import android.text.format.DateUtils;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 public class DateUtil {
 
@@ -35,6 +36,16 @@ public class DateUtil {
     @NonNull
     public static String getHourMinute(Date date) {
         return String.valueOf(DateFormat.format(FORMAT_KKMM, date));
+    }
+
+    public static int getMinutes(Date stime, Date etime) {
+        long range = etime.getTime() - stime.getTime();
+
+        if (range > 0) {
+            return (int) (range / TimeUnit.MINUTES.toMillis(1L));
+        } else {
+            return 0;
+        }
     }
 
 }

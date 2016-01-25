@@ -4,7 +4,9 @@
     <dimen name="spacing_small">8sp</dimen>
     <dimen name="spacing">16sp</dimen>
     <dimen name="spacing_large">24sp</dimen>
+    <dimen name="icon_spacing_small">2sp</dimen>
     <dimen name="icon_spacing">4sp</dimen>
+    <dimen name="line_spacing">2sp</dimen>
 
     <!-- Text -->
     <dimen name="text_small">12sp</dimen>
