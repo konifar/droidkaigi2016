@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity
 
         initView();
 
-        replaceFragment(SessionsFragment.create());
+        replaceFragment(SessionsFragment.newInstance());
     }
 
     private void initView() {

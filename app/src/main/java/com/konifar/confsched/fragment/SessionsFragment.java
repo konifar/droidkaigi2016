@@ -46,7 +46,7 @@ public class SessionsFragment extends Fragment {
     private SessionsPagerAdapter adapter;
     private FragmentSessionsBinding binding;
 
-    public static SessionsFragment create() {
+    public static SessionsFragment newInstance() {
         return new SessionsFragment();
     }
 
