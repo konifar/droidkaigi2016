@@ -17,6 +17,15 @@
     <string name="sponsors">スポンサー</string>
     <string name="about">詳細</string>
 
+    <string name="map_main_name">受付・基調講演会場</string>
+    <string name="map_main_building">70周年記念講堂</string>
+    <string name="map_ab_name">A・B会場</string>
+    <string name="map_ab_building">南2号館</string>
+    <string name="map_cd_name">C・D会場</string>
+    <string name="map_cd_building">南4号館</string>
+    <string name="map_party_name">懇親会会場</string>
+    <string name="map_party_building">東工大蔵前会館（くらまえホール）</string>
+
     <string name="lang_en">英語</string>
     <string name="lang_ja">日本語</string>
 

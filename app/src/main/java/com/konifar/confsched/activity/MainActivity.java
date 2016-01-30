@@ -2,7 +2,9 @@ package com.konifar.confsched.activity;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.support.design.widget.NavigationView;
@@ -11,12 +13,12 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import com.konifar.confsched.MainApplication;
 import com.konifar.confsched.R;
 import com.konifar.confsched.databinding.ActivityMainBinding;
+import com.konifar.confsched.fragment.MapFragment;
 import com.konifar.confsched.fragment.MyScheduleFragment;
 import com.konifar.confsched.fragment.SessionsFragment;
 import com.konifar.confsched.util.AnalyticsUtil;
@@ -75,19 +77,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        return id == R.id.action_settings || super.onOptionsItemSelected(item);
-
-    }
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -96,18 +85,34 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         switch (id) {
             case R.id.nav_all_sessions:
+                toggleToolbarElevation(false);
                 changePage(R.string.all_sessions, SessionsFragment.newInstance());
                 break;
             case R.id.nav_my_schedule:
+                toggleToolbarElevation(false);
                 changePage(R.string.my_schedule, MyScheduleFragment.newInstance());
                 break;
+            case R.id.nav_map:
+                toggleToolbarElevation(true);
+                changePage(R.string.map, MapFragment.newInstance());
+                break;
         }
+
         return true;
     }
 
+    private void toggleToolbarElevation(boolean enable) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            float elevation = enable ? getResources().getDimension(R.dimen.elevation) : 0;
+            binding.toolbar.setElevation(elevation);
+        }
+    }
+
     private void changePage(@StringRes int titleRes, @NonNull Fragment fragment) {
-        binding.toolbar.setTitle(titleRes);
-        replaceFragment(fragment);
+        new Handler().postDelayed(() -> {
+            binding.toolbar.setTitle(titleRes);
+            replaceFragment(fragment);
+        }, 300);
     }
 
     @Override
