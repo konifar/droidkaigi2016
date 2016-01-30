@@ -4,7 +4,14 @@
     <dimen name="spacing_small">8sp</dimen>
     <dimen name="spacing">16sp</dimen>
     <dimen name="spacing_large">24sp</dimen>
+
+    <dimen name="icon_spacing_small">2sp</dimen>
     <dimen name="icon_spacing">4sp</dimen>
+    <dimen name="icon_spacing_large">8sp</dimen>
+    <dimen name="line_spacing">2sp</dimen>
+
+    <dimen name="line_spacing_large">4sp</dimen>
+
 
     <!-- Text -->
     <dimen name="text_small">12sp</dimen>
@@ -12,8 +19,11 @@
     <dimen name="text_large">16sp</dimen>
     <dimen name="text_xlarge">24sp</dimen>
 
+
     <!-- Line -->
+    <dimen name="line_small">1dp</dimen>
     <dimen name="line">2dp</dimen>
+
 
     <!-- Elevation -->
     <dimen name="elevation_small">2dp</dimen>
@@ -22,12 +32,18 @@
     <!-- Component -->
     <dimen name="drawer_header">172dp</dimen>
     <dimen name="drawer_header_icon">68dp</dimen>
+
     <dimen name="image_thumb">64dp</dimen>
-    <dimen name="user_image_thumb">28dp</dimen>
+    <dimen name="user_image">28dp</dimen>
+    <dimen name="user_image_large">48dp</dimen>
+
     <dimen name="tag_radius">4dp</dimen>
     <dimen name="tag_spacing">2dp</dimen>
     <dimen name="tag_padding_horizontal">8dp</dimen>
     <dimen name="tag_padding_vertical">4dp</dimen>
     <dimen name="tag_border_width">1dp</dimen>
-    <dimen name="detail_header_height">220dp</dimen>
+
+    <dimen name="detail_header_height">196dp</dimen>
+
 </resources>
+

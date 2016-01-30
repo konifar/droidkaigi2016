@@ -83,6 +83,79 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_access_time_grey_500_18dp"
+                    android:drawablePadding="@dimen/icon_spacing"
+                    android:drawableStart="@drawable/ic_access_time_grey_500_18dp"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:padding="@dimen/spacing"
+                    android:textColor="@color/grey500"
+                    android:textSize="@dimen/text"
+                    app:sessionTimeRange="@{session}" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:padding="@dimen/spacing">
+
+                    <ImageView
+                        android:id="@+id/img_speaker"
+                        android:layout_width="@dimen/user_image_large"
+                        android:layout_height="@dimen/user_image_large"
+                        android:contentDescription="@string/speaker"
+                        app:speakerImageUrl="@{session.speaker.imageUrl}" />
+
+                    <TextView
+                        android:id="@+id/txt_speaker_name"
+                        style="@style/TextTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/img_speaker"
+                        android:layout_alignTop="@id/img_speaker"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/icon_spacing_large"
+                        android:layout_marginStart="@dimen/icon_spacing_large"
+                        android:layout_toEndOf="@id/img_speaker"
+                        android:layout_toLeftOf="@+id/btn_star"
+                        android:layout_toRightOf="@id/img_speaker"
+                        android:layout_toStartOf="@+id/btn_star"
+                        android:gravity="center_vertical"
+                        android:text="@{session.speaker.name}" />
+
+                    <com.like.LikeButton
+                        android:id="@+id/btn_star"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/txt_speaker_name"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignTop="@id/txt_speaker_name"
+                        android:layout_marginEnd="-48dp"
+                        android:layout_marginLeft="@dimen/spacing_small"
+                        android:layout_marginRight="-48dp"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        app:icon_size="@dimen/user_image_large"
+                        app:icon_type="star"
+                        app:like_drawable="@drawable/ic_star_yellow_500_24dp"
+                        app:liked="@{session.checked}"
+                        app:unlike_drawable="@drawable/ic_star_grey_300_24dp" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="@dimen/line_spacing"
+                    android:padding="@dimen/spacing_large"
+                    android:textColor="@color/grey600"
+                    android:textSize="@dimen/text"
+                    app:sessionDescription="@{session}" />
+
             </LinearLayout>
 
         </android.support.v4.widget.NestedScrollView>

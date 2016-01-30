@@ -24,7 +24,6 @@ import javax.inject.Inject;
 public class SessionDetailActivity extends AppCompatActivity {
 
     private static final String TAG = SessionDetailActivity.class.getSimpleName();
-    private static final String EXTRA_SESSION = "session";
 
     @Inject
     AnalyticsUtil analyticsUtil;
@@ -34,13 +33,13 @@ public class SessionDetailActivity extends AppCompatActivity {
 
     private static Intent createIntent(@NonNull Context context, @NonNull Session session) {
         Intent intent = new Intent(context, SessionDetailActivity.class);
-        intent.putExtra(EXTRA_SESSION, Parcels.wrap(session));
+        intent.putExtra(Session.class.getSimpleName(), Parcels.wrap(session));
         return intent;
     }
 
-    public static void start(@NonNull Activity activity, @NonNull Session session) {
+    public static void startForResult(@NonNull Activity activity, @NonNull Session session, int requestCode) {
         Intent intent = createIntent(activity, session);
-        activity.startActivity(intent);
+        activity.startActivityForResult(intent, requestCode);
         activity.overridePendingTransition(R.anim.activity_slide_start_enter, R.anim.activity_scale_start_exit);
     }
 
@@ -50,7 +49,7 @@ public class SessionDetailActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_session_detail);
         MainApplication.getComponent(this).inject(this);
 
-        session = Parcels.unwrap(getIntent().getParcelableExtra(EXTRA_SESSION));
+        session = Parcels.unwrap(getIntent().getParcelableExtra(Session.class.getSimpleName()));
 
         replaceFragment(SessionDetailFragment.create(session));
     }

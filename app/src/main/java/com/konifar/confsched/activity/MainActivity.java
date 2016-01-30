@@ -1,5 +1,6 @@
 package com.konifar.confsched.activity;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity
 
         initView();
 
-        replaceFragment(SessionsFragment.create());
+        replaceFragment(SessionsFragment.newInstance());
     }
 
     private void initView() {
@@ -90,6 +91,13 @@ public class MainActivity extends AppCompatActivity
 
         binding.drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(SessionsFragment.TAG);
+        if (fragment != null) fragment.onActivityResult(requestCode, resultCode, data);
     }
 
 }

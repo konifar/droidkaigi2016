@@ -48,13 +48,29 @@
                     style="@style/TextTitle.OfList"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:lineSpacingExtra="@dimen/line_spacing"
                     android:text="@{session.title}" />
+
+                <TextView
+                    android:id="@+id/txt_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_title"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:drawableLeft="@drawable/ic_access_time_grey_500_12dp"
+                    android:drawablePadding="@dimen/icon_spacing_small"
+                    android:drawableStart="@drawable/ic_access_time_grey_500_12dp"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:textColor="@color/grey500"
+                    android:textSize="@dimen/text_small"
+                    app:sessionTimeRange="@{session}" />
 
                 <org.apmem.tools.layouts.FlowLayout
                     android:id="@+id/tag_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/txt_title"
+                    android:layout_below="@id/txt_time"
                     android:layout_marginTop="@dimen/spacing_xsmall">
 
                     <TextView
@@ -88,8 +104,8 @@
 
                 <ImageView
                     android:id="@+id/img_speaker"
-                    android:layout_width="@dimen/user_image_thumb"
-                    android:layout_height="@dimen/user_image_thumb"
+                    android:layout_width="@dimen/user_image"
+                    android:layout_height="@dimen/user_image"
                     android:layout_below="@id/tag_container"
                     android:layout_marginTop="@dimen/spacing_small"
                     android:contentDescription="@string/speaker"
@@ -124,7 +140,7 @@
                     android:layout_marginLeft="@dimen/spacing_small"
                     android:layout_marginRight="-28dp"
                     android:layout_marginStart="@dimen/spacing_small"
-                    app:icon_size="@dimen/user_image_thumb"
+                    app:icon_size="@dimen/user_image"
                     app:icon_type="star"
                     app:like_drawable="@drawable/ic_star_yellow_500_24dp"
                     app:liked="@{session.checked}"

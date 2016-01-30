@@ -1,6 +1,8 @@
 package com.konifar.confsched.fragment;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -19,7 +21,6 @@ import com.konifar.confsched.databinding.ItemSessionBinding;
 import com.konifar.confsched.model.Session;
 import com.konifar.confsched.widget.ArrayRecyclerAdapter;
 import com.konifar.confsched.widget.BindingHolder;
-import com.konifar.confsched.widget.OnItemClickListener;
 import com.konifar.confsched.widget.SpaceItemDecoration;
 import com.like.LikeButton;
 import com.like.OnLikeListener;
@@ -30,10 +31,11 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-public class SessionsTabFragment extends Fragment implements OnItemClickListener<Session> {
+public class SessionsTabFragment extends Fragment {
 
     private static final String TAG = SessionsTabFragment.class.getSimpleName();
     private static final String ARG_SESSIONS = "sessions";
+    private static final int REQ_DETAIL = 1;
 
     @Inject
     SessionDao dao;
@@ -76,7 +78,6 @@ public class SessionsTabFragment extends Fragment implements OnItemClickListener
 
     private void bindData() {
         adapter = new SessionsAdapter(getActivity());
-        adapter.setOnItemClickListener(this);
 
         binding.recyclerView.setAdapter(adapter);
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -86,14 +87,33 @@ public class SessionsTabFragment extends Fragment implements OnItemClickListener
     }
 
     @Override
-    public void onItemClick(@NonNull View view, Session item) {
-        // TODO
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case REQ_DETAIL:
+                if (resultCode == Activity.RESULT_OK) {
+                    Session session = Parcels.unwrap(data.getParcelableExtra(Session.class.getSimpleName()));
+                    if (session != null) adapter.refresh(session);
+                }
+                break;
+        }
     }
 
     private class SessionsAdapter extends ArrayRecyclerAdapter<Session, BindingHolder<ItemSessionBinding>> {
 
         public SessionsAdapter(@NonNull Context context) {
             super(context);
+        }
+
+        private void refresh(@NonNull Session session) {
+            // TODO It may be heavy logic...
+            for (int i = 0; i < adapter.getItemCount(); i++) {
+                Session s = adapter.getItem(i);
+                if (session.equals(s)) {
+                    s.checked = session.checked;
+                    adapter.notifyItemChanged(i);
+                }
+            }
         }
 
         @Override
@@ -116,7 +136,6 @@ public class SessionsTabFragment extends Fragment implements OnItemClickListener
                 }
             } else {
                 binding.txtStime.setVisibility(View.VISIBLE);
-
             }
 
             binding.btnStar.setOnLikeListener(new OnLikeListener() {
@@ -134,7 +153,7 @@ public class SessionsTabFragment extends Fragment implements OnItemClickListener
             });
 
             binding.cardView.setOnClickListener(v ->
-                    activityNavigator.showSessionDetail(getActivity(), session));
+                    activityNavigator.showSessionDetail(getActivity(), session, REQ_DETAIL));
         }
 
     }

@@ -1,6 +1,7 @@
 package com.konifar.confsched.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -34,7 +35,7 @@ import rx.subscriptions.CompositeSubscription;
 
 public class SessionsFragment extends Fragment {
 
-    private static final String TAG = SessionsFragment.class.getSimpleName();
+    public static final String TAG = SessionsFragment.class.getSimpleName();
 
     @Inject
     DroidKaigiClient client;
@@ -46,7 +47,7 @@ public class SessionsFragment extends Fragment {
     private SessionsPagerAdapter adapter;
     private FragmentSessionsBinding binding;
 
-    public static SessionsFragment create() {
+    public static SessionsFragment newInstance() {
         return new SessionsFragment();
     }
 
@@ -111,8 +112,15 @@ public class SessionsFragment extends Fragment {
 
     private void addFragment(String title, List<Session> sessions) {
         SessionsTabFragment fragment = SessionsTabFragment.newInstance(sessions);
-        Log.e(TAG, "sessions " + title + ": " + sessions.size());
+        Log.d(TAG, "sessions " + title + ": " + sessions.size());
         adapter.add(title, fragment);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Fragment fragment = adapter.getItem(binding.viewPager.getCurrentItem());
+        if (fragment != null) fragment.onActivityResult(requestCode, resultCode, data);
     }
 
     private class SessionsPagerAdapter extends FragmentPagerAdapter {
