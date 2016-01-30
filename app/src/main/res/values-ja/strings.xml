@@ -10,6 +10,8 @@
     <string name="speaker">スピーカー</string>
     <string name="session_time_range">%1$s 〜 %2$s（%3$s分）</string>
 
+    <string name="icon">アイコン</string>
+
     <string name="all_sessions">すべてのセッション</string>
     <string name="my_schedule">マイスケジュール</string>
     <string name="map">マップ</string>

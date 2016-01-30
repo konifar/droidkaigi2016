@@ -11,9 +11,13 @@ import android.widget.FrameLayout;
 
 import com.konifar.confsched.R;
 import com.konifar.confsched.databinding.ViewMapSearchBinding;
+import com.konifar.confsched.model.Map;
+
+import java.util.List;
 
 import io.codetail.animation.SupportAnimator;
 import io.codetail.animation.ViewAnimationUtils;
+import rx.Observable;
 
 public class MapSearchView extends FrameLayout {
 
@@ -32,6 +36,14 @@ public class MapSearchView extends FrameLayout {
     public MapSearchView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         binding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.view_map_search, this, true);
+    }
+
+    public void bindData(List<Map> maps) {
+        Observable.from(maps).forEach(map -> {
+            MapSearchViewItem item = new MapSearchViewItem(getContext());
+            item.bindData(map);
+            binding.mapListContainer.addView(item);
+        });
     }
 
     public void toggle() {

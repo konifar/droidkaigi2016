@@ -10,6 +10,8 @@
     <string name="speaker">Speaker</string>
     <string name="session_time_range">%1$s - %2$s (%3$smin)</string>
 
+    <string name="icon">Icon</string>
+
     <string name="all_sessions">All Sessions</string>
     <string name="my_schedule">My Schedule</string>
     <string name="map">Map</string>

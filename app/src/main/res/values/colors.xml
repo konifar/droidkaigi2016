@@ -6,6 +6,7 @@
     <color name="theme50">#E0F7FA</color>
     <color name="theme500">#00BCD4</color>
     <color name="theme600">#00ACC1</color>
+    <color name="theme500_alpha_12">#1F00BCD4</color>
     <color name="accent100">#FFFF8D</color>
 
     <!-- Greyscales -->

@@ -47,6 +47,7 @@ public class MapFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentMapBinding.inflate(inflater, container, false);
         initGoogleMap();
+        binding.mapSearchView.bindData(mapList);
         setHasOptionsMenu(true);
         return binding.getRoot();
     }
