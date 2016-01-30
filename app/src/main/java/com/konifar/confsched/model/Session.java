@@ -93,4 +93,13 @@ public class Session {
         }
     }
 
+    @Override
+    public boolean equals(Object o) {
+        return o instanceof Session && ((Session) o).id == id || super.equals(o);
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
 }

@@ -10,8 +10,8 @@ import javax.inject.Singleton;
 @Singleton
 public class ActivityNavigator {
 
-    public void showSessionDetail(@NonNull Activity activity, @NonNull Session session) {
-        SessionDetailActivity.start(activity, session);
+    public void showSessionDetail(@NonNull Activity activity, @NonNull Session session, int requestCode) {
+        SessionDetailActivity.startForResult(activity, session, requestCode);
     }
 
 }

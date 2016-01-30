@@ -1,6 +1,8 @@
 package com.konifar.confsched.fragment;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -25,7 +27,6 @@ import javax.inject.Inject;
 public class SessionDetailFragment extends Fragment {
 
     private static final String TAG = SessionDetailFragment.class.getSimpleName();
-    private static final String ARG_SESSION = "session";
 
     @Inject
     SessionDao dao;
@@ -35,7 +36,7 @@ public class SessionDetailFragment extends Fragment {
     public static SessionDetailFragment create(@NonNull Session session) {
         SessionDetailFragment fragment = new SessionDetailFragment();
         Bundle args = new Bundle();
-        args.putParcelable(ARG_SESSION, Parcels.wrap(session));
+        args.putParcelable(Session.class.getSimpleName(), Parcels.wrap(session));
         fragment.setArguments(args);
         return fragment;
     }
@@ -43,7 +44,7 @@ public class SessionDetailFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        session = Parcels.unwrap(getArguments().getParcelable(ARG_SESSION));
+        session = Parcels.unwrap(getArguments().getParcelable(Session.class.getSimpleName()));
     }
 
     private void initToolbar() {
@@ -64,18 +65,28 @@ public class SessionDetailFragment extends Fragment {
         binding.btnStar.setOnLikeListener(new OnLikeListener() {
             @Override
             public void liked(LikeButton likeButton) {
-                session.checked = true;
-                dao.updateChecked(session);
+                toggle(true);
             }
 
             @Override
             public void unLiked(LikeButton likeButton) {
-                session.checked = false;
+                toggle(false);
+            }
+
+            private void toggle(boolean checked) {
+                session.checked = checked;
                 dao.updateChecked(session);
+                setResult();
             }
         });
 
         return binding.getRoot();
+    }
+
+    private void setResult() {
+        Intent intent = new Intent();
+        intent.putExtra(Session.class.getSimpleName(), Parcels.wrap(session));
+        getActivity().setResult(Activity.RESULT_OK, intent);
     }
 
     @Override
