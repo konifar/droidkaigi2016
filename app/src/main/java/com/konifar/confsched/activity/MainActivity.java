@@ -1,5 +1,6 @@
 package com.konifar.confsched.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Build;
@@ -21,7 +22,9 @@ import com.konifar.confsched.databinding.ActivityMainBinding;
 import com.konifar.confsched.fragment.MapFragment;
 import com.konifar.confsched.fragment.MyScheduleFragment;
 import com.konifar.confsched.fragment.SessionsFragment;
+import com.konifar.confsched.fragment.SettingsFragment;
 import com.konifar.confsched.util.AnalyticsUtil;
+import com.konifar.confsched.util.AppUtil;
 
 import javax.inject.Inject;
 
@@ -35,9 +38,17 @@ public class MainActivity extends AppCompatActivity
 
     private ActivityMainBinding binding;
 
+    public static void start(@NonNull Activity activity) {
+        Intent intent = new Intent(activity, MainActivity.class);
+        activity.startActivity(intent);
+        activity.overridePendingTransition(R.anim.activity_fade_enter, R.anim.activity_fade_exit);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppUtil.initLocale(this);
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         MainApplication.getComponent(this).inject(this);
 
@@ -96,6 +107,10 @@ public class MainActivity extends AppCompatActivity
                 toggleToolbarElevation(true);
                 changePage(R.string.map, MapFragment.newInstance());
                 break;
+            case R.id.nav_settings:
+                toggleToolbarElevation(true);
+                changePage(R.string.settings, SettingsFragment.newInstance());
+                break;
         }
 
         return true;
@@ -120,6 +135,12 @@ public class MainActivity extends AppCompatActivity
         super.onActivityResult(requestCode, resultCode, data);
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(SessionsFragment.TAG);
         if (fragment != null) fragment.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.activity_fade_enter, R.anim.activity_fade_exit);
     }
 
 }

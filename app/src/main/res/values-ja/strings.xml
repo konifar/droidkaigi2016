@@ -5,6 +5,9 @@
 
     <string name="open">ひらく</string>
     <string name="close">とじる</string>
+    <string name="ok">OK</string>
+    <string name="cancel">キャンセル</string>
+    <string name="yes">はい</string>
 
     <string name="action_settings">設定</string>
     <string name="speaker">スピーカー</string>
@@ -28,7 +31,12 @@
     <string name="map_party_name">懇親会会場</string>
     <string name="map_party_building">東工大蔵前会館（くらまえホール）</string>
 
+    <string name="lang_ar">アラビア語</string>
     <string name="lang_en">英語</string>
     <string name="lang_ja">日本語</string>
+
+    <string name="settings_language">言語を設定</string>
+    <string name="settings_language_description">表示言語を変更できます。変更後はアプリが再起動されます。</string>
+    <string name="settings_language_changed">%1$sに変更しました。反映するために再起動しますか？</string>
 
 </resources>
