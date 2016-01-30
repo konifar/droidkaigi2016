@@ -5,10 +5,15 @@
 
     <string name="open">ひらく</string>
     <string name="close">とじる</string>
+    <string name="ok">OK</string>
+    <string name="cancel">キャンセル</string>
+    <string name="yes">はい</string>
 
     <string name="action_settings">設定</string>
     <string name="speaker">スピーカー</string>
     <string name="session_time_range">%1$s 〜 %2$s（%3$s分）</string>
+
+    <string name="icon">アイコン</string>
 
     <string name="all_sessions">すべてのセッション</string>
     <string name="my_schedule">マイスケジュール</string>
@@ -17,7 +22,21 @@
     <string name="sponsors">スポンサー</string>
     <string name="about">詳細</string>
 
+    <string name="map_main_name">受付・基調講演会場</string>
+    <string name="map_main_building">70周年記念講堂</string>
+    <string name="map_ab_name">A・B会場</string>
+    <string name="map_ab_building">南2号館</string>
+    <string name="map_cd_name">C・D会場</string>
+    <string name="map_cd_building">南4号館</string>
+    <string name="map_party_name">懇親会会場</string>
+    <string name="map_party_building">東工大蔵前会館（くらまえホール）</string>
+
+    <string name="lang_ar">アラビア語</string>
     <string name="lang_en">英語</string>
     <string name="lang_ja">日本語</string>
+
+    <string name="settings_language">言語を設定</string>
+    <string name="settings_language_description">表示言語を変更できます。変更後はアプリが再起動されます。</string>
+    <string name="settings_language_changed">%1$sに変更しました。反映するために再起動しますか？</string>
 
 </resources>

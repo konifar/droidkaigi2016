@@ -4,8 +4,8 @@
 
     <scale
         android:duration="@integer/activity_transition_mills"
-        android:fromXScale="0.9"
-        android:fromYScale="0.9"
+        android:fromXScale="0.95"
+        android:fromYScale="0.95"
         android:interpolator="@android:anim/accelerate_decelerate_interpolator"
         android:pivotX="50%"
         android:pivotY="50%"

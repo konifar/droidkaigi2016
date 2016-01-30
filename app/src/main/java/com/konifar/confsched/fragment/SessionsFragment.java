@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -72,7 +72,7 @@ public class SessionsFragment extends Fragment {
         binding.tabLayout.setupWithViewPager(binding.viewPager);
     }
 
-    private void loadData() {
+    protected void loadData() {
         Observable<List<Session>> cachedSessions = dao.findAll();
         if (cachedSessions.isEmpty().toBlocking().single()) {
             Subscription sub = client.getSessions()
@@ -90,7 +90,7 @@ public class SessionsFragment extends Fragment {
         }
     }
 
-    private void groupByDateSessions(List<Session> sessions) {
+    protected void groupByDateSessions(List<Session> sessions) {
         Map<String, List<Session>> sessionsByDate = new TreeMap<>();
         for (Session session : sessions) {
             String key = DateUtil.getMonthDate(session.stime, AppUtil.getLocale(), getActivity());
@@ -112,7 +112,6 @@ public class SessionsFragment extends Fragment {
 
     private void addFragment(String title, List<Session> sessions) {
         SessionsTabFragment fragment = SessionsTabFragment.newInstance(sessions);
-        Log.d(TAG, "sessions " + title + ": " + sessions.size());
         adapter.add(title, fragment);
     }
 
@@ -123,7 +122,7 @@ public class SessionsFragment extends Fragment {
         if (fragment != null) fragment.onActivityResult(requestCode, resultCode, data);
     }
 
-    private class SessionsPagerAdapter extends FragmentPagerAdapter {
+    private class SessionsPagerAdapter extends FragmentStatePagerAdapter {
 
         private final List<SessionsTabFragment> fragments = new ArrayList<>();
         private final List<String> titles = new ArrayList<>();
