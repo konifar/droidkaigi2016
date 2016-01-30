@@ -3,6 +3,8 @@ package com.konifar.confsched.activity;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.StringRes;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -15,6 +17,7 @@ import android.view.MenuItem;
 import com.konifar.confsched.MainApplication;
 import com.konifar.confsched.R;
 import com.konifar.confsched.databinding.ActivityMainBinding;
+import com.konifar.confsched.fragment.MyScheduleFragment;
 import com.konifar.confsched.fragment.SessionsFragment;
 import com.konifar.confsched.util.AnalyticsUtil;
 
@@ -52,6 +55,7 @@ public class MainActivity extends AppCompatActivity
 
     private void replaceFragment(Fragment fragment) {
         final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.setCustomAnimations(R.anim.fragment_fade_enter, R.anim.fragment_fade_exit);
         ft.replace(R.id.content_view, fragment, fragment.getClass().getSimpleName());
         ft.commit();
     }
@@ -87,10 +91,23 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
         binding.drawer.closeDrawer(GravityCompat.START);
+
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.nav_all_sessions:
+                changePage(R.string.all_sessions, SessionsFragment.newInstance());
+                break;
+            case R.id.nav_my_schedule:
+                changePage(R.string.my_schedule, MyScheduleFragment.newInstance());
+                break;
+        }
         return true;
+    }
+
+    private void changePage(@StringRes int titleRes, @NonNull Fragment fragment) {
+        binding.toolbar.setTitle(titleRes);
+        replaceFragment(fragment);
     }
 
     @Override

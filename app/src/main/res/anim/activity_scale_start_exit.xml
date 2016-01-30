@@ -9,7 +9,7 @@
         android:interpolator="@android:anim/accelerate_decelerate_interpolator"
         android:pivotX="50%"
         android:pivotY="50%"
-        android:toXScale="0.9"
-        android:toYScale="0.9" />
+        android:toXScale="0.95"
+        android:toYScale="0.95" />
 
 </set>

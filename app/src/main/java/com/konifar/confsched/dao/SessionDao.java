@@ -87,6 +87,12 @@ public class SessionDao {
                 .toList();
     }
 
+    public Observable<List<Session>> findByChecked() {
+        return Observable.from(sessionRelation().selector().where("checked = ?", true).toList())
+                .map(session -> session.initAssociations(orma))
+                .toList();
+    }
+
     public void deleteAll() {
         sessionRelation().deleter().execute();
         speakerRelation().deleter().execute();
