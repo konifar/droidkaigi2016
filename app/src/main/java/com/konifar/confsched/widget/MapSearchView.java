@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 
 import com.konifar.confsched.R;
@@ -15,6 +16,8 @@ import io.codetail.animation.SupportAnimator;
 import io.codetail.animation.ViewAnimationUtils;
 
 public class MapSearchView extends FrameLayout {
+
+    private static final Interpolator INTERPOLATOR = new AccelerateDecelerateInterpolator();
 
     private ViewMapSearchBinding binding;
 
@@ -31,21 +34,25 @@ public class MapSearchView extends FrameLayout {
         binding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.view_map_search, this, true);
     }
 
-    public void showReveal() {
-        ViewAnimationUtils.createCircularReveal(binding.mapListContainer, 0, 0, 0, 0);
-        binding.mapListContainer.setVisibility(GONE);
+    public void toggle() {
+        if (binding.mapListContainer.getVisibility() != VISIBLE) {
+            revealOn();
+        } else {
+            revealOff();
+        }
+    }
+
+    private void revealOn() {
+        if (binding.mapListContainer.getVisibility() == VISIBLE) return;
+
         View container = binding.mapListContainer;
-
-        int cx = container.getRight();
-        int cy = container.getTop();
-
-        int dx = container.getWidth();
-        int dy = container.getHeight();
-        float finalRadius = (float) Math.hypot(dx, dy);
-
-        SupportAnimator animator = ViewAnimationUtils.createCircularReveal(container, cx, cy, 0, finalRadius);
-        container.setVisibility(VISIBLE);
-        animator.setInterpolator(new AccelerateDecelerateInterpolator());
+        SupportAnimator animator = ViewAnimationUtils.createCircularReveal(
+                container,
+                container.getRight(),
+                container.getTop(),
+                0,
+                (float) Math.hypot(container.getWidth(), container.getHeight()));
+        animator.setInterpolator(INTERPOLATOR);
         animator.setDuration(getResources().getInteger(R.integer.view_reveal_mills));
         animator.addListener(new SupportAnimator.AnimatorListener() {
             @Override
@@ -68,6 +75,44 @@ public class MapSearchView extends FrameLayout {
                 // Do nothing
             }
         });
+
+        animator.start();
+    }
+
+    private void revealOff() {
+        if (binding.mapListContainer.getVisibility() != VISIBLE) return;
+
+        View container = binding.mapListContainer;
+        SupportAnimator animator = ViewAnimationUtils.createCircularReveal(
+                container,
+                container.getRight(),
+                container.getTop(),
+                (float) Math.hypot(container.getWidth(), container.getHeight()),
+                0);
+        animator.setInterpolator(INTERPOLATOR);
+        animator.setDuration(getResources().getInteger(R.integer.view_reveal_mills));
+        animator.addListener(new SupportAnimator.AnimatorListener() {
+            @Override
+            public void onAnimationStart() {
+                // Do nothing
+            }
+
+            @Override
+            public void onAnimationEnd() {
+                binding.mapListContainer.setVisibility(INVISIBLE);
+            }
+
+            @Override
+            public void onAnimationCancel() {
+                // Do nothing
+            }
+
+            @Override
+            public void onAnimationRepeat() {
+                // Do nothing
+            }
+        });
+
         animator.start();
     }
 

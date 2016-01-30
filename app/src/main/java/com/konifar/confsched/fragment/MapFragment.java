@@ -60,7 +60,7 @@ public class MapFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item_search:
-                binding.mapSearchView.showReveal();
+                binding.mapSearchView.toggle();
                 break;
         }
         return super.onOptionsItemSelected(item);
