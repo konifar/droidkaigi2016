@@ -3,14 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".widget.MapSearchView">
 
-    <data>
-
-        <variable
-            name="map"
-            type="com.konifar.confsched.model.Map" />
-    </data>
-
     <RelativeLayout
+        android:id="@+id/root_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_feedback"
@@ -26,8 +20,7 @@
             android:id="@+id/img_marker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/icon"
-            android:src="@{map.markerRes}" />
+            android:contentDescription="@string/icon" />
 
         <TextView
             android:id="@+id/txt_name"
@@ -35,25 +28,26 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/spacing"
             android:layout_marginStart="@dimen/spacing"
-            android:layout_toLeftOf="@id/img_marker"
-            android:layout_toStartOf="@id/img_marker"
+            android:layout_toEndOf="@id/img_marker"
+            android:layout_toRightOf="@id/img_marker"
             android:ellipsize="end"
             android:lines="1"
-            android:text="@{map.nameRes}"
             android:textColor="@color/black"
-            android:textSize="@dimen/text" />
+            android:textSize="@dimen/text"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txt_building"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/txt_name"
-            android:layout_marginTop="@dimen/spacing_small"
-            android:layout_toLeftOf="@id/img_marker"
-            android:layout_toStartOf="@id/img_marker"
+            android:layout_marginLeft="@dimen/spacing"
+            android:layout_marginStart="@dimen/spacing"
+            android:layout_marginTop="@dimen/spacing_xsmall"
+            android:layout_toEndOf="@id/img_marker"
+            android:layout_toRightOf="@id/img_marker"
             android:ellipsize="end"
             android:lines="1"
-            android:text="@{map.buildingNameRes}"
             android:textColor="@color/grey600"
             android:textSize="@dimen/text_small" />
 

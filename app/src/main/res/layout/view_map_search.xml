@@ -12,7 +12,8 @@
             android:id="@+id/map_list_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white_alpha_87"
+            android:background="@color/white_alpha_95"
+            android:clickable="true"
             android:orientation="vertical"
             android:visibility="invisible" />
 

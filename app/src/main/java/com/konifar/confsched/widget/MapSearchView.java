@@ -11,7 +11,7 @@ import android.widget.FrameLayout;
 
 import com.konifar.confsched.R;
 import com.konifar.confsched.databinding.ViewMapSearchBinding;
-import com.konifar.confsched.model.Map;
+import com.konifar.confsched.model.PlaceMap;
 
 import java.util.List;
 
@@ -38,12 +38,21 @@ public class MapSearchView extends FrameLayout {
         binding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.view_map_search, this, true);
     }
 
-    public void bindData(List<Map> maps) {
-        Observable.from(maps).forEach(map -> {
+    public void bindData(List<PlaceMap> placeMaps, OnItemClickListener listener) {
+        Observable.from(placeMaps).forEach(map -> {
             MapSearchViewItem item = new MapSearchViewItem(getContext());
-            item.bindData(map);
+            item.bindData(map, v -> {
+                listener.onClick(map);
+                revealOff();
+            });
             binding.mapListContainer.addView(item);
         });
+
+        binding.mapListContainer.setOnClickListener(v -> revealOff());
+    }
+
+    public boolean isVisible() {
+        return binding.mapListContainer.getVisibility() == VISIBLE;
     }
 
     public void toggle() {
@@ -91,7 +100,7 @@ public class MapSearchView extends FrameLayout {
         animator.start();
     }
 
-    private void revealOff() {
+    public void revealOff() {
         if (binding.mapListContainer.getVisibility() != VISIBLE) return;
 
         View container = binding.mapListContainer;
@@ -126,6 +135,10 @@ public class MapSearchView extends FrameLayout {
         });
 
         animator.start();
+    }
+
+    public interface OnItemClickListener {
+        void onClick(PlaceMap placeMap);
     }
 
 }
