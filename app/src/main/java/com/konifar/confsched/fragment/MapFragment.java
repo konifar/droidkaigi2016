@@ -29,11 +29,17 @@ public class MapFragment extends Fragment {
     public static final LatLng LAT_LNG_CENTER = new LatLng(35.605358, 139.683552);
     private static final int DEFAULT_ZOOM = 17;
 
-    private MenuItem menuItem;
     private FragmentMapBinding binding;
+    private List<Map> mapList;
 
     public static MapFragment newInstance() {
         return new MapFragment();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mapList = Map.createList();
     }
 
     @Nullable
@@ -54,6 +60,7 @@ public class MapFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item_search:
+                binding.mapSearchView.showReveal();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -70,7 +77,7 @@ public class MapFragment extends Fragment {
             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LAT_LNG_CENTER, DEFAULT_ZOOM));
             UiSettings mapUiSettings = googleMap.getUiSettings();
             mapUiSettings.setCompassEnabled(true);
-            renderMarkers(Map.createList(), googleMap);
+            renderMarkers(mapList, googleMap);
         });
     }
 

@@ -24,6 +24,11 @@
             <include layout="@layout/part_loading" />
         </FrameLayout>
 
+        <com.konifar.confsched.widget.MapSearchView
+            android:id="@+id/map_search_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
     </RelativeLayout>
 
 </layout>
