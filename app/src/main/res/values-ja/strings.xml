@@ -51,6 +51,7 @@
     <string name="about_social">ソーシャル</string>
     <string name="about_terms">利用規約</string>
     <string name="about_license">ライセンス</string>
+    <string name="about_questionnaire">アンケート</string>
     <string name="about_version_prefix">V%1$s</string>
 
 </resources>

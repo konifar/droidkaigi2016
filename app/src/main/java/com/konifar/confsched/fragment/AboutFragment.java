@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.konifar.confsched.R;
+import com.konifar.confsched.activity.WebViewActivity;
 import com.konifar.confsched.databinding.FragmentAboutBinding;
 import com.konifar.confsched.util.AppUtil;
 
@@ -18,6 +19,7 @@ public class AboutFragment extends Fragment {
     private static final String SITE_URL = "https://droidkaigi.github.io/2016";
     private static final String CONF_TWITTER_NAME = "DroidKaigi";
     private static final String CONF_FACEBOOK_NAME = "DroidKaigi";
+    private static final String LICENSE_URL = "file:///android_asset/license.html";
 
     private FragmentAboutBinding binding;
 
@@ -45,6 +47,15 @@ public class AboutFragment extends Fragment {
                 AppUtil.showWebPage(getActivity(), AppUtil.getFacebookUrl(CONF_FACEBOOK_NAME)));
         binding.imgTwitterClicker.setOnClickListener(v ->
                 AppUtil.showWebPage(getActivity(), AppUtil.getTwitterUrl(CONF_TWITTER_NAME)));
+
+        binding.txtTerms.setOnClickListener(v -> {
+            // TODO
+        });
+        binding.txtQuestionnaire.setOnClickListener(v -> {
+            // TODO
+        });
+        binding.txtLicense.setOnClickListener(v ->
+                WebViewActivity.start(getActivity(), LICENSE_URL, getString(R.string.about_license)));
 
         binding.txtVersion.setText(AppUtil.getVersionName(getActivity()));
     }

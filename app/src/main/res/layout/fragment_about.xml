@@ -120,23 +120,22 @@
 
                 <TextView
                     android:id="@+id/txt_terms"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/AboutRow"
+                    android:text="@string/about_terms"
+                    android:visibility="gone" />
+
+                <View
+                    style="@style/Border"
                     android:layout_marginEnd="@dimen/spacing_negative"
                     android:layout_marginLeft="@dimen/spacing_negative"
                     android:layout_marginRight="@dimen/spacing_negative"
                     android:layout_marginStart="@dimen/spacing_negative"
-                    android:background="@drawable/bg_feedback"
-                    android:clickable="true"
-                    android:paddingBottom="@dimen/spacing_large"
-                    android:paddingEnd="@dimen/spacing"
-                    android:paddingLeft="@dimen/spacing"
-                    android:paddingRight="@dimen/spacing"
-                    android:paddingStart="@dimen/spacing"
-                    android:paddingTop="@dimen/spacing_large"
-                    android:text="@string/about_terms"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_large" />
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/txt_questionnaire"
+                    style="@style/AboutRow"
+                    android:text="@string/about_questionnaire" />
 
                 <View
                     style="@style/Border"
@@ -147,23 +146,8 @@
 
                 <TextView
                     android:id="@+id/txt_license"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/spacing_negative"
-                    android:layout_marginLeft="@dimen/spacing_negative"
-                    android:layout_marginRight="@dimen/spacing_negative"
-                    android:layout_marginStart="@dimen/spacing_negative"
-                    android:background="@drawable/bg_feedback"
-                    android:clickable="true"
-                    android:paddingBottom="@dimen/spacing_large"
-                    android:paddingEnd="@dimen/spacing"
-                    android:paddingLeft="@dimen/spacing"
-                    android:paddingRight="@dimen/spacing"
-                    android:paddingStart="@dimen/spacing"
-                    android:paddingTop="@dimen/spacing_large"
-                    android:text="@string/about_license"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_large" />
+                    style="@style/AboutRow"
+                    android:text="@string/about_license" />
 
                 <View
                     style="@style/Border"
@@ -182,7 +166,17 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:background="@color/grey50"
+            android:clipToPadding="false"
             android:padding="@dimen/spacing">
+
+            <View
+                android:id="@+id/border"
+                style="@style/Border"
+                android:layout_marginEnd="@dimen/spacing_negative"
+                android:layout_marginLeft="@dimen/spacing_negative"
+                android:layout_marginRight="@dimen/spacing_negative"
+                android:layout_marginStart="@dimen/spacing_negative"
+                android:layout_marginTop="@dimen/spacing_negative" />
 
             <ImageView
                 android:id="@+id/img_icon"
@@ -193,6 +187,7 @@
                 android:layout_marginLeft="@dimen/spacing_small"
                 android:layout_marginRight="@dimen/spacing_small"
                 android:layout_marginStart="@dimen/spacing_small"
+                android:contentDescription="@string/icon"
                 android:gravity="center_vertical"
                 android:src="@mipmap/ic_launcher" />
 
