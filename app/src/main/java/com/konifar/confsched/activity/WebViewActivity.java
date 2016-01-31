@@ -22,7 +22,7 @@ public class WebViewActivity extends AppCompatActivity {
 
     private ActivityWebViewBinding binding;
 
-    public static void start(Context context, @NonNull String url, @NonNull String title) {
+    static void start(Context context, @NonNull String url, @NonNull String title) {
         if (!TextUtils.isEmpty(url) && !TextUtils.isEmpty(title)) {
             Intent intent = new Intent(context, WebViewActivity.class);
             intent.putExtra(EXTRA_URL, url);

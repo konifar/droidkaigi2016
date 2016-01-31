@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity
 
     private ActivityMainBinding binding;
 
-    public static void start(@NonNull Activity activity) {
+    static void start(@NonNull Activity activity) {
         Intent intent = new Intent(activity, MainActivity.class);
         activity.startActivity(intent);
         activity.overridePendingTransition(R.anim.activity_fade_enter, R.anim.activity_fade_exit);

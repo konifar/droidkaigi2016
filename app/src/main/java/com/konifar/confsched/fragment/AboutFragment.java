@@ -1,5 +1,6 @@
 package com.konifar.confsched.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,10 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.konifar.confsched.MainApplication;
 import com.konifar.confsched.R;
-import com.konifar.confsched.activity.WebViewActivity;
+import com.konifar.confsched.activity.ActivityNavigator;
 import com.konifar.confsched.databinding.FragmentAboutBinding;
 import com.konifar.confsched.util.AppUtil;
+
+import javax.inject.Inject;
 
 public class AboutFragment extends Fragment {
 
@@ -20,6 +24,9 @@ public class AboutFragment extends Fragment {
     private static final String CONF_TWITTER_NAME = "DroidKaigi";
     private static final String CONF_FACEBOOK_NAME = "DroidKaigi";
     private static final String LICENSE_URL = "file:///android_asset/license.html";
+
+    @Inject
+    ActivityNavigator activityNavigator;
 
     private FragmentAboutBinding binding;
 
@@ -33,6 +40,12 @@ public class AboutFragment extends Fragment {
         binding = FragmentAboutBinding.inflate(inflater, container, false);
         initView();
         return binding.getRoot();
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        MainApplication.getComponent(this).inject(this);
     }
 
     private void initView() {
@@ -55,7 +68,7 @@ public class AboutFragment extends Fragment {
             // TODO
         });
         binding.txtLicense.setOnClickListener(v ->
-                WebViewActivity.start(getActivity(), LICENSE_URL, getString(R.string.about_license)));
+                activityNavigator.showWebView(getActivity(), LICENSE_URL, getString(R.string.about_license)));
 
         binding.txtVersion.setText(AppUtil.getVersionName(getActivity()));
     }

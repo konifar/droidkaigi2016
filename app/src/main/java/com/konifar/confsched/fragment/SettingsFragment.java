@@ -1,6 +1,7 @@
 package com.konifar.confsched.fragment;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,8 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.konifar.confsched.MainApplication;
 import com.konifar.confsched.R;
-import com.konifar.confsched.activity.MainActivity;
+import com.konifar.confsched.activity.ActivityNavigator;
 import com.konifar.confsched.databinding.FragmentSettingsBinding;
 import com.konifar.confsched.util.AppUtil;
 
@@ -20,12 +22,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import rx.Observable;
 
 public class SettingsFragment extends Fragment {
 
     public static final String TAG = SettingsFragment.class.getSimpleName();
-
+    @Inject
+    ActivityNavigator activityNavigator;
     private FragmentSettingsBinding binding;
 
     public static SettingsFragment newInstance() {
@@ -38,6 +43,12 @@ public class SettingsFragment extends Fragment {
         binding = FragmentSettingsBinding.inflate(inflater, container, false);
         initView();
         return binding.getRoot();
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        MainApplication.getComponent(this).inject(this);
     }
 
     private void initView() {
@@ -83,7 +94,7 @@ public class SettingsFragment extends Fragment {
     private void showSnackBar(@NonNull String text) {
         Snackbar.make(binding.getRoot(), text, Snackbar.LENGTH_LONG)
                 .setAction(R.string.yes, v -> {
-                    MainActivity.start(getActivity());
+                    activityNavigator.showMain(getActivity());
                     getActivity().finish();
                 })
                 .show();

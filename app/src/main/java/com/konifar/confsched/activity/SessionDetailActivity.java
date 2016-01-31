@@ -38,7 +38,7 @@ public class SessionDetailActivity extends AppCompatActivity {
         return intent;
     }
 
-    public static void startForResult(@NonNull Activity activity, @NonNull Session session, int requestCode) {
+    static void startForResult(@NonNull Activity activity, @NonNull Session session, int requestCode) {
         Intent intent = createIntent(activity, session);
         activity.startActivityForResult(intent, requestCode);
         activity.overridePendingTransition(R.anim.activity_slide_start_enter, R.anim.activity_scale_start_exit);
