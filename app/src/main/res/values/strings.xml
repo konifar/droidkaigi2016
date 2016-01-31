@@ -45,4 +45,11 @@
     <string name="sponsor_category_foods">Foods Sponsors</string>
     <string name="sponsor_category_normal">Sponsors</string>
 
+    <string name="about_conference">About DroidKaigi</string>
+    <string name="about_conference_descriptions">For its 2016 edition, DroidKaigi will be held in two days and expects to see famous engineers from Japan and overseas giving talks. The schedule for sessions and speakers will be announced when ready. See schedule section for more details.\n\nThere will be hands-on sessions and office hour as well other than conference sessions.\nAndroid is being used in various situations and in many ways. Why don\'t you come and join us to share your knowledge and create a better software?</string>
+    <string name="about_terms">Terms of Use</string>
+    <string name="about_license">License</string>
+    <string name="inquiry">Inquiry</string>
+    <string name="about_version">"Version %1$s</string>
+
 </resources>
