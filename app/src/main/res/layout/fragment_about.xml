@@ -118,6 +118,60 @@
                     android:layout_marginStart="@dimen/spacing_negative"
                     android:layout_marginTop="@dimen/spacing" />
 
+                <TextView
+                    android:id="@+id/txt_terms"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/spacing_negative"
+                    android:layout_marginLeft="@dimen/spacing_negative"
+                    android:layout_marginRight="@dimen/spacing_negative"
+                    android:layout_marginStart="@dimen/spacing_negative"
+                    android:background="@drawable/bg_feedback"
+                    android:clickable="true"
+                    android:paddingBottom="@dimen/spacing_large"
+                    android:paddingEnd="@dimen/spacing"
+                    android:paddingLeft="@dimen/spacing"
+                    android:paddingRight="@dimen/spacing"
+                    android:paddingStart="@dimen/spacing"
+                    android:paddingTop="@dimen/spacing_large"
+                    android:text="@string/about_terms"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_large" />
+
+                <View
+                    style="@style/Border"
+                    android:layout_marginEnd="@dimen/spacing_negative"
+                    android:layout_marginLeft="@dimen/spacing_negative"
+                    android:layout_marginRight="@dimen/spacing_negative"
+                    android:layout_marginStart="@dimen/spacing_negative" />
+
+                <TextView
+                    android:id="@+id/txt_license"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/spacing_negative"
+                    android:layout_marginLeft="@dimen/spacing_negative"
+                    android:layout_marginRight="@dimen/spacing_negative"
+                    android:layout_marginStart="@dimen/spacing_negative"
+                    android:background="@drawable/bg_feedback"
+                    android:clickable="true"
+                    android:paddingBottom="@dimen/spacing_large"
+                    android:paddingEnd="@dimen/spacing"
+                    android:paddingLeft="@dimen/spacing"
+                    android:paddingRight="@dimen/spacing"
+                    android:paddingStart="@dimen/spacing"
+                    android:paddingTop="@dimen/spacing_large"
+                    android:text="@string/about_license"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_large" />
+
+                <View
+                    style="@style/Border"
+                    android:layout_marginEnd="@dimen/spacing_negative"
+                    android:layout_marginLeft="@dimen/spacing_negative"
+                    android:layout_marginRight="@dimen/spacing_negative"
+                    android:layout_marginStart="@dimen/spacing_negative" />
+
             </LinearLayout>
 
         </ScrollView>
