@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:id="@+id/root_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/SponsorCategory"
+                android:text="@string/sponsor_category_pratinum" />
+
+            <org.apmem.tools.layouts.FlowLayout
+                android:id="@+id/platinum_container"
+                style="@style/SponsorImagesContainer" />
+
+            <TextView
+                style="@style/SponsorCategory"
+                android:text="@string/sponsor_category_video" />
+
+            <org.apmem.tools.layouts.FlowLayout
+                android:id="@+id/video_container"
+                style="@style/SponsorImagesContainer" />
+
+            <TextView
+                style="@style/SponsorCategory"
+                android:text="@string/sponsor_category_foods" />
+
+            <org.apmem.tools.layouts.FlowLayout
+                android:id="@+id/foods_container"
+                style="@style/SponsorImagesContainer" />
+
+            <TextView
+                style="@style/SponsorCategory"
+                android:text="@string/sponsor_category_normal" />
+
+            <org.apmem.tools.layouts.FlowLayout
+                android:id="@+id/normal_container"
+                style="@style/SponsorImagesContainer"
+                android:layout_marginBottom="@dimen/spacing_large" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

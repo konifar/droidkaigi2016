@@ -19,7 +19,7 @@
     <dimen name="text_small">12sp</dimen>
     <dimen name="text">14sp</dimen>
     <dimen name="text_large">16sp</dimen>
-    <dimen name="text_xlarge">24sp</dimen>
+    <dimen name="text_xlarge">20sp</dimen>
 
 
     <!-- Line -->
@@ -46,6 +46,9 @@
     <dimen name="tag_border_width">1dp</dimen>
 
     <dimen name="detail_header_height">196dp</dimen>
+
+    <dimen name="sponsor_image_width">150dp</dimen>
+    <dimen name="sponsor_image_height">80dp</dimen>
 
 </resources>
 

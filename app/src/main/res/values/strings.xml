@@ -40,4 +40,9 @@
     <string name="settings_language_description">Choose language in this app. After changed, app will restart.</string>
     <string name="settings_language_changed">Changed to %1$s. Do you want to restart to reflect?</string>
 
+    <string name="sponsor_category_pratinum">Platinum Sponsors</string>
+    <string name="sponsor_category_video">Video Sponsors</string>
+    <string name="sponsor_category_foods">Foods Sponsors</string>
+    <string name="sponsor_category_normal">Sponsors</string>
+
 </resources>

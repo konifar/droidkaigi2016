@@ -23,6 +23,7 @@ import com.konifar.confsched.fragment.MapFragment;
 import com.konifar.confsched.fragment.MyScheduleFragment;
 import com.konifar.confsched.fragment.SessionsFragment;
 import com.konifar.confsched.fragment.SettingsFragment;
+import com.konifar.confsched.fragment.SponsorsFragment;
 import com.konifar.confsched.util.AnalyticsUtil;
 import com.konifar.confsched.util.AppUtil;
 
@@ -110,6 +111,10 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_settings:
                 toggleToolbarElevation(true);
                 changePage(R.string.settings, SettingsFragment.newInstance());
+                break;
+            case R.id.nav_sponsors:
+                toggleToolbarElevation(true);
+                changePage(R.string.sponsors, SponsorsFragment.newInstance());
                 break;
         }
 
