@@ -31,6 +31,7 @@
     <string name="map_cd_building">South 4 bld</string>
     <string name="map_party_name">After party venue</string>
     <string name="map_party_building">Tokyo Tech Front (Kuramae Hall)</string>
+    <string name="map_address">Tokyo Institute of Technology, Ookayama Campus\nOokayama 2&#8211;12&#8211;1, Meguro City, Tokyo</string>
 
     <string name="lang_ar">Arabic</string>
     <string name="lang_en">English</string>
@@ -44,5 +45,14 @@
     <string name="sponsor_category_video">Video Sponsors</string>
     <string name="sponsor_category_foods">Foods Sponsors</string>
     <string name="sponsor_category_normal">Sponsors</string>
+
+    <string name="about_conference">About DroidKaigi</string>
+    <string name="about_conference_descriptions">For its 2016 edition, DroidKaigi will be held in two days and expects to see famous engineers from Japan and overseas giving talks. The schedule for sessions and speakers will be announced when ready. See schedule section for more details.\n\nThere will be hands-on sessions and office hour as well other than conference sessions.\nAndroid is being used in various situations and in many ways. Why don\'t you come and join us to share your knowledge and create a better software?</string>
+    <string name="about_rep">REP: %1$s</string>
+    <string name="about_social">Social</string>
+    <string name="about_terms">Terms of Use</string>
+    <string name="about_license">License</string>
+    <string name="about_questionnaire">Questionnaire</string>
+    <string name="about_version_prefix">"V%1$s</string>
 
 </resources>

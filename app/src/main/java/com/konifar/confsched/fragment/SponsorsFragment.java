@@ -1,12 +1,8 @@
 package com.konifar.confsched.fragment;
 
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.customtabs.CustomTabsIntent;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +10,7 @@ import android.view.ViewGroup;
 import com.konifar.confsched.R;
 import com.konifar.confsched.databinding.FragmentSponsorsBinding;
 import com.konifar.confsched.model.Sponsor;
+import com.konifar.confsched.util.AppUtil;
 import com.konifar.confsched.widget.SponsorImageView;
 
 import org.apmem.tools.layouts.FlowLayout;
@@ -51,23 +48,12 @@ public class SponsorsFragment extends Fragment {
 
     private void addView(Sponsor sponsor, FlowLayout container) {
         SponsorImageView imageView = new SponsorImageView(getActivity());
-        imageView.bindData(sponsor, v -> showWebPage(sponsor.url));
+        imageView.bindData(sponsor, v -> AppUtil.showWebPage(getActivity(), sponsor.url));
         FlowLayout.LayoutParams params = new FlowLayout.LayoutParams(
                 FlowLayout.LayoutParams.WRAP_CONTENT, FlowLayout.LayoutParams.WRAP_CONTENT);
         int margin = (int) getResources().getDimension(R.dimen.spacing_small);
         params.setMargins(margin, margin, 0, 0);
         container.addView(imageView, params);
-    }
-
-    private void showWebPage(@NonNull String url) {
-        CustomTabsIntent intent = new CustomTabsIntent.Builder()
-                .setShowTitle(true)
-                .setToolbarColor(ContextCompat.getColor(getActivity(), R.color.theme500))
-                .setStartAnimations(getActivity(), R.anim.activity_slide_start_enter, R.anim.activity_fade_exit)
-                .setExitAnimations(getActivity(), 0, R.anim.activity_slide_finish_exit)
-                .build();
-
-        intent.launchUrl(getActivity(), Uri.parse(url));
     }
 
 }

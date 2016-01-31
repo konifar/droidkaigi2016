@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import com.konifar.confsched.MainApplication;
 import com.konifar.confsched.R;
 import com.konifar.confsched.databinding.ActivityMainBinding;
+import com.konifar.confsched.fragment.AboutFragment;
 import com.konifar.confsched.fragment.MapFragment;
 import com.konifar.confsched.fragment.MyScheduleFragment;
 import com.konifar.confsched.fragment.SessionsFragment;
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity
 
     private ActivityMainBinding binding;
 
-    public static void start(@NonNull Activity activity) {
+    static void start(@NonNull Activity activity) {
         Intent intent = new Intent(activity, MainActivity.class);
         activity.startActivity(intent);
         activity.overridePendingTransition(R.anim.activity_fade_enter, R.anim.activity_fade_exit);
@@ -115,6 +116,10 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_sponsors:
                 toggleToolbarElevation(true);
                 changePage(R.string.sponsors, SponsorsFragment.newInstance());
+                break;
+            case R.id.nav_about:
+                toggleToolbarElevation(true);
+                changePage(R.string.about, AboutFragment.newInstance());
                 break;
         }
 

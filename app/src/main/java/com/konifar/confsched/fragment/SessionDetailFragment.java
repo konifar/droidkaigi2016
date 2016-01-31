@@ -51,8 +51,12 @@ public class SessionDetailFragment extends Fragment {
         AppCompatActivity activity = ((AppCompatActivity) getActivity());
         activity.setSupportActionBar(binding.toolbar);
         ActionBar bar = activity.getSupportActionBar();
-        if (bar != null) bar.setDisplayHomeAsUpEnabled(true);
-        binding.toolbar.setNavigationOnClickListener(v -> activity.finish());
+        if (bar != null) {
+            bar.setDisplayHomeAsUpEnabled(true);
+            bar.setDisplayShowHomeEnabled(true);
+            bar.setDisplayShowTitleEnabled(false);
+            bar.setHomeButtonEnabled(true);
+        }
     }
 
     @Nullable

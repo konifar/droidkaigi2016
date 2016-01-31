@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 
 import com.konifar.confsched.MainApplication;
 import com.konifar.confsched.R;
@@ -37,7 +38,7 @@ public class SessionDetailActivity extends AppCompatActivity {
         return intent;
     }
 
-    public static void startForResult(@NonNull Activity activity, @NonNull Session session, int requestCode) {
+    static void startForResult(@NonNull Activity activity, @NonNull Session session, int requestCode) {
         Intent intent = createIntent(activity, session);
         activity.startActivityForResult(intent, requestCode);
         activity.overridePendingTransition(R.anim.activity_slide_start_enter, R.anim.activity_scale_start_exit);
@@ -64,6 +65,14 @@ public class SessionDetailActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         analyticsUtil.sendScreenView("session_detail");
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
