@@ -11,17 +11,17 @@ import java.util.List;
 public class PlaceMap {
 
     @StringRes
-    public int nameRes;
+    public final int nameRes;
 
     @StringRes
-    public int buildingNameRes;
+    public final int buildingNameRes;
 
     @DrawableRes
-    public int markerRes;
+    public final int markerRes;
 
-    public double latitude;
+    public final double latitude;
 
-    public double longitude;
+    public final double longitude;
 
     public PlaceMap(int nameRes, int buildingNameRes, int markerRes, double latitude, double longitude) {
         this.nameRes = nameRes;
