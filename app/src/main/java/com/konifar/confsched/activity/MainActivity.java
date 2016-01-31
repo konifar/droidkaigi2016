@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import com.konifar.confsched.MainApplication;
 import com.konifar.confsched.R;
 import com.konifar.confsched.databinding.ActivityMainBinding;
+import com.konifar.confsched.fragment.AboutFragment;
 import com.konifar.confsched.fragment.MapFragment;
 import com.konifar.confsched.fragment.MyScheduleFragment;
 import com.konifar.confsched.fragment.SessionsFragment;
@@ -115,6 +116,10 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_sponsors:
                 toggleToolbarElevation(true);
                 changePage(R.string.sponsors, SponsorsFragment.newInstance());
+                break;
+            case R.id.nav_about:
+                toggleToolbarElevation(true);
+                changePage(R.string.about, AboutFragment.newInstance());
                 break;
         }
 

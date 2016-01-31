@@ -46,9 +46,10 @@
 
     <string name="about_conference">DroidKaigiについて</string>
     <string name="about_conference_descriptions">DroidKaigiはエンジニアが主役のAndroidカンファレンスです。今回は会期を2日間、著名エンジニア（海外・国内）による招待講演を予定しています。内容が確定次第、公開していきます。詳細はスケジュールをご確認ください。\n\n会期中は、セッション（複数ルーム）以外にもハンズオン、オフィスアワーなども検討しています。\nAndroidの利用シーンは多岐に渡り、一人ではとてもカバーしきれません。カンファレンスを通して業界全体で知見を共有し、より良いソフトウェア開発に繋げていきましょう。</string>
+    <string name="about_rep">代表者：%1$s</string>
+    <string name="about_social">ソーシャル</string>
     <string name="about_terms">利用規約</string>
     <string name="about_license">ライセンス</string>
-    <string name="inquiry">お問い合わせ</string>
-    <string name="about_version">"バージョン %1$s</string>
+    <string name="about_version_prefix">V%1$s</string>
 
 </resources>

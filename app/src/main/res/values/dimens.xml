@@ -50,5 +50,7 @@
     <dimen name="sponsor_image_width">150dp</dimen>
     <dimen name="sponsor_image_height">80dp</dimen>
 
+    <dimen name="app_info_footer_height">30dp</dimen>
+
 </resources>
 

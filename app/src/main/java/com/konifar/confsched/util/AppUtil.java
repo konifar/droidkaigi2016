@@ -1,10 +1,13 @@
 package com.konifar.confsched.util;
 
 import android.content.Context;
+import android.content.pm.PackageInfo;
 import android.content.res.Configuration;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
+
+import com.konifar.confsched.R;
 
 import java.util.Arrays;
 import java.util.Locale;
@@ -85,6 +88,16 @@ public class AppUtil {
             }
         } catch (Exception e) {
             Log.e(TAG, "String resource id: " + resName + " is not found.", e);
+            return "";
+        }
+    }
+
+    public static String getVersionName(Context context) {
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            return context.getString(R.string.about_version_prefix, packageInfo.versionName);
+        } catch (Exception e) {
+            Log.e(TAG, e.getMessage() + "");
             return "";
         }
     }
