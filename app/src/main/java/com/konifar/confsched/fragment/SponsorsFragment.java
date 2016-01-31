@@ -63,7 +63,7 @@ public class SponsorsFragment extends Fragment {
         CustomTabsIntent intent = new CustomTabsIntent.Builder()
                 .setShowTitle(true)
                 .setToolbarColor(ContextCompat.getColor(getActivity(), R.color.theme500))
-                .setStartAnimations(getActivity(), R.anim.activity_slide_start_enter, 0)
+                .setStartAnimations(getActivity(), R.anim.activity_slide_start_enter, R.anim.activity_fade_exit)
                 .setExitAnimations(getActivity(), 0, R.anim.activity_slide_finish_exit)
                 .build();
 
