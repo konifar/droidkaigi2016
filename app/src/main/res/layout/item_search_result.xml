@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="searchResult"
+            type="io.github.droidkaigi.confsched.model.SearchResult" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing">
+
+        <TextView
+            android:id="@+id/txt_search_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/img_speaker"
+            android:layout_toStartOf="@+id/img_speaker"
+            android:ellipsize="end"
+            android:lineSpacingExtra="@dimen/line_spacing"
+            android:maxLines="3"
+            android:text="@{searchResult.text}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_search_result"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_toLeftOf="@+id/img_speaker"
+            android:layout_toStartOf="@+id/img_speaker"
+            android:drawableLeft="@{searchResult.iconRes}"
+            android:drawablePadding="@dimen/icon_spacing_small"
+            android:drawableStart="@{searchResult.iconRes}"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@{searchResult.typeRes}"
+            android:textColor="@color/grey500"
+            android:textSize="@dimen/text_small" />
+
+        <ImageView
+            android:id="@+id/img_speaker"
+            android:layout_width="@dimen/user_image_large"
+            android:layout_height="@dimen/user_image_large"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/spacing"
+            android:layout_marginStart="@dimen/spacing"
+            android:contentDescription="@string/speaker"
+            app:speakerImageUrl="@{searchResult.speakerImageUrl}" />
+
+    </RelativeLayout>
+
+</layout>
