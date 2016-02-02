@@ -30,7 +30,7 @@ import io.github.droidkaigi.confsched.databinding.ItemSessionBinding;
 import io.github.droidkaigi.confsched.model.Session;
 import io.github.droidkaigi.confsched.widget.ArrayRecyclerAdapter;
 import io.github.droidkaigi.confsched.widget.BindingHolder;
-import io.github.droidkaigi.confsched.widget.SpaceItemDecoration;
+import io.github.droidkaigi.confsched.widget.itemdecoration.SpaceItemDecoration;
 
 public class SessionsTabFragment extends Fragment {
 

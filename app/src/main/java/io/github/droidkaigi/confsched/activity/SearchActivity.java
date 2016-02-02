@@ -13,17 +13,25 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
 import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
+import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.ActivitySearchBinding;
 import io.github.droidkaigi.confsched.databinding.ItemSearchResultBinding;
 import io.github.droidkaigi.confsched.model.SearchResult;
 import io.github.droidkaigi.confsched.util.AnalyticsUtil;
 import io.github.droidkaigi.confsched.widget.ArrayRecyclerAdapter;
 import io.github.droidkaigi.confsched.widget.BindingHolder;
+import io.github.droidkaigi.confsched.widget.itemdecoration.DividerItemDecoration;
+import rx.Observable;
 
 public class SearchActivity extends AppCompatActivity implements TextWatcher {
 
@@ -34,6 +42,8 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
     AnalyticsUtil analyticsUtil;
     @Inject
     ActivityNavigator activityNavigator;
+    @Inject
+    SessionDao dao;
 
     private SearchResultsAdapter adapter;
     private ActivitySearchBinding binding;
@@ -52,6 +62,8 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
 
         initToolbar();
         initRecyclerView();
+
+        loadData();
     }
 
     @Override
@@ -78,7 +90,17 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
         adapter = new SearchResultsAdapter(this);
 
         binding.recyclerView.setAdapter(adapter);
+        binding.recyclerView.addItemDecoration(new DividerItemDecoration(this));
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    private void loadData() {
+        List<SearchResult> searchResults = Observable.from(dao.findAll().toBlocking().single())
+                .map(SearchResult::createTitleType)
+                .toList()
+                .toBlocking()
+                .single();
+        adapter.setAllList(searchResults);
     }
 
     @Override
@@ -107,7 +129,8 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
 
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
-        // TODO
+        // TODO Loading View
+        adapter.getFilter().filter(s);
     }
 
     @Override
@@ -116,15 +139,24 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
     }
 
 
-    private class SearchResultsAdapter extends ArrayRecyclerAdapter<SearchResult, BindingHolder<ItemSearchResultBinding>> {
+    private class SearchResultsAdapter extends ArrayRecyclerAdapter<SearchResult, BindingHolder<ItemSearchResultBinding>>
+            implements Filterable {
+
+        private List<SearchResult> filteredList;
+        private List<SearchResult> allList;
 
         public SearchResultsAdapter(@NonNull Context context) {
             super(context);
+            this.filteredList = new ArrayList<>();
+        }
+
+        public void setAllList(List<SearchResult> searchResults) {
+            this.allList = searchResults;
         }
 
         @Override
         public BindingHolder<ItemSearchResultBinding> onCreateViewHolder(ViewGroup parent, int viewType) {
-            return new BindingHolder<>(getContext(), parent, R.layout.item_session);
+            return new BindingHolder<>(getContext(), parent, R.layout.item_search_result);
         }
 
         @Override
@@ -135,6 +167,36 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
 
             binding.getRoot().setOnClickListener(v ->
                     activityNavigator.showSessionDetail(SearchActivity.this, searchResult.session, REQ_DETAIL));
+        }
+
+        @Override
+        public Filter getFilter() {
+            return new Filter() {
+                @Override
+                protected FilterResults performFiltering(CharSequence constraint) {
+                    filteredList.clear();
+                    FilterResults results = new FilterResults();
+
+                    if (constraint.length() > 0) {
+                        final String filterPattern = constraint.toString().toLowerCase().trim();
+                        Observable.from(allList)
+                                .filter(searchResult -> searchResult.text.toLowerCase().contains(filterPattern))
+                                .forEach(filteredList::add);
+                    }
+
+                    results.values = filteredList;
+                    results.count = filteredList.size();
+
+                    return results;
+                }
+
+                @Override
+                protected void publishResults(CharSequence constraint, FilterResults results) {
+                    clear();
+                    addAll((List<SearchResult>) results.values);
+                    notifyDataSetChanged();
+                }
+            };
         }
 
     }

@@ -22,7 +22,7 @@
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/toolbar"
+            android:layout_below="@id/search_toolbar"
             android:fadingEdge="none"
             android:scrollbarStyle="outsideOverlay"
             android:scrollbars="vertical" />

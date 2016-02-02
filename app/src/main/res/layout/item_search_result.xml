@@ -26,8 +26,7 @@
             android:maxLines="3"
             android:text="@{searchResult.text}"
             android:textColor="@color/black"
-            android:textSize="@dimen/text"
-            android:textStyle="bold" />
+            android:textSize="@dimen/text" />
 
         <TextView
             android:id="@+id/txt_type"
