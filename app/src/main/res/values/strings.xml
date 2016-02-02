@@ -13,6 +13,10 @@
     <string name="speaker">Speaker</string>
     <string name="session_time_range">%1$s - %2$s (%3$smin)</string>
 
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="category">Category</string>
+
     <string name="icon">Icon</string>
 
     <string name="all_sessions">All Sessions</string>

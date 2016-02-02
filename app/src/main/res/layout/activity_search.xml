@@ -18,15 +18,14 @@
             android:gravity="center_vertical"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-        <!--<android.support.v7.widget.RecyclerView-->
-        <!--android:id="@+id/recycler_view"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_below="@id/toolbar"-->
-        <!--android:clipToPadding="false"-->
-        <!--android:fadingEdge="none"-->
-        <!--android:scrollbarStyle="outsideOverlay"-->
-        <!--android:scrollbars="vertical" />-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar"
+            android:fadingEdge="none"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="vertical" />
 
     </RelativeLayout>
 

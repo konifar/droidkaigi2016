@@ -13,6 +13,10 @@
     <string name="speaker">スピーカー</string>
     <string name="session_time_range">%1$s 〜 %2$s（%3$s分）</string>
 
+    <string name="title">タイトル</string>
+    <string name="description">詳細</string>
+    <string name="category">カテゴリ</string>
+
     <string name="icon">アイコン</string>
 
     <string name="all_sessions">すべてのセッション</string>
