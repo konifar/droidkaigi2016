@@ -2,15 +2,15 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".activity.SessionDetailActivity">
+    tools:context="io.github.droidkaigi.confsched.activity.SessionDetailActivity">
 
     <data>
 
-        <import type="com.konifar.confsched.util.DateUtil" />
+        <import type="io.github.droidkaigi.confsched.util.DateUtil" />
 
         <variable
             name="session"
-            type="com.konifar.confsched.model.Session" />
+            type="io.github.droidkaigi.confsched.model.Session" />
     </data>
 
     <android.support.design.widget.CoordinatorLayout

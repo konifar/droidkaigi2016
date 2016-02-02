@@ -1,4 +1,4 @@
-package com.konifar.confsched;
+package io.github.droidkaigi.confsched;
 
 public class StethoWrapper {
 
