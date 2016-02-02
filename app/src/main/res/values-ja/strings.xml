@@ -54,4 +54,6 @@
     <string name="about_questionnaire">アンケート</string>
     <string name="about_version_prefix">V%1$s</string>
 
+    <string name="search_hint">キーワードで検索</string>
+
 </resources>

@@ -18,6 +18,7 @@
     <color name="grey800">#424242</color>
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
+    <color name="white_alpha_40">#B3FFFFFF</color>
     <color name="white_alpha_95">#F2FFFFFF</color>
     <color name="black_alpha_12">#1F000000</color>
     <color name="black_alpha_30">#4D000000</color>

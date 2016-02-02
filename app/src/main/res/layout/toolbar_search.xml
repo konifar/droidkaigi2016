@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingEnd="@dimen/spacing_small"
+            android:paddingLeft="0dp"
+            android:paddingRight="@dimen/spacing_small"
+            android:paddingStart="0dp"
+            android:paddingTop="8dp">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/edit_search"
+                style="@style/ToolbarSearchEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:theme="@style/ToolbarSearchEditText" />
+
+        </FrameLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+</layout>
