@@ -4,11 +4,11 @@
 
     <data>
 
-        <import type="com.konifar.confsched.util.DateUtil" />
+        <import type="io.github.droidkaigi.confsched.util.DateUtil" />
 
         <variable
             name="session"
-            type="com.konifar.confsched.model.Session" />
+            type="io.github.droidkaigi.confsched.model.Session" />
     </data>
 
     <RelativeLayout
@@ -83,7 +83,7 @@
                         android:background="@drawable/tag_language"
                         android:text="@{session.place.name}" />
 
-                    <com.konifar.confsched.widget.CategoryView
+                    <io.github.droidkaigi.confsched.widget.CategoryView
                         android:id="@+id/txt_category"
                         style="@style/Tag"
                         android:layout_marginEnd="@dimen/spacing_xsmall"

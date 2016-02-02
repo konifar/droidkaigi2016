@@ -11,7 +11,7 @@ def versionPatch = 0
 def isCi = "true".equals(System.getenv("CI"))
 def preDexEnabled = "true".equals(System.getProperty("pre-dex", "true"))
 
-def packageName = "com.konifar.confsched"
+def packageName = "io.github.droidkaigi.confsched"
 
 android {
     compileSdkVersion 23

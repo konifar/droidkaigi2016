@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".activity.MainActivity">
+    tools:context="io.github.droidkaigi.confsched.activity.MainActivity">
 
     <RelativeLayout
         android:id="@+id/content_view"
@@ -36,7 +36,7 @@
             <include layout="@layout/part_loading" />
         </FrameLayout>
 
-        <com.konifar.confsched.widget.MapSearchView
+        <io.github.droidkaigi.confsched.widget.MapSearchView
             android:id="@+id/map_search_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
