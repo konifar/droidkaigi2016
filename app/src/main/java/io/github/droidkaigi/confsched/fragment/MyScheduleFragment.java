@@ -1,9 +1,8 @@
 package io.github.droidkaigi.confsched.fragment;
 
-import io.github.droidkaigi.confsched.model.Session;
-
 import java.util.List;
 
+import io.github.droidkaigi.confsched.model.Session;
 import rx.Observable;
 
 public class MyScheduleFragment extends SessionsFragment {

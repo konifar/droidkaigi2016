@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity
     AnalyticsUtil analyticsUtil;
 
     private ActivityMainBinding binding;
+    private Fragment currentFragment;
 
     static void start(@NonNull Activity activity) {
         Intent intent = new Intent(activity, MainActivity.class);
@@ -74,6 +75,8 @@ public class MainActivity extends AppCompatActivity
         ft.setCustomAnimations(R.anim.fragment_fade_enter, R.anim.fragment_fade_exit);
         ft.replace(R.id.content_view, fragment, fragment.getClass().getSimpleName());
         ft.commit();
+
+        currentFragment = fragment;
     }
 
     @Override
@@ -144,8 +147,9 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Fragment fragment = getSupportFragmentManager().findFragmentByTag(SessionsFragment.TAG);
-        if (fragment != null) fragment.onActivityResult(requestCode, resultCode, data);
+        if (currentFragment != null) {
+            currentFragment.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
     @Override
