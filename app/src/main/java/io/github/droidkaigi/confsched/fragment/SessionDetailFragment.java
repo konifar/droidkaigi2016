@@ -3,6 +3,7 @@ package io.github.droidkaigi.confsched.fragment;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -46,6 +47,11 @@ public class SessionDetailFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         session = Parcels.unwrap(getArguments().getParcelable(Session.class.getSimpleName()));
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            // Change theme by category
+            getActivity().setTheme(session.category.getThemeResId());
+        }
     }
 
     private void initToolbar() {

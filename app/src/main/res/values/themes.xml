@@ -18,6 +18,36 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="AppTheme.NoActionBar.Indigo">
+        <item name="colorPrimary">@color/indigo500</item>
+        <item name="colorPrimaryDark">@color/indigo600</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.Teal">
+        <item name="colorPrimary">@color/teal500</item>
+        <item name="colorPrimaryDark">@color/teal600</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.Pink">
+        <item name="colorPrimary">@color/pink500</item>
+        <item name="colorPrimaryDark">@color/pink600</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.Amber">
+        <item name="colorPrimary">@color/amber500</item>
+        <item name="colorPrimaryDark">@color/amber500</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.Orange">
+        <item name="colorPrimary">@color/orange500</item>
+        <item name="colorPrimaryDark">@color/orange600</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.Purple">
+        <item name="colorPrimary">@color/purple500</item>
+        <item name="colorPrimaryDark">@color/purple600</item>
+    </style>
+
     <style name="AppTheme.ColoredStatusBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

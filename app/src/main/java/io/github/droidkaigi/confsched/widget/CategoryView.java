@@ -29,7 +29,7 @@ public class CategoryView extends TextView {
     @BindingAdapter("category")
     public static void setCategory(CategoryView categoryView, @Nullable Category category) {
         if (category != null) {
-            categoryView.setTextColor(ContextCompat.getColor(categoryView.getContext(), category.getTextColorResId()));
+            categoryView.setTextColor(ContextCompat.getColor(categoryView.getContext(), category.getVividColorResId()));
             categoryView.setBackgroundResource(R.drawable.tag_language);
             categoryView.setText(category.name);
         } else {

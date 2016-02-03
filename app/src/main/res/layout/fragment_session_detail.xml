@@ -22,9 +22,8 @@
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="@dimen/elevation"
             android:fitsSystemWindows="true"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            app:elevation="@dimen/elevation">
 
             <net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout
                 android:id="@+id/collapsing_toolbar"
@@ -32,7 +31,7 @@
                 android:layout_height="match_parent"
                 android:background="@color/white"
                 android:fitsSystemWindows="true"
-                app:contentScrim="@color/theme500"
+                app:categoryVividColor="@{session.category}"
                 app:expandedTitleMarginBottom="@dimen/spacing_large"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:title="@{session.title}">
