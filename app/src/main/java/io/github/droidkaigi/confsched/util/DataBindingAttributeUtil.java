@@ -23,14 +23,16 @@ public class DataBindingAttributeUtil {
 
     @BindingAdapter("speakerImageUrl")
     public static void setSpeakerImageUrl(ImageView imageView, @Nullable String imageUrl) {
-        if (TextUtils.isEmpty(imageUrl)) return;
-
-        Picasso.with(imageView.getContext())
-                .load(imageUrl)
-                .placeholder(R.drawable.ic_speaker_placeholder)
-                .error(R.drawable.ic_speaker_placeholder)
-                .transform(new CropCircleTransformation())
-                .into(imageView);
+        if (TextUtils.isEmpty(imageUrl)) {
+            imageView.setImageDrawable(ContextCompat.getDrawable(imageView.getContext(), R.drawable.ic_speaker_placeholder));
+        } else {
+            Picasso.with(imageView.getContext())
+                    .load(imageUrl)
+                    .placeholder(R.drawable.ic_speaker_placeholder)
+                    .error(R.drawable.ic_speaker_placeholder)
+                    .transform(new CropCircleTransformation())
+                    .into(imageView);
+        }
     }
 
     @BindingAdapter("coverFadeBackground")
