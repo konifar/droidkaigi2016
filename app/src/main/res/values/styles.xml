@@ -60,11 +60,6 @@
         <item name="android:textColor">@color/grey600</item>
     </style>
 
-    <style name="ExpandedToolbarTitle">
-        <item name="android:textSize">@dimen/text_xlarge</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-
     <style name="ToolbarSearchEditText" parent="Widget.AppCompat.EditText">
         <item name="colorControlNormal">@color/white_alpha_95</item>
         <item name="colorControlActivated">@color/white</item>

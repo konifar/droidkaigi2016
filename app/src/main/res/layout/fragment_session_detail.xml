@@ -22,28 +22,33 @@
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="@dimen/elevation">
+            android:elevation="@dimen/elevation"
+            android:fitsSystemWindows="true"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
             <net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout
                 android:id="@+id/collapsing_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/white"
+                android:fitsSystemWindows="true"
                 app:contentScrim="@color/theme500"
                 app:expandedTitleMarginBottom="@dimen/spacing_large"
-                app:expandedTitleTextAppearance="@style/ExpandedToolbarTitle"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:title="@{session.title}">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/detail_header_height">
+                    android:layout_height="@dimen/detail_header_height"
+                    android:fitsSystemWindows="true"
+                    app:layout_collapseMode="parallax">
 
                     <ImageView
                         android:id="@+id/img_cover"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:contentDescription="@string/session_detail"
+                        android:fitsSystemWindows="true"
                         android:scaleType="centerCrop"
                         android:src="@drawable/img_default_cover" />
 
@@ -57,6 +62,7 @@
                         android:layout_alignRight="@id/img_cover"
                         android:layout_alignStart="@id/img_cover"
                         android:layout_alignTop="@id/img_cover"
+                        android:fitsSystemWindows="true"
                         app:coverFadeBackground="@{session.category}" />
 
                 </RelativeLayout>
