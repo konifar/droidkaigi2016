@@ -61,4 +61,7 @@
 
     <string name="search_hint">Search by words</string>
 
+    <string name="app_close_confirm">Please tap back key again to close.</string>
+    <string name="app_close_now">Close now</string>
+
 </resources>

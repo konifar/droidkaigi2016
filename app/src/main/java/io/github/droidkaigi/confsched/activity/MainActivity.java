@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -34,11 +35,14 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
+    private static final int BACK_BUTTON_PRESSED_INTERVAL = 3000;
 
     @Inject
     AnalyticsUtil analyticsUtil;
 
     private ActivityMainBinding binding;
+    private Fragment currentFragment;
+    private boolean isPressedBackOnce = false;
 
     static void start(@NonNull Activity activity) {
         Intent intent = new Intent(activity, MainActivity.class);
@@ -74,6 +78,8 @@ public class MainActivity extends AppCompatActivity
         ft.setCustomAnimations(R.anim.fragment_fade_enter, R.anim.fragment_fade_exit);
         ft.replace(R.id.content_view, fragment, fragment.getClass().getSimpleName());
         ft.commit();
+
+        currentFragment = fragment;
     }
 
     @Override
@@ -86,9 +92,20 @@ public class MainActivity extends AppCompatActivity
     public void onBackPressed() {
         if (binding.drawer.isDrawerOpen(GravityCompat.START)) {
             binding.drawer.closeDrawer(GravityCompat.START);
-        } else {
+        } else if (isPressedBackOnce) {
             super.onBackPressed();
+            return;
         }
+
+        isPressedBackOnce = true;
+        showSnackBar(getString(R.string.app_close_confirm));
+        new Handler().postDelayed(() -> isPressedBackOnce = false, BACK_BUTTON_PRESSED_INTERVAL);
+    }
+
+    private void showSnackBar(@NonNull String text) {
+        Snackbar.make(binding.getRoot(), text, Snackbar.LENGTH_LONG)
+                .setAction(R.string.app_close_now, v -> finish())
+                .show();
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -144,8 +161,9 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Fragment fragment = getSupportFragmentManager().findFragmentByTag(SessionsFragment.TAG);
-        if (fragment != null) fragment.onActivityResult(requestCode, resultCode, data);
+        if (currentFragment != null) {
+            currentFragment.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
     @Override
