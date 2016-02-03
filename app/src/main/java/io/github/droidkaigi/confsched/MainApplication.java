@@ -5,8 +5,10 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
+import com.crashlytics.android.Crashlytics;
 import com.jakewharton.threetenabp.AndroidThreeTen;
 
+import io.fabric.sdk.android.Fabric;
 import io.github.droidkaigi.StethoWrapper;
 import io.github.droidkaigi.confsched.di.ActivityComponent;
 import io.github.droidkaigi.confsched.di.ActivityModule;
@@ -49,6 +51,8 @@ public class MainApplication extends Application {
         appComponent = DaggerAppComponent.builder()
                 .appModule(new AppModule(this))
                 .build();
+
+        Fabric.with(this, new Crashlytics());
 
         new StethoWrapper(this).setup();
 
