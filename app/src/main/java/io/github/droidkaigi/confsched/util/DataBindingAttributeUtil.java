@@ -3,6 +3,7 @@ package io.github.droidkaigi.confsched.util;
 import android.databinding.BindingAdapter;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.text.util.Linkify;
 import android.view.View;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout;
+
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.model.Category;
 import io.github.droidkaigi.confsched.model.Session;
@@ -18,7 +21,6 @@ import io.github.droidkaigi.confsched.widget.transformation.CropCircleTransforma
 
 public class DataBindingAttributeUtil {
 
-    @SuppressWarnings("unused")
     @BindingAdapter("speakerImageUrl")
     public static void setSpeakerImageUrl(ImageView imageView, @Nullable String imageUrl) {
         if (TextUtils.isEmpty(imageUrl)) return;
@@ -31,13 +33,16 @@ public class DataBindingAttributeUtil {
                 .into(imageView);
     }
 
-    @SuppressWarnings("unused")
     @BindingAdapter("coverFadeBackground")
-    public static void setSpeakerImageUrl(View view, @NonNull Category category) {
-        view.setBackgroundResource(category.getCoverColorResId());
+    public static void setCoverFadeBackground(View view, @NonNull Category category) {
+        view.setBackgroundResource(category.getPaleColorResId());
     }
 
-    @SuppressWarnings("unused")
+    @BindingAdapter("categoryVividColor")
+    public static void setCategoryVividColor(CollapsingToolbarLayout view, @NonNull Category category) {
+        view.setContentScrimColor(ContextCompat.getColor(view.getContext(), category.getVividColorResId()));
+    }
+
     @BindingAdapter("sessionTimeRange")
     public static void setSessionTimeRange(TextView textView, @NonNull Session session) {
         String timeRange = textView.getContext().getString(R.string.session_time_range,
@@ -47,7 +52,6 @@ public class DataBindingAttributeUtil {
         textView.setText(timeRange);
     }
 
-    @SuppressWarnings("unused")
     @BindingAdapter("sessionDescription")
     public static void setSessionDescription(TextView textView, @NonNull Session session) {
         textView.setText(session.description);

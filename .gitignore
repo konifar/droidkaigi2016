@@ -45,3 +45,6 @@ _sandbox
 # keys strings.xml
 app/src/release/res/values/key_strings.xml
 app/src/debug/res/values/key_strings.xml
+
+# fabric
+app/fabric.properties

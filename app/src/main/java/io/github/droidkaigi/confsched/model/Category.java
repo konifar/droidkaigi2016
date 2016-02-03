@@ -1,7 +1,5 @@
 package io.github.droidkaigi.confsched.model;
 
-import android.support.annotation.NonNull;
-
 import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.Table;
 import com.google.gson.annotations.SerializedName;
@@ -25,7 +23,26 @@ public class Category {
     public Category() {
     }
 
-    public int getTextColorResId() {
+    public int getThemeResId() {
+        switch (id) {
+            case 1:
+                return R.style.AppTheme_NoActionBar_Amber;
+            case 2:
+                return R.style.AppTheme_NoActionBar_Indigo;
+            case 3:
+                return R.style.AppTheme_NoActionBar_Orange;
+            case 4:
+                return R.style.AppTheme_NoActionBar_Pink;
+            case 5:
+                return R.style.AppTheme_NoActionBar_Purple;
+            case 6:
+                return R.style.AppTheme_NoActionBar_Teal;
+            default:
+                return R.style.AppTheme_NoActionBar_Indigo;
+        }
+    }
+
+    public int getVividColorResId() {
         switch (id) {
             case 1:
                 return R.color.amber500;
@@ -44,8 +61,7 @@ public class Category {
         }
     }
 
-    @NonNull
-    public int getCoverColorResId() {
+    public int getPaleColorResId() {
         switch (id) {
             case 1:
                 return R.color.amber500_alpha_54;
