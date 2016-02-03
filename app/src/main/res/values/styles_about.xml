@@ -18,7 +18,7 @@
         <item name="android:layout_marginLeft">@dimen/spacing_negative</item>
         <item name="android:layout_marginRight">@dimen/spacing_negative</item>
         <item name="android:layout_marginStart">@dimen/spacing_negative</item>
-        <item name="android:background">@drawable/bg_feedback</item>
+        <item name="android:background">@drawable/clickable</item>
         <item name="android:clickable">true</item>
         <item name="android:paddingBottom">@dimen/spacing_large</item>
         <item name="android:paddingEnd">@dimen/spacing</item>
