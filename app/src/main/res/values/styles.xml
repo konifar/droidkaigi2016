@@ -83,4 +83,9 @@
         <item name="android:ellipsize">end</item>
     </style>
 
+    <style name="SearchResultAppearance">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/theme600</item>
+    </style>
+
 </resources>

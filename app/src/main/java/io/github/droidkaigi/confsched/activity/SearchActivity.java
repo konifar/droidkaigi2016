@@ -4,17 +4,24 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.Editable;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.style.TextAppearanceSpan;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +34,7 @@ import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.ActivitySearchBinding;
 import io.github.droidkaigi.confsched.databinding.ItemSearchResultBinding;
 import io.github.droidkaigi.confsched.model.SearchResult;
+import io.github.droidkaigi.confsched.model.Session;
 import io.github.droidkaigi.confsched.util.AnalyticsUtil;
 import io.github.droidkaigi.confsched.widget.ArrayRecyclerAdapter;
 import io.github.droidkaigi.confsched.widget.BindingHolder;
@@ -95,12 +103,24 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
     }
 
     private void loadData() {
-        List<SearchResult> searchResults = Observable.from(dao.findAll().toBlocking().single())
+        // TODO It's waste logic...
+        List<Session> sessions = dao.findAll().toBlocking().single();
+
+        List<SearchResult> titleResults = Observable.from(sessions)
                 .map(SearchResult::createTitleType)
-                .toList()
-                .toBlocking()
-                .single();
-        adapter.setAllList(searchResults);
+                .toList().toBlocking().single();
+
+        List<SearchResult> descriptionResults = Observable.from(sessions)
+                .map(SearchResult::createDescriptionType)
+                .toList().toBlocking().single();
+
+        List<SearchResult> speakerResults = Observable.from(sessions)
+                .map(SearchResult::createSpeakerType)
+                .toList().toBlocking().single();
+
+        titleResults.addAll(descriptionResults);
+        titleResults.addAll(speakerResults);
+        adapter.setAllList(titleResults);
     }
 
     @Override
@@ -138,16 +158,19 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
         // Do nothing
     }
 
-
-    private class SearchResultsAdapter extends ArrayRecyclerAdapter<SearchResult, BindingHolder<ItemSearchResultBinding>>
+    private class SearchResultsAdapter
+            extends ArrayRecyclerAdapter<SearchResult, BindingHolder<ItemSearchResultBinding>>
             implements Filterable {
 
+        private TextAppearanceSpan textAppearanceSpan;
         private List<SearchResult> filteredList;
         private List<SearchResult> allList;
+        ;
 
         public SearchResultsAdapter(@NonNull Context context) {
             super(context);
             this.filteredList = new ArrayList<>();
+            this.textAppearanceSpan = new TextAppearanceSpan(context, R.style.SearchResultAppearance);
         }
 
         public void setAllList(List<SearchResult> searchResults) {
@@ -162,11 +185,39 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
         @Override
         public void onBindViewHolder(BindingHolder<ItemSearchResultBinding> holder, int position) {
             SearchResult searchResult = getItem(position);
-            ItemSearchResultBinding binding = holder.binding;
-            binding.setSearchResult(searchResult);
+            ItemSearchResultBinding itemBinding = holder.binding;
+            itemBinding.setSearchResult(searchResult);
 
-            binding.getRoot().setOnClickListener(v ->
+            Drawable icon = ContextCompat.getDrawable(getContext(), searchResult.iconRes);
+            itemBinding.txtType.setCompoundDrawablesWithIntrinsicBounds(icon, null, null, null);
+
+            bindText(itemBinding.txtSearchResult, searchResult.text, binding.searchToolbar.getText());
+
+            itemBinding.getRoot().setOnClickListener(v ->
                     activityNavigator.showSessionDetail(SearchActivity.this, searchResult.session, REQ_DETAIL));
+        }
+
+        private void bindText(TextView textView, String text, String searchText) {
+            if (TextUtils.isEmpty(text)) return;
+
+            if (TextUtils.isEmpty(searchText)) {
+                textView.setText(text);
+            } else {
+                int idx = text.toLowerCase().indexOf(searchText.toLowerCase());
+                if (idx >= 0) {
+                    SpannableStringBuilder builder = new SpannableStringBuilder();
+                    builder.append(text);
+                    builder.setSpan(
+                            textAppearanceSpan,
+                            idx,
+                            idx + searchText.length(),
+                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    );
+                    textView.setText(builder);
+                } else {
+                    textView.setText(text);
+                }
+            }
         }
 
         @Override

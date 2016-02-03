@@ -105,8 +105,8 @@
 
                 <ImageView
                     android:id="@+id/img_speaker"
-                    android:layout_width="@dimen/user_image"
-                    android:layout_height="@dimen/user_image"
+                    android:layout_width="@dimen/user_image_small"
+                    android:layout_height="@dimen/user_image_small"
                     android:layout_below="@id/tag_container"
                     android:layout_marginTop="@dimen/spacing_small"
                     android:contentDescription="@string/speaker"
@@ -141,7 +141,7 @@
                     android:layout_marginLeft="@dimen/spacing_small"
                     android:layout_marginRight="-28dp"
                     android:layout_marginStart="@dimen/spacing_small"
-                    app:icon_size="@dimen/user_image"
+                    app:icon_size="@dimen/user_image_small"
                     app:icon_type="star"
                     app:like_drawable="@drawable/ic_star_yellow_500_24dp"
                     app:liked="@{session.checked}"
