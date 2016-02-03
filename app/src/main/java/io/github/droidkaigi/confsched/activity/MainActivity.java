@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity
         binding.drawer.setDrawerListener(toggle);
         toggle.syncState();
         binding.navView.setNavigationItemSelectedListener(this);
+        binding.navView.setCheckedItem(R.id.nav_all_sessions);
     }
 
     private void replaceFragment(Fragment fragment) {
