@@ -32,7 +32,7 @@ import rx.Observable;
 public class MapFragment extends Fragment {
 
     public static final String TAG = MapFragment.class.getSimpleName();
-    public static final LatLng LAT_LNG_CENTER = new LatLng(35.605358, 139.683552);
+    public static final LatLng LAT_LNG_CENTER = new LatLng(35.604757, 139.683788);
     private static final int DEFAULT_ZOOM = 17;
 
     private FragmentMapBinding binding;
