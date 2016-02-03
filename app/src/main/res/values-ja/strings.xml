@@ -60,4 +60,7 @@
 
     <string name="search_hint">キーワードで検索</string>
 
+    <string name="app_close_confirm">もう一度戻るボタンを押すとアプリが閉じます</string>
+    <string name="app_close_now">すぐに閉じる</string>
+
 </resources>
