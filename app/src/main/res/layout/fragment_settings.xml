@@ -14,7 +14,7 @@
             android:id="@+id/language_settings_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_feedback"
+            android:background="@drawable/clickable"
             android:padding="@dimen/spacing">
 
             <TextView

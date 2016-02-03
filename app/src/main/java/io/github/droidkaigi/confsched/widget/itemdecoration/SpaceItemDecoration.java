@@ -1,4 +1,4 @@
-package io.github.droidkaigi.confsched.widget;
+package io.github.droidkaigi.confsched.widget.itemdecoration;
 
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;

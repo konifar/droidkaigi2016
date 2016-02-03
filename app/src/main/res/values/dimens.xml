@@ -36,7 +36,8 @@
     <dimen name="drawer_header_icon">68dp</dimen>
 
     <dimen name="image_thumb">64dp</dimen>
-    <dimen name="user_image">28dp</dimen>
+    <dimen name="user_image_small">28dp</dimen>
+    <dimen name="user_image">36dp</dimen>
     <dimen name="user_image_large">48dp</dimen>
 
     <dimen name="tag_radius">4dp</dimen>

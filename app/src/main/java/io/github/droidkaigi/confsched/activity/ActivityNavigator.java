@@ -23,4 +23,8 @@ public class ActivityNavigator {
         WebViewActivity.start(context, url, title);
     }
 
+    public void showSearch(@NonNull Activity activity) {
+        SearchActivity.start(activity);
+    }
+
 }

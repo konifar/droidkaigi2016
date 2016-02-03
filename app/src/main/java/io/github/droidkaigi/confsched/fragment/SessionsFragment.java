@@ -9,6 +9,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -20,6 +23,8 @@ import java.util.TreeMap;
 import javax.inject.Inject;
 
 import io.github.droidkaigi.confsched.MainApplication;
+import io.github.droidkaigi.confsched.R;
+import io.github.droidkaigi.confsched.activity.ActivityNavigator;
 import io.github.droidkaigi.confsched.api.DroidKaigiClient;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSessionsBinding;
@@ -42,6 +47,8 @@ public class SessionsFragment extends Fragment {
     SessionDao dao;
     @Inject
     CompositeSubscription compositeSubscription;
+    @Inject
+    ActivityNavigator activityNavigator;
 
     private SessionsPagerAdapter adapter;
     private FragmentSessionsBinding binding;
@@ -54,6 +61,7 @@ public class SessionsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentSessionsBinding.inflate(inflater, container, false);
+        setHasOptionsMenu(true);
         initViewPager();
         loadData();
         return binding.getRoot();
@@ -112,6 +120,21 @@ public class SessionsFragment extends Fragment {
     private void addFragment(String title, List<Session> sessions) {
         SessionsTabFragment fragment = SessionsTabFragment.newInstance(sessions);
         adapter.add(title, fragment);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
+        menuInflater.inflate(R.menu.menu_sessions, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.item_search:
+                activityNavigator.showSearch(getActivity());
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

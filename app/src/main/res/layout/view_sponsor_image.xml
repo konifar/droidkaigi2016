@@ -7,7 +7,7 @@
         android:id="@+id/root_view"
         android:layout_width="@dimen/sponsor_image_width"
         android:layout_height="@dimen/sponsor_image_height"
-        android:background="@drawable/bg_feedback"
+        android:background="@drawable/clickable"
         android:clickable="true"
         android:padding="@dimen/spacing_xsmall">
 
