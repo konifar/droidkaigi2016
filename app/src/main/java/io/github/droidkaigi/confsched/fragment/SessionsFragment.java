@@ -84,7 +84,7 @@ public class SessionsFragment extends Fragment {
         Subscription sub = cachedSessions
                 .flatMap(sessions -> {
                     if (sessions.isEmpty()) {
-                        return client.getSessions().doOnNext(sessions1 -> dao.updateAll(sessions));
+                        return client.getSessions().doOnNext(dao::updateAll);
                     } else {
                         return Observable.just(sessions);
                     }
