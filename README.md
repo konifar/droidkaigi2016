@@ -90,7 +90,7 @@ Android-Orma is a wrapper of SQLiteDatabase, a lightning-fast and anotation base
 
 Some model classes in `model` package has `@Table` annotation.
 
-```
+```java
 @Table
 public class Session {
     @Column(indexed = true)
