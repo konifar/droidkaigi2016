@@ -199,12 +199,6 @@ public class SessionsFragment extends Fragment {
             notifyDataSetChanged();
         }
 
-        public void removeAll() {
-            fragments = new ArrayList<>();
-            titles = new ArrayList<>();
-            notifyDataSetChanged();
-        }
-
     }
 
 }
