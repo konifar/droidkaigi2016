@@ -22,14 +22,12 @@ import javax.inject.Inject;
 import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.databinding.ActivityMainBinding;
-import io.github.droidkaigi.confsched.fragment.AboutFragment;
-import io.github.droidkaigi.confsched.fragment.MapFragment;
-import io.github.droidkaigi.confsched.fragment.MyScheduleFragment;
 import io.github.droidkaigi.confsched.fragment.SessionsFragment;
-import io.github.droidkaigi.confsched.fragment.SettingsFragment;
-import io.github.droidkaigi.confsched.fragment.SponsorsFragment;
+import io.github.droidkaigi.confsched.model.MainContentStateBrokerProvider;
+import io.github.droidkaigi.confsched.model.Page;
 import io.github.droidkaigi.confsched.util.AnalyticsUtil;
 import io.github.droidkaigi.confsched.util.AppUtil;
+import rx.subscriptions.CompositeSubscription;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -39,6 +37,12 @@ public class MainActivity extends AppCompatActivity
 
     @Inject
     AnalyticsUtil analyticsUtil;
+
+    @Inject
+    MainContentStateBrokerProvider brokerProvider;
+
+    @Inject
+    CompositeSubscription subscription;
 
     private ActivityMainBinding binding;
     private Fragment currentFragment;
@@ -58,6 +62,11 @@ public class MainActivity extends AppCompatActivity
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         MainApplication.getComponent(this).inject(this);
 
+        subscription.add(brokerProvider.get().observe().subscribe(page -> {
+            toggleToolbarElevation(page.shouldToggleToolbar());
+            changePage(page.getTitleResId(), page.createFragment());
+            binding.navView.setCheckedItem(page.getMenuId());
+        }));
         initView();
 
         replaceFragment(SessionsFragment.newInstance());
@@ -113,33 +122,9 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         binding.drawer.closeDrawer(GravityCompat.START);
 
-        int id = item.getItemId();
-        switch (id) {
-            case R.id.nav_all_sessions:
-                toggleToolbarElevation(false);
-                changePage(R.string.all_sessions, SessionsFragment.newInstance());
-                break;
-            case R.id.nav_my_schedule:
-                toggleToolbarElevation(false);
-                changePage(R.string.my_schedule, MyScheduleFragment.newInstance());
-                break;
-            case R.id.nav_map:
-                toggleToolbarElevation(true);
-                changePage(R.string.map, MapFragment.newInstance());
-                break;
-            case R.id.nav_settings:
-                toggleToolbarElevation(true);
-                changePage(R.string.settings, SettingsFragment.newInstance());
-                break;
-            case R.id.nav_sponsors:
-                toggleToolbarElevation(true);
-                changePage(R.string.sponsors, SponsorsFragment.newInstance());
-                break;
-            case R.id.nav_about:
-                toggleToolbarElevation(true);
-                changePage(R.string.about, AboutFragment.newInstance());
-                break;
-        }
+        Page page = Page.forMenuId(item);
+        toggleToolbarElevation(page.shouldToggleToolbar());
+        changePage(page.getTitleResId(), page.createFragment());
 
         return true;
     }

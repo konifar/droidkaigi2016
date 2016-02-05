@@ -63,4 +63,6 @@
     <string name="app_close_confirm">もう一度戻るボタンを押すとアプリが閉じます</string>
     <string name="app_close_now">すぐに閉じる</string>
 
+    <string name="my_schedule_empty">まだセッションが追加されていません。全てのセッションから聞きたいセッションを選んでみましょう!</string>
+    <string name="my_schedule_go_to_session_list">全てのセッションを見る</string>
 </resources>

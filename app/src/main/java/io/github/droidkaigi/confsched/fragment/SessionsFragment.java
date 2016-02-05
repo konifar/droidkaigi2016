@@ -28,6 +28,8 @@ import io.github.droidkaigi.confsched.activity.ActivityNavigator;
 import io.github.droidkaigi.confsched.api.DroidKaigiClient;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSessionsBinding;
+import io.github.droidkaigi.confsched.model.MainContentStateBrokerProvider;
+import io.github.droidkaigi.confsched.model.Page;
 import io.github.droidkaigi.confsched.model.Session;
 import io.github.droidkaigi.confsched.util.AppUtil;
 import io.github.droidkaigi.confsched.util.DateUtil;
@@ -49,6 +51,8 @@ public class SessionsFragment extends Fragment {
     CompositeSubscription compositeSubscription;
     @Inject
     ActivityNavigator activityNavigator;
+    @Inject
+    MainContentStateBrokerProvider brokerProvider;
 
     private SessionsPagerAdapter adapter;
     private FragmentSessionsBinding binding;
@@ -63,7 +67,8 @@ public class SessionsFragment extends Fragment {
         binding = FragmentSessionsBinding.inflate(inflater, container, false);
         setHasOptionsMenu(true);
         initViewPager();
-        loadData();
+        initEmptyView();
+        compositeSubscription.add(loadData());
         return binding.getRoot();
     }
 
@@ -79,22 +84,34 @@ public class SessionsFragment extends Fragment {
         binding.tabLayout.setupWithViewPager(binding.viewPager);
     }
 
-    protected void loadData() {
+    private void initEmptyView() {
+        binding.emptyViewButton.setOnClickListener(v -> {
+            brokerProvider.get().set(Page.ALL_SESSIONS);
+        });
+    }
+
+    protected Subscription loadData() {
         Observable<List<Session>> cachedSessions = dao.findAll();
-        if (cachedSessions.isEmpty().toBlocking().single()) {
-            Subscription sub = client.getSessions()
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(sessions -> {
-                                dao.updateAll(sessions);
-                                groupByDateSessions(sessions);
-                            },
-                            throwable -> Log.e(TAG, throwable.getMessage(), throwable)
-                    );
-            compositeSubscription.add(sub);
-        } else {
-            groupByDateSessions(cachedSessions.toBlocking().single());
-        }
+        return cachedSessions.flatMap(sessions -> {
+                    if (sessions.isEmpty()) {
+                        return client.getSessions().doOnNext(dao::updateAll);
+                    } else {
+                        return Observable.just(sessions);
+                    }
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(
+                        this::groupByDateSessions,
+                        throwable -> Log.e(TAG, "Load failed", throwable)
+                );
+    }
+
+    protected void showEmptyView() {
+        binding.emptyView.setVisibility(View.VISIBLE);
+    }
+
+    protected void hideEmptyView() {
+        binding.emptyView.setVisibility(View.GONE);
     }
 
     protected void groupByDateSessions(List<Session> sessions) {
@@ -115,6 +132,11 @@ public class SessionsFragment extends Fragment {
         }
 
         binding.tabLayout.setupWithViewPager(binding.viewPager);
+        if (sessions.isEmpty()) {
+            showEmptyView();
+        } else {
+            hideEmptyView();
+        }
     }
 
     private void addFragment(String title, List<Session> sessions) {

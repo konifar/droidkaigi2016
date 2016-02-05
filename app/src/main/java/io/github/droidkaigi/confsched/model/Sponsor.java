@@ -19,6 +19,7 @@ public class Sponsor {
         list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/mixi.png", "https://mixi.co.jp"));
         list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/findjob.png", "http://www.find-job.net"));
         list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/mixiagent.png", "http://mixi-agent.jp"));
+        list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/google.png", "https://developers.google.com/"));
         return list;
     }
 
@@ -32,6 +33,7 @@ public class Sponsor {
         List<Sponsor> list = new ArrayList<>();
         list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/sansan.png", "https://www.sansan.com"));
         list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/mercari.png", "https://www.mercari.com/jp"));
+        list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/yj.png", ""));
         return list;
     }
 
@@ -47,6 +49,8 @@ public class Sponsor {
         list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/goodpatch.png", "http://goodpatch.com"));
         list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/uphyca.png", "http://www.uphyca.com"));
         list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/gamewith.png", "http://gamewith.co.jp"));
+        list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/gunosy.png", "https://gunosy.co.jp/"));
+        list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/nikkei.png", "https://s.nikkei.com/saiyo"));
         return list;
     }
 
