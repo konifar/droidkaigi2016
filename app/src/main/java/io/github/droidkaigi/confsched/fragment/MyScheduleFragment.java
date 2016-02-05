@@ -4,6 +4,7 @@ import java.util.List;
 
 import io.github.droidkaigi.confsched.model.Session;
 import rx.Observable;
+import rx.Subscription;
 
 public class MyScheduleFragment extends SessionsFragment {
 
@@ -12,13 +13,15 @@ public class MyScheduleFragment extends SessionsFragment {
     }
 
     @Override
-    protected void loadData() {
+    protected Subscription loadData() {
         Observable<List<Session>> cachedSessions = dao.findByChecked();
-        if (cachedSessions.isEmpty().toBlocking().single()) {
-            showEmptyView();
-        } else {
-            groupByDateSessions(cachedSessions.toBlocking().single());
-        }
+        return cachedSessions.subscribe(sessions -> {
+            if (sessions.isEmpty()) {
+                showEmptyView();
+            } else {
+                groupByDateSessions(sessions);
+            }
+        });
     }
 
 }

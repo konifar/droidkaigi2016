@@ -64,7 +64,7 @@ public class SessionsFragment extends Fragment {
         setHasOptionsMenu(true);
         initViewPager();
         initEmptyView();
-        loadData();
+        compositeSubscription.add(loadData());
         return binding.getRoot();
     }
 
@@ -86,10 +86,9 @@ public class SessionsFragment extends Fragment {
         });
     }
 
-    protected void loadData() {
+    protected Subscription loadData() {
         Observable<List<Session>> cachedSessions = dao.findAll();
-        Subscription sub = cachedSessions
-                .flatMap(sessions -> {
+        return cachedSessions.flatMap(sessions -> {
                     if (sessions.isEmpty()) {
                         return client.getSessions().doOnNext(dao::updateAll);
                     } else {
@@ -101,7 +100,6 @@ public class SessionsFragment extends Fragment {
                         this::groupByDateSessions,
                         throwable -> Log.e(TAG, "Load failed", throwable)
                 );
-        compositeSubscription.add(sub);
     }
 
     protected void showEmptyView() {
