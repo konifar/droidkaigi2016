@@ -69,6 +69,7 @@ public class SessionsFragment extends Fragment {
         initViewPager();
         initEmptyView();
         compositeSubscription.add(loadData());
+        compositeSubscription.add(fetchAndSave());
         return binding.getRoot();
     }
 
@@ -90,13 +91,20 @@ public class SessionsFragment extends Fragment {
         });
     }
 
+    private Subscription fetchAndSave() {
+        return client.getSessions()
+                .doOnNext(dao::updateAll)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe();
+    }
+
     protected Subscription loadData() {
         Observable<List<Session>> cachedSessions = dao.findAll();
         return cachedSessions.flatMap(sessions -> {
             if (sessions.isEmpty()) {
                 return client.getSessions().doOnNext(dao::updateAll);
             } else {
-                compositeSubscription.add(client.getSessions().doOnNext(dao::updateAll).subscribe());
                 return Observable.just(sessions);
             }
         })
