@@ -15,7 +15,7 @@ public class MyScheduleFragment extends SessionsFragment {
     protected void loadData() {
         Observable<List<Session>> cachedSessions = dao.findByChecked();
         if (cachedSessions.isEmpty().toBlocking().single()) {
-            // TODO
+            showEmptyView();
         } else {
             groupByDateSessions(cachedSessions.toBlocking().single());
         }

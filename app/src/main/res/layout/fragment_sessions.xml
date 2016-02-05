@@ -4,28 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="io.github.droidkaigi.confsched.fragment.SessionsFragment">
 
-    <LinearLayout
-        android:id="@+id/container_main"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tab_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/theme500"
-            android:elevation="@dimen/elevation"
-            app:tabIndicatorColor="@color/accent100"
-            app:tabMode="fixed"
-            app:tabTextColor="@color/grey300" />
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/view_pager"
+        <LinearLayout
+            android:id="@+id/container_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/theme500"
+                android:elevation="@dimen/elevation"
+                app:tabIndicatorColor="@color/accent100"
+                app:tabMode="fixed"
+                app:tabTextColor="@color/grey300" />
 
+            <android.support.v4.view.ViewPager
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/empty_view_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/my_schedule_empty"/>
+            <Space
+                android:id="@+id/spacer"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_below="@id/empty_view_message"/>
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/empty_view_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/spacer"
+                android:text="@string/my_schedule_go_to_session_list"/>
+        </RelativeLayout>
+    </FrameLayout>
 </layout>

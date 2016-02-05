@@ -63,6 +63,7 @@ public class SessionsFragment extends Fragment {
         binding = FragmentSessionsBinding.inflate(inflater, container, false);
         setHasOptionsMenu(true);
         initViewPager();
+        initEmptyView();
         loadData();
         return binding.getRoot();
     }
@@ -77,6 +78,12 @@ public class SessionsFragment extends Fragment {
         adapter = new SessionsPagerAdapter(getFragmentManager());
         binding.viewPager.setAdapter(adapter);
         binding.tabLayout.setupWithViewPager(binding.viewPager);
+    }
+
+    private void initEmptyView() {
+        binding.emptyViewButton.setOnClickListener(v -> {
+            // TODO
+        });
     }
 
     protected void loadData() {
@@ -97,6 +104,14 @@ public class SessionsFragment extends Fragment {
         compositeSubscription.add(sub);
     }
 
+    protected void showEmptyView() {
+        binding.emptyView.setVisibility(View.VISIBLE);
+    }
+
+    protected void hideEmptyView() {
+        binding.emptyView.setVisibility(View.GONE);
+    }
+
     protected void groupByDateSessions(List<Session> sessions) {
         Map<String, List<Session>> sessionsByDate = new TreeMap<>();
         for (Session session : sessions) {
@@ -115,6 +130,11 @@ public class SessionsFragment extends Fragment {
         }
 
         binding.tabLayout.setupWithViewPager(binding.viewPager);
+        if (sessions.isEmpty()) {
+            showEmptyView();
+        } else {
+            hideEmptyView();
+        }
     }
 
     private void addFragment(String title, List<Session> sessions) {
