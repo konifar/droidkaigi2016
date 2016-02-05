@@ -28,6 +28,8 @@ import io.github.droidkaigi.confsched.activity.ActivityNavigator;
 import io.github.droidkaigi.confsched.api.DroidKaigiClient;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSessionsBinding;
+import io.github.droidkaigi.confsched.model.MainContentStateBrokerProvider;
+import io.github.droidkaigi.confsched.model.Page;
 import io.github.droidkaigi.confsched.model.Session;
 import io.github.droidkaigi.confsched.util.AppUtil;
 import io.github.droidkaigi.confsched.util.DateUtil;
@@ -49,6 +51,8 @@ public class SessionsFragment extends Fragment {
     CompositeSubscription compositeSubscription;
     @Inject
     ActivityNavigator activityNavigator;
+    @Inject
+    MainContentStateBrokerProvider brokerProvider;
 
     private SessionsPagerAdapter adapter;
     private FragmentSessionsBinding binding;
@@ -82,7 +86,7 @@ public class SessionsFragment extends Fragment {
 
     private void initEmptyView() {
         binding.emptyViewButton.setOnClickListener(v -> {
-            // TODO
+            brokerProvider.get().set(Page.ALL_SESSIONS);
         });
     }
 
