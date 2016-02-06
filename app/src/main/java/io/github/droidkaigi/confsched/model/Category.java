@@ -10,7 +10,7 @@ import io.github.droidkaigi.confsched.R;
 
 @Parcel
 @Table
-public class Category {
+public class Category implements SearchGroup {
 
     @Column(indexed = true)
     @SerializedName("id")
@@ -78,6 +78,21 @@ public class Category {
             default:
                 return R.color.indigo500_alpha_54;
         }
+    }
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public Type getType() {
+        return Type.CATEGORY;
     }
 
 }
