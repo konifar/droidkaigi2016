@@ -42,7 +42,7 @@ public class DroidKaigiClient {
 
     public interface DroidKaigiService {
 
-        @GET("/konifar/droidkaigi2016/master/app/src/main/res/raw/data.json")
+        @GET("/konifar/droidkaigi2016/master/app/src/main/res/raw/sessions_ja.json")
         Observable<List<Session>> getSessions();
 
     }

@@ -69,6 +69,7 @@ public class SessionsFragment extends Fragment {
         initViewPager();
         initEmptyView();
         compositeSubscription.add(loadData());
+        compositeSubscription.add(fetchAndSave());
         return binding.getRoot();
     }
 
@@ -90,17 +91,26 @@ public class SessionsFragment extends Fragment {
         });
     }
 
+    private Subscription fetchAndSave() {
+        return client.getSessions()
+                .doOnNext(dao::updateAll)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe();
+    }
+
     protected Subscription loadData() {
         Observable<List<Session>> cachedSessions = dao.findAll();
         return cachedSessions.flatMap(sessions -> {
-                    if (sessions.isEmpty()) {
-                        return client.getSessions().doOnNext(dao::updateAll);
-                    } else {
-                        return Observable.just(sessions);
-                    }
-                })
+            if (sessions.isEmpty()) {
+                return client.getSessions().doOnNext(dao::updateAll);
+            } else {
+                return Observable.just(sessions);
+            }
+        })
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread()).subscribe(
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
                         this::groupByDateSessions,
                         throwable -> Log.e(TAG, "Load failed", throwable)
                 );
@@ -132,6 +142,7 @@ public class SessionsFragment extends Fragment {
         }
 
         binding.tabLayout.setupWithViewPager(binding.viewPager);
+
         if (sessions.isEmpty()) {
             showEmptyView();
         } else {
@@ -168,8 +179,8 @@ public class SessionsFragment extends Fragment {
 
     private class SessionsPagerAdapter extends FragmentStatePagerAdapter {
 
-        private final List<SessionsTabFragment> fragments = new ArrayList<>();
-        private final List<String> titles = new ArrayList<>();
+        private List<SessionsTabFragment> fragments = new ArrayList<>();
+        private List<String> titles = new ArrayList<>();
 
         public SessionsPagerAdapter(FragmentManager fm) {
             super(fm);
