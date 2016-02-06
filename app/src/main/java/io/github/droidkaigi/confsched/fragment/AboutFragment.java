@@ -65,7 +65,7 @@ public class AboutFragment extends Fragment {
             // TODO
         });
         binding.txtQuestionnaire.setOnClickListener(v -> {
-            // TODO
+            AppUtil.showWebPage(getActivity(), getString(R.string.about_inquiry_url));
         });
         binding.txtLicense.setOnClickListener(v ->
                 activityNavigator.showWebView(getActivity(), LICENSE_URL, getString(R.string.about_license)));
