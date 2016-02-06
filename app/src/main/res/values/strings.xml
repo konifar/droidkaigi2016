@@ -58,7 +58,6 @@
     <string name="about_license">License</string>
     <string name="about_questionnaire">Questionnaire</string>
     <string name="about_version_prefix">"V%1$s</string>
-    <string name="about_inquiry_url">https://docs.google.com/forms/d/1fpxZOqprZyzBgMBb7HCCrq538oOzfzWkOMpItRqF-ro/viewform</string>
 
     <string name="search_hint">Search by words</string>
 
