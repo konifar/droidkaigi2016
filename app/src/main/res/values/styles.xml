@@ -82,6 +82,11 @@
         <item name="android:textColor">@color/theme600</item>
     </style>
 
+    <style name="SessionDetailToolbarTitle">
+        <item name="android:textSize">@dimen/text_xxlarge</item>
+        <item name="android:maxLines">4</item>
+    </style>
+
     <style name="SessionDetailTitle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

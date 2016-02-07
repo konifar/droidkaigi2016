@@ -33,6 +33,7 @@
                 android:fitsSystemWindows="true"
                 app:categoryVividColor="@{session.category}"
                 app:expandedTitleMarginBottom="@dimen/spacing_large"
+                app:expandedTitleTextAppearance="@style/SessionDetailToolbarTitle"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:title="@{session.title}">
 
