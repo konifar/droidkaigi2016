@@ -3,6 +3,7 @@ package io.github.droidkaigi.confsched.util;
 import android.databinding.BindingAdapter;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.text.util.Linkify;
@@ -72,6 +73,12 @@ public class DataBindingAttributeUtil {
     public static void setSessionDescription(TextView textView, @NonNull Session session) {
         textView.setText(session.description);
         Linkify.addLinks(textView, Linkify.ALL);
+    }
+
+    @BindingAdapter("sessionFab")
+    public static void setSessionFab(FloatingActionButton fab, @NonNull Session session) {
+        fab.setRippleColor(ContextCompat.getColor(fab.getContext(), session.category.getPaleColorResId()));
+        fab.setSelected(session.checked);
     }
 
 }

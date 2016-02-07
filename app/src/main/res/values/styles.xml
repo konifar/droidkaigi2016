@@ -94,4 +94,8 @@
         <item name="android:textSize">@dimen/text_xlarge</item>
     </style>
 
+    <style name="FabTheme">
+        <item name="colorAccent">@color/white</item>
+    </style>
+
 </resources>

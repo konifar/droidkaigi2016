@@ -14,9 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.like.LikeButton;
-import com.like.OnLikeListener;
-
 import org.parceler.Parcels;
 
 import javax.inject.Inject;
@@ -73,22 +70,12 @@ public class SessionDetailFragment extends Fragment {
         initToolbar();
         binding.setSession(session);
 
-        binding.btnStar.setOnLikeListener(new OnLikeListener() {
-            @Override
-            public void liked(LikeButton likeButton) {
-                toggle(true);
-            }
-
-            @Override
-            public void unLiked(LikeButton likeButton) {
-                toggle(false);
-            }
-
-            private void toggle(boolean checked) {
-                session.checked = checked;
-                dao.updateChecked(session);
-                setResult();
-            }
+        binding.fab.setOnClickListener(v -> {
+            boolean checked = !binding.fab.isSelected();
+            binding.fab.setSelected(checked);
+            session.checked = checked;
+            dao.updateChecked(session);
+            setResult();
         });
 
         return binding.getRoot();

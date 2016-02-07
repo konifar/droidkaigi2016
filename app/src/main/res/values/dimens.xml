@@ -6,6 +6,7 @@
     <dimen name="spacing_large">24sp</dimen>
 
     <dimen name="spacing_xsmall_negative">-4sp</dimen>
+    <dimen name="spacing_small_negative">-8sp</dimen>
     <dimen name="spacing_negative">-16sp</dimen>
 
     <dimen name="icon_spacing_small">2sp</dimen>
@@ -53,6 +54,7 @@
     <dimen name="sponsor_image_height">80dp</dimen>
 
     <dimen name="app_info_footer_height">30dp</dimen>
+    <dimen name="sns_icon">24dp</dimen>
     <dimen name="sns_icon_large">36dp</dimen>
 
 </resources>
