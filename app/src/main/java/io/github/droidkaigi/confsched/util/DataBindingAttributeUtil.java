@@ -27,6 +27,8 @@ public class DataBindingAttributeUtil {
         if (TextUtils.isEmpty(imageUrl)) {
             imageView.setImageDrawable(ContextCompat.getDrawable(imageView.getContext(), R.drawable.ic_speaker_placeholder));
         } else {
+            imageView.setBackground(ContextCompat.getDrawable(imageView.getContext(), R.drawable.circle_border_grey200));
+
             Picasso.with(imageView.getContext())
                     .load(imageUrl)
                     .placeholder(R.drawable.ic_speaker_placeholder)
