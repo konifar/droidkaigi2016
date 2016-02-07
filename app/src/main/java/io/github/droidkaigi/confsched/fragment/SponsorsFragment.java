@@ -3,6 +3,7 @@ package io.github.droidkaigi.confsched.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +48,11 @@ public class SponsorsFragment extends Fragment {
 
     private void addView(Sponsor sponsor, FlowLayout container) {
         SponsorImageView imageView = new SponsorImageView(getActivity());
-        imageView.bindData(sponsor, v -> AppUtil.showWebPage(getActivity(), sponsor.url));
+        imageView.bindData(sponsor, v -> {
+            if (TextUtils.isEmpty(sponsor.url))
+                return;
+            AppUtil.showWebPage(getActivity(), sponsor.url);
+        });
         FlowLayout.LayoutParams params = new FlowLayout.LayoutParams(
                 FlowLayout.LayoutParams.WRAP_CONTENT, FlowLayout.LayoutParams.WRAP_CONTENT);
         int margin = (int) getResources().getDimension(R.dimen.spacing_small);
