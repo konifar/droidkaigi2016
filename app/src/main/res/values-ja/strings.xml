@@ -22,6 +22,9 @@
 
     <string name="icon">アイコン</string>
 
+    <string name="feedback">フィードバック</string>
+    <string name="send_feedback">フィードバックを送る</string>
+
     <string name="all_sessions">すべてのセッション</string>
     <string name="my_schedule">マイスケジュール</string>
     <string name="map">マップ</string>

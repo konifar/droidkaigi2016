@@ -114,8 +114,8 @@
                     <TextView
                         android:id="@+id/txt_place"
                         style="@style/Tag"
-                        android:layout_marginEnd="@dimen/spacing_xsmall"
-                        android:layout_marginRight="@dimen/spacing_xsmall"
+                        android:layout_marginEnd="@dimen/spacing_small"
+                        android:layout_marginRight="@dimen/spacing_small"
                         android:layout_marginTop="@dimen/spacing_xsmall"
                         android:background="@drawable/tag_language"
                         android:text="@{session.place.name}" />
@@ -123,16 +123,16 @@
                     <io.github.droidkaigi.confsched.widget.CategoryView
                         android:id="@+id/txt_category"
                         style="@style/Tag"
-                        android:layout_marginEnd="@dimen/spacing_xsmall"
-                        android:layout_marginRight="@dimen/spacing_xsmall"
+                        android:layout_marginEnd="@dimen/spacing_small"
+                        android:layout_marginRight="@dimen/spacing_small"
                         android:layout_marginTop="@dimen/spacing_xsmall"
                         app:category="@{session.category}" />
 
                     <TextView
                         android:id="@+id/txt_language"
                         style="@style/Tag"
-                        android:layout_marginEnd="@dimen/spacing_xsmall"
-                        android:layout_marginRight="@dimen/spacing_xsmall"
+                        android:layout_marginEnd="@dimen/spacing_small"
+                        android:layout_marginRight="@dimen/spacing_small"
                         android:layout_marginTop="@dimen/spacing_xsmall"
                         android:background="@drawable/tag_language"
                         android:text="@{session.getLanguageResId()}"
@@ -220,6 +220,23 @@
                     android:textColor="@color/grey600"
                     android:textSize="@dimen/text"
                     app:sessionDescription="@{session}" />
+
+                <View
+                    style="@style/Border"
+                    android:layout_marginTop="@dimen/spacing" />
+
+                <TextView
+                    android:id="@+id/txt_feedback"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/clickable"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:padding="@dimen/spacing"
+                    android:text="@string/send_feedback"
+                    android:textColor="@color/grey600"
+                    android:textSize="@dimen/text_xlarge"
+                    app:categoryVividColor="@{session.category}" />
 
             </LinearLayout>
 

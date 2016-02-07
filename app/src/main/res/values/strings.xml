@@ -22,6 +22,9 @@
 
     <string name="icon">Icon</string>
 
+    <string name="feedback">Feedback</string>
+    <string name="send_feedback">Send feedback</string>
+
     <string name="all_sessions">All Sessions</string>
     <string name="my_schedule">My Schedule</string>
     <string name="map">Map</string>

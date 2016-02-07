@@ -19,6 +19,7 @@ import org.parceler.Parcels;
 import javax.inject.Inject;
 
 import io.github.droidkaigi.confsched.MainApplication;
+import io.github.droidkaigi.confsched.activity.ActivityNavigator;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSessionDetailBinding;
 import io.github.droidkaigi.confsched.model.Session;
@@ -29,6 +30,9 @@ public class SessionDetailFragment extends Fragment {
 
     @Inject
     SessionDao dao;
+    @Inject
+    ActivityNavigator activityNavigator;
+
     private FragmentSessionDetailBinding binding;
     private Session session;
 
@@ -77,6 +81,8 @@ public class SessionDetailFragment extends Fragment {
             dao.updateChecked(session);
             setResult();
         });
+
+        binding.txtFeedback.setOnClickListener(v -> activityNavigator.showFeedback(getActivity()));
 
         return binding.getRoot();
     }
