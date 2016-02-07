@@ -180,6 +180,9 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
             extends ArrayRecyclerAdapter<SearchResult, BindingHolder<ItemSearchResultBinding>>
             implements Filterable {
 
+        private static final String ELLIPSIZE_TEXT = "...";
+        private static final int ELLIPSIZE_LIMIT_COUNT = 30;
+
         private TextAppearanceSpan textAppearanceSpan;
         private List<SearchResult> filteredList;
         private List<SearchResult> allList;
@@ -209,14 +212,17 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
             Drawable icon = ContextCompat.getDrawable(getContext(), searchResult.iconRes);
             itemBinding.txtType.setCompoundDrawablesWithIntrinsicBounds(icon, null, null, null);
 
-            bindText(itemBinding.txtSearchResult, searchResult.text, binding.searchToolbar.getText());
+            bindText(itemBinding.txtSearchResult, searchResult, binding.searchToolbar.getText());
 
             itemBinding.getRoot().setOnClickListener(v ->
                     activityNavigator.showSessionDetail(SearchActivity.this, searchResult.session, REQ_DETAIL));
         }
 
-        private void bindText(TextView textView, String text, String searchText) {
+        private void bindText(TextView textView, SearchResult searchResult, String searchText) {
+            String text = searchResult.text;
             if (TextUtils.isEmpty(text)) return;
+
+            text = text.replace("\n", "  ");
 
             if (TextUtils.isEmpty(searchText)) {
                 textView.setText(text);
@@ -231,6 +237,12 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
                             idx + searchText.length(),
                             Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
                     );
+
+                    if (idx > ELLIPSIZE_LIMIT_COUNT && searchResult.isDescriptionType()) {
+                        builder.delete(0, idx - ELLIPSIZE_LIMIT_COUNT);
+                        builder.insert(0, ELLIPSIZE_TEXT);
+                    }
+
                     textView.setText(builder);
                 } else {
                     textView.setText(text);
