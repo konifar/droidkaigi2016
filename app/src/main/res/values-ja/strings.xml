@@ -17,6 +17,9 @@
     <string name="description">詳細</string>
     <string name="category">カテゴリ</string>
 
+    <string name="search_by_category">カテゴリから探す</string>
+    <string name="search_by_place">場所から探す</string>
+
     <string name="icon">アイコン</string>
 
     <string name="all_sessions">すべてのセッション</string>

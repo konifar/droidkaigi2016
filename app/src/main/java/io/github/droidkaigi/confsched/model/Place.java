@@ -8,7 +8,7 @@ import org.parceler.Parcel;
 
 @Parcel
 @Table
-public class Place {
+public class Place implements SearchGroup {
 
     @Column(indexed = true)
     @SerializedName("id")
@@ -21,4 +21,18 @@ public class Place {
     public Place() {
     }
 
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public Type getType() {
+        return Type.PLACE;
+    }
 }

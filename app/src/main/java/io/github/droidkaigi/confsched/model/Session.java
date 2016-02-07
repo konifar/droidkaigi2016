@@ -42,14 +42,14 @@ public class Session {
     @SerializedName("etime")
     public Date etime;
 
-    @Column
+    @Column(indexed = true)
     public int categoryId;
 
     @Nullable
     @SerializedName("category")
     public Category category;
 
-    @Column
+    @Column(indexed = true)
     public int placeId;
 
     @SerializedName("place")

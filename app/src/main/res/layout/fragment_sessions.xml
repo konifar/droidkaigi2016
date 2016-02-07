@@ -19,7 +19,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/theme500"
-                android:elevation="@dimen/elevation"
+                app:elevation="@dimen/elevation"
                 app:tabIndicatorColor="@color/accent100"
                 app:tabMode="fixed"
                 app:tabTextColor="@color/grey300" />
@@ -36,26 +36,33 @@
             android:id="@+id/empty_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="@dimen/spacing"
             android:visibility="gone">
+
             <TextView
                 android:id="@+id/empty_view_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:gravity="center"
-                android:text="@string/my_schedule_empty"/>
+                android:text="@string/my_schedule_empty" />
+
             <Space
                 android:id="@+id/spacer"
                 android:layout_width="match_parent"
-                android:layout_height="8dp"
-                android:layout_below="@id/empty_view_message"/>
+                android:layout_height="@dimen/spacing"
+                android:layout_below="@id/empty_view_message" />
+
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/empty_view_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:layout_below="@id/spacer"
-                android:text="@string/my_schedule_go_to_session_list"/>
+                android:layout_centerHorizontal="true"
+                android:text="@string/my_schedule_go_to_session_list" />
+
         </RelativeLayout>
+
     </FrameLayout>
+
 </layout>

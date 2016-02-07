@@ -40,7 +40,11 @@ public class SearchToolbar extends FrameLayout {
                 boolean focus = a.getBoolean(R.styleable.SearchToolbar_searchFocus, false);
                 int hintResId = a.getResourceId(R.styleable.SearchToolbar_searchHint, R.string.search_hint);
                 setHint(hintResId);
-                if (focus) binding.editSearch.requestFocus();
+                if (focus) {
+                    binding.editSearch.requestFocus();
+                } else {
+                    clearFocus();
+                }
                 toggleCloseButtonVisible(false);
                 initView();
             } finally {

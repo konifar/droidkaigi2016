@@ -43,4 +43,8 @@ public class SearchResult {
                 R.string.speaker, session.speaker.imageUrl, session);
     }
 
+    public boolean isDescriptionType() {
+        return typeRes == R.string.description;
+    }
+
 }

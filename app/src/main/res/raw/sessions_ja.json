@@ -1,0 +1,1082 @@
+[
+  {
+    "id": 1,
+    "title": "OSSの動向を捉えた実装方針",
+    "description": "■ 概要\n 近年、Androidアプリ開発において、どんなライブラリが存在するのか知っておくのは必須といっても過言ではないでしょう。\n しかし、初めてAndroidアプリの開発文化に触れてみて、業界としてどういうものがスタンダードになっているのか\n みんなが何に注目しているのかを知るのには少し経験が必要になります。\n 代表的なものを中心に、個人的に今から作るとしたらこんな感じにしようかなっていうのを話していければと思います。\n\n■ 対象者\n　Android 初級 〜 中級\n\n■ 話すこと\n 最低限知っておくべき、各ライブラリのメリット・デメリットを簡単に説明します。\n  また、最後に、自分ならこうする！みたいなのもまとめとして話したいと思います。\n　- 開発環境\n　- Language(Java8, Kotlin)\n　　Java8に近いものを実現するためのライブラリ(Lightweight-Stream-API, Retrolambda, ThreeTenABP)\n　- Support Library (AppCompat, Design, Annotations, RecyclerView ...etc)\n　- DataBinding\n　- Network (Volley, Retrofit OkHttp ...etc)\n　- Serialization (GSON, ProtoBuf)\n　- Image Loader (Picasso, Glide, Fresco ...etc)\n　- Effect (GPUImage ...etc)\n　- DI (ButterKnife, Dagger, RoboGuice)\n　- FRP (RxJava, RxAndroid, RxLifecycle ...etc)\n　- DB/ORM (Realm, ActiveAndroid, RxPreferences, Sqlbrite ...etc)\n　- Pub/Sub (Otto, EventBus ...etc)\n　- UI (ObservableScrollview, Calligraphy ...etc)\n　- Debug (Crashlytics, Timber, Hugo, Steho, LeakCanary, Takt ...etc)",
+    "speaker": {
+      "id": 1,
+      "name": "wasabeef",
+      "image_url": "https://pbs.twimg.com/profile_images/427481863343452160/i-G-x-Gw.jpeg",
+      "twitter_name": "wasabeef_jp",
+      "github_name": "wasabeef_jp"
+    },
+    "stime": "2016-02-18 10:00:00",
+    "etime": "2016-02-18 11:00:00",
+    "category": {
+      "id": 1,
+      "name": "基調講演"
+    },
+    "place": {
+      "id": 1,
+      "name": "基調講演会場"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 2,
+    "title": "明日から使えるRxjava頻出パターン",
+    "description": "cookpadは、RxJavaを導入している国内では数少ない企業の一つです。\n本セッションでは、実際のいくつかの社内アプリのソースコードからRxjavaが使われている箇所を調べあげ、\n頻出設計のパターンを幾つかご紹介しようと思っています。\n実際の利用シーンをご紹介することで、RxJava導入のイメージを明確にして頂けると幸いです。\n\n対象者:\n* RxJava入門者\n* RxJavaを業務に導入したいけどちょっと戸惑っている人\n\n話す内容(予定)\n\n* 自己紹介(2min)\n* Rxjavaについて(5min) \n  * Rxjava, Rxandroidについて\n  * 今回のスライドを理解するための基礎知識\n    * observable, subscriber, subject, subscriptionなどの紹介\n* 頻出パターンを4つの紹介(15min) [恐らく紹介するパターンは変更します]\n  * 利用するサンプルweb_apiの説明\n  * 非同期-直列処理(flatMap)\n  * 非同期-並列処理(combineLatist)\n  * combineLatistとsubjectの利用したパターン\n  * 少し複雑な非同期-直列処理(Pair, Tuple, Observable#just)\n* 気をつけたい点(5min)\n  * Observableをどこに置くのが正解か..\n  * trello/rxLifecycle と AndroidSuvscriptionの利用について\n  * unitテストどうしてるの\n  * 終わりに",
+    "speaker": {
+      "id": 2,
+      "name": "kazy",
+      "image_url": "https://pbs.twimg.com/profile_images/431287539366776832/UqbQidjX.jpeg",
+      "twitter_name": "101kaz",
+      "github_name": "kazy1991"
+    },
+    "stime": "2016-02-18 11:30:00",
+    "etime": "2016-02-18 12:00:00",
+    "category": {
+      "id": 2,
+      "name": "その他"
+    },
+    "place": {
+      "id": 2,
+      "name": "ルームA"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 3,
+    "title": "Master of Canvas",
+    "description": "対象者:\nCanvasを用いたAnimationに興味がある開発中級者\n\n概要:\nCanvasでPathを使ったリッチなAnimationを実装する方法の解説､またIllustratorを使い簡単にデザインをCanvasで実装する方法について話します｡\n\nPathを使ったAnimationではInterpolatiorのカスタマイズ､数式の作り方､TypeEvaluatorのカスタム方法など詳しく解説していきます｡\nPathではAPI19からPath#opなど便利なメソッドも追加されるなどしており､表現の幅が広がっています｡\nMaterial対応の先にある小さいViewの細かい話をします｡\n\nIllustratorで作ったデザインのAnimation変化の簡単に行える実装とその際に使用する自作したスクリプトの解説をします｡\n\n主に以下のViewを解説しながら行っていきます｡\nTextMorphingView : https://twitter.com/amyu_san/status/654555982958166016\nWaveSwipeRefreshLayout : https://github.com/recruit-lifestyle/WaveSwipeRefreshLayout\nBeerSwipeRefreshLayout : https://github.com/recruit-lifestyle/BeerSwipeRefresh\nColoringLoading : https://github.com/recruit-lifestyle/ColoringLoading",
+    "speaker": {
+      "id": 3,
+      "name": "Yuki Mima (@amyu_san)",
+      "image_url": "https://pbs.twimg.com/profile_images/378800000194224027/5d5d92036fba329fbfc83f06bb2f464f.jpeg",
+      "twitter_name": "amyu_san",
+      "github_name": "amyu"
+    },
+    "stime": "2016-02-18 11:30:00",
+    "etime": "2016-02-18 12:00:00",
+    "category": {
+      "id": 3,
+      "name": "UI・デザイン"
+    },
+    "place": {
+      "id": 3,
+      "name": "ルームB"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 4,
+    "title": "TV向けAndroidアプリの開発TIPSと最新事情",
+    "description": "[概要]\n2015年はFire TVやAndroid TVが日本にサービスを開始し、TV上でアプリを利用するシナリオが増えてきました。既にお持ちのアプリをTV向けに開発すべき手段や機能などをご紹介します。\n\n下記の内容:\nAndroidのTV市場の最新事情のご紹介\nTV向けへの開発手順について\nTV向けの面白い機能などのご紹介\n\n[対象者]\nアンドロイド開発初級 - 中級\nアプリの開発経験はあり、TV向けに延長を考えている方\nTV市場に興味がある方",
+    "speaker": {
+      "id": 4,
+      "name": "小林 剛士",
+      "image_url": "",
+      "twitter_name": "",
+      "github_name": ""
+    },
+    "stime": "2016-02-18 11:30:00",
+    "etime": "2016-02-18 12:00:00",
+    "category": {
+      "id": 4,
+      "name": "ハードウェア"
+    },
+    "place": {
+      "id": 4,
+      "name": "ルームC"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 5,
+    "title": "Advanced RecyclerView Techniques",
+    "description": "Most people are now using Android RecyclerViews in their apps these days, however relatively few are using them to their full potential. The ItemDecorators and ItemAnimators components of the RecyclerView allow for much more flexibility to our list content then was every possible with ListView. While they have relatively simple APIs, unlocking their full potential can take some time and practice. \nIn this talk we will cover advanced usages of ItemDecorators to make truly unique list compositions. We'll also cover ItemAnimators to showcase how to make your content look great and feel like a polished Material designed application.",
+    "speaker": {
+      "id": 5,
+      "name": "Joshua Jamison",
+      "image_url": "",
+      "twitter_name": "",
+      "github_name": ""
+    },
+    "stime": "2016-02-18 11:30:00",
+    "etime": "2016-02-18 12:00:00",
+    "category": {
+      "id": 3,
+      "name": "UI・デザイン"
+    },
+    "place": {
+      "id": 5,
+      "name": "ルームD"
+    },
+    "language_id": "en",
+    "slide_url": ""
+  },
+  {
+    "id": 6,
+    "title": "史上最速のAndroid",
+    "description": "[概要]\nAndroidアプリケーションを高速化するためのバッドノウハウ(知らなくていいこと)の紹介します。\nJavaコード、Dalvikバイトコード、機械語、仮想マシン間を往来することで、「Javaコードで」最速のアプリケーションを開発するにはどうするればよいか？を話します。\n※JNIの話はしません\n\n[対象者]\nAndroid開発に飽きてきた廃人開発者\n\n[何が新しいか？]\nそもそもDalvikバイトコードの話すら言及されることは殆ど無いのですが、\n今回はそこでは収まらず、ARTの最深部まできっちり説明し切ります！\n\n[内容の概要]\n1) ARTの仕組み\n2) インタープリタ、JITコンパイラ、AOTコンパイラ\n- それぞれの実行環境はどういうケースで使用されるか？\n3) Dalvikバイトコード\n- バイトコードの概要と、速い命令、遅い命令\n- 遅い命令はどういうコードで生成されるか？\n4) 仮想マシンへのダイブ\n- JavaバイトコードからDalvikバイトコードへ\n- DalvikバイトコードからAOTコードへ\n- AOTコードから仮想マシンへ\n- コード上からの不可視なオーべーヘッドを突き止める\n5) 高速化ノウハウ集\n- こんなコードは意味が無い！\n- 実はこんなコードが速い！",
+    "speaker": {
+      "id": 6,
+      "name": "kmt-t",
+      "image_url": "https://pbs.twimg.com/profile_images/491133020833710080/QkK7ryK_.png",
+      "twitter_name": "kmt_t",
+      "github_name": ""
+    },
+    "stime": "2016-02-18 13:00:00",
+    "etime": "2016-02-18 13:50:00",
+    "category": {
+      "id": 5,
+      "name": "プラットフォーム"
+    },
+    "place": {
+      "id": 2,
+      "name": "ルームA"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 7,
+    "title": "Android Lintで正しさを学ぼう",
+    "description": "静的解析ツール・Android Lintは、むやみにビルドを失敗させる悪役と思われがちですが、実はGoogleが用意してくれたベストプラクティスの宝庫です。\n本セッションでは、Android Lintが持つ200件以上の膨大なルールを厳選して、初学者が陥りがちなものを中心に紹介していきます。\n\n何故、それをやってはいけないのか。どう直せばよいのか。直すと何が嬉しいのか。\n一緒に確認しながらベストプラクティスを学ぶことで、初学者から中級者への階段を登り始めましょう。\n\n■ 対象者\n* まだAndroidプログラミングのベストプラクティスが分からない初学者\n* Androidアプリの品質を表す指標がほしい品質担当者\n\n■ 話す内容\n\n* 初学者がやりがちなミス\n  - LinearLayoutに並べたビューが表示されないのは何故？\n  - FragmentTransactionのcommit()を呼び忘れていませんか？\n  - SharedPreferenceのcommit()を呼び忘れていませんか？\n  - Toastのshow()を呼び忘れていませんか？\n  - メモリ喰いなやつらのrecycle()を呼び忘れていませんか？\n  - OKボタンを左に置いてもいいのは小学生までですよ？\n  - ユーザーが見るテキストをレイアウトに直書きした・・・？\n* もっと上を目指す人のために\n  - そのContentProvider、丸見えですよ？\n  - EditTextにinputTypeやhintを指定してありますか？\n  - アイコンの色や大きさ、それでいいですか？\n  - 同じアイコンが別名で複数ありますけど無駄じゃないですか？\n  - その三点リーダ（...）、まさかピリオドで書いてないですよね？\n\n （内容は変更する場合があります）",
+    "speaker": {
+      "id": 7,
+      "name": "中川幸哉 (@Nkzn)",
+      "image_url": "https://pbs.twimg.com/profile_images/628405519447764992/kGVNBAVU.png",
+      "twitter_name": "Nkzn",
+      "github_name": "Nkzn"
+    },
+    "stime": "2016-02-18 13:00:00",
+    "etime": "2016-02-18 13:50:00",
+    "category": {
+      "id": 6,
+      "name": "開発環境・ツール"
+    },
+    "place": {
+      "id": 3,
+      "name": "ルームB"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 8,
+    "title": "Go MobileでAndroidアプリ開発",
+    "description": "【対象】\nAndroid 中級者 〜\nGo 初級者 〜\n\n【概要】\nGo Mobileは、GoogleのGoチームがサブプロジェクトとして実装を進めている GoでAndroidやiOSのアプリを作るためのライブラリ・ツール群です。\n\nGo Mobileで書かれたアプリは数少ないですが、Goチームが実際にIvyというアプリをリリースしています。\n参考：https://play.google.com/store/apps/details?id=org.golang.ivy\n\nまた、登壇者も実際にGo Mobileで簡単なアプリを書いてリリースした経験があります。\n参考：https://play.google.com/store/apps/details?id=net.hinoichi.gofun\n\nまだ実験段階の技術ですが、今後が非常に楽しみな技術です。\nGo Mobileでは、Goの豊富な標準パッケージがほとんど使えるため、HTTPサーバや画像処理など非常に幅広い処理を簡単に書くことができます。\nまた、Goで書かれた多くのサードパーティライブラリも使えます。例えば、goproxyを使えば、Androidアプリ上にプロキシサーバを簡単に立てることができます。\n\n日本語の情報はまだ少ないですが、登壇者がGo Mobileのソースコードやドキュメント、海外のカンファレンスの発表資料などから調べた内容についてまとめ、何ができるのか、どうやって実装するのかについてGo初心者でも分かるように説明します。\n\n例えば、Go Mobileでは以下の2つの開発方法がありますが、それぞれの概要を説明し、それぞれどのような利点があり、どう使えるのかという話をする予定です。\n\n■ネイティブアプリ\nすべてGoで書く方法です。\nUIもすべてGoで書くため、ゲームなどの開発に向いています。\n参考：https://github.com/golang/go/wiki/Mobile#native-applications\n\n■SDKアプリ\nJavaからJNI経由でGoで書かれたSDKを呼び出す方法です。\nGoの強みを活かした部分はGoで書き、AndroidのAPIを呼び出す部分はJavaで書くことを想定しています。\n参考：https://github.com/golang/go/wiki/Mobile#sdk-applications-and-generating-bindings\n\nまた、Goはクロスコンパイルができるため、Linux/ARM向けでビルドすれば、簡単にadb shell上で動くコマンドを作ることができます。このような、普段のAndroid アプリ開発で使えるGoを使ったTIPSについても紹介できればと思います。\n\nなお、Android開発者向けのお話をする予定ですので、Goについてはあまり知らなくても問題ありません。\n\n【参考】\nGo Mobile：https://github.com/golang/mobile\nGoだけでAndroidアプリを作る（登壇者の記事）：http://klabgames.tech.blog.jp.klab.com/archives/1034818110.html\n\n【登壇者について】\nGo Conference運営をやっております。Go歴4〜5年ほどです。\n業務では、モバイルオンラインゲーム（スマホのゲーム）開発のクライアントサイドを担当しています。",
+    "speaker": {
+      "id": 8,
+      "name": "tenntenn",
+      "image_url": "https://pbs.twimg.com/profile_images/592343163492126720/RlOMqlbS.png",
+      "twitter_name": "tenntenn",
+      "github_name": "tenntenn"
+    },
+    "stime": "2016-02-18 13:00:00",
+    "etime": "2016-02-18 13:50:00",
+    "category": {
+      "id": 6,
+      "name": "開発環境・ツール"
+    },
+    "place": {
+      "id": 4,
+      "name": "ルームC"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 9,
+    "title": "Fragments Why, How, and What For?",
+    "description": "This talk will cover how Fragments work in detail by comparing and contrasting them to something we know well, Activities. In it, I will also cover examples and use cases. Fragments: Why, How, and What For? is targeted toward developers who may not have had a lot of experience using Fragments, and those who want to understand them better.\n\nWhy? - Why did Google introduce Fragments? Aren’t Activities enough?\nHow? - How do Fragments work? \nWhat For? - Example and use cases highlighting Fragment reuse, single pane vs multi-pane, ViewPager, NavigationDrawer and DialogFragment.",
+    "speaker": {
+      "id": 9,
+      "name": "Brenda Cook",
+      "image_url": "https://pbs.twimg.com/profile_images/607908510303526914/0ewn2oqj.jpg",
+      "twitter_name": "kenodoggy",
+      "github_name": "kenodoggy"
+    },
+    "stime": "2016-02-18 13:00:00",
+    "etime": "2016-02-18 13:50:00",
+    "category": {
+      "id": 5,
+      "name": "プラットフォーム"
+    },
+    "place": {
+      "id": 5,
+      "name": "ルームD"
+    },
+    "language_id": "en",
+    "slide_url": ""
+  },
+  {
+    "id": 10,
+    "title": "僕がテスト書け書けおじさんになった経緯とその過程でやったこと",
+    "description": "【概要】\n業務でAndroidアプリ開発を行っているとどうしても納期を優先してしまい、テストコードを後回しにしがちです。そもそも適切にテストコードを書くためにはテスタビリティの高い設計になっている必要がありますが、納期を優先するあまりに設計が疎かになってしまうことも多く、後からテストコードを書こうと思っても思うように書けないという状態に陥ってしまいます。一度このような状態に陥るとその後の開発にも大きな影響が生じます。テストコードがなくても気合でメンテナンスは可能ですが、アプリの機能が増えてくると気合でのメンテナンスは困難になってきます。本発表では、とあるプロジェクトでの例をもとに、テストコードがまったくなく気合でメンテナンスしている状態からどのようにテスタビリティの高い設計に変更し、どのようなテストフレームワークを導入し、どのようにチーム全員でテストを書く文化を作ったのかということを話したいと思います。\n\nAndroid specific:\n実際のAndroidアプリ開発プロジェクトでの例をもとにどのようにテストを導入したのかという点\n\nExpertise:\n新規アプリ開発でテストを導入するという事例はよく聞きますが、テストコードが一切ない既存アプリにどのようにテストを導入するのかということはあまり知られていない点\n\nInnovation:\nテストコードのない既存アプリにテストを導入するためには既存コードとの共存であったり、影響範囲の考慮であったりと新規アプリへのテスト導入よりもハードルの高いものである点\n\n【対象者】\n・Androidアプリ開発中級者\n・機能開発は一通り出来るが、テストコードをほとんど書いたことがない人\n・所属プロジェクトにテストコードが一切なく辛い人\n\n【発表内容】\n・テストコードがないとどのような弊害で出るのか\n・テスト手法、テストフレームワークの解説\n・テスタビリティの高い設計とは\n・テスタビリティの低い設計から高い設計に変更するためにやったこと\n・チーム全員がテストを書く文化を作るためにやったこと\n・テスト書け書けおじさんのその後",
+    "speaker": {
+      "id": 10,
+      "name": "yuyakaido",
+      "image_url": "https://pbs.twimg.com/profile_images/2882190820/d243e16b1207b4287fa5c13f5a76e4ec.png",
+      "twitter_name": "yuyakaido",
+      "github_name": "yuyakaido"
+    },
+    "stime": "2016-02-18 14:00:00",
+    "etime": "2016-02-18 14:50:00",
+    "category": {
+      "id": 7,
+      "name": "メンテナンス"
+    },
+    "place": {
+      "id": 2,
+      "name": "ルームA"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 11,
+    "title": "Android Dev Tools Knowledge",
+    "description": "対象者：\nAndroid開発をする上で便利なツールやコマンド、ライブラリを知りたい人\n・ 初心者でも使えるもの多め\n・ 一部、動きを理解する上で前提知識が必要なものがあるかもしれませんが使う上では初心者でもOK\n・ ツールを使ってガシガシ開発効率上げたい中級者〜にもオススメ\n\n概要：\n近年、Android StudioやGradleの登場によって、標準の開発環境が日々向上しています。\nAndroid開発を効率的に行う上で欠かせないデベロッパーツールもたくさんあります。\n\nそんな開発の役立つデベロッパーツール、コマンド、ライブラリなどのナレッジを余すことなくご紹介したいと思います。\n実際にツール等を使いながら紹介する部分も用意します。(ワークショップ的に自分の手元で動かしたい人向けにも簡単なもの)\nAndroid SutdioやPluginだけでは物足りない！という方向けに、より深くAndroidを理解する上で役に立つものもご紹介します。\nこれらを知ることで、今まで以上に開発効率の向上、Android楽しさ・奥深さを知っていただけると嬉しいです。\n\n具体的には以下の様なものを想定しています。\n* 便利なコマンド(adb,systrace。adb関連多め) ※1\n* Android Studio Plugin\n* Gradle Plugin\n* デバッグに便利なライブラリ\n* その他開発で便利なツール\n\n※ このセッションはADT(Android Developer Tools)だけに関するものではありません\n* This session is not about ADT (Android Developer Tools)\n\n※1 参考 https://github.com/operando/Android-Command-Note",
+    "speaker": {
+      "id": 11,
+      "name": "Shinobu Okano(@operandoOS)",
+      "image_url": "https://pbs.twimg.com/profile_images/2769959234/6e50270293d9b3196223e64c467f3e53.jpeg",
+      "twitter_name": "operandoOS",
+      "github_name": "operando"
+    },
+    "stime": "2016-02-18 14:00:00",
+    "etime": "2016-02-18 14:50:00",
+    "category": {
+      "id": 6,
+      "name": "開発環境・ツール"
+    },
+    "place": {
+      "id": 3,
+      "name": "ルームB"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 12,
+    "title": "Advanced Android Espresso",
+    "description": "Do you test? It’s okay if you don’t - historically the tools had not been stellar. But they have gotten much better, and I am going to show you my favorite, instrumentation testing with Espresso. \n\nIn this talk you will learn: \n* The basic structure of an Espresso test (Matcher, ViewAction, ViewAssertion) \n* Combining matchers such as withParent, isAssignableFrom to pinpoint your view \n* onData and RecyclerViewActions to test ListView and RecyclerView \n* Custom ViewAction and ViewAssertion \n* Using Dagger and Mockito to write repeatable tests \n\nBy the end of the talk you will be itching to write some tests yourself!",
+    "speaker": {
+      "id": 12,
+      "name": "Chiu-Ki Chan",
+      "image_url": "",
+      "twitter_name": "chiuki",
+      "github_name": "chiuki"
+    },
+    "stime": "2016-02-18 14:00:00",
+    "etime": "2016-02-18 14:50:00",
+    "category": {
+      "id": 7,
+      "name": "メンテナンス"
+    },
+    "place": {
+      "id": 5,
+      "name": "ルームD"
+    },
+    "language_id": "en",
+    "slide_url": ""
+  },
+  {
+    "id": 13,
+    "title": "最速でリリースするためのAndroidアプリデザイン",
+    "description": "デザイナーとエンジニアの間でのやりとりに効率の悪さを感じているデザイナー/エンジニアの方は多いのではないでしょうか？ 今夏にリリースしたアプリ「Sync」http://sync.wantedly.com の開発では、デザイナーもコードを書きながら、最速で質の高いアプリのリリースを目ざしました。その事例を中心に、より効率のよい連携のためにデザイナーはどうするするべきか？お伝えできればと思います。\n\n## トピック\n- デザイナーはコードを書くべきか？\n- Matelial Designを使って効率アップ\n- style・themeとデザイン\n- エンジニアからデザイナーに教えて欲しいこと\nなど\n\n## 対象\n- デザイナーとのやりとりをもっと効率よくしたいエンジニア\n- デザインの再現度を上げるのに苦労しているデザイナー\n- デザイナーがアプリの開発で考えていることを知りたいエンジニア",
+    "speaker": {
+      "id": 13,
+      "name": "青山 直樹",
+      "image_url": "https://pbs.twimg.com/profile_images/780424528/yan.png",
+      "twitter_name": "yanAoym",
+      "github_name": "yanAoym"
+    },
+    "stime": "2016-02-18 15:10:00",
+    "etime": "2016-02-18 15:40:00",
+    "category": {
+      "id": 3,
+      "name": "UI・デザイン"
+    },
+    "place": {
+      "id": 2,
+      "name": "ルームA"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 14,
+    "title": "Dagger2とRealmを利用したモダンな開発",
+    "description": "Androidには通常のJVMアプリケーションにはないActivityやFragmentといった独自の世界観があるため、Androidの持つ特性を深く考えず実装を行えば、すぐさま複雑なコードが出来上がってしまいます。\n\nまた近年ではアプリ開発の需要が増し、さらにその規模も大きくなっています。機能が増え、コードは複雑になりがちです。\n\nこの部分を曖昧にし、開発を続けアプリケーションが肥大化していけば、複雑なコードを運用して行かなければならなくなるリスクが高まり、機能追加も難しい環境になってしまいます。\n\n複雑なコードを生み出さないためには、依存性を排除し、テスタブルなコードを書くのが鉄則です。それに加えてActivityの再生成など、Androidフレームワークの挙動にうまく対応する必要があります。\n\nこの課題に対して、自力で解決することも出来なくはありません。しかし幸いな事に、2015年現在においては、Androidで利用可能な有益なライブラリが数多く用意されています。我々は様々なライブラリを精査し、その結果「Dagger2」「Realm」を組み合わせることで、フレームワークとうまく調和し、堅牢で、依存性を可能な限り排除し、テスタブルなプロダクトの開発方法を考案しました。\n\nアプリ開発においてもう一つ忘れてはならないのが、サーバサイドとの兼ね合いです。特にサーバサイドをすべて新たに作る時、常にAPIの設計がクライアントアプリに先行し実装されるとは限りません。\n\nこの場合、クライアントアプリ側で作業を止めるというのは考えられず、何かしらの策を講じる必要があります。\n\nそこで我々はstubサーバを用意し、Web側開発とは独立した仮のエンドポイントを用意。非常に高速な開発環境を実現することができました。\n\n本セッションの内容が、少しでもみなさまのお役に立てたら幸いかと思います。",
+    "speaker": {
+      "id": 14,
+      "name": "北村 涼",
+      "image_url": "",
+      "twitter_name": "",
+      "github_name": ""
+    },
+    "stime": "2016-02-18 15:10:00",
+    "etime": "2016-02-18 15:40:00",
+    "category": {
+      "id": 8,
+      "name": "Androidの最新動向"
+    },
+    "place": {
+      "id": 3,
+      "name": "ルームB"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 15,
+    "title": "Windows環境での効率的なアプリ開発手法",
+    "description": "▪️Windows環境での効率的なアプリ開発手法\n○【概要】\n最先端のAndroidアプリ開発の現場では開発PCにMacを利用されていることが多いと思います。\n勉強会などでMacを持ち込む開発者が多く見受けられたりするが、実際の開発現場ではまだまだWindows環境で開発している開発者も多くいるとお聞きします。\nインターネット上のブログやqiitaやstackoverflowに投稿される情報も前者のMacを利用している人の情報が多く、Windows UserにとってAndroidアプリ開発の情報が足りていない状況だと感じています。そのようなWindows UserのAndroidアプリ開発時のつまづきやすい点や難しいポイントを紹介することにより、ハマリやすいポイントを回避できたり、開発効率を高めたり、WindowsでもMac相当な開発ができたり、Macではできないことができたりという事例をご紹介します。\n\n○【目次案】\n・Android SDK のダウンロード、SDK ManagerのダウンロードとPath設定などの環境構築\n・Android Studio インストール時のポイント\n・Android端末のドライバ設定のベストプラクティス\n・Android Emulator活用時の設定方法\n・Git の利用方法。Git for windows, sourceTree(GUI), GitHub Desktop, Cygwin, sshやHTTPSなどの活用方法\n・Android Studio 向けキーボードカスタマイズ（Caps-Ctrl, US配列、追加ショートカット設定）\n・github, bitbucket などの  利用時のポイント\n・apktools, dex to javaなどの解析ツール活用方法\n・Windows特有の問題への対処方法\n",
+    "speaker": {
+      "id": 15,
+      "name": "tarotaro",
+      "image_url": "https://pbs.twimg.com/profile_images/1610666375/icon.png",
+      "twitter_name": "tarotaro4",
+      "github_name": ""
+    },
+    "stime": "2016-02-18 15:10:00",
+    "etime": "2016-02-18 15:40:00",
+    "category": {
+      "id": 6,
+      "name": "開発環境・ツール"
+    },
+    "place": {
+      "id": 4,
+      "name": "ルームC"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 16,
+    "title": "Instant Runを実現する仕組み",
+    "description": "Android Studio 2.0の目玉となる新機能Instant Runはどのように実現しているのか、IDEはどのようにAndroidアプリケーションをパッケージ、インストール、デバッグしているかという側面から語ります。Instant Run自体の仕組みは11月時点で未公開なので、2月まで未公開であれば、既存の類似技術をもとに推測で語ります。\n\n対象者: フレームワーク、開発ツールの仕組みに興味のある開発者",
+    "speaker": {
+      "id": 16,
+      "name": "Atsushi Eno",
+      "image_url": "https://pbs.twimg.com/profile_images/633074634435379200/qJu6ECTX.jpg",
+      "twitter_name": "atsushieno",
+      "github_name": "atsushieno"
+    },
+    "stime": "2016-02-18 15:10:00",
+    "etime": "2016-02-18 15:40:00",
+    "category": {
+      "id": 6,
+      "name": "開発環境・ツール"
+    },
+    "place": {
+      "id": 5,
+      "name": "ルームD"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 17,
+    "title": "用途に合わせたアニメーションの実装方法",
+    "description": "【対象者】\nAndroidアプリ開発初級〜中級\n\n【概要】\nAndroidのバージョンが上がり、アニメーションの仕組みも随分増えました。\n一口にアニメーションといってもViewの中身を動かすのか、View自体を動かすのか、\nレイアウトごと動かすのか複数あります。\nAndroidのフレームワークはそれぞれに仕組みを準備していますが、\n機能面で重複しているものや依存関係にあるものがあり、\nそろそろ実装するにもどれを選べば良いかがわかりにくくなって来ています。\n\n本発表では数あるアニメーションの仕組みの中から、\nどの用途にはどれを使えば良いかについて、\n考え方とアプローチについてお話します。\n\n【キーワード】\n- Drawable Animation\n- View Animation\n- Property Animation、\n- Transition Animation\n- Actvity/Fragment Transition",
+    "speaker": {
+      "id": 17,
+      "name": "住友 孝郎",
+      "image_url": "https://pbs.twimg.com/profile_images/628217025492484096/ppW0QfNn.png",
+      "twitter_name": "cattaka_net",
+      "github_name": "cattaka"
+    },
+    "stime": "2016-02-18 15:50:00",
+    "etime": "2016-02-18 16:20:00",
+    "category": {
+      "id": 3,
+      "name": "UI・デザイン"
+    },
+    "place": {
+      "id": 2,
+      "name": "ルームA"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 18,
+    "title": "Androidの省電力について考える",
+    "description": "対象者：中級者（単に作るだけのステップを越え、よりユーザのことを考えていこうという段階に達している方）\n\n概要：\nAndroidではこれまでメーカー独自なものも含めて様々な省電力のための機能が導入されてきました。Job SchedulerやSensor BatchingといったAndroid全体に導入されたものもあれば、メーカー独自の省電力機能もありました。また省電力化するための設計指針のノウハウもあります。\n\nそれらの歴史を踏まえつつ、Android 6.0で導入された新しい省電力機能であるDozeモードやApp Standbyについて紹介します。\n\nまたどうしてもそれらの省電力による制限が困る方のために、回避・緩和するための方法についても説明します。",
+    "speaker": {
+      "id": 18,
+      "name": "中西 良明",
+      "image_url": "https://pbs.twimg.com/profile_images/933874847/chun_ryo.jpg",
+      "twitter_name": "chun_ryo",
+      "github_name": "ynakanishi"
+    },
+    "stime": "2016-02-18 15:50:00",
+    "etime": "2016-02-18 16:20:00",
+    "category": {
+      "id": 8,
+      "name": "Androidの最新動向"
+    },
+    "place": {
+      "id": 3,
+      "name": "ルームB"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 19,
+    "title": "パーミッションモデルの過渡期への対応",
+    "description": "[概要]\nAndroid6.0で新しいパーミッションモデル(Runtime Permission)となり、初回実行時に許可が必要になったり、後から取り消しが可能になるなど、\n今までのモデルと大きく様変わりしました。\nとは言え、現状この新しいモデルの恩恵を充分に受けられるのは、Android6.0の端末上で、targetSDKversion=23のアプリを動かしたときのみです。\nしばらくの間は6.0以前のAndroidが搭載された端末の方が多く、その対応を考えなければなりません。\nまた、大きくモデルが変わったため、Android6.0に全面的に対応するまで時間のかかるプロジェクトも想定されます。\nこの過渡期の間、Permission関連で問題を起こさないための手法についてお教えします。\n\n[対象者]\nAndroidアプリ開発初級者～中級者\n\n[内容]\n-Runtime Permissionについて\n-Runtime Permissionのベストプラクティス\n-Android5.1以前の端末に対応したtargetSDKVersion=23のアプリの作り方\n-targetSDKVersion=23に出来ないアプリがAndroid6.0の端末で問題を起こさない方法",
+    "speaker": {
+      "id": 19,
+      "name": "aki_sh_7",
+      "image_url": "https://pbs.twimg.com/profile_images/633665268430934017/yVu6Wcru.jpg",
+      "twitter_name": "aki_sh_7",
+      "github_name": ""
+    },
+    "stime": "2016-02-18 15:50:00",
+    "etime": "2016-02-18 16:20:00",
+    "category": {
+      "id": 7,
+      "name": "メンテナンス"
+    },
+    "place": {
+      "id": 5,
+      "name": "ルームD"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 20,
+    "title": "明日、敗訴しないためのセキュアコーディング",
+    "description": "- 対象: Clean Architecture/MVPフレームワークに興味がある人。Androidアプリを綺麗にしたいと思ってるひと\n\n- 概要: \n保守性の高く、Android Frameworkが整理され、綺麗なソースコード上で仕事したい！と我々は常に思ってます。そのためのフレームワークです。\n\nAndroid版では昨今Android Clean Architectureの存在感が高まっていると思います。その証拠に日本語・英語を問わず、サマリー(What/Why)や公開コードをよく目にします。\n\nしかし、まだ浸透はしてないように思えます。なぜでしょう？理由の一つとしては、Architecureの概要から、実際のコードに落とし込むためのチュートリアル(How)が少ないからではないでしょうか。\n\n私自身でも参考にアプリを作成しましたが、実装に落とし込むのは非常に骨が折れる仕事でした。何回か心が折れました。しかし一通り実装が終わったあとに見返すと、非常に効果的なArchitectureであることがわかりました。\n\n従って、ぜひ本Architecureを使っていただきたく、そのために最初の敷居を下げるため、ステップばいステップで説明させて頂きたいと思っています。\n\n- 具体的な内容\n- ListViewとFabしかないアプリを実装します\n    - 本アプリはFabを押すと、APIにリクエストを投げ、その結果をListViewに表示するシンプルなアプリです。\n- 画面作成時にどうファイルを分けるか\n- Fab押下時にどうリクエストを生成して投げるのか\n- レスポンス受信時にどうデータに反映させ、画面を更新するのか\n\nといった形で、実際のアプリの動作を追った実装方法についてお話しさせて頂きたいと思います。",
+    "speaker": {
+      "id": 20,
+      "name": "kengoscal",
+      "image_url": "https://pbs.twimg.com/profile_images/619114313819688960/F-6mzriO.jpg",
+      "twitter_name": "kengoscal",
+      "github_name": "ken5scal"
+    },
+    "stime": "2016-02-18 16:30:00",
+    "etime": "2016-02-18 17:00:00",
+    "category": {
+      "id": 7,
+      "name": "メンテナンス"
+    },
+    "place": {
+      "id": 2,
+      "name": "ルームA"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 21,
+    "title": "実践！Android Studioプラグイン開発",
+    "description": "Android Studioは、今やAndroid開発になくてはならないIDEとなりました。便利なプラグインも豊富に公開されていますが、その開発手法についてはあまり知見が共有されていないように思います。私自身も以前にプラグインを開発した時に、入門以上の情報が少なく苦労しました。\nhttps://github.com/konifar/android-material-design-icon-generator-plugin\n\n「便利なプラグインのアイデアがあってもどうしていいかわからない」というAndroid開発者に、自分でも作れそうだと感じてもらえる話をします。以前に入門記事を書いたのですが、これよりもう少し実践的な内容に触れたいと思います。\nhttp://qiita.com/konifar/items/c6e23921ffec475907fc\n\n[対象者]\n・プラグインにお世話になってる人\n・作ってみたいプラグインがある人\n・Android Studio好きな人\n\n[内容]\n・タイプ別の作り方（コード生成、画面表示、ファイル操作など）\n・作りたいプラグインの実装方法をどうやって調べるか\n・Gradleプロジェクト化とCI\n・Kotlin導入方法",
+    "speaker": {
+      "id": 21,
+      "name": "konifar",
+      "image_url": "https://pbs.twimg.com/profile_images/619379391588511744/V4RrXbvM.jpg",
+      "twitter_name": "konifar",
+      "github_name": "konifar"
+    },
+    "stime": "2016-02-18 16:30:00",
+    "etime": "2016-02-18 17:00:00",
+    "category": {
+      "id": 6,
+      "name": "開発環境・ツール"
+    },
+    "place": {
+      "id": 3,
+      "name": "ルームB"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 22,
+    "title": "怖くないgradleでのビルド環境設定とBazel",
+    "description": "AndroidStudioで使われているビルドシステムgradle\nデフォルトのまま使っているけど本当はビルド時もっと色々gradleにいい感じにやってもらいたい！と思っている方のためのセッションです\n\n本セッションではgradleを使いこなしビルドからデバッグ用、本番用apkの作成、署名や新ビルドシステムとして注目されてるBazelで実際にビルドを行ってみた感想についてお話しさせていただく予定です",
+    "speaker": {
+      "id": 22,
+      "name": "嶋田 達哉",
+      "image_url": "",
+      "twitter_name": "",
+      "github_name": ""
+    },
+    "stime": "2016-02-18 16:30:00",
+    "etime": "2016-02-18 17:00:00",
+    "category": {
+      "id": 6,
+      "name": "開発環境・ツール"
+    },
+    "place": {
+      "id": 5,
+      "name": "ルームD"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 23,
+    "title": "Support Libraryノススメ | Support Library Internal",
+    "description": "",
+    "speaker": {
+      "id": 23,
+      "name": "Yuichi Araki",
+      "image_url": "https://avatars2.githubusercontent.com/u/1237536?v=3&s=400.jpg",
+      "twitter_name": "yuichi_araki",
+      "github_name": "yaraki"
+    },
+    "stime": "2016-02-19 10:00:00",
+    "etime": "2016-02-19 11:00:00",
+    "category": {
+      "id": 1,
+      "name": "基調講演"
+    },
+    "place": {
+      "id": 1,
+      "name": "基調講演会場"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 24,
+    "title": "クックパッドにおけるAndroidエンジニアの役割とその変遷",
+    "description": "対象者 : モバイルアプリ開発チームに参加している人、率いている人、これからチームを作ろうと思っている人\n\n私が2013年10月にクックパッドに入社した当時、社内のエンジニア60名ほどに対してAndroidエンジニアは私を含めて3名でした。現在ではAndroidエンジニアは10名を越え、iOSやQAを含めたモバイルチーム全体は25名まで成長しました。\n\n私が入社する前のモバイルエンジニア0~1人時代から現在に至るまで、どのようにモバイルチームがどのような課題に直面し、改善を行っていったかを時系列で話します。モバイル開発プロセスの構築と改善に役立てれば幸いです。\n\n- 2012年  4月 ハイブリッドアプリ時代\n- 2013年10月 Native化へのフルスクラッチ\n- 2014年  4月 モバイルファースト室設立 \n  - 開発プロセスの整備\n  - 品質の向上\n  - モバイル開発の環境整備\n- 2015年  1月 モバイルファースト室 解散、モバイル基盤チーム新設\n  - 各事業部へ散りサービスの価値を最大化\n  - モバイル開発基盤の強化\n- 2016年~ これからのモバイルエンジニア",
+    "speaker": {
+      "id": 24,
+      "name": "sys1yagi",
+      "image_url": "https://pbs.twimg.com/profile_images/562623123518787584/st_WXQ8e.png",
+      "twitter_name": "sys1yagi",
+      "github_name": "sys1yagi"
+    },
+    "stime": "2016-02-19 11:30:00",
+    "etime": "2016-02-19 12:00:00",
+    "category": {
+      "id": 2,
+      "name": "その他"
+    },
+    "place": {
+      "id": 2,
+      "name": "ルームA"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 25,
+    "title": "生まれ変わったUI Automatorを使いこなす",
+    "description": "●概要\n他人が署名したアプリもテストできる貴重なテストツール「UI Automator」は、Android Testing Support Libraryの一部として、2015年3月に新しく生まれかわりました(UI Automator 2)。\nUI Automator 2では、Android Studioとの相性が良くなったのに加え、利用できるAPIも倍増しました。\n\nしかしながら、公式ドキュメントの記述量が少ないこともあり、UI Automator 2が提供する機能の全貌がなかなか見えません。特に、UiObjectとUiObject2という、ほぼ同じ機能を提供するクラスが2つ併存していることが、わかりにくさに拍車を掛けています。\n\nこの発表では、自身がUI Automator 2を使ってみた経験や、UI Automator 2の実装コードを読んだ内容にもとづいて、以下のような疑問を解決します。\n\n- 新しく導入されたUiObject2はUiObjectと何が違うのか？\n- 古いUiObjectは使わない方が良いのか？\n- UI Automator 2になって新しくできるようになったことは何か？\n- UI Automator 2の使いどころはどこか？\n- UI Automator 2を使ってテストを書くときに注意すべき点は何か？\n\n●対象者\n- Android中級者〜\n- AndroidのInstrumentation Testを使ってみたことのある方\n- Espressoを活用して自動テストを書いているが、さらにテストの幅を広めたい方\n\n●3つの観点について\n\n- Android specific: \n  Android標準のテストツールであるUI Automator 2についての内容です。\n\n- Expertise:\n  UI Automator 2について、簡単なサンプルについての情報はいくつか公開されていますが、上記の疑問に答えるようなものはほとんど見付かりません。\n  ※自身がABC 2015 Summerで発表したスライド[1]は上記疑問に答えるものですが、本発表は、それをさらに深堀りし、新たに得られた知見を加えたものとなります。\n\n  [1]「テスト自動化ツールUI Automator 2.0で変わったこと」https://speakerdeck.com/sumio/notable-changes-in-ui-automator-2-dot-0\n\n- Innovation:\n  UI Automator 2を使ったテストの書き方を深く理解することで、他人が署名したアプリと連携するようなUIテストの自動化に対する心理的ハードルを下げることができます。",
+    "speaker": {
+      "id": 25,
+      "name": "@sumio_tym (TOYAMA Sumio)",
+      "image_url": "https://pbs.twimg.com/profile_images/1564001253/bf.jpg",
+      "twitter_name": "sumio_tym",
+      "github_name": "sumio"
+    },
+    "stime": "2016-02-19 11:30:00",
+    "etime": "2016-02-19 12:00:00",
+    "category": {
+      "id": 7,
+      "name": "メンテナンス"
+    },
+    "place": {
+      "id": 3,
+      "name": "ルームB"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 26,
+    "title": "View into the abyss",
+    "description": "Androidアプリの画面を構成する最小要素「View」について基礎から解説します。\nふだんXMLで書いているViewレイアウトが実行時にどのように組み立てられているのか、\nHow-toにとどまらない実際の動作原理に興味がある方向けの講演です。\n主に以下の二点について詳しくお話しする予定です。\n\nView Treeのレイアウト構築や描画の仕組み\n- onMeasure, onLayout, onDraw\n- requestLayout, invalidate\n- Custom ViewやCustom ViewGroupの作り方\n\nViewパフォーマンス最適化\n- 不要な再レイアウトや再描画を避けるには\n- （余裕があれば）ハードウェアレイヤーについて",
+    "speaker": {
+      "id": 26,
+      "name": "森 真樹",
+      "image_url": "",
+      "twitter_name": "",
+      "github_name": ""
+    },
+    "stime": "2016-02-19 11:30:00",
+    "etime": "2016-02-19 12:00:00",
+    "category": {
+      "id": 5,
+      "name": "プラットフォーム"
+    },
+    "place": {
+      "id": 4,
+      "name": "ルームC"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 27,
+    "title": "Annotation Processing in Android",
+    "description": "Annotation Processing is an advanced Java technique that can be used in Android for great benefits. In this session you will learn the basic, see some examples and learn to write one yourself with proper unit tests!",
+    "speaker": {
+      "id": 27,
+      "name": "Emanuele Zattin",
+      "image_url": "https://pbs.twimg.com/profile_images/378800000371179906/a7d0cc0650810f62c51786b8d889fbf4.png",
+      "twitter_name": "emanuelez",
+      "github_name": "emanuelez"
+    },
+    "stime": "2016-02-19 11:30:00",
+    "etime": "2016-02-19 12:00:00",
+    "category": {
+      "id": 5,
+      "name": "プラットフォーム"
+    },
+    "place": {
+      "id": 5,
+      "name": "ルームD"
+    },
+    "language_id": "en",
+    "slide_url": ""
+  },
+  {
+    "id": 28,
+    "title": "Customizing Theme and Style for Material Design",
+    "description": "テーマやスタイル活用できていますか？\n\n本セッションでは最初にテーマ・スタイルの基礎を解説し、アプリ用のテーマの正しいカスタマイズ方法を紹介します。その後ステータスバーの透明化など新しいバージョンで追加された機能と、それらをバージョンごとに切り分ける指定方法を紹介します。最後にAppCompatで用意されているMaterial Designを実現するためのテーマ・スタイルを見ていきます。AppCompatで使えるのはcolorPrimaryやcolorAccentだけではありません。WidgetやTextAppearanceなど、レイアウトXMLで直接指定するのに便利なものもいろいろ用意されています。これらの定義と活用方法を紹介します。\n\n\n対象者\n- テーマ・スタイルをなんとなく使っている人\n- 正しいカスタマイズ方法を知りたい人\n- 新しいバージョンで追加されたテーマ属性を知りたい人\n- AppCompatのスタイルを活用したい人",
+    "speaker": {
+      "id": 28,
+      "name": "あんざいゆき（yanzm）",
+      "image_url": "https://pbs.twimg.com/profile_images/628030087460327424/0oNNWTBN.png",
+      "twitter_name": "yanzm",
+      "github_name": "yanzm"
+    },
+    "stime": "2016-02-19 13:00:00",
+    "etime": "2016-02-19 13:50:00",
+    "category": {
+      "id": 3,
+      "name": "UI・デザイン"
+    },
+    "place": {
+      "id": 2,
+      "name": "ルームA"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 29,
+    "title": "パフォーマンスを追求したAndroidアプリを作るには",
+    "description": "対象：Androidアプリの開発を経験している方。特に、おれ（アタシ）もうAndroid開発なんてわかってるしーと思っているそこのあなた。\n\nAndroidアプリのパフォーマンスを向上させるテクニックを様々な観点で網羅的に説明する。\nパフォーマンスを追求した良質なアプリケーションを構築する手掛かりを得られるセッション。\nTOPIC:\n- Androidアプリにおけるパフォーマンスの基本原則について\n- UIのパフォーマンスを向上させるために\n- メモリのパフォーマンスを向上させるために\n- CPUのパフォーマンスを向上させるために\n- バッテリーのパフォーマンスを向上させるために\n- ハードウェアのパフォーマンスを向上させるために",
+    "speaker": {
+      "id": 29,
+      "name": "t.egg",
+      "image_url": "",
+      "twitter_name": "",
+      "github_name": ""
+    },
+    "stime": "2016-02-19 13:00:00",
+    "etime": "2016-02-19 13:50:00",
+    "category": {
+      "id": 7,
+      "name": "メンテナンス"
+    },
+    "place": {
+      "id": 3,
+      "name": "ルームB"
+    },
+    "language_id": "",
+    "slide_url": ""
+  },
+  {
+    "id": 30,
+    "title": "カメラアプリはじめの一歩",
+    "description": "Camera2 APIがリリースされてかれこれ1年がたちますが、コールバック地獄ともいえるAPI設計のとっつきの悪さがあるためか、あまり普及している様子がありません。かといって今からCamera APIを利用するのは、<del>何かに負けたような</del>非推奨APIなので動作保証も難しくなります。\n\n本セッションでは、セッション、キャプチャといった設計上、重要な概念を解説し、Camera2 APIのとっつきの悪さを解消して「構えていたけど、これなら使えそうだな」と思ってもらえることを目的にCamera2 APIを解説します。\n\nAPIをみてみると、カメラの新しい用途として、たとえば撮影時パラメータである露出を変化させながらの連写する等を満たすために、パイプラインという概念がでてきます。この考え方はパフォーマンスを追求する設計としてとてもよくできているのでカメラアプリに興味がある人はもちろん、非同期APIの設計モデルとしても参考になると思います",
+    "speaker": {
+      "id": 30,
+      "name": "mhidaka",
+      "image_url": "https://pbs.twimg.com/profile_images/638564112922882048/a0ZPWdgO.png",
+      "twitter_name": "mhidaka",
+      "github_name": "mhidaka"
+    },
+    "stime": "2016-02-19 13:00:00",
+    "etime": "2016-02-19 13:50:00",
+    "category": {
+      "id": 4,
+      "name": "ハードウェア"
+    },
+    "place": {
+      "id": 4,
+      "name": "ルームC"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 31,
+    "title": "Loving Lean Layouts",
+    "description": "XML layouts are a fundamental part of Android development at all levels. Getting started is straightforward but creating efficient layouts while still achieving the desired UI takes some practice and a few tricks.\n\nIn this session we will look at creating lean yet lovely layouts and\ndiscuss why efficient layouts matter to both developers and users, look at use cases and best practices for standard layouts, determine when a \ncustom view is a good choice, review common mistakes and misconceptions, and share some tricks and situational techniques.",
+    "speaker": {
+      "id": 31,
+      "name": "Huyen Tue Dao (Queen Code Monkey)",
+      "image_url": "https://pbs.twimg.com/profile_images/1774774856/Avatar_DragonCon_300x300.jpg",
+      "twitter_name": "queencodemonkey",
+      "github_name": "queencodemonkey"
+    },
+    "stime": "2016-02-19 13:00:00",
+    "etime": "2016-02-19 13:50:00",
+    "category": {
+      "id": 5,
+      "name": "プラットフォーム"
+    },
+    "place": {
+      "id": 5,
+      "name": "ルームD"
+    },
+    "language_id": "en",
+    "slide_url": ""
+  },
+  {
+    "id": 32,
+    "title": "Support Library 総復習",
+    "description": "[概要]\n公式サイトによると2011年3月に最初のSupportLibraryリビジョン1がリリースされ、2015年11月現在ではリビジョン23.1.1までアップデートされてきました。最初はv4という1つのライブラリから始まりましたが、今ではv7やDesignなど様々なSupportLibraryが存在し、その数はどんどん増えていってます。\n本セッションは、どんなSupportLibraryがあり、どんな機能が実現できるのかを解説し、SupportLibraryを使いこなすための手助けとなる内容です。\n\n[対象者]\nAndroidアプリ開発初級〜中級\n\n[内容の候補]\n- 全SupportLibraryの提供する機能の解説\n- 主要な機能の動作デモ",
+    "speaker": {
+      "id": 32,
+      "name": "下川 敬弘",
+      "image_url": "https://pbs.twimg.com/profile_images/512589372013547521/BDOLFGH_.jpeg",
+      "twitter_name": "androhi",
+      "github_name": "androhi"
+    },
+    "stime": "2016-02-19 14:00:00",
+    "etime": "2016-02-19 14:50:00",
+    "category": {
+      "id": 7,
+      "name": "メンテナンス"
+    },
+    "place": {
+      "id": 2,
+      "name": "ルームA"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 33,
+    "title": "Advanced Kotlin for Android",
+    "description": "■概要\n\n今、世界中から注目を集めているプログラミング言語Kotlin(コトリン)によるAndroid開発について話します。\nKotlinは静的型付けオブジェクト指向言語で、JetBrains社により開発されており、Javaプログラマには馴染みやすい文法が特徴的です。\n前回のDroidKaigiでは簡単な紹介でしたが、今回は一歩進んだ内容で、Android Kotlinユーザのレベルアップに貢献します。\nver0.xが長らく続いていましたが、現在ver1.0-Beta、年内には1.0安定版がリリースされるとの噂で今が一番ホットです！\n\nAndroid specific:\nKotlinはAndroidだけでなくJava仮想マシンもターゲットに含みます。\nしかしいわゆるAndroid Javaが抱える問題をKotlinは華麗に解決してくれます。\n\nExpertise:\nKotlinはまだメジャーな技術とは言えず情報が少ない上に、進歩・変化が早いです。\n日本語でエバンジェリスト(自称)が発表します。\n\nInnovation:\n大きな革新性があると言うと大げさになってしまいそうです。\nKotlinで記述されたアプリだからどうこうという話はありませんが、\nJavaと比較し生産性、保守性、安全性の観点で有利なので、\n余った時間でUIや機能に注力したり、家族や友人と過ごすこともできます。\n\n■対象者\n・Android中級者〜\n・Kotlin初心者〜\n\n初歩的なKotlinの説明はほとんどしません（文末にセミコロンは不要です！など）。\nですが発表資料は公開し、ブログで解説するなど極力フォローしていく予定です。\n\n■目次案\n1. Kotlin概要\n・Kotlinとは\n・ざっと背景や文法などをおさらい\n\n2. Tips集\n・Android開発で直面しやすい問題をKotlinで解決する\n・併せて関連するKotlinの言語機能を紹介\n\n3. ライブラリなど\n・Dagger2やRealm、RxAndroidと言ったフレームワーク、ツールをKotlinからうまく使う方法\n・KotterKnife, AnkoなどのAndroid Kotlin専用のライブラリ\n\n■登壇者について\n・Kotlin歴3年半〜\n・Kotlinエバンジェリスト(自称)\n・日本Kotlinユーザグループ代表\n・講演実績多数(JJUG CCCやDroidKaigiなどなど)\n・執筆実績: 日経ソフトウエア読切、SoftwareDesign連載、同人誌など",
+    "speaker": {
+      "id": 33,
+      "name": "長澤 太郎",
+      "image_url": "https://pbs.twimg.com/profile_images/680403940345790464/6-lApHa9.png",
+      "twitter_name": "ngsw_taro",
+      "github_name": "ntaro"
+    },
+    "stime": "2016-02-19 14:00:00",
+    "etime": "2016-02-19 14:50:00",
+    "category": {
+      "id": 6,
+      "name": "開発環境・ツール"
+    },
+    "place": {
+      "id": 3,
+      "name": "ルームB"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 34,
+    "title": "17ヶ国の多言語対応Tips",
+    "description": "17ヶ国語対応しているTaptripというアプリを作っています。\n多言語対応で押さえておくべきポイントと、現場の開発フローについて話します。\n\n多言語対応といえば、strings.xmlやRTLの対応はわりと知られていますが、実際に対応するとなると他にも気をつけるべきポイントがたくさんあります。\n例えば、ロシア語に対応すると、文字の長さが日本語の倍以上なのでレイアウトにも気を遣わなければなりません。\nまたアプリの翻訳を外注する場合、依頼の仕方や費用、翻訳されるまでの時間といった開発のフローも考える必要があります。\n\n今まで探り探りやってきた知見を公開することで、今後みなさんが多言語対応をする際の助けになればいいなと考えています。\n\n\n[対象者]\n多言語対応したい人\n\n[内容案]\n・strings.xml（管理の方法、複数形の対応）\n・RTL対応（やるべきかどうか開発優先度なども含む）\n・言語ごとに気をつけるべきデザインのポイント\n・翻訳依頼のフロー",
+    "speaker": {
+      "id": 21,
+      "name": "konifar",
+      "image_url": "https://pbs.twimg.com/profile_images/619379391588511744/V4RrXbvM.jpg",
+      "twitter_name": "konifar",
+      "github_name": "konifar"
+    },
+    "stime": "2016-02-19 14:00:00",
+    "etime": "2016-02-19 14:50:00",
+    "category": {
+      "id": 7,
+      "name": "メンテナンス"
+    },
+    "place": {
+      "id": 4,
+      "name": "ルームC"
+    },
+    "language_id": "",
+    "slide_url": ""
+  },
+  {
+    "id": 35,
+    "title": "Fearless Localization and Internationalization Across the Nations",
+    "description": "Many people are intimidated by localization (l10n) and internationalization (i18n) but they don’t have to be—Android provides many tools out of the box to aide you in global domination. Learn what to watch out for while coding your app that will make your life easier once you receive localized content. We’ll cover alternate resources, strings files, date and number formatters, currency, and other tips from Android Studio, Google, and third parties that will turn you into an i18n and l10n champion.",
+    "speaker": {
+      "id": 34,
+      "name": "Siena Aguayo",
+      "image_url": "https://pbs.twimg.com/profile_images/673756215021727744/GhVWfsAQ.jpg",
+      "twitter_name": "sienatime",
+      "github_name": "sienaigg"
+    },
+    "stime": "2016-02-19 14:00:00",
+    "etime": "2016-02-19 14:50:00",
+    "category": {
+      "id": 7,
+      "name": "メンテナンス"
+    },
+    "place": {
+      "id": 5,
+      "name": "ルームD"
+    },
+    "language_id": "en",
+    "slide_url": ""
+  },
+  {
+    "id": 36,
+    "title": "ライブコーディング・Androidのライブラリを作ってみよう",
+    "description": "[対象]\nAndroidの開発はしているけど、ライブラリは作った事がない人、これからライブラリを作ってみようと思う人\n\n[概要]\n普段、Androidの開発は行っていたとしても、ライブラリを作成された経験がある方は必ずしも多くないと思います。本セッションではライブラリの作成方法を説明しつつ、ライブラリを実際にみなさんの前で作成し、Maven Central Repositoryへライブラリを登録し、それを使うところまでを説明しながら、実際に手を動かしながら進めていきます。\n\nまた、簡単なサンプリアプリを作成し、そのアプリからライブラリへと切り出して公開する形で説明します。\nこれにより、普段みなさんが作成されている素敵なアプリから、抽象化出来る部分を切り出し、ライブラリ化する事で、素敵なライブラリが今以上に増える事を望みます。\n\n[発表の内容]\n以下のようなライブコーディングとその説明を実施します。\n\n- 簡単なサンプルアプリの作成\n- サンプルアプリからライブラリを切り出す\n- テストの作成\n- 作成したライブラリをMaven Central Repositoryに登録\n- 別アプリからそのライブラリを使う\n\n※ライブコーディング中の万が一のトラブルに備えて、一通りの流れを紹介するスライドは作成しておき、ネットワークトラブル・PCのトラブルに見舞われた時にも問題ないように準備致します。",
+    "speaker": {
+      "id": 35,
+      "name": "Masataka Kono(@mapyo)",
+      "image_url": "https://pbs.twimg.com/profile_images/1354553482/4507067_141002367.JPG",
+      "twitter_name": "mapyo",
+      "github_name": "mapyo"
+    },
+    "stime": "2016-02-19 15:10:00",
+    "etime": "2016-02-19 15:40:00",
+    "category": {
+      "id": 7,
+      "name": "メンテナンス"
+    },
+    "place": {
+      "id": 2,
+      "name": "ルームA"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 37,
+    "title": "Android実プロダクトへのKotlinの導入事例",
+    "description": "・概要\nAndroidの開発においてKotlin言語は注目度がとても上がってきていると思いますが、実プロダクトで使われている実績まだそれほど多くないのではないかと思います。そこで、Sansan社で開発しているアプリEightのAndroid版の開発実績を元に、Kotlinの実プロダクトへの導入という観点から\n\n- 既存のJavaプロジェクトへのKotlinの導入の過程\n- Javaのコードとの共存\n- ライブラリの使用実績と気をつけるべきポイント\n- Kotlinの便利な点\n- プロジェクトをすすめるにあたって苦労したこと\n- 導入後のメリット\n\nといったことについて話したいと思います。\n\n・対象者\nすでにJavaでのAndroidアプリの開発実績がありKotlinの導入を検討している方\nKotlinがどういったものか興味のある方",
+    "speaker": {
+      "id": 36,
+      "name": "山本 純平",
+      "image_url": "https://avatars3.githubusercontent.com/u/1436634?v=3&s=400.jpg",
+      "twitter_name": "",
+      "github_name": "yamamotoj"
+    },
+    "stime": "2016-02-19 15:10:00",
+    "etime": "2016-02-19 15:40:00",
+    "category": {
+      "id": 6,
+      "name": "開発環境・ツール"
+    },
+    "place": {
+      "id": 3,
+      "name": "ルームB"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 38,
+    "title": "What's the difference between JavaScript and Java?",
+    "description": "## 対象者\n* アプリケーションアーキテクチャ・フレームワークに悩むAndroid開発中〜上級者\n* Webフロントエンド環境からAndroidに移籍してきた技術者\n\n## 概要\nJavaScriptとJavaの違いを意識しながら，WebフロントエンドJavaScriptで流行ってるアーキテクチャや文化をAndroidに持ってくる話をします．\n\n'フロントエンドJavaScript'と'Android Java'，これらはまったく別物のようですが「ユーザからのインタラクションを捌く」という目的は共通しています．Android屋さんからすれば「Webフロントエンドは今の流行りが来年には腐っててこわい…」となりがちですが，逆に言えばそれだけのスピードで技術・環境が進化しているということでもあります．\n\nAndroidにもData Bindingが公式に提供されはじめました．これはWebでも広く使われていた技術ですが，ついにAndroidに取り入れられました．\nこのように，互いの違いを意識しつつ，爆速で進化を続けるフロントエンドJavaScriptの流行りを取り入れることで，なにか新しい発見があるんじゃないか という話をします．\n\nまた，ReduxをAndroid環境に持ち込んだDroiduxというライブラリの実装から得た知見として，JavaScriptなど異環境のライブラリ等をAndroid Javaに取り入れる際に意識しなければいけない，言語間の差異からくる実装方針の違い等についても議論できたらと考えています．\n\n（※ あくまでAndroidメインなのでJavaScriptには簡単にしか触れません）\n\n## 内容\n### 喋ること\n* フロントエンドJavaScriptで流行りのアーキテクチャ\n* Android JavaとWebフロントエンドJavaScriptの違い\n* Flux, Redux: Application architecture JavaScript\n* Flux, Redux for Android\n* returns `rx.Observable<T>`なライブラリ\n* `rx.Observable<T>`統一理論\n* Annotation ProcessingによるCode generation\n* Data Binding\n* RxJava\n\n###  喋らないこと\n* Webの細かい話\n* JavaScriptライブラリの詳細\n* JavaScriptのUIコンポーネント系ライブラリ（Reactとか）\n* AndroidのUIライブラリ",
+    "speaker": {
+      "id": 37,
+      "name": "Masayuki IZUMI (@izumin5210)",
+      "image_url": "https://pbs.twimg.com/profile_images/414065206210220032/bJezBEvM.jpeg",
+      "twitter_name": "izumin5210",
+      "github_name": "izumin5210"
+    },
+    "stime": "2016-02-19 15:10:00",
+    "etime": "2016-02-19 15:40:00",
+    "category": {
+      "id": 8,
+      "name": "Androidの最新動向"
+    },
+    "place": {
+      "id": 4,
+      "name": "ルームC"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 39,
+    "title": "Android,Brillo,ChromeOS",
+    "description": "［概要］\n2013年にAndy RubinからSundar PichaiにAndroid開発統括者が変わりました。\nその後、しばしばAndroidとChromeOSの統合について報道されています。\n実際Androidに取り込まれたChromeOSの機能がありますし、また11月に突如開発中ソースが公開されたIoT向けOS、BrilloはAndroidとChromeOSのハイブリッドとも言えるものになっています。\n\nAndroid、ChromeOS（ChromiumOS）、Brilloの機能を比較し、将来的にAndroidにChromeOSの機能がどのように統合されていくのだろうかを妄想ベースでお話したいと思います。\n\n［発表予定内容］\n・Androidに取り込まれたChromeOSの機能\n・Brilloの仕組み\n・Android、ChromeOS、Brilloの構成の比較\n\n［対象者］\n・AndroidとChromeOSの統合ってどうなってるのよ、と興味をお持ちの方。",
+    "speaker": {
+      "id": 38,
+      "name": "l_b__",
+      "image_url": "https://pbs.twimg.com/profile_images/481176364/Google_Prof_Holmes2.jpg",
+      "twitter_name": "l_b__",
+      "github_name": ""
+    },
+    "stime": "2016-02-19 15:10:00",
+    "etime": "2016-02-19 15:40:00",
+    "category": {
+      "id": 5,
+      "name": "プラットフォーム"
+    },
+    "place": {
+      "id": 5,
+      "name": "ルームD"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 40,
+    "title": "Android CI: 2016 edition",
+    "description": "対象者：\nAndroid のテストに興味がある開発中級者\n\n概要：\nAndroid は OS だけでなく、Android アプリのテストについても毎年状況が変化しています。\n一昔前は作成したアプリのテストと言えば、実機を持ち出してインストールし、操作することを指していました。あるいは、InstrumentationTestCase, uiautomator, Robotium のような自動化ツールを試し、テストスクリプトを書いてみたかもしれません。\nしかしその方法では、アプリそのものが複雑化・大規模化し、なおかつ高速な開発が求められる状況に対応するのは難しいでしょう。この難しさが顕著に現れるのはテストコードの保守であり、定期的にテストを実行しないとテストコードが実装と乖離してしまい、メンテナンスの煩雑さがテストの浸透を妨げてきました。\nテストを常に最新の状態に保つには、開発チームの文化づくりもさることながら、最新のアプリとテストの間に乖離が発生した際に警告を発する仕組みが必要不可欠です。この仕組みこそ CI (Continuous Integration) と呼ばれるものですが、これまで Android の CI は様々な技術的制約がボトルネックとなり、全面的な CI を実現するには複雑な設定や、最初からテスト・CI を見越した設計が求められていました。\nその状況が Gradle Android Plugin のバージョンアップや、各種テストツールの進化によって変わりつつあります。既存のアプリでも始められて、小規模なテストからスタートできる環境が整ってきています。\nそこで Android のテストについて、全体像や関連ワードをレイヤーで分類してわかりやすく概観したのちに、各レイヤーにおけるテスト設計と最新の CI の実現方法を、実例を交えて説明します。",
+    "speaker": {
+      "id": 39,
+      "name": "Yusuke Yagyu",
+      "image_url": "https://avatars2.githubusercontent.com/u/1888328?v=3&s=400.jpg",
+      "twitter_name": "",
+      "github_name": "gyugyu"
+    },
+    "stime": "2016-02-19 15:50:00",
+    "etime": "2016-02-19 16:20:00",
+    "category": {
+      "id": 7,
+      "name": "メンテナンス"
+    },
+    "place": {
+      "id": 2,
+      "name": "ルームA"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 41,
+    "title": "Androidエンジニアになって2年の学び",
+    "description": "対象者:\n- これからAndroidアプリ開発を始めたい人\n- Androidアプリ開発を始めたばかりの人\n\n概要:\nDroidKaigi 2016が開催される頃にはAndroidエンジニアとして2年目が終わります。\n0からAndroidアプリ開発の技術を学んでいくにあたって、どのように学んでいったのか、\nどんな失敗をしてしまったのかなどを共有したいと思っています。\n\nまた、1人で開発を行うことと、チームで開発を行う場合の違いや注意点も共有したいです。\nまだまだ円熟したAndroidエンジニアではありませんが、今だからこそ振り返ってみて、\nこれからの一歩に役立つかもしれない、良かったところ、悪かったところを\n皆様にお伝えできればと思います。",
+    "speaker": {
+      "id": 40,
+      "name": "宮下 竜大郎",
+      "image_url": "https://pbs.twimg.com/profile_images/625336726655897600/3XGY2KW0.jpg",
+      "twitter_name": "ryugoo_",
+      "github_name": "ryugoo"
+    },
+    "stime": "2016-02-19 15:50:00",
+    "etime": "2016-02-19 16:20:00",
+    "category": {
+      "id": 2,
+      "name": "その他"
+    },
+    "place": {
+      "id": 3,
+      "name": "ルームB"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 42,
+    "title": "Build your custom Rx Observable/Subscriber",
+    "description": "1. 概要\nこの1年で RxJava や RxAndroid の普及が進んでいるが、 提供される Observable や Operator を使うのに比べ、自分で Observable や Operator、Subscriber を作成するハードルは依然と高い。また、そもそも、自分の提供したい機能をどのように RxJava で表したら良いのか、についても考慮が必要となる。たとえば、処理の途中でダイアログを表示して、その選択によって処理を切り替えたい場合、どのようにしたら良いだろうか？ログイン画面のように Activity の遷移が行われるとしたら？カスタム Observable や Subscriber で unsubscribe はどのように扱えば良いだろうか？\n\nこのトークでは、筆者の作成した Nearby API 用 RxJava ライブラリ RxNearby （https://github.com/hkurokawa/RxNearby）を例に、どのように行いたい処理を RxJava に落とし込むのか、カスタム Observable やカスタム Subscriber を作成する際に何に注意すべきか、について解説する。特に、1) RxJava の中心は Subscriber であること、2) Observable が subscribe されたとき、および、observe されたときに、それぞれ、どのような順序で処理が伝わっていくか理解することはライブラリを作る上で重要であり、それらを含んだ内容を考えている。\n\n2. 対象者\n- RxJava 経験者\n- Rx の概念を理解しており、詳細に興味のある人\n\n3. 目次案\n- Nearby API の概説と RxJava でどのように扱うかのアイディア\n- RxNearby の使い方\n- Subscriber から見た Observable および Operator\n- MessageSubscribeOnSubscribe の説明と注意点\n- MessagePublishOperator の説明と注意点",
+    "speaker": {
+      "id": 41,
+      "name": "hydrakecat",
+      "image_url": "https://pbs.twimg.com/profile_images/86722804/cat.jpg",
+      "twitter_name": "hydrakecat",
+      "github_name": "hkurokawa"
+    },
+    "stime": "2016-02-19 15:50:00",
+    "etime": "2016-02-19 16:20:00",
+    "category": {
+      "id": 8,
+      "name": "Androidの最新動向"
+    },
+    "place": {
+      "id": 5,
+      "name": "ルームD"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 43,
+    "title": "5年続く「はてなブックマーク」アプリを継続開発する技術",
+    "description": "対象者 : 全ての Android アプリ開発者; 特に 1 年以上前に作られた Android アプリの複数人での開発に関わっている人\n\nAndroid アプリの開発・運用を長く続けていくための技術や、長く開発を続けていると出会う問題の解決策について、2011 年 2 月に最初のバージョンをリリースした 「はてなブックマーク」 Android アプリの開発を例に話します。\n\nまず、継続的な開発・リリースに欠かせない CI について、社内で採用している Jenkins 上での自動ビルドや自動テスト、チーム内リリースの仕組みや GitHub Enterprise との連携について説明します。 単純に手法を説明するのではなく、ビルドシステムである Gradle の活用に重点を置いて話をしますので、Jenkins や GitHub Enterprise を採用していない現場でも参考になるでしょう。\n\nまた、チーム内での開発者同士の連携上の工夫を紹介します。 例えば、ビルドシステムの production flavor で preview 版を定義し、小さな機能改善と大きな機能追加・リファクタリングをチーム内で同時に進めながら、ブランチ間でのコンフリクトの発生を小さくするというコーディング上の工夫についてや、リファクタリングと機能の追加のコードレビューの依頼を明確に分けるなどの開発フロー上の工夫について話します。 Android アプリ開発に限らない話も出てきますが、長くアプリ開発を行っているとリファクタリング等することも多くなりますので、このような話も重要であります。\n\n最後に、機能の追加や挙動の変更をしやすくする設計についてやそれを実際に実装したモジュールの紹介、古いライブラリや非推奨になった API を徐々に置き換えていく方法など、古いコードを書き直す際や、長く使われるであろうコードを書く際に実際に実践している手法を紹介します。",
+    "speaker": {
+      "id": 42,
+      "name": "信岡 裕也 (@nobuoka)",
+      "image_url": "https://pbs.twimg.com/profile_images/692368341894193152/jEFTbQWK.jpg",
+      "twitter_name": "nobuoka",
+      "github_name": "nobuoka"
+    },
+    "stime": "2016-02-19 16:30:00",
+    "etime": "2016-02-19 17:00:00",
+    "category": {
+      "id": 7,
+      "name": "メンテナンス"
+    },
+    "place": {
+      "id": 2,
+      "name": "ルームA"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 44,
+    "title": "「通知オフ」にされない為に。ネイティブアプリの最適な通知について",
+    "description": "【概要】\nデバイスに直接お知らせを配信できるアプリの通知は、メルマガよりも開封率が高いと言われ、\n非アクティブなユーザーに対するリテンションを行う際にも非常に強力な機能です。\nしかし、過度な通知や通知の内容によってはそのアプリの通知をオフにされたり、\n最悪の場合アプリを削除されてしまう原因にもなります。\n\n本発表ではネイティブアプリの最適な通知手段について考察し、実際に通知の開封率を上げる為に効果的だった取り組みと、\nその実装方法について話したいと思います。\n\n【対象者】\n・Android開発 初心者〜中級者\n・業務でアプリを運用している方\n\n【キーワード】\n・GCM\n・Notidfication\n・Wear\n・ローカル通知\n・ポップアップ通知",
+    "speaker": {
+      "id": 43,
+      "name": "cooky_ch",
+      "image_url": "https://avatars0.githubusercontent.com/u/3312886?v=3&s=400.jpg",
+      "twitter_name": "",
+      "github_name": "cookych"
+    },
+    "stime": "2016-02-19 16:30:00",
+    "etime": "2016-02-19 17:00:00",
+    "category": {
+      "id": 2,
+      "name": "その他"
+    },
+    "place": {
+      "id": 3,
+      "name": "ルームB"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  },
+  {
+    "id": 45,
+    "title": "ChromeとAndroidの過去・現在・未来",
+    "description": "概要：\nChromeとAndoridは、お互いにバージョンが新しくなるごとに互いの親和性が高くなってきています。\nWebコンテンツとAndroidアプリの両方を作っている場合、Chrome for Android(Android版のChrome)というのはWebとアプリを繋げる上で非常に重要な役割を果たしています。\n今後さらに、ChromeとAndroidの関係性は重要になっていくと思います。\n\n本セッションではChromeを活用したAndroidアプリ開発について話します。\nはじめにChrome for Androidの概要、AndroidにおけるWebViewの変化などを話します。\n次にChromeの技術の中でも、とくにAndroidアプリへ活用できそうな機能などを話します。\n最後にChromeとAndroidの今後について、興味深い動き・考え方について話します。\n\n内容案：\n* Chrome for Androidの種類\n* WebViewの変化\n* Chrome Custom Tabs\n* Web App Manifest\n* Service WorkersとPush Notifications\n* App Stream ※1\n* Progressive Web Apps\n* ChromeとAndroidの今後について(個人的主観)\n\n\n対象者：\n* WebコンテンツとAndroidアプリの両方を運用している会社 or 人\n* ChromeとAndroidの親和性を有効的に活用したい人\n* アプリ内でWebViewを使っている人 or 使いたいと思ってる人\n\n※1 参考:http://insidesearch.blogspot.ca/2015/11/new-ways-to-find-and-stream-app-content.html",
+    "speaker": {
+      "id": 11,
+      "name": "Shinobu Okano(@operandoOS)",
+      "image_url": "https://pbs.twimg.com/profile_images/2769959234/6e50270293d9b3196223e64c467f3e53.jpeg",
+      "twitter_name": "operandoOS",
+      "github_name": "operando"
+    },
+    "stime": "2016-02-19 16:30:00",
+    "etime": "2016-02-19 17:00:00",
+    "category": {
+      "id": 2,
+      "name": "その他"
+    },
+    "place": {
+      "id": 5,
+      "name": "ルームD"
+    },
+    "language_id": "ja",
+    "slide_url": ""
+  }
+]

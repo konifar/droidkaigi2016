@@ -18,7 +18,7 @@ public class DateUtil {
 
     @NonNull
     public static String getMonthDate(Date date, Context context) {
-        return getMonthDate(date, new Locale("en"), context);
+        return getMonthDate(date, AppUtil.getCurrentLocale(context), context);
     }
 
     @NonNull

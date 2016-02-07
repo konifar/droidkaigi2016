@@ -18,6 +18,7 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.style.TextAppearanceSpan;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
@@ -30,6 +31,8 @@ import javax.inject.Inject;
 
 import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
+import io.github.droidkaigi.confsched.dao.CategoryDao;
+import io.github.droidkaigi.confsched.dao.PlaceDao;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.ActivitySearchBinding;
 import io.github.droidkaigi.confsched.databinding.ItemSearchResultBinding;
@@ -51,7 +54,11 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
     @Inject
     ActivityNavigator activityNavigator;
     @Inject
-    SessionDao dao;
+    SessionDao sessionDao;
+    @Inject
+    PlaceDao placeDao;
+    @Inject
+    CategoryDao categoryDao;
 
     private SearchResultsAdapter adapter;
     private ActivitySearchBinding binding;
@@ -59,7 +66,7 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
     static void start(@NonNull Activity activity) {
         Intent intent = new Intent(activity, SearchActivity.class);
         activity.startActivity(intent);
-        activity.overridePendingTransition(R.anim.activity_fade_enter, R.anim.activity_fade_exit);
+        activity.overridePendingTransition(0, R.anim.activity_fade_exit);
     }
 
     @Override
@@ -70,8 +77,14 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
 
         initToolbar();
         initRecyclerView();
+        initPlacesAndCategoriesView();
 
         loadData();
+    }
+
+    private void initPlacesAndCategoriesView() {
+        binding.searchPlacesAndCategoriesView.addPlaces(placeDao.findAll());
+        binding.searchPlacesAndCategoriesView.addCategories(categoryDao.findAll());
     }
 
     @Override
@@ -104,7 +117,7 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
 
     private void loadData() {
         // TODO It's waste logic...
-        List<Session> sessions = dao.findAll().toBlocking().single();
+        List<Session> sessions = sessionDao.findAll().toBlocking().single();
 
         List<SearchResult> titleResults = Observable.from(sessions)
                 .map(SearchResult::createTitleType)
@@ -149,18 +162,26 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
 
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
-        // TODO Loading View
         adapter.getFilter().filter(s);
     }
 
     @Override
     public void afterTextChanged(Editable s) {
-        // Do nothing
+        if (TextUtils.isEmpty(s)) {
+            binding.searchPlacesAndCategoriesView.setVisibility(View.VISIBLE);
+            binding.recyclerView.setVisibility(View.GONE);
+        } else {
+            binding.searchPlacesAndCategoriesView.setVisibility(View.GONE);
+            binding.recyclerView.setVisibility(View.VISIBLE);
+        }
     }
 
     private class SearchResultsAdapter
             extends ArrayRecyclerAdapter<SearchResult, BindingHolder<ItemSearchResultBinding>>
             implements Filterable {
+
+        private static final String ELLIPSIZE_TEXT = "...";
+        private static final int ELLIPSIZE_LIMIT_COUNT = 30;
 
         private TextAppearanceSpan textAppearanceSpan;
         private List<SearchResult> filteredList;
@@ -191,14 +212,17 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
             Drawable icon = ContextCompat.getDrawable(getContext(), searchResult.iconRes);
             itemBinding.txtType.setCompoundDrawablesWithIntrinsicBounds(icon, null, null, null);
 
-            bindText(itemBinding.txtSearchResult, searchResult.text, binding.searchToolbar.getText());
+            bindText(itemBinding.txtSearchResult, searchResult, binding.searchToolbar.getText());
 
             itemBinding.getRoot().setOnClickListener(v ->
                     activityNavigator.showSessionDetail(SearchActivity.this, searchResult.session, REQ_DETAIL));
         }
 
-        private void bindText(TextView textView, String text, String searchText) {
+        private void bindText(TextView textView, SearchResult searchResult, String searchText) {
+            String text = searchResult.text;
             if (TextUtils.isEmpty(text)) return;
+
+            text = text.replace("\n", "  ");
 
             if (TextUtils.isEmpty(searchText)) {
                 textView.setText(text);
@@ -213,6 +237,12 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
                             idx + searchText.length(),
                             Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
                     );
+
+                    if (idx > ELLIPSIZE_LIMIT_COUNT && searchResult.isDescriptionType()) {
+                        builder.delete(0, idx - ELLIPSIZE_LIMIT_COUNT);
+                        builder.insert(0, ELLIPSIZE_TEXT);
+                    }
+
                     textView.setText(builder);
                 } else {
                     textView.setText(text);

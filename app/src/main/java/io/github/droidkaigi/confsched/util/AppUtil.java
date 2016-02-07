@@ -59,8 +59,8 @@ public class AppUtil {
         context.getResources().updateConfiguration(config, context.getResources().getDisplayMetrics());
     }
 
-    public static Locale getLocale() {
-        return Locale.getDefault();
+    public static Locale getCurrentLocale(Context context) {
+        return new Locale(getCurrentLanguageId(context));
     }
 
     public static String getCurrentLanguageId(Context context) {

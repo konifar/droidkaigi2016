@@ -31,7 +31,6 @@ import io.github.droidkaigi.confsched.databinding.FragmentSessionsBinding;
 import io.github.droidkaigi.confsched.model.MainContentStateBrokerProvider;
 import io.github.droidkaigi.confsched.model.Page;
 import io.github.droidkaigi.confsched.model.Session;
-import io.github.droidkaigi.confsched.util.AppUtil;
 import io.github.droidkaigi.confsched.util.DateUtil;
 import rx.Observable;
 import rx.Subscription;
@@ -69,6 +68,7 @@ public class SessionsFragment extends Fragment {
         initViewPager();
         initEmptyView();
         compositeSubscription.add(loadData());
+        compositeSubscription.add(fetchAndSave());
         return binding.getRoot();
     }
 
@@ -90,17 +90,26 @@ public class SessionsFragment extends Fragment {
         });
     }
 
+    private Subscription fetchAndSave() {
+        return client.getSessions()
+                .doOnNext(dao::updateAll)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe();
+    }
+
     protected Subscription loadData() {
         Observable<List<Session>> cachedSessions = dao.findAll();
         return cachedSessions.flatMap(sessions -> {
-                    if (sessions.isEmpty()) {
-                        return client.getSessions().doOnNext(dao::updateAll);
-                    } else {
-                        return Observable.just(sessions);
-                    }
-                })
+            if (sessions.isEmpty()) {
+                return client.getSessions().doOnNext(dao::updateAll);
+            } else {
+                return Observable.just(sessions);
+            }
+        })
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread()).subscribe(
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
                         this::groupByDateSessions,
                         throwable -> Log.e(TAG, "Load failed", throwable)
                 );
@@ -117,7 +126,7 @@ public class SessionsFragment extends Fragment {
     protected void groupByDateSessions(List<Session> sessions) {
         Map<String, List<Session>> sessionsByDate = new TreeMap<>();
         for (Session session : sessions) {
-            String key = DateUtil.getMonthDate(session.stime, AppUtil.getLocale(), getActivity());
+            String key = DateUtil.getMonthDate(session.stime, getActivity());
             if (sessionsByDate.containsKey(key)) {
                 sessionsByDate.get(key).add(session);
             } else {
@@ -132,6 +141,7 @@ public class SessionsFragment extends Fragment {
         }
 
         binding.tabLayout.setupWithViewPager(binding.viewPager);
+
         if (sessions.isEmpty()) {
             showEmptyView();
         } else {
@@ -168,8 +178,8 @@ public class SessionsFragment extends Fragment {
 
     private class SessionsPagerAdapter extends FragmentStatePagerAdapter {
 
-        private final List<SessionsTabFragment> fragments = new ArrayList<>();
-        private final List<String> titles = new ArrayList<>();
+        private List<SessionsTabFragment> fragments = new ArrayList<>();
+        private List<String> titles = new ArrayList<>();
 
         public SessionsPagerAdapter(FragmentManager fm) {
             super(fm);
