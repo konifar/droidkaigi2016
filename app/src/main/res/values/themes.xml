@@ -35,7 +35,7 @@
 
     <style name="AppTheme.NoActionBar.Amber">
         <item name="colorPrimary">@color/amber500</item>
-        <item name="colorPrimaryDark">@color/amber500</item>
+        <item name="colorPrimaryDark">@color/amber600</item>
     </style>
 
     <style name="AppTheme.NoActionBar.Orange">

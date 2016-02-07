@@ -3,10 +3,8 @@
     <!-- Based on http://www.google.com/design/spec/style/color.html -->
 
     <!-- Theme & Accent -->
-    <color name="theme50">#E0F7FA</color>
     <color name="theme500">#00BCD4</color>
     <color name="theme600">#00ACC1</color>
-    <color name="theme500_alpha_26">#4200BCD4</color>
     <color name="accent100">#FFFF8D</color>
 
     <!-- Greyscales -->
@@ -15,7 +13,6 @@
     <color name="grey300">#E0E0E0</color>
     <color name="grey500">#9E9E9E</color>
     <color name="grey600">#757575</color>
-    <color name="grey800">#424242</color>
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="white_alpha_40">#B3FFFFFF</color>

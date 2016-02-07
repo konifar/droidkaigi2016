@@ -9,20 +9,17 @@
     <string name="cancel">Cancel</string>
     <string name="yes">Yes</string>
 
-    <string name="action_settings">Settings</string>
     <string name="speaker">Speaker</string>
     <string name="session_time_range">%1$s - %2$s (%3$smin)</string>
 
     <string name="title">Title</string>
     <string name="description">Description</string>
-    <string name="category">Category</string>
 
     <string name="search_by_category">Search by category</string>
     <string name="search_by_place">Search by place</string>
 
     <string name="icon">Icon</string>
 
-    <string name="feedback">Feedback</string>
     <string name="send_feedback">Send feedback</string>
 
     <string name="all_sessions">All Sessions</string>

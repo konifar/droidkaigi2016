@@ -30,20 +30,17 @@
 
 
     <!-- Elevation -->
-    <dimen name="elevation_small">2dp</dimen>
     <dimen name="elevation">4dp</dimen>
 
     <!-- Component -->
     <dimen name="drawer_header">172dp</dimen>
     <dimen name="drawer_header_icon">68dp</dimen>
 
-    <dimen name="image_thumb">64dp</dimen>
     <dimen name="user_image_small">28dp</dimen>
     <dimen name="user_image">36dp</dimen>
     <dimen name="user_image_large">48dp</dimen>
 
     <dimen name="tag_radius">4dp</dimen>
-    <dimen name="tag_spacing">2dp</dimen>
     <dimen name="tag_padding_horizontal">8dp</dimen>
     <dimen name="tag_padding_vertical">4dp</dimen>
     <dimen name="tag_border_width">1dp</dimen>
