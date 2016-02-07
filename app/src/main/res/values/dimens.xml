@@ -5,6 +5,7 @@
     <dimen name="spacing">16sp</dimen>
     <dimen name="spacing_large">24sp</dimen>
 
+    <dimen name="spacing_xsmall_negative">-4sp</dimen>
     <dimen name="spacing_negative">-16sp</dimen>
 
     <dimen name="icon_spacing_small">2sp</dimen>

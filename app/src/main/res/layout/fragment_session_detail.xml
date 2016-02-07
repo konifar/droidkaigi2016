@@ -99,7 +99,50 @@
                     android:padding="@dimen/spacing"
                     android:textColor="@color/grey500"
                     android:textSize="@dimen/text"
-                    app:sessionTimeRange="@{session}" />
+                    app:sessionDetailTimeRange="@{session}" />
+
+                <org.apmem.tools.layouts.FlowLayout
+                    android:id="@+id/tag_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/spacing"
+                    android:layout_marginLeft="@dimen/spacing"
+                    android:layout_marginRight="@dimen/spacing"
+                    android:layout_marginStart="@dimen/spacing"
+                    android:layout_marginTop="@dimen/spacing_xsmall_negative">
+
+                    <TextView
+                        android:id="@+id/txt_place"
+                        style="@style/Tag"
+                        android:layout_marginEnd="@dimen/spacing_xsmall"
+                        android:layout_marginRight="@dimen/spacing_xsmall"
+                        android:layout_marginTop="@dimen/spacing_xsmall"
+                        android:background="@drawable/tag_language"
+                        android:text="@{session.place.name}" />
+
+                    <io.github.droidkaigi.confsched.widget.CategoryView
+                        android:id="@+id/txt_category"
+                        style="@style/Tag"
+                        android:layout_marginEnd="@dimen/spacing_xsmall"
+                        android:layout_marginRight="@dimen/spacing_xsmall"
+                        android:layout_marginTop="@dimen/spacing_xsmall"
+                        app:category="@{session.category}" />
+
+                    <TextView
+                        android:id="@+id/txt_language"
+                        style="@style/Tag"
+                        android:layout_marginEnd="@dimen/spacing_xsmall"
+                        android:layout_marginRight="@dimen/spacing_xsmall"
+                        android:layout_marginTop="@dimen/spacing_xsmall"
+                        android:background="@drawable/tag_language"
+                        android:text="@{session.getLanguageResId()}"
+                        android:textColor="@color/grey600" />
+
+                </org.apmem.tools.layouts.FlowLayout>
+
+                <View
+                    style="@style/Border"
+                    android:layout_marginTop="@dimen/spacing" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -108,10 +151,19 @@
                     android:clipToPadding="false"
                     android:padding="@dimen/spacing">
 
+                    <TextView
+                        android:id="@+id/txt_speaker_title"
+                        style="@style/SessionDetailTitle"
+                        android:layout_marginTop="@dimen/spacing_small"
+                        android:text="@string/speaker"
+                        app:categoryVividColor="@{session.category}" />
+
                     <ImageView
                         android:id="@+id/img_speaker"
                         android:layout_width="@dimen/user_image_large"
                         android:layout_height="@dimen/user_image_large"
+                        android:layout_below="@id/txt_speaker_title"
+                        android:layout_marginTop="@dimen/spacing"
                         android:contentDescription="@string/speaker"
                         app:speakerImageUrl="@{session.speaker.imageUrl}" />
 
@@ -153,10 +205,21 @@
                 </RelativeLayout>
 
                 <TextView
+                    android:id="@+id/txt_description_title"
+                    style="@style/SessionDetailTitle"
+                    android:layout_marginTop="@dimen/spacing"
+                    android:paddingEnd="@dimen/spacing"
+                    android:paddingLeft="@dimen/spacing"
+                    android:paddingRight="@dimen/spacing"
+                    android:paddingStart="@dimen/spacing"
+                    android:text="@string/description"
+                    app:categoryVividColor="@{session.category}" />
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:lineSpacingExtra="@dimen/line_spacing"
-                    android:padding="@dimen/spacing_large"
+                    android:lineSpacingExtra="@dimen/line_spacing_large"
+                    android:padding="@dimen/spacing"
                     android:textColor="@color/grey600"
                     android:textSize="@dimen/text"
                     app:sessionDescription="@{session}" />

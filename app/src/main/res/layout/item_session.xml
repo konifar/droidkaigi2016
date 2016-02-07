@@ -49,8 +49,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="@dimen/line_spacing"
-                    android:text="@{session.title}"
-                    android:textStyle="bold" />
+                    android:text="@{session.title}" />
 
                 <TextView
                     android:id="@+id/txt_time"

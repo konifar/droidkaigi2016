@@ -30,7 +30,6 @@
         <item name="android:layout_marginLeft">72dp</item>
     </style>
 
-
     <!-- Component -->
     <style name="BaseRecyclerView">
         <item name="android:clipToPadding">false</item>
@@ -81,6 +80,18 @@
     <style name="SearchResultAppearance">
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/theme600</item>
+    </style>
+
+    <style name="SessionDetailTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/spacing_small</item>
+        <item name="android:layout_marginRight">@dimen/spacing_small</item>
+        <item name="android:layout_marginEnd">@dimen/spacing_small</item>
+        <item name="android:layout_marginStart">@dimen/spacing_small</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:lines">1</item>
+        <item name="android:textSize">@dimen/text_xlarge</item>
     </style>
 
 </resources>

@@ -45,10 +45,24 @@ public class DataBindingAttributeUtil {
         view.setContentScrimColor(ContextCompat.getColor(view.getContext(), category.getVividColorResId()));
     }
 
+    @BindingAdapter("categoryVividColor")
+    public static void setCategoryVividColor(TextView view, @NonNull Category category) {
+        view.setTextColor(ContextCompat.getColor(view.getContext(), category.getVividColorResId()));
+    }
+
     @BindingAdapter("sessionTimeRange")
     public static void setSessionTimeRange(TextView textView, @NonNull Session session) {
         String timeRange = textView.getContext().getString(R.string.session_time_range,
                 DateUtil.getHourMinute(session.stime),
+                DateUtil.getHourMinute(session.etime),
+                DateUtil.getMinutes(session.stime, session.etime));
+        textView.setText(timeRange);
+    }
+
+    @BindingAdapter("sessionDetailTimeRange")
+    public static void setSessionDetailTimeRange(TextView textView, @NonNull Session session) {
+        String timeRange = textView.getContext().getString(R.string.session_time_range,
+                DateUtil.getLongFormatDate(session.stime, textView.getContext()),
                 DateUtil.getHourMinute(session.etime),
                 DateUtil.getMinutes(session.stime, session.etime));
         textView.setText(timeRange);
