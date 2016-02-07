@@ -1,4 +1,6 @@
-package io.github.droidkaigi.confsched;
+package io.github.droidkaigi;
+
+import io.github.droidkaigi.confsched.MainApplication;
 
 public class StethoWrapper {
 
