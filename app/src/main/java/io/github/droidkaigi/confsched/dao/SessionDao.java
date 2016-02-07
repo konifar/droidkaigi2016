@@ -93,6 +93,18 @@ public class SessionDao {
                 .toList();
     }
 
+    public Observable<List<Session>> findByPlace(int placeId) {
+        return Observable.from(sessionRelation().selector().placeIdEq(placeId).toList())
+                .map(session -> session.initAssociations(orma))
+                .toList();
+    }
+
+    public Observable<List<Session>> findByCategory(int categoryId) {
+        return Observable.from(sessionRelation().selector().categoryIdEq(categoryId).toList())
+                .map(session -> session.initAssociations(orma))
+                .toList();
+    }
+
     public void deleteAll() {
         sessionRelation().deleter().execute();
         speakerRelation().deleter().execute();

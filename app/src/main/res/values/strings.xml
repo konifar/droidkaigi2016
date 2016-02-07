@@ -17,6 +17,9 @@
     <string name="description">Description</string>
     <string name="category">Category</string>
 
+    <string name="search_by_category">Search by category</string>
+    <string name="search_by_place">Search by place</string>
+
     <string name="icon">Icon</string>
 
     <string name="all_sessions">All Sessions</string>

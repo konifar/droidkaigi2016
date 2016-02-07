@@ -24,7 +24,7 @@
             android:drawablePadding="@dimen/icon_spacing_small"
             android:ellipsize="end"
             android:lines="1"
-            android:text="@{searchResult.typeRes}"
+            android:text="@{searchResult.session.title}"
             android:textColor="@color/grey500"
             android:textSize="@dimen/text_small" />
 
