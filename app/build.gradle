@@ -11,15 +11,12 @@ def versionPatch = 0
 // CI
 def isCi = "true".equals(System.getenv("CI"))
 def preDexEnabled = "true".equals(System.getProperty("pre-dex", "true"))
-if (System.getenv('ANDROID_MAPS_API_KEY') != null) {
-    android_maps_api_key = System.getenv('ANDROID_MAPS_API_KEY')
-}
 
 def packageName = "io.github.droidkaigi.confsched"
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    buildToolsVersion "23.0.2"
     dataBinding {
         enabled = true
     }
@@ -65,7 +62,7 @@ android {
             zipAlignEnabled true
 
             manifestPlaceholders = [
-                    mapsApiKey: android_maps_api_key
+                    mapsApiKey: System.getenv('ANDROID_MAPS_API_KEY') != null ? System.getenv('ANDROID_MAPS_API_KEY') : android_maps_api_key
             ]
             buildConfigField("String", "GA_TRACKING_ID", "\"${ga_tracking_id_debug}\"")
         }
@@ -78,7 +75,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
             manifestPlaceholders = [
-                    mapsApiKey: android_maps_api_key
+                    mapsApiKey: System.getenv('ANDROID_MAPS_API_KEY') != null ? System.getenv('ANDROID_MAPS_API_KEY') : android_maps_api_key
             ]
             buildConfigField("String", "GA_TRACKING_ID", "\"${ga_tracking_id_release}\"")
         }
