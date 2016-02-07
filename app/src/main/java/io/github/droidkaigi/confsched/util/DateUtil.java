@@ -15,6 +15,7 @@ public class DateUtil {
 
     private static final String FORMAT_MMDD = "MMMd";
     private static final String FORMAT_KKMM = "kk:mm";
+    private static final String FORMAT_YYYYMMDDKKMM = "yyyyMMMdkkmm";
 
     @NonNull
     public static String getMonthDate(Date date, Context context) {
@@ -36,6 +37,18 @@ public class DateUtil {
     @NonNull
     public static String getHourMinute(Date date) {
         return String.valueOf(DateFormat.format(FORMAT_KKMM, date));
+    }
+
+    @NonNull
+    public static String getLongFormatDate(Date date, Context context) {
+        Locale locale = AppUtil.getCurrentLocale(context);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            String pattern = DateFormat.getBestDateTimePattern(locale, FORMAT_YYYYMMDDKKMM);
+            return new SimpleDateFormat(pattern, locale).format(date);
+        } else {
+            SimpleDateFormat sdf = (SimpleDateFormat) java.text.DateFormat.getDateInstance(java.text.DateFormat.LONG, locale);
+            return sdf.format(date) + getHourMinute(date);
+        }
     }
 
     public static int getMinutes(Date stime, Date etime) {

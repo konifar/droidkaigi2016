@@ -14,14 +14,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.like.LikeButton;
-import com.like.OnLikeListener;
-
 import org.parceler.Parcels;
 
 import javax.inject.Inject;
 
 import io.github.droidkaigi.confsched.MainApplication;
+import io.github.droidkaigi.confsched.activity.ActivityNavigator;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSessionDetailBinding;
 import io.github.droidkaigi.confsched.model.Session;
@@ -32,6 +30,9 @@ public class SessionDetailFragment extends Fragment {
 
     @Inject
     SessionDao dao;
+    @Inject
+    ActivityNavigator activityNavigator;
+
     private FragmentSessionDetailBinding binding;
     private Session session;
 
@@ -73,23 +74,15 @@ public class SessionDetailFragment extends Fragment {
         initToolbar();
         binding.setSession(session);
 
-        binding.btnStar.setOnLikeListener(new OnLikeListener() {
-            @Override
-            public void liked(LikeButton likeButton) {
-                toggle(true);
-            }
-
-            @Override
-            public void unLiked(LikeButton likeButton) {
-                toggle(false);
-            }
-
-            private void toggle(boolean checked) {
-                session.checked = checked;
-                dao.updateChecked(session);
-                setResult();
-            }
+        binding.fab.setOnClickListener(v -> {
+            boolean checked = !binding.fab.isSelected();
+            binding.fab.setSelected(checked);
+            session.checked = checked;
+            dao.updateChecked(session);
+            setResult();
         });
+
+        binding.txtFeedback.setOnClickListener(v -> activityNavigator.showFeedback(getActivity()));
 
         return binding.getRoot();
     }

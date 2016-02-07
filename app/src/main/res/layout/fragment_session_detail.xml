@@ -99,7 +99,50 @@
                     android:padding="@dimen/spacing"
                     android:textColor="@color/grey500"
                     android:textSize="@dimen/text"
-                    app:sessionTimeRange="@{session}" />
+                    app:sessionDetailTimeRange="@{session}" />
+
+                <org.apmem.tools.layouts.FlowLayout
+                    android:id="@+id/tag_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/spacing"
+                    android:layout_marginLeft="@dimen/spacing"
+                    android:layout_marginRight="@dimen/spacing"
+                    android:layout_marginStart="@dimen/spacing"
+                    android:layout_marginTop="@dimen/spacing_xsmall_negative">
+
+                    <TextView
+                        android:id="@+id/txt_place"
+                        style="@style/Tag"
+                        android:layout_marginEnd="@dimen/spacing_small"
+                        android:layout_marginRight="@dimen/spacing_small"
+                        android:layout_marginTop="@dimen/spacing_xsmall"
+                        android:background="@drawable/tag_language"
+                        android:text="@{session.place.name}" />
+
+                    <io.github.droidkaigi.confsched.widget.CategoryView
+                        android:id="@+id/txt_category"
+                        style="@style/Tag"
+                        android:layout_marginEnd="@dimen/spacing_small"
+                        android:layout_marginRight="@dimen/spacing_small"
+                        android:layout_marginTop="@dimen/spacing_xsmall"
+                        app:category="@{session.category}" />
+
+                    <TextView
+                        android:id="@+id/txt_language"
+                        style="@style/Tag"
+                        android:layout_marginEnd="@dimen/spacing_small"
+                        android:layout_marginRight="@dimen/spacing_small"
+                        android:layout_marginTop="@dimen/spacing_xsmall"
+                        android:background="@drawable/tag_language"
+                        android:text="@{session.getLanguageResId()}"
+                        android:textColor="@color/grey600" />
+
+                </org.apmem.tools.layouts.FlowLayout>
+
+                <View
+                    style="@style/Border"
+                    android:layout_marginTop="@dimen/spacing" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -108,10 +151,19 @@
                     android:clipToPadding="false"
                     android:padding="@dimen/spacing">
 
+                    <TextView
+                        android:id="@+id/txt_speaker_title"
+                        style="@style/SessionDetailTitle"
+                        android:layout_marginTop="@dimen/spacing_small"
+                        android:text="@string/speaker"
+                        app:categoryVividColor="@{session.category}" />
+
                     <ImageView
                         android:id="@+id/img_speaker"
                         android:layout_width="@dimen/user_image_large"
                         android:layout_height="@dimen/user_image_large"
+                        android:layout_below="@id/txt_speaker_title"
+                        android:layout_marginTop="@dimen/spacing"
                         android:contentDescription="@string/speaker"
                         app:speakerImageUrl="@{session.speaker.imageUrl}" />
 
@@ -122,48 +174,86 @@
                         android:layout_height="wrap_content"
                         android:layout_alignBottom="@id/img_speaker"
                         android:layout_alignTop="@id/img_speaker"
-                        android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/icon_spacing_large"
                         android:layout_marginStart="@dimen/icon_spacing_large"
                         android:layout_toEndOf="@id/img_speaker"
-                        android:layout_toLeftOf="@+id/btn_star"
+                        android:layout_toLeftOf="@+id/speaker_sns_icons"
                         android:layout_toRightOf="@id/img_speaker"
-                        android:layout_toStartOf="@+id/btn_star"
+                        android:layout_toStartOf="@+id/speaker_sns_icons"
                         android:gravity="center_vertical"
                         android:text="@{session.speaker.name}" />
 
-                    <com.like.LikeButton
-                        android:id="@+id/btn_star"
+                    <io.github.droidkaigi.confsched.widget.SpeakerSnsIconsView
+                        android:id="@+id/speaker_sns_icons"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignBottom="@id/txt_speaker_name"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@id/img_speaker"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
-                        android:layout_alignTop="@id/txt_speaker_name"
-                        android:layout_marginEnd="-48dp"
-                        android:layout_marginLeft="@dimen/spacing_small"
-                        android:layout_marginRight="-48dp"
-                        android:layout_marginStart="@dimen/spacing_small"
-                        app:icon_size="@dimen/user_image_large"
-                        app:icon_type="star"
-                        app:like_drawable="@drawable/ic_star_yellow_500_24dp"
-                        app:liked="@{session.checked}"
-                        app:unlike_drawable="@drawable/ic_star_grey_300_24dp" />
+                        android:layout_alignTop="@id/img_speaker"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="@dimen/spacing_small_negative"
+                        android:layout_marginLeft="@dimen/spacing"
+                        android:layout_marginRight="@dimen/spacing_small_negative"
+                        android:layout_marginStart="@dimen/spacing"
+                        android:gravity="center_vertical"
+                        app:speakerSnsIcons="@{session.speaker}" />
 
                 </RelativeLayout>
 
                 <TextView
+                    android:id="@+id/txt_description_title"
+                    style="@style/SessionDetailTitle"
+                    android:layout_marginTop="@dimen/spacing"
+                    android:paddingEnd="@dimen/spacing"
+                    android:paddingLeft="@dimen/spacing"
+                    android:paddingRight="@dimen/spacing"
+                    android:paddingStart="@dimen/spacing"
+                    android:text="@string/description"
+                    app:categoryVividColor="@{session.category}" />
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:lineSpacingExtra="@dimen/line_spacing"
-                    android:padding="@dimen/spacing_large"
+                    android:lineSpacingExtra="@dimen/line_spacing_large"
+                    android:padding="@dimen/spacing"
                     android:textColor="@color/grey600"
                     android:textSize="@dimen/text"
                     app:sessionDescription="@{session}" />
 
+                <View
+                    style="@style/Border"
+                    android:layout_marginTop="@dimen/spacing" />
+
+                <TextView
+                    android:id="@+id/txt_feedback"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/clickable"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:padding="@dimen/spacing"
+                    android:text="@string/send_feedback"
+                    android:textColor="@color/grey600"
+                    android:textSize="@dimen/text_xlarge"
+                    app:categoryVividColor="@{session.category}" />
+
             </LinearLayout>
 
         </android.support.v4.widget.NestedScrollView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            style="@style/FabMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:src="@drawable/fab_icon"
+            app:fabSize="mini"
+            app:layout_anchor="@+id/app_bar"
+            app:layout_anchorGravity="bottom|right|end"
+            app:sessionFab="@{session}"
+            app:theme="@style/FabTheme" />
 
     </android.support.design.widget.CoordinatorLayout>
 

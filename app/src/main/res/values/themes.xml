@@ -35,7 +35,7 @@
 
     <style name="AppTheme.NoActionBar.Amber">
         <item name="colorPrimary">@color/amber500</item>
-        <item name="colorPrimaryDark">@color/amber500</item>
+        <item name="colorPrimaryDark">@color/amber600</item>
     </style>
 
     <style name="AppTheme.NoActionBar.Orange">
@@ -46,6 +46,16 @@
     <style name="AppTheme.NoActionBar.Purple">
         <item name="colorPrimary">@color/purple500</item>
         <item name="colorPrimaryDark">@color/purple600</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.LightGreen">
+        <item name="colorPrimary">@color/lightgreen500</item>
+        <item name="colorPrimaryDark">@color/lightgreen600</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.Red">
+        <item name="colorPrimary">@color/red500</item>
+        <item name="colorPrimaryDark">@color/red600</item>
     </style>
 
     <style name="AppTheme.ColoredStatusBar">

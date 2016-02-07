@@ -9,18 +9,18 @@
     <string name="cancel">キャンセル</string>
     <string name="yes">はい</string>
 
-    <string name="action_settings">設定</string>
     <string name="speaker">スピーカー</string>
     <string name="session_time_range">%1$s 〜 %2$s（%3$s分）</string>
 
     <string name="title">タイトル</string>
     <string name="description">詳細</string>
-    <string name="category">カテゴリ</string>
 
     <string name="search_by_category">カテゴリから探す</string>
     <string name="search_by_place">場所から探す</string>
 
     <string name="icon">アイコン</string>
+
+    <string name="send_feedback">フィードバックを送る</string>
 
     <string name="all_sessions">すべてのセッション</string>
     <string name="my_schedule">マイスケジュール</string>
