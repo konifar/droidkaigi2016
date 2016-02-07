@@ -48,4 +48,12 @@
     <color name="purple600">#8E24AA</color>
     <color name="purple500_alpha_54">#8A9C27B0</color>
 
+    <color name="lightgreen500">#8BC34A</color>
+    <color name="lightgreen600">#7CB342</color>
+    <color name="lightgreen500_alpha_54">#8A8BC34A</color>
+
+    <color name="red500">#F44336</color>
+    <color name="red600">#E53935</color>
+    <color name="red500_alpha_54">#8AF44336</color>
+
 </resources>

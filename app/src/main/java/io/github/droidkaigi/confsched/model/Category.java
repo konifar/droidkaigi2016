@@ -37,6 +37,10 @@ public class Category implements SearchGroup {
                 return R.style.AppTheme_NoActionBar_Purple;
             case 6:
                 return R.style.AppTheme_NoActionBar_Teal;
+            case 7:
+                return R.style.AppTheme_NoActionBar_LightGreen;
+            case 8:
+                return R.style.AppTheme_NoActionBar_Red;
             default:
                 return R.style.AppTheme_NoActionBar_Indigo;
         }
@@ -56,6 +60,10 @@ public class Category implements SearchGroup {
                 return R.color.purple500;
             case 6:
                 return R.color.teal500;
+            case 7:
+                return R.color.lightgreen500;
+            case 8:
+                return R.color.red500;
             default:
                 return R.color.indigo500;
         }
@@ -75,6 +83,10 @@ public class Category implements SearchGroup {
                 return R.color.purple500_alpha_54;
             case 6:
                 return R.color.teal500_alpha_54;
+            case 7:
+                return R.color.lightgreen500_alpha_54;
+            case 8:
+                return R.color.red500_alpha_54;
             default:
                 return R.color.indigo500_alpha_54;
         }

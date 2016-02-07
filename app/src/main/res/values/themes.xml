@@ -48,6 +48,16 @@
         <item name="colorPrimaryDark">@color/purple600</item>
     </style>
 
+    <style name="AppTheme.NoActionBar.LightGreen">
+        <item name="colorPrimary">@color/lightgreen500</item>
+        <item name="colorPrimaryDark">@color/lightgreen600</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.Red">
+        <item name="colorPrimary">@color/red500</item>
+        <item name="colorPrimaryDark">@color/red600</item>
+    </style>
+
     <style name="AppTheme.ColoredStatusBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
