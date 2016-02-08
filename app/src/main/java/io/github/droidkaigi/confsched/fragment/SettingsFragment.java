@@ -23,7 +23,6 @@ import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.activity.ActivityNavigator;
 import io.github.droidkaigi.confsched.databinding.FragmentSettingsBinding;
 import io.github.droidkaigi.confsched.util.AppUtil;
-import io.github.droidkaigi.confsched.util.IntentUtil;
 import rx.Observable;
 
 import static io.github.droidkaigi.confsched.util.IntentUtil.toBrowser;
@@ -31,8 +30,6 @@ import static io.github.droidkaigi.confsched.util.IntentUtil.toBrowser;
 public class SettingsFragment extends Fragment {
 
     public static final String TAG = SettingsFragment.class.getSimpleName();
-
-
 
     @Inject
     ActivityNavigator activityNavigator;
