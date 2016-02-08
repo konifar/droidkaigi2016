@@ -56,7 +56,7 @@ public class SettingsFragment extends Fragment {
     private void initView() {
         binding.txtLanguage.setText(AppUtil.getCurrentLanguage(getActivity()));
         binding.languageSettingsContainer.setOnClickListener(v -> showLanguagesDialog());
-        binding.bugreportSettingsContainer.setOnClickListener(v -> showBugReport());
+        binding.txtBugreport.setOnClickListener(v -> showBugReport());
     }
 
     private void showLanguagesDialog() {
