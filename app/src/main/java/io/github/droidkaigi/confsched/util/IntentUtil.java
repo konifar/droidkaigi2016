@@ -11,7 +11,7 @@ public final class IntentUtil {
 
     public static Intent toBrowser(String url) {
         Uri uri = Uri.parse(url);
-        return new Intent(Intent.ACTION_VIEW,uri);
+        return new Intent(Intent.ACTION_VIEW, uri);
     }
 
 }
