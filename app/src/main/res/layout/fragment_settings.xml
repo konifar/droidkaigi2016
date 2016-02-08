@@ -65,24 +65,18 @@
 
         <View style="@style/Border" />
 
-        <RelativeLayout
-            android:id="@+id/bugreport_settings_container"
+        <TextView
+            android:id="@+id/txt_bugreport"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/clickable"
-            android:padding="@dimen/spacing">
-
-            <TextView
-                android:id="@+id/txt_bugreport"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:lines="1"
-                android:text="@string/settings_bugreport"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text" />
-
-        </RelativeLayout>
+            android:padding="@dimen/spacing"
+            android:clickable="true"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@string/settings_bugreport"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text" />
 
         <View style="@style/Border" />
 
