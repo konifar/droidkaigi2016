@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">DroidKaigi 2016</string>
+    <string name="tag_line">المهندسين الروبوت من مؤتمر بطل الرواية</string>
+    <string name="session_detail">تفاصيل الدورة</string>
+
+    <string name="open">افتتاح</string>
+    <string name="close">قريب</string>
+    <string name="ok">حسنا</string>
+    <string name="cancel">إلغاء</string>
+    <string name="yes">نعم</string>
+
+    <string name="speaker">المتحدث</string>
+    <string name="session_time_range">%1$s 〜 %2$s（دقائق %3$s）</string>
+
+    <string name="title">لقب</string>
+    <string name="description">التفاصيل</string>
+
+    <string name="search_by_category">البحث حسب الفئة</string>
+    <string name="search_by_place">البحث حسب الموقع</string>
+
+    <string name="icon">رمز</string>
+
+    <string name="send_feedback">إرسال ردود الفعل</string>
+
+    <string name="all_sessions">جميع الدورات</string>
+    <string name="my_schedule">جدول بلدي</string>
+    <string name="map">خريطة</string>
+    <string name="settings">محيط</string>
+    <string name="sponsors">كفيل</string>
+    <string name="about">التفاصيل</string>
+
+    <string name="map_main_name">استقبال، مكان الرئيسي</string>
+    <string name="map_main_building">70 الذكرى قاعة</string>
+    <string name="map_ab_name">A، B مكان</string>
+    <string name="map_ab_building">بناء الجنوب 2</string>
+    <string name="map_cd_name">C، D مكان</string>
+    <string name="map_cd_building">قاعة الجنوب 4</string>
+    <string name="map_party_name">مكان تجمع اجتماعي</string>
+    <string name="map_party_building">معهد طوكيو للتكنولوجيا Kuramae كايكان (Kuramae هول)</string>
+    <string name="map_address">معهد طوكيو للتكنولوجيا Ookayama الحرم الجامعي \ ن ميغورو-كو، طوكيو Ookayama 2&#8211;12&#8211;1</string>
+
+
+    <string name="lang_ar">العربية</string>
+    <string name="lang_en">الإنجليزية</string>
+    <string name="lang_ja">اليابانية</string>
+
+    <string name="settings_language">تعيين لغة</string>
+    <string name="settings_language_description">يمكنك تغيير لغة العرض. بعد التغيير سيتم إعادة تشغيل التطبيق.</string>
+    <string name="settings_language_changed">تم تغييره إلى٪1$s الصورة. هل تريد إعادة تشغيل لكي تعكس؟</string>
+    <string name="settings_bugreport">تقرير الشوائب</string>
+
+    <string name="sponsor_category_pratinum">الراعي قسط</string>
+    <string name="sponsor_category_video">الراعي الفيديو</string>
+    <string name="sponsor_category_foods">الراعي الغذاء</string>
+    <string name="sponsor_category_normal">كفيل</string>
+
+    <string name="about_conference">حول DroidKaigi</string>
+    <string name="about_conference_descriptions">المهندسين DroidKaigi هو مؤتمر الروبوت دورا قياديا. 2 أيام المعرض هذا الوقت، ونحن نخطط لالمحاضرات بدعوة من المهندسين البارزين (المحلية والأجنبية). المحتوى بمجرد الانتهاء، سوف تستمر في نشر. يرجى مراجعة الجدول الزمني لمزيد من التفاصيل. في ن ن افتتاح الدورة، بالإضافة إلى الدورة (غرفة متعددة) نحن ننظر التدريب العملي على، أيضا، مثل ساعات العمل. استخدام مسرح\nAndroid هو واسعة النطاق، في شخص واحد لا أستطيع تغطية جدا. لتبادل المعرفة عبر هذه الصناعة من خلال المؤتمر، دعونا تؤدي إلى تطوير البرمجيات أفضل.</string>
+    <string name="about_rep">الممثل: ٪1$S</string>
+    <string name="about_social">اجتماعي</string>
+    <string name="about_terms">شروط الاستخدام</string>
+    <string name="about_license">رخصة</string>
+    <string name="about_questionnaire">استطلاع</string>
+    <string name="about_version_prefix">V%1$s</string>
+
+    <string name="search_hint">البحث بواسطة كلمة</string>
+
+    <string name="app_close_confirm">والتطبيق إغلاق طريق الضغط على زر العودة مرة أخرى</string>
+    <string name="app_close_now">على مقربة مباشرة</string>
+
+    <string name="my_schedule_empty">لم تتم إضافته بعد جلسة ذلك. دعونا اختيار الدورات تريد أن تسمع من جميع الدورات!</string>
+    <string name="my_schedule_go_to_session_list">رؤية جميع الدورات</string>
+</resources>
