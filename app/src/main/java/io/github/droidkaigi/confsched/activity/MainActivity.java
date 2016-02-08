@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private static final int BACK_BUTTON_PRESSED_INTERVAL = 3000;
+    private static final String EXTRA_SHOULD_REFRESH = "should_refresh";
 
     @Inject
     AnalyticsTracker analyticsTracker;
@@ -49,7 +50,12 @@ public class MainActivity extends AppCompatActivity
     private boolean isPressedBackOnce = false;
 
     static void start(@NonNull Activity activity) {
+        start(activity, false);
+    }
+
+    static void start(@NonNull Activity activity, boolean shouldRefresh) {
         Intent intent = new Intent(activity, MainActivity.class);
+        intent.putExtra(EXTRA_SHOULD_REFRESH, shouldRefresh);
         activity.startActivity(intent);
         activity.overridePendingTransition(R.anim.activity_fade_enter, R.anim.activity_fade_exit);
     }
@@ -58,6 +64,8 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AppUtil.initLocale(this);
+
+        boolean shouldRefresh = getIntent().getBooleanExtra(EXTRA_SHOULD_REFRESH, false);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         MainApplication.getComponent(this).inject(this);
@@ -69,7 +77,7 @@ public class MainActivity extends AppCompatActivity
         }));
         initView();
 
-        replaceFragment(SessionsFragment.newInstance());
+        replaceFragment(SessionsFragment.newInstance(shouldRefresh));
     }
 
     private void initView() {

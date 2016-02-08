@@ -42,6 +42,7 @@ import rx.subscriptions.CompositeSubscription;
 public class SessionsFragment extends Fragment {
 
     public static final String TAG = SessionsFragment.class.getSimpleName();
+    private static final String ARG_SHOULD_REFRESH = "should_refresh";
 
     @Inject
     DroidKaigiClient client;
@@ -56,9 +57,18 @@ public class SessionsFragment extends Fragment {
 
     private SessionsPagerAdapter adapter;
     private FragmentSessionsBinding binding;
+    private boolean shouldRefresh;
 
     public static SessionsFragment newInstance() {
-        return new SessionsFragment();
+        return newInstance(false);
+    }
+
+    public static SessionsFragment newInstance(boolean shouldRefresh) {
+        SessionsFragment fragment = new SessionsFragment();
+        Bundle args = new Bundle();
+        args.putBoolean(ARG_SHOULD_REFRESH, shouldRefresh);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Nullable
@@ -71,6 +81,12 @@ public class SessionsFragment extends Fragment {
         compositeSubscription.add(loadData());
         compositeSubscription.add(fetchAndSave());
         return binding.getRoot();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        this.shouldRefresh = getArguments().getBoolean(ARG_SHOULD_REFRESH, false);
     }
 
     @Override
@@ -102,7 +118,7 @@ public class SessionsFragment extends Fragment {
     protected Subscription loadData() {
         Observable<List<Session>> cachedSessions = dao.findAll();
         return cachedSessions.flatMap(sessions -> {
-            if (sessions.isEmpty()) {
+            if (shouldRefresh || sessions.isEmpty()) {
                 return client.getSessions(AppUtil.getCurrentLanguageId(getActivity())).doOnNext(dao::updateAll);
             } else {
                 return Observable.just(sessions);
