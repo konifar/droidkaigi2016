@@ -172,8 +172,11 @@ public class SessionsFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Fragment fragment = adapter.getItem(binding.viewPager.getCurrentItem());
-        if (fragment != null) fragment.onActivityResult(requestCode, resultCode, data);
+        final int currentPos = binding.viewPager.getCurrentItem();
+        if (currentPos >= 0 && currentPos < adapter.getCount()) {
+            Fragment fragment = adapter.getItem(currentPos);
+            if (fragment != null) fragment.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
     private class SessionsPagerAdapter extends FragmentStatePagerAdapter {
