@@ -50,7 +50,7 @@
 
     <string name="sponsor_category_platinum">Platinum Sponsors</string>
     <string name="sponsor_category_video">Video Sponsors</string>
-    <string name="sponsor_category_foods">Foods Sponsors</string>
+    <string name="sponsor_category_food">Food Sponsors</string>
     <string name="sponsor_category_normal">Supporters</string>
 
     <string name="about_conference">About DroidKaigi</string>
