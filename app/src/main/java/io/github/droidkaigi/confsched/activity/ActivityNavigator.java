@@ -3,6 +3,7 @@ package io.github.droidkaigi.confsched.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 
 import javax.inject.Singleton;
 
@@ -13,6 +14,10 @@ public class ActivityNavigator {
 
     public void showSessionDetail(@NonNull Activity activity, @NonNull Session session, int requestCode) {
         SessionDetailActivity.startForResult(activity, session, requestCode);
+    }
+
+    public void showSessionDetail(@NonNull Fragment fragment, @NonNull Session session, int requestCode) {
+        SessionDetailActivity.startForResult(fragment, session, requestCode);
     }
 
     public void showMain(@NonNull Activity activity) {

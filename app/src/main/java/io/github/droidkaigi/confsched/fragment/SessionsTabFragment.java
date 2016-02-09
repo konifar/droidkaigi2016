@@ -154,7 +154,7 @@ public class SessionsTabFragment extends Fragment {
             });
 
             binding.cardView.setOnClickListener(v ->
-                    activityNavigator.showSessionDetail(getActivity(), session, REQ_DETAIL));
+                    activityNavigator.showSessionDetail(SessionsTabFragment.this, session, REQ_DETAIL));
         }
 
     }
