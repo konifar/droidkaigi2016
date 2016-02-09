@@ -52,7 +52,8 @@
             android:layout_marginLeft="@dimen/spacing"
             android:layout_marginStart="@dimen/spacing"
             android:contentDescription="@string/speaker"
-            app:speakerImageUrl="@{searchResult.speakerImageUrl}" />
+            app:speakerImageUrl="@{searchResult.speakerImageUrl}"
+            app:speakerImageSize="@{@dimen/user_image}" />
 
     </RelativeLayout>
 

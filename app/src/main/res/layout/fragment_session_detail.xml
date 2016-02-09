@@ -166,7 +166,8 @@
                         android:layout_below="@id/txt_speaker_title"
                         android:layout_marginTop="@dimen/spacing"
                         android:contentDescription="@string/speaker"
-                        app:speakerImageUrl="@{session.speaker.imageUrl}" />
+                        app:speakerImageUrl="@{session.speaker.imageUrl}"
+                        app:speakerImageSize="@{@dimen/user_image_large}" />
 
                     <TextView
                         android:id="@+id/txt_speaker_name"
