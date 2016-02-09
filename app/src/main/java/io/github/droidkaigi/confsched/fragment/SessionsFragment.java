@@ -76,7 +76,6 @@ public class SessionsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentSessionsBinding.inflate(inflater, container, false);
         setHasOptionsMenu(true);
-        initViewPager();
         initEmptyView();
         compositeSubscription.add(loadData());
         compositeSubscription.add(fetchAndSave());
@@ -86,19 +85,15 @@ public class SessionsFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.shouldRefresh = getArguments().getBoolean(ARG_SHOULD_REFRESH, false);
+        if (getArguments() != null) {
+            this.shouldRefresh = getArguments().getBoolean(ARG_SHOULD_REFRESH, false);
+        }
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         MainApplication.getComponent(this).inject(this);
-    }
-
-    private void initViewPager() {
-        adapter = new SessionsPagerAdapter(getFragmentManager());
-        binding.viewPager.setAdapter(adapter);
-        binding.tabLayout.setupWithViewPager(binding.viewPager);
     }
 
     private void initEmptyView() {
@@ -153,10 +148,13 @@ public class SessionsFragment extends Fragment {
             }
         }
 
+        adapter = new SessionsPagerAdapter(getFragmentManager());
+
         for (Map.Entry<String, List<Session>> e : sessionsByDate.entrySet()) {
             addFragment(e.getKey(), e.getValue());
         }
 
+        binding.viewPager.setAdapter(adapter);
         binding.tabLayout.setupWithViewPager(binding.viewPager);
 
         if (sessions.isEmpty()) {

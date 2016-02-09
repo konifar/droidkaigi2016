@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity
         boolean shouldRefresh = getIntent().getBooleanExtra(EXTRA_SHOULD_REFRESH, false);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        DataBindingUtil.bind(binding.navView.getHeaderView(0));
+
         MainApplication.getComponent(this).inject(this);
 
         subscription.add(brokerProvider.get().observe().subscribe(page -> {

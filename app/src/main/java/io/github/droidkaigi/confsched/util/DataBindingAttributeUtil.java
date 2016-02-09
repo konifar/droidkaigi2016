@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
 import android.text.util.Linkify;
 import android.view.Gravity;
@@ -78,7 +79,7 @@ public class DataBindingAttributeUtil {
 
     @BindingAdapter("sessionDescription")
     public static void setSessionDescription(TextView textView, @NonNull Session session) {
-        textView.setText(session.description);
+        setTextRtlConsidered(textView, session.description);
         Linkify.addLinks(textView, Linkify.ALL);
     }
 
@@ -91,7 +92,9 @@ public class DataBindingAttributeUtil {
     @BindingAdapter("forceRtlDirection")
     public static void setForceRtlDirection(FlowLayout flowLayout, boolean isCenterVertical) {
         if (LocaleUtil.shouldRtl(flowLayout.getContext())) {
-            int gravity = isCenterVertical ? (GravityCompat.END | Gravity.CENTER_VERTICAL) : (GravityCompat.END);
+            ViewCompat.setLayoutDirection(flowLayout, ViewCompat.LAYOUT_DIRECTION_RTL);
+
+            int gravity = isCenterVertical ? GravityCompat.START | Gravity.CENTER_VERTICAL : GravityCompat.START;
             flowLayout.setGravity(gravity);
         }
     }
@@ -99,6 +102,13 @@ public class DataBindingAttributeUtil {
     @BindingAdapter("textRtlConsidered")
     public static void setTextRtlConsidered(TextView textView, String text) {
         textView.setText(LocaleUtil.getRtlConsideredText(text, textView.getContext()));
+    }
+
+    @BindingAdapter("titleRtlConsidered")
+    public static void setTitleRtlConsidered(CollapsingToolbarLayout toolbar, String text) {
+        if (LocaleUtil.shouldRtl(toolbar.getContext())) {
+            toolbar.setTitle(LocaleUtil.getRtlConsideredText(text, toolbar.getContext()));
+        }
     }
 
 }
