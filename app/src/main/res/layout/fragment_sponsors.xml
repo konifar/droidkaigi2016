@@ -16,7 +16,7 @@
 
             <TextView
                 style="@style/SponsorCategory"
-                android:text="@string/sponsor_category_pratinum" />
+                android:text="@string/sponsor_category_platinum" />
 
             <org.apmem.tools.layouts.FlowLayout
                 android:id="@+id/platinum_container"
