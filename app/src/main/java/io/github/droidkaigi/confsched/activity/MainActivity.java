@@ -69,7 +69,9 @@ public class MainActivity extends AppCompatActivity
         }));
         initView();
 
-        replaceFragment(SessionsFragment.newInstance());
+        if (savedInstanceState == null) {
+            replaceFragment(SessionsFragment.newInstance());
+        }
     }
 
     private void initView() {
