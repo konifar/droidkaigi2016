@@ -17,10 +17,10 @@
 
 ### Java8 & retrolambda
 This project use Java8 and [retrolambda](https://github.com/orfjackal/retrolambda).
-If you don't set up Java8, install from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). And set env `JAVA_HOME` or `JAVA8_HOME`.
+If you haven't set up Java8 yet, install it from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), and set env `JAVA_HOME` or `JAVA8_HOME`.
 
 ### DataBinding
-This project try to use [DataBinding](http://developer.android.com/intl/ja/tools/data-binding/guide.html).
+This project tries to use [DataBinding](http://developer.android.com/intl/ja/tools/data-binding/guide.html).
 
 ```xml
 <TextView
@@ -33,7 +33,7 @@ This project try to use [DataBinding](http://developer.android.com/intl/ja/tools
     android:text="@{session.place.name}" /
 ```
 
-Custom attributes is also used like below.
+Custom attributes are also used like below.
 
 ```xml
 <ImageView
@@ -65,7 +65,7 @@ public static void setSpeakerImageUrl(ImageView imageView, @Nullable String imag
 ```
 
 ### Dagger2
-This project use DI library [Dagger2](http://google.github.io/dagger/).
+This project uses DI library [Dagger2](http://google.github.io/dagger/).
 See classes in `di` package.
 
 ```
@@ -85,10 +85,10 @@ src/main/java/io/github/droidkaigi/confsched/di
 
 
 ### Orma
-This project use ORM library [Android-Orma](http://gfx.github.io/Android-Orma/).
-Android-Orma is a wrapper of SQLiteDatabase, a lightning-fast and anotation based.
+This project uses ORM library [Android-Orma](http://gfx.github.io/Android-Orma/).
+Android-Orma is a lightning-fast and anotation based wrapper library of SQLiteDatabase.
 
-Some model classes in `model` package has `@Table` annotation.
+Some model classes in `model` package have `@Table` annotation.
 
 ```java
 @Table
@@ -105,8 +105,8 @@ public class Session {
 }
 ```
 
-These classes are saved to database via `dao/SessionDao`.
-To know more, see [document](http://gfx.github.io/Android-Orma/).
+These classes are saved in database via `dao/SessionDao`.
+To know more about Android-Orma, see [document](http://gfx.github.io/Android-Orma/).
 
 
 ## Todo
@@ -114,11 +114,11 @@ This project is under development.
 Issues are managed by waffle.io.
 https://waffle.io/konifar/droidkaigi2016
 
-If you have a feature you want or find some bugs, please write issue.
+If you have a feature you want or find some bugs, please write an issue.
 
 
 ## Libraries
-This project use some modern Android libraries.
+This project uses some modern Android libraries.
 
 * Android Support Libraries
   * CardView
