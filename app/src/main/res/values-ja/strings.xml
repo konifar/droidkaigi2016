@@ -48,10 +48,10 @@
     <string name="settings_language_changed">%1$sに変更しました。反映するために再起動しますか？</string>
     <string name="settings_bugreport">バグレポート</string>
 
-    <string name="sponsor_category_pratinum">プレミアムスポンサー</string>
+    <string name="sponsor_category_platinum">プラチナスポンサー</string>
     <string name="sponsor_category_video">ビデオスポンサー</string>
     <string name="sponsor_category_foods">フードスポンサー</string>
-    <string name="sponsor_category_normal">スポンサー</string>
+    <string name="sponsor_category_normal">サポーターズ</string>
 
     <string name="about_conference">DroidKaigiについて</string>
     <string name="about_conference_descriptions">DroidKaigiはエンジニアが主役のAndroidカンファレンスです。今回は会期を2日間、著名エンジニア（海外・国内）による招待講演を予定しています。内容が確定次第、公開していきます。詳細はスケジュールをご確認ください。\n\n会期中は、セッション（複数ルーム）以外にもハンズオン、オフィスアワーなども検討しています。\nAndroidの利用シーンは多岐に渡り、一人ではとてもカバーしきれません。カンファレンスを通して業界全体で知見を共有し、より良いソフトウェア開発に繋げていきましょう。</string>
