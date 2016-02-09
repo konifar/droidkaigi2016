@@ -186,8 +186,12 @@ public class SessionsFragment extends Fragment {
         }
 
         @Override
+        @Nullable
         public Fragment getItem(int position) {
-            return fragments.get(position);
+            if (position >= 0 && position < fragments.size()) {
+                return fragments.get(position);
+            }
+            return null;
         }
 
         @Override
