@@ -16,7 +16,7 @@
 ## Development Environment
 
 ### Java8 & retrolambda
-This project use Java8 and [retrolambda](https://github.com/orfjackal/retrolambda).
+This project uses Java8 and [retrolambda](https://github.com/orfjackal/retrolambda).
 If you haven't set up Java8 yet, install it from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), and set env `JAVA_HOME` or `JAVA8_HOME`.
 
 ### DataBinding
