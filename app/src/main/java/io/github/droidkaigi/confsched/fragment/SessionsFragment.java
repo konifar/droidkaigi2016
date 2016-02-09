@@ -168,14 +168,7 @@ public class SessionsFragment extends Fragment {
         }
         return super.onOptionsItemSelected(item);
     }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        Fragment fragment = adapter.getItem(binding.viewPager.getCurrentItem());
-        if (fragment != null) fragment.onActivityResult(requestCode, resultCode, data);
-    }
-
+    
     private class SessionsPagerAdapter extends FragmentStatePagerAdapter {
 
         private List<SessionsTabFragment> fragments = new ArrayList<>();

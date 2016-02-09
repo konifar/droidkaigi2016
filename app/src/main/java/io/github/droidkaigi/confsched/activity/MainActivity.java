@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity
     CompositeSubscription subscription;
 
     private ActivityMainBinding binding;
-    private Fragment currentFragment;
+
     private boolean isPressedBackOnce = false;
 
     static void start(@NonNull Activity activity) {
@@ -89,8 +89,6 @@ public class MainActivity extends AppCompatActivity
         ft.setCustomAnimations(R.anim.fragment_fade_enter, R.anim.fragment_fade_exit);
         ft.replace(R.id.content_view, fragment, fragment.getClass().getSimpleName());
         ft.commit();
-
-        currentFragment = fragment;
     }
 
     @Override
@@ -143,14 +141,6 @@ public class MainActivity extends AppCompatActivity
             binding.toolbar.setTitle(titleRes);
             replaceFragment(fragment);
         }, 300);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (currentFragment != null) {
-            currentFragment.onActivityResult(requestCode, resultCode, data);
-        }
     }
 
     @Override
