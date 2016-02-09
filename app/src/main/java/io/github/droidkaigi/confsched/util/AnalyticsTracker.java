@@ -5,12 +5,12 @@ import com.google.android.gms.analytics.Tracker;
 
 import javax.inject.Inject;
 
-public class AnalyticsUtil {
+public class AnalyticsTracker {
 
     final Tracker tracker;
 
     @Inject
-    public AnalyticsUtil(Tracker tracker) {
+    public AnalyticsTracker(Tracker tracker) {
         this.tracker = tracker;
     }
 

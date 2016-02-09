@@ -17,7 +17,7 @@ import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.databinding.FragmentSponsorsBinding;
 import io.github.droidkaigi.confsched.model.Sponsor;
-import io.github.droidkaigi.confsched.util.AnalyticsUtil;
+import io.github.droidkaigi.confsched.util.AnalyticsTracker;
 import io.github.droidkaigi.confsched.util.AppUtil;
 import io.github.droidkaigi.confsched.widget.SponsorImageView;
 import rx.Observable;
@@ -29,7 +29,7 @@ public class SponsorsFragment extends Fragment {
     private FragmentSponsorsBinding binding;
 
     @Inject
-    AnalyticsUtil analyticsUtil;
+    AnalyticsTracker analyticsTracker;
 
     public static SponsorsFragment newInstance() {
         return new SponsorsFragment();
@@ -65,7 +65,7 @@ public class SponsorsFragment extends Fragment {
         imageView.bindData(sponsor, v -> {
             if (TextUtils.isEmpty(sponsor.url))
                 return;
-            analyticsUtil.sendEvent("sponsor", sponsor.url);
+            analyticsTracker.sendEvent("sponsor", sponsor.url);
             AppUtil.showWebPage(getActivity(), sponsor.url);
         });
         FlowLayout.LayoutParams params = new FlowLayout.LayoutParams(
