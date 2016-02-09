@@ -27,7 +27,7 @@ public class DataBindingAttributeUtil {
         if (TextUtils.isEmpty(imageUrl)) {
             imageView.setImageDrawable(ContextCompat.getDrawable(imageView.getContext(), R.drawable.ic_speaker_placeholder));
         } else {
-            final int size = (int)(sizeInDimen + 0.5f);
+            final int size = Math.round(sizeInDimen);
             imageView.setBackground(ContextCompat.getDrawable(imageView.getContext(), R.drawable.circle_border_grey200));
             Picasso.with(imageView.getContext())
                     .load(imageUrl)
