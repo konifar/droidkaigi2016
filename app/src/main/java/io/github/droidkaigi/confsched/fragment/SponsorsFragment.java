@@ -1,5 +1,6 @@
 package io.github.droidkaigi.confsched.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,9 +11,13 @@ import android.view.ViewGroup;
 
 import org.apmem.tools.layouts.FlowLayout;
 
+import javax.inject.Inject;
+
+import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.databinding.FragmentSponsorsBinding;
 import io.github.droidkaigi.confsched.model.Sponsor;
+import io.github.droidkaigi.confsched.util.AnalyticsUtil;
 import io.github.droidkaigi.confsched.util.AppUtil;
 import io.github.droidkaigi.confsched.widget.SponsorImageView;
 import rx.Observable;
@@ -22,6 +27,9 @@ public class SponsorsFragment extends Fragment {
     public static final String TAG = SponsorsFragment.class.getSimpleName();
 
     private FragmentSponsorsBinding binding;
+
+    @Inject
+    AnalyticsUtil analyticsUtil;
 
     public static SponsorsFragment newInstance() {
         return new SponsorsFragment();
@@ -33,6 +41,12 @@ public class SponsorsFragment extends Fragment {
         binding = FragmentSponsorsBinding.inflate(inflater, container, false);
         initView();
         return binding.getRoot();
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        MainApplication.getComponent(this).inject(this);
     }
 
     private void initView() {
@@ -51,6 +65,7 @@ public class SponsorsFragment extends Fragment {
         imageView.bindData(sponsor, v -> {
             if (TextUtils.isEmpty(sponsor.url))
                 return;
+            analyticsUtil.sendEvent("sponsor", sponsor.url);
             AppUtil.showWebPage(getActivity(), sponsor.url);
         });
         FlowLayout.LayoutParams params = new FlowLayout.LayoutParams(
