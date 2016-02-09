@@ -25,7 +25,7 @@ import io.github.droidkaigi.confsched.databinding.ActivityMainBinding;
 import io.github.droidkaigi.confsched.fragment.SessionsFragment;
 import io.github.droidkaigi.confsched.model.MainContentStateBrokerProvider;
 import io.github.droidkaigi.confsched.model.Page;
-import io.github.droidkaigi.confsched.util.AnalyticsUtil;
+import io.github.droidkaigi.confsched.util.AnalyticsTracker;
 import io.github.droidkaigi.confsched.util.AppUtil;
 import rx.subscriptions.CompositeSubscription;
 
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity
     private static final int BACK_BUTTON_PRESSED_INTERVAL = 3000;
 
     @Inject
-    AnalyticsUtil analyticsUtil;
+    AnalyticsTracker analyticsTracker;
 
     @Inject
     MainContentStateBrokerProvider brokerProvider;
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
-        analyticsUtil.sendScreenView("main");
+        analyticsTracker.sendScreenView("main");
     }
 
     @Override

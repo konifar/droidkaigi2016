@@ -21,12 +21,12 @@ import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.ActivitySearchedSessionsBinding;
 import io.github.droidkaigi.confsched.fragment.SearchedSessionsFragment;
 import io.github.droidkaigi.confsched.model.SearchGroup;
-import io.github.droidkaigi.confsched.util.AnalyticsUtil;
+import io.github.droidkaigi.confsched.util.AnalyticsTracker;
 
 public class SearchedSessionsActivity extends AppCompatActivity {
 
     @Inject
-    AnalyticsUtil analyticsUtil;
+    AnalyticsTracker analyticsTracker;
     @Inject
     SessionDao dao;
 
@@ -74,7 +74,7 @@ public class SearchedSessionsActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        analyticsUtil.sendScreenView("searchedSessions");
+        analyticsTracker.sendScreenView("searchedSessions");
     }
 
     @Override
