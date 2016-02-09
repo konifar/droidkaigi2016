@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/ic_star_yellow_600_24dp" android:state_selected="true" />
+    <item android:drawable="@drawable/ic_star_grey_300_24dp" />
+
+</selector>

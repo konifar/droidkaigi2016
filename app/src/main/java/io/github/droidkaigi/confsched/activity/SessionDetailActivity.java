@@ -41,7 +41,6 @@ public class SessionDetailActivity extends AppCompatActivity {
     static void startForResult(@NonNull Activity activity, @NonNull Session session, int requestCode) {
         Intent intent = createIntent(activity, session);
         activity.startActivityForResult(intent, requestCode);
-        activity.overridePendingTransition(R.anim.activity_slide_start_enter, R.anim.activity_scale_start_exit);
     }
 
     @Override
@@ -73,12 +72,6 @@ public class SessionDetailActivity extends AppCompatActivity {
             onBackPressed();
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void finish() {
-        super.finish();
-        overridePendingTransition(R.anim.activity_scale_finish_enter, R.anim.activity_slide_finish_exit);
     }
 
     @Override

@@ -27,4 +27,8 @@ public class ActivityNavigator {
         SearchActivity.start(activity);
     }
 
+    public void showFeedback(@NonNull Context context) {
+        // TODO
+    }
+
 }
