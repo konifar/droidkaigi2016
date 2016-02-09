@@ -5,8 +5,10 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.GravityCompat;
 import android.text.TextUtils;
 import android.text.util.Linkify;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,6 +16,8 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout;
+
+import org.apmem.tools.layouts.FlowLayout;
 
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.model.Category;
@@ -57,8 +61,8 @@ public class DataBindingAttributeUtil {
     @BindingAdapter("sessionTimeRange")
     public static void setSessionTimeRange(TextView textView, @NonNull Session session) {
         String timeRange = textView.getContext().getString(R.string.session_time_range,
-                DateUtil.getHourMinute(session.stime),
-                DateUtil.getHourMinute(session.etime),
+                DateUtil.getHourMinute(session.stime, textView.getContext()),
+                DateUtil.getHourMinute(session.etime, textView.getContext()),
                 DateUtil.getMinutes(session.stime, session.etime));
         textView.setText(timeRange);
     }
@@ -67,7 +71,7 @@ public class DataBindingAttributeUtil {
     public static void setSessionDetailTimeRange(TextView textView, @NonNull Session session) {
         String timeRange = textView.getContext().getString(R.string.session_time_range,
                 DateUtil.getLongFormatDate(session.stime, textView.getContext()),
-                DateUtil.getHourMinute(session.etime),
+                DateUtil.getHourMinute(session.etime, textView.getContext()),
                 DateUtil.getMinutes(session.stime, session.etime));
         textView.setText(timeRange);
     }
@@ -82,6 +86,19 @@ public class DataBindingAttributeUtil {
     public static void setSessionFab(FloatingActionButton fab, @NonNull Session session) {
         fab.setRippleColor(ContextCompat.getColor(fab.getContext(), session.category.getPaleColorResId()));
         fab.setSelected(session.checked);
+    }
+
+    @BindingAdapter("forceRtlDirection")
+    public static void setForceRtlDirection(FlowLayout flowLayout, boolean isCenterVertical) {
+        if (LocaleUtil.shouldRtl(flowLayout.getContext())) {
+            int gravity = isCenterVertical ? (GravityCompat.END | Gravity.CENTER_VERTICAL) : (GravityCompat.END);
+            flowLayout.setGravity(gravity);
+        }
+    }
+
+    @BindingAdapter("textRtlConsidered")
+    public static void setTextRtlConsidered(TextView textView, String text) {
+        textView.setText(LocaleUtil.getRtlConsideredText(text, textView.getContext()));
     }
 
 }

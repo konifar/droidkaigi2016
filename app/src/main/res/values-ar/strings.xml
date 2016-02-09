@@ -10,7 +10,7 @@
     <string name="yes">نعم</string>
 
     <string name="speaker">المتحدث</string>
-    <string name="session_time_range">%1$s 〜 %2$s（دقائق %3$s）</string>
+    <string name="session_time_range">%1$s ~ %2$s (%3$s دقائق)</string>
 
     <string name="title">لقب</string>
     <string name="description">التفاصيل</string>
