@@ -21,13 +21,15 @@ import io.github.droidkaigi.confsched.widget.transformation.CropCircleTransforma
 
 public class DataBindingAttributeUtil {
 
-    @BindingAdapter("speakerImageUrl")
-    public static void setSpeakerImageUrl(ImageView imageView, @Nullable String imageUrl) {
+    @BindingAdapter({"speakerImageUrl", "speakerImageSize"})
+    public static void setSpeakerImageUrlWithSize(ImageView imageView, @Nullable String imageUrl, float sizeInDimen) {
         if (TextUtils.isEmpty(imageUrl)) {
             imageView.setImageDrawable(ContextCompat.getDrawable(imageView.getContext(), R.drawable.ic_speaker_placeholder));
         } else {
+            final int size = (int)(sizeInDimen + 0.5f);
             Picasso.with(imageView.getContext())
                     .load(imageUrl)
+                    .resize(size, size)
                     .placeholder(R.drawable.ic_speaker_placeholder)
                     .error(R.drawable.ic_speaker_placeholder)
                     .transform(new CropCircleTransformation())
