@@ -8,7 +8,7 @@
       "name": "wasabeef",
       "image_url": "https://pbs.twimg.com/profile_images/427481863343452160/i-G-x-Gw.jpeg",
       "twitter_name": "wasabeef_jp",
-      "github_name": "wasabeef_jp"
+      "github_name": "wasabeef"
     },
     "stime": "2016-02-18 10:00:00",
     "etime": "2016-02-18 11:00:00",
@@ -270,7 +270,7 @@
     "speaker": {
       "id": 12,
       "name": "Chiu-Ki Chan",
-      "image_url": "",
+      "image_url": "https://pbs.twimg.com/profile_images/439937760703422464/jII8qYTL.png",
       "twitter_name": "chiuki",
       "github_name": "chiuki"
     },
@@ -510,8 +510,8 @@
     "speaker": {
       "id": 22,
       "name": "嶋田 達哉",
-      "image_url": "",
-      "twitter_name": "",
+      "image_url": "https://pbs.twimg.com/profile_images/611831596581130240/vNdSioTF.jpg",
+      "twitter_name": "usaganikki",
       "github_name": ""
     },
     "stime": "2016-02-18 16:30:00",

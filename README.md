@@ -1,4 +1,4 @@
-# ![](app/src/main/res/mipmap-mdpi/ic_launcher.png) DroidKaigi 2016 official Android app [![Circle CI](https://circleci.com/gh/konifar/droidkaigi2016/tree/master.svg?style=svg)](https://circleci.com/gh/konifar/droidkaigi2016/tree/master)
+# ![](app/src/main/res/mipmap-mdpi/ic_launcher.png) DroidKaigi 2016 official Android app [![Circle CI](https://circleci.com/gh/konifar/droidkaigi2016/tree/master.svg?style=svg)](https://circleci.com/gh/konifar/droidkaigi2016/tree/master) [![Stories in Ready](https://badge.waffle.io/konifar/droidkaigi2016.svg?label=ready&title=Ready)](http://waffle.io/konifar/droidkaigi2016)
 
 [DroidKaigi](https://droidkaigi.github.io/2016/en/) is a conference tailored for developers on 18th and 19th February 2016.
 
@@ -111,9 +111,10 @@ To know more, see [document](http://gfx.github.io/Android-Orma/).
 
 ## Todo
 This project is under development.
-If you have a feature you want or find some bugs, please write issue.
-https://github.com/konifar/droidkaigi2016/issues
+Issues are managed by waffle.io.
+https://waffle.io/konifar/droidkaigi2016
 
+If you have a feature you want or find some bugs, please write issue.
 
 
 ## Libraries

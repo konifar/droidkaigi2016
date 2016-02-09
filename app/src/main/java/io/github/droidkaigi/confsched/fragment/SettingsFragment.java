@@ -25,9 +25,12 @@ import io.github.droidkaigi.confsched.databinding.FragmentSettingsBinding;
 import io.github.droidkaigi.confsched.util.AppUtil;
 import rx.Observable;
 
+import static io.github.droidkaigi.confsched.util.IntentUtil.toBrowser;
+
 public class SettingsFragment extends Fragment {
 
     public static final String TAG = SettingsFragment.class.getSimpleName();
+
     @Inject
     ActivityNavigator activityNavigator;
     private FragmentSettingsBinding binding;
@@ -53,6 +56,7 @@ public class SettingsFragment extends Fragment {
     private void initView() {
         binding.txtLanguage.setText(AppUtil.getCurrentLanguage(getActivity()));
         binding.languageSettingsContainer.setOnClickListener(v -> showLanguagesDialog());
+        binding.txtBugreport.setOnClickListener(v -> showBugReport());
     }
 
     private void showLanguagesDialog() {
@@ -97,6 +101,10 @@ public class SettingsFragment extends Fragment {
                     getActivity().finish();
                 })
                 .show();
+    }
+
+    private void showBugReport() {
+        startActivity(toBrowser(getString(R.string.bug_report_url)));
     }
 
 }

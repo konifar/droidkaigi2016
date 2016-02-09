@@ -49,8 +49,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="@dimen/line_spacing"
-                    android:text="@{session.title}"
-                    android:textStyle="bold" />
+                    android:text="@{session.title}" />
 
                 <TextView
                     android:id="@+id/txt_time"
@@ -146,7 +145,7 @@
                     android:layout_marginStart="@dimen/spacing_small"
                     app:icon_size="@dimen/user_image_small"
                     app:icon_type="star"
-                    app:like_drawable="@drawable/ic_star_yellow_500_24dp"
+                    app:like_drawable="@drawable/ic_star_yellow_600_24dp"
                     app:liked="@{session.checked}"
                     app:unlike_drawable="@drawable/ic_star_grey_300_24dp" />
 

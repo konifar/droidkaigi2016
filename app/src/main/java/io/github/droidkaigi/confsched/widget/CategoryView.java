@@ -2,11 +2,10 @@ package io.github.droidkaigi.confsched.widget;
 
 import android.content.Context;
 import android.databinding.BindingAdapter;
+import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.widget.TextView;
-
-import javax.annotation.Nullable;
 
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.model.Category;

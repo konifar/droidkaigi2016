@@ -61,6 +61,9 @@ android {
             debuggable true
             zipAlignEnabled true
 
+            manifestPlaceholders = [
+                    mapsApiKey: System.getenv('ANDROID_MAPS_API_KEY') != null ? System.getenv('ANDROID_MAPS_API_KEY') : android_maps_api_key
+            ]
             buildConfigField("String", "GA_TRACKING_ID", "\"${ga_tracking_id_debug}\"")
         }
         release {
@@ -71,6 +74,9 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
+            manifestPlaceholders = [
+                    mapsApiKey: System.getenv('ANDROID_MAPS_API_KEY') != null ? System.getenv('ANDROID_MAPS_API_KEY') : android_maps_api_key
+            ]
             buildConfigField("String", "GA_TRACKING_ID", "\"${ga_tracking_id_release}\"")
         }
     }
