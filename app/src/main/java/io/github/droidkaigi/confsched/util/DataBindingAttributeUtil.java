@@ -104,11 +104,4 @@ public class DataBindingAttributeUtil {
         textView.setText(LocaleUtil.getRtlConsideredText(text, textView.getContext()));
     }
 
-    @BindingAdapter("titleRtlConsidered")
-    public static void setTitleRtlConsidered(CollapsingToolbarLayout toolbar, String text) {
-        if (LocaleUtil.shouldRtl(toolbar.getContext())) {
-            toolbar.setTitle(LocaleUtil.getRtlConsideredText(text, toolbar.getContext()));
-        }
-    }
-
 }
