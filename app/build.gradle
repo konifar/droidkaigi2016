@@ -132,8 +132,8 @@ dependencies {
     compile "org.parceler:parceler-api:1.0.4"
     apt "org.parceler:parceler:1.0.4"
 
-    apt 'com.github.gfx.android.orma:orma-processor:1.0.1'
-    compile 'com.github.gfx.android.orma:orma:1.0.1'
+    apt 'com.github.gfx.android.orma:orma-processor:1.2.2'
+    compile 'com.github.gfx.android.orma:orma:1.2.2'
 
     compile "com.squareup.picasso:picasso:2.5.2"
     compile 'com.squareup.retrofit2:retrofit:2.0.0-beta3'
