@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
@@ -38,6 +39,7 @@ import io.github.droidkaigi.confsched.databinding.ActivitySearchBinding;
 import io.github.droidkaigi.confsched.databinding.ItemSearchResultBinding;
 import io.github.droidkaigi.confsched.model.SearchResult;
 import io.github.droidkaigi.confsched.model.Session;
+import io.github.droidkaigi.confsched.util.LocaleUtil;
 import io.github.droidkaigi.confsched.util.AnalyticsTracker;
 import io.github.droidkaigi.confsched.widget.ArrayRecyclerAdapter;
 import io.github.droidkaigi.confsched.widget.BindingHolder;
@@ -210,7 +212,13 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
             itemBinding.setSearchResult(searchResult);
 
             Drawable icon = ContextCompat.getDrawable(getContext(), searchResult.iconRes);
-            itemBinding.txtType.setCompoundDrawablesWithIntrinsicBounds(icon, null, null, null);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                itemBinding.txtType.setCompoundDrawablesRelativeWithIntrinsicBounds(icon, null, null, null);
+            } else if (LocaleUtil.shouldRtl(getContext())) {
+                itemBinding.txtType.setCompoundDrawablesWithIntrinsicBounds(null, null, icon, null);
+            } else {
+                itemBinding.txtType.setCompoundDrawablesWithIntrinsicBounds(icon, null, null, null);
+            }
 
             bindText(itemBinding.txtSearchResult, searchResult, binding.searchToolbar.getText());
 

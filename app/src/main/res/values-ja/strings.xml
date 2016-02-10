@@ -49,7 +49,7 @@
 
     <string name="sponsor_category_platinum">プラチナスポンサー</string>
     <string name="sponsor_category_video">ビデオスポンサー</string>
-    <string name="sponsor_category_foods">フードスポンサー</string>
+    <string name="sponsor_category_food">フードスポンサー</string>
     <string name="sponsor_category_normal">サポーターズ</string>
 
     <string name="about_conference">DroidKaigiについて</string>

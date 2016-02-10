@@ -1,8 +1,8 @@
 package io.github.droidkaigi.confsched.dao;
 
-import android.support.annotation.NonNull;
-
 import com.github.gfx.android.orma.TransactionTask;
+
+import android.support.annotation.NonNull;
 
 import java.util.List;
 
@@ -51,12 +51,12 @@ public class SessionDao {
         orma.transactionAsync(new TransactionTask() {
             @Override
             public void execute() throws Exception {
-                Observable.from(sessions).forEach(session -> {
+                for (Session session : sessions) {
                     session.prepareSave();
                     insertSpeaker(session.speaker);
                     insertCategory(session.category);
                     insertPlace(session.place);
-                });
+                }
 
                 sessionRelation().inserter().executeAll(sessions);
             }
@@ -82,25 +82,25 @@ public class SessionDao {
     }
 
     public Observable<List<Session>> findAll() {
-        return Observable.from(sessionRelation().selector().toList())
+        return sessionRelation().selector().executeAsObservable()
                 .map(session -> session.initAssociations(orma))
                 .toList();
     }
 
     public Observable<List<Session>> findByChecked() {
-        return Observable.from(sessionRelation().selector().where("checked = ?", true).toList())
+        return sessionRelation().selector().checkedEq(true).executeAsObservable()
                 .map(session -> session.initAssociations(orma))
                 .toList();
     }
 
     public Observable<List<Session>> findByPlace(int placeId) {
-        return Observable.from(sessionRelation().selector().placeIdEq(placeId).toList())
+        return sessionRelation().selector().placeIdEq(placeId).executeAsObservable()
                 .map(session -> session.initAssociations(orma))
                 .toList();
     }
 
     public Observable<List<Session>> findByCategory(int categoryId) {
-        return Observable.from(sessionRelation().selector().categoryIdEq(categoryId).toList())
+        return sessionRelation().selector().categoryIdEq(categoryId).executeAsObservable()
                 .map(session -> session.initAssociations(orma))
                 .toList();
     }

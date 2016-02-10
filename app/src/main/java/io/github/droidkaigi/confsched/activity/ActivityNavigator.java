@@ -20,8 +20,8 @@ public class ActivityNavigator {
         SessionDetailActivity.startForResult(fragment, session, requestCode);
     }
 
-    public void showMain(@NonNull Activity activity) {
-        MainActivity.start(activity);
+    public void showMain(@NonNull Activity activity, boolean shouldRefresh) {
+        MainActivity.start(activity, shouldRefresh);
     }
 
     public void showWebView(@NonNull Context context, @NonNull String url, @NonNull String title) {
