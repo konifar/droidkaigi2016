@@ -31,6 +31,7 @@ import rx.subscriptions.CompositeSubscription;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private static final String TAG = MainActivity.class.getSimpleName();
+    private static final String EXTRA_SHOULD_REFRESH = "should_refresh";
 
     @Inject
     AnalyticsTracker analyticsTracker;
@@ -45,7 +46,12 @@ public class MainActivity extends AppCompatActivity
     private Fragment currentFragment;
 
     static void start(@NonNull Activity activity) {
+        start(activity, false);
+    }
+
+    static void start(@NonNull Activity activity, boolean shouldRefresh) {
         Intent intent = new Intent(activity, MainActivity.class);
+        intent.putExtra(EXTRA_SHOULD_REFRESH, shouldRefresh);
         activity.startActivity(intent);
         activity.overridePendingTransition(R.anim.activity_fade_enter, R.anim.activity_fade_exit);
     }
@@ -55,7 +61,11 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         AppUtil.initLocale(this);
 
+        boolean shouldRefresh = getIntent().getBooleanExtra(EXTRA_SHOULD_REFRESH, false);
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        DataBindingUtil.bind(binding.navView.getHeaderView(0));
+
         MainApplication.getComponent(this).inject(this);
 
         subscription.add(brokerProvider.get().observe().subscribe(page -> {
@@ -65,7 +75,7 @@ public class MainActivity extends AppCompatActivity
         }));
         initView();
 
-        replaceFragment(SessionsFragment.newInstance());
+        replaceFragment(SessionsFragment.newInstance(shouldRefresh));
     }
 
     private void initView() {

@@ -93,6 +93,7 @@
                         android:layout_height="@dimen/sns_icon_large"
                         android:layout_marginLeft="@dimen/spacing"
                         android:layout_marginStart="@dimen/spacing"
+                        android:layout_toEndOf="@id/img_twitter"
                         android:layout_toRightOf="@id/img_twitter"
                         android:contentDescription="@string/icon"
                         android:scaleType="centerCrop"
