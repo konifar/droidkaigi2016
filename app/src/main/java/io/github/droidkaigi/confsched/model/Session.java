@@ -1,12 +1,13 @@
 package io.github.droidkaigi.confsched.model;
 
-import android.support.annotation.Nullable;
+import com.google.gson.annotations.SerializedName;
 
 import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.Table;
-import com.google.gson.annotations.SerializedName;
 
 import org.parceler.Parcel;
+
+import android.support.annotation.Nullable;
 
 import java.util.Date;
 
@@ -64,7 +65,7 @@ public class Session {
     @SerializedName("slide_url")
     public String slideUrl;
 
-    @Column
+    @Column(indexed = true)
     public boolean checked;
 
     public Session() {
@@ -77,9 +78,9 @@ public class Session {
     }
 
     public Session initAssociations(OrmaDatabase orma) {
-        if (category == null) category = orma.selectFromCategory().idEq(categoryId).get(0);
-        if (place == null) place = orma.selectFromPlace().idEq(placeId).get(0);
-        if (speaker == null) speaker = orma.selectFromSpeaker().idEq(speakerId).get(0);
+        if (category == null) category = orma.selectFromCategory().idEq(categoryId).value();
+        if (place == null) place = orma.selectFromPlace().idEq(placeId).value();
+        if (speaker == null) speaker = orma.selectFromSpeaker().idEq(speakerId).value();
 
         return this;
     }
