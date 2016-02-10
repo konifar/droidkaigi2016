@@ -21,7 +21,7 @@ public class DroidKaigiClient {
 
     private static final String END_POINT = "https://raw.githubusercontent.com";
     private static final String JSON_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
-    private static final String SESSIONS_API_ROUTES = "/konifar/droidkaigi2016/ar_translations/app/src/main/res/raw/";
+    private static final String SESSIONS_API_ROUTES = "/konifar/droidkaigi2016/master/app/src/main/res/raw/";
 
     private final DroidKaigiService service;
 
