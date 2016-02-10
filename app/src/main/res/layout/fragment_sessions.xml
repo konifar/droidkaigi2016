@@ -25,7 +25,7 @@
                 app:tabMode="fixed"
                 app:tabTextColor="@color/grey300" />
 
-            <android.support.v4.view.ViewPager
+            <io.github.droidkaigi.confsched.widget.RtlViewPager
                 android:id="@+id/view_pager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

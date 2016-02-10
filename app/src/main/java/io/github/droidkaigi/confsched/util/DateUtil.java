@@ -35,8 +35,14 @@ public class DateUtil {
     }
 
     @NonNull
-    public static String getHourMinute(Date date) {
-        return String.valueOf(DateFormat.format(FORMAT_KKMM, date));
+    public static String getHourMinute(Date date, Context context) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            Locale locale = AppUtil.getCurrentLocale(context);
+            String pattern = DateFormat.getBestDateTimePattern(locale, FORMAT_KKMM);
+            return new SimpleDateFormat(pattern, locale).format(date);
+        } else {
+            return String.valueOf(DateFormat.format(FORMAT_KKMM, date));
+        }
     }
 
     @NonNull
@@ -47,7 +53,7 @@ public class DateUtil {
             return new SimpleDateFormat(pattern, locale).format(date);
         } else {
             SimpleDateFormat sdf = (SimpleDateFormat) java.text.DateFormat.getDateInstance(java.text.DateFormat.LONG, locale);
-            return sdf.format(date) + getHourMinute(date);
+            return sdf.format(date) + getHourMinute(date, context);
         }
     }
 

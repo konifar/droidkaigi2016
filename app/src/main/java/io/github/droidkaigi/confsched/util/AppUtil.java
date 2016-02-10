@@ -33,7 +33,7 @@ public class AppUtil {
     private static final String LANG_STRING_RES_PREFIX = "lang_";
     private static final String STRING_RES_TYPE = "string";
     private static final String LANG_EN_ID = "en";
-    public static final String[] SUPPORT_LANG = {LANG_EN_ID, "ja"};
+    public static final String[] SUPPORT_LANG = {LANG_EN_ID, "ja", "ar"};
     private static final Locale DEFAULT_LANG = new Locale(LANG_EN_ID);
 
     public static String getTwitterUrl(@NonNull String name) {

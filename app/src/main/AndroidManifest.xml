@@ -36,24 +36,28 @@
         <activity
             android:name=".activity.SessionDetailActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:exported="false"
             android:label="@string/session_detail"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".activity.WebViewActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:exported="false"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.ColoredStatusBar" />
 
         <activity
             android:name=".activity.SearchActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:exported="false"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.ColoredStatusBar" />
 
         <activity
             android:name=".activity.SearchedSessionsActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:exported="false"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.ColoredStatusBar" />
 

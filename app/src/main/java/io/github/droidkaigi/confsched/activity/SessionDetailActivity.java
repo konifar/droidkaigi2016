@@ -20,14 +20,14 @@ import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.databinding.ActivitySessionDetailBinding;
 import io.github.droidkaigi.confsched.fragment.SessionDetailFragment;
 import io.github.droidkaigi.confsched.model.Session;
-import io.github.droidkaigi.confsched.util.AnalyticsUtil;
+import io.github.droidkaigi.confsched.util.AnalyticsTracker;
 
 public class SessionDetailActivity extends AppCompatActivity {
 
     private static final String TAG = SessionDetailActivity.class.getSimpleName();
 
     @Inject
-    AnalyticsUtil analyticsUtil;
+    AnalyticsTracker analyticsTracker;
 
     private ActivitySessionDetailBinding binding;
     private Session session;
@@ -63,7 +63,7 @@ public class SessionDetailActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        analyticsUtil.sendScreenView("session_detail");
+        analyticsTracker.sendScreenView("session_detail");
     }
 
     @Override
