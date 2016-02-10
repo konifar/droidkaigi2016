@@ -38,7 +38,7 @@ import io.github.droidkaigi.confsched.databinding.ActivitySearchBinding;
 import io.github.droidkaigi.confsched.databinding.ItemSearchResultBinding;
 import io.github.droidkaigi.confsched.model.SearchResult;
 import io.github.droidkaigi.confsched.model.Session;
-import io.github.droidkaigi.confsched.util.AnalyticsUtil;
+import io.github.droidkaigi.confsched.util.AnalyticsTracker;
 import io.github.droidkaigi.confsched.widget.ArrayRecyclerAdapter;
 import io.github.droidkaigi.confsched.widget.BindingHolder;
 import io.github.droidkaigi.confsched.widget.itemdecoration.DividerItemDecoration;
@@ -50,7 +50,7 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
     private static final int REQ_DETAIL = 1;
 
     @Inject
-    AnalyticsUtil analyticsUtil;
+    AnalyticsTracker analyticsTracker;
     @Inject
     ActivityNavigator activityNavigator;
     @Inject
@@ -90,7 +90,7 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
     @Override
     protected void onStart() {
         super.onStart();
-        analyticsUtil.sendScreenView("search");
+        analyticsTracker.sendScreenView("search");
     }
 
     private void initToolbar() {

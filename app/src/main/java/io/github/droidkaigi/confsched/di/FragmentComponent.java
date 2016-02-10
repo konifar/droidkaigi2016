@@ -6,6 +6,7 @@ import io.github.droidkaigi.confsched.fragment.SessionDetailFragment;
 import io.github.droidkaigi.confsched.fragment.SessionsFragment;
 import io.github.droidkaigi.confsched.fragment.SessionsTabFragment;
 import io.github.droidkaigi.confsched.fragment.SettingsFragment;
+import io.github.droidkaigi.confsched.fragment.SponsorsFragment;
 
 import dagger.Subcomponent;
 
@@ -23,4 +24,5 @@ public interface FragmentComponent {
 
     void inject(SessionDetailFragment fragment);
 
+    void inject(SponsorsFragment fragment);
 }
