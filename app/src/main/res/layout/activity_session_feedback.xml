@@ -44,7 +44,7 @@
             </TextView>
 
             <io.github.droidkaigi.confsched.widget.NumberRatingBar
-                android:id="@+id/session_relevant_feedback_bar"
+                android:id="@+id/relevant_feedback_bar"
                 style="@style/FeedbackNumberRatingBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
                 android:textAlignment="viewStart" />
 
             <io.github.droidkaigi.confsched.widget.NumberRatingBar
-                android:id="@+id/content_feedback_bar"
+                android:id="@+id/as_expected_feedback_bar"
                 style="@style/FeedbackNumberRatingBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -154,7 +154,7 @@
                 android:textAlignment="viewStart" />
 
             <io.github.droidkaigi.confsched.widget.NumberRatingBar
-                android:id="@+id/speaker_feedback_bar"
+                android:id="@+id/difficulty_feedback_bar"
                 style="@style/FeedbackNumberRatingBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -209,7 +209,7 @@
                 android:textAlignment="viewStart" />
 
             <io.github.droidkaigi.confsched.widget.NumberRatingBar
-                android:id="@+id/speaker_feedback_bar"
+                android:id="@+id/knowledgeable_feedback_bar"
                 style="@style/FeedbackNumberRatingBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -274,7 +274,7 @@
                 app:counterMaxLength="400">
 
                 <EditText
-                    android:id="@+id/other_feedback_text"
+                    android:id="@+id/other_comments_feedback_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </android.support.design.widget.TextInputLayout>

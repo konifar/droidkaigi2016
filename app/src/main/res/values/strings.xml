@@ -84,5 +84,10 @@
 
     <string name="session_feedback_submitlink">Submit Feedback</string>
     <string name="session_feedback_other">Anything else we should know? (Please don\'t add any personal information in your comments)</string>
-    <string name="session_feedback_other_hint">Tell us!</string>
+    <string name="session_feedback_other_hint">Other session feedback?</string>
+    <string name="session_feedback_not_accepting">Sorry. Currently we are not accepting the feedback. You can submit feedback only during the event dates.</string>
+    <string name="session_feedback_accepted_successfully">Thank you! The feedback was accepted.</string>
+    <string name="session_feedback_submit_error">An error occurred while submitting. Make sure the network is available.</string>
+    <string name="session_feedback_submit_failure">Submit failed</string>
+    <string name="session_feedback_submit_success">Submit succeeded</string>
 </resources>
