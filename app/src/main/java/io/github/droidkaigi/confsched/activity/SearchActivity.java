@@ -51,6 +51,8 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
     private static final String TAG = SearchActivity.class.getSimpleName();
     private static final int REQ_DETAIL = 1;
 
+    private static final int REQ_SEARCH_PLACES_AND_CATEGORIES_VIEW = 2;
+
     @Inject
     AnalyticsTracker analyticsTracker;
     @Inject
@@ -87,6 +89,10 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
     private void initPlacesAndCategoriesView() {
         binding.searchPlacesAndCategoriesView.addPlaces(placeDao.findAll());
         binding.searchPlacesAndCategoriesView.addCategories(categoryDao.findAll());
+        binding.searchPlacesAndCategoriesView.setOnClickSearchGroup(searchGroup -> {
+            startActivityForResult(SearchedSessionsActivity.createIntent(SearchActivity.this, searchGroup),
+                    REQ_SEARCH_PLACES_AND_CATEGORIES_VIEW);
+        });
     }
 
     @Override
