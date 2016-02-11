@@ -3,6 +3,7 @@ package io.github.droidkaigi.confsched.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 
 import javax.inject.Singleton;
 
@@ -15,6 +16,10 @@ public class ActivityNavigator {
         SessionDetailActivity.startForResult(activity, session, requestCode);
     }
 
+    public void showSessionDetail(@NonNull Fragment fragment, @NonNull Session session, int requestCode) {
+        SessionDetailActivity.startForResult(fragment, session, requestCode);
+    }
+
     public void showMain(@NonNull Activity activity, boolean shouldRefresh) {
         MainActivity.start(activity, shouldRefresh);
     }
@@ -23,8 +28,8 @@ public class ActivityNavigator {
         WebViewActivity.start(context, url, title);
     }
 
-    public void showSearch(@NonNull Activity activity) {
-        SearchActivity.start(activity);
+    public void showSearch(@NonNull Fragment fragment, int requestCode) {
+        SearchActivity.start(fragment, requestCode);
     }
 
     public void showFeedback(@NonNull Context context) {
