@@ -21,7 +21,6 @@ public class AboutFragment extends Fragment {
 
     public static final String TAG = AboutFragment.class.getSimpleName();
     private static final String REP_TWITTER_NAME = "mhidaka";
-    private static final String SITE_URL = "https://droidkaigi.github.io/2016";
     private static final String CONF_TWITTER_NAME = "DroidKaigi";
     private static final String CONF_FACEBOOK_NAME = "DroidKaigi";
     private static final String LICENSE_URL = "file:///android_asset/license.html";
@@ -30,6 +29,7 @@ public class AboutFragment extends Fragment {
     ActivityNavigator activityNavigator;
 
     private FragmentAboutBinding binding;
+    private String siteUrl;
 
     public static AboutFragment newInstance() {
         return new AboutFragment();
@@ -39,6 +39,7 @@ public class AboutFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentAboutBinding.inflate(inflater, container, false);
+        siteUrl = getString(R.string.about_site_url);
         initView();
         return binding.getRoot();
     }
@@ -54,8 +55,8 @@ public class AboutFragment extends Fragment {
         binding.txtRep.setText(repText);
         AppUtil.linkify(getActivity(), binding.txtRep, REP_TWITTER_NAME, AppUtil.getTwitterUrl(REP_TWITTER_NAME));
 
-        binding.txtSiteUrl.setText(LocaleUtil.getRtlConsideredText(SITE_URL, getContext()));
-        AppUtil.linkify(getActivity(), binding.txtSiteUrl, SITE_URL, SITE_URL);
+        binding.txtSiteUrl.setText(LocaleUtil.getRtlConsideredText(siteUrl, getContext()));
+        AppUtil.linkify(getActivity(), binding.txtSiteUrl, siteUrl, siteUrl);
 
         binding.imgFacebookClicker.setOnClickListener(v ->
                 AppUtil.showWebPage(getActivity(), AppUtil.getFacebookUrl(CONF_FACEBOOK_NAME)));
