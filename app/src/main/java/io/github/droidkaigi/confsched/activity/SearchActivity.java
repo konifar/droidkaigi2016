@@ -1,6 +1,5 @@
 package io.github.droidkaigi.confsched.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -8,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -65,10 +65,10 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
     private SearchResultsAdapter adapter;
     private ActivitySearchBinding binding;
 
-    static void start(@NonNull Activity activity) {
-        Intent intent = new Intent(activity, SearchActivity.class);
-        activity.startActivity(intent);
-        activity.overridePendingTransition(0, R.anim.activity_fade_exit);
+    static void start(@NonNull Fragment fragment, int requestCode) {
+        Intent intent = new Intent(fragment.getContext(), SearchActivity.class);
+        fragment.startActivityForResult(intent, requestCode);
+        fragment.getActivity().overridePendingTransition(0, R.anim.activity_fade_exit);
     }
 
     @Override

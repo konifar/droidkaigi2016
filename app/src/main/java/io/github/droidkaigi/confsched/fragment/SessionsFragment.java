@@ -44,6 +44,8 @@ public class SessionsFragment extends Fragment {
     public static final String TAG = SessionsFragment.class.getSimpleName();
     private static final String ARG_SHOULD_REFRESH = "should_refresh";
 
+    private static final int REQ_SEARCH = 2;
+
     @Inject
     DroidKaigiClient client;
     @Inject
@@ -178,12 +180,21 @@ public class SessionsFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item_search:
-                activityNavigator.showSearch(getActivity());
+                activityNavigator.showSearch(this, REQ_SEARCH);
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
-    
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        //TODO Should check the changes in the data set.
+
+        compositeSubscription.add(loadData());
+    }
+
     private class SessionsPagerAdapter extends FragmentStatePagerAdapter {
 
         private List<SessionsTabFragment> fragments = new ArrayList<>();

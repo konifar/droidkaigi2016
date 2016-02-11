@@ -28,8 +28,8 @@ public class ActivityNavigator {
         WebViewActivity.start(context, url, title);
     }
 
-    public void showSearch(@NonNull Activity activity) {
-        SearchActivity.start(activity);
+    public void showSearch(@NonNull Fragment fragment, int requestCode) {
+        SearchActivity.start(fragment, requestCode);
     }
 
     public void showFeedback(@NonNull Context context) {
