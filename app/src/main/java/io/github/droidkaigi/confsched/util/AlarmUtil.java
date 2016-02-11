@@ -7,8 +7,6 @@ import android.content.Intent;
 
 import org.parceler.Parcels;
 
-import java.util.Calendar;
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import io.github.droidkaigi.confsched.model.Session;
@@ -19,7 +17,7 @@ public class AlarmUtil {
     private static final long REMIND_DURATION_MINUTES_FOR_START = TimeUnit.MINUTES.toMillis(5);
 
     public static void handleSessionAlarm(Context context, Session session) {
-        if (session.checked==true) {
+        if (session.checked) {
             registerSessionAlarm(context, session);
         }
         else {

@@ -30,7 +30,6 @@ import io.github.droidkaigi.confsched.databinding.FragmentSessionsTabBinding;
 import io.github.droidkaigi.confsched.databinding.ItemSessionBinding;
 import io.github.droidkaigi.confsched.model.Session;
 import io.github.droidkaigi.confsched.util.AlarmUtil;
-import io.github.droidkaigi.confsched.util.AppUtil;
 import io.github.droidkaigi.confsched.widget.ArrayRecyclerAdapter;
 import io.github.droidkaigi.confsched.widget.BindingHolder;
 import io.github.droidkaigi.confsched.widget.itemdecoration.SpaceItemDecoration;
