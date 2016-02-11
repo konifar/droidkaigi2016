@@ -31,12 +31,6 @@
                 android:focusableInTouchMode="true"
                 android:gravity="center_vertical"
                 android:minHeight="?android:listPreferredItemHeightSmall"
-                android:paddingBottom="@dimen/spacing"
-                android:paddingEnd="@dimen/spacing"
-                android:paddingLeft="@dimen/spacing"
-                android:paddingRight="@dimen/spacing"
-                android:paddingStart="@dimen/spacing"
-                android:paddingTop="@dimen/spacing_small"
                 android:text="@string/session_feedback_relevance"
                 android:textAlignment="viewStart">
 
@@ -89,12 +83,6 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:minHeight="?android:listPreferredItemHeightSmall"
-                android:paddingBottom="@dimen/spacing_small"
-                android:paddingEnd="@dimen/spacing"
-                android:paddingLeft="@dimen/spacing"
-                android:paddingRight="@dimen/spacing"
-                android:paddingStart="@dimen/spacing"
-                android:paddingTop="@dimen/spacing_small"
                 android:text="@string/session_feedback_expectation_label_text"
                 android:textAlignment="viewStart" />
 
@@ -144,12 +132,6 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:minHeight="?android:listPreferredItemHeightSmall"
-                android:paddingBottom="@dimen/spacing_small"
-                android:paddingEnd="@dimen/spacing"
-                android:paddingLeft="@dimen/spacing"
-                android:paddingRight="@dimen/spacing"
-                android:paddingStart="@dimen/spacing"
-                android:paddingTop="@dimen/spacing_small"
                 android:text="@string/session_feedback_difficulty"
                 android:textAlignment="viewStart" />
 
@@ -199,12 +181,6 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:minHeight="?android:listPreferredItemHeightSmall"
-                android:paddingBottom="@dimen/spacing_small"
-                android:paddingEnd="@dimen/spacing"
-                android:paddingLeft="@dimen/spacing"
-                android:paddingRight="@dimen/spacing"
-                android:paddingStart="@dimen/spacing"
-                android:paddingTop="@dimen/spacing_small"
                 android:text="@string/session_feedback_knowledgeable"
                 android:textAlignment="viewStart" />
 
@@ -254,11 +230,6 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:minHeight="?android:listPreferredItemHeightSmall"
-                android:paddingEnd="@dimen/spacing"
-                android:paddingLeft="@dimen/spacing"
-                android:paddingRight="@dimen/spacing"
-                android:paddingStart="@dimen/spacing"
-                android:paddingTop="@dimen/spacing_small"
                 android:text="@string/session_feedback_other"
                 android:textAlignment="viewStart" />
 
