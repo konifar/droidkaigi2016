@@ -48,7 +48,9 @@ public class SearchedSessionsActivity extends AppCompatActivity {
 
         initToolbar(searchGroup);
 
-        replaceFragment(SearchedSessionsFragment.newInstance(searchGroup));
+        if(savedInstanceState == null) {
+            replaceFragment(SearchedSessionsFragment.newInstance(searchGroup));
+        }
     }
 
     private void initToolbar(SearchGroup searchGroup) {
@@ -83,15 +85,6 @@ public class SearchedSessionsActivity extends AppCompatActivity {
             onBackPressed();
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        Fragment fragment = getSupportFragmentManager().findFragmentByTag(SearchedSessionsFragment.class.getSimpleName());
-        if (fragment != null) {
-            fragment.onActivityResult(requestCode, resultCode, data);
-        }
     }
 
 }
