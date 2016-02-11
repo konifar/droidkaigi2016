@@ -157,6 +157,7 @@ dependencies {
     testCompile('com.squareup.assertj:assertj-android:1.0.1') {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
+    testCompile 'org.mockito:mockito-all:1.10.19'
     androidTestCompile('com.android.support.test:runner:0.4.1') {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
