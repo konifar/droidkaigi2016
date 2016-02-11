@@ -16,6 +16,7 @@ import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.TextView;
 
@@ -153,6 +154,12 @@ public class AppUtil {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             activity.setTaskDescription(new ActivityManager.TaskDescription(label, null, color));
         }
+    }
+
+    public static int getThemeColorPrimary(Context context) {
+        TypedValue value = new TypedValue();
+        context.getTheme().resolveAttribute(R.attr.colorPrimary, value, true);
+        return value.data;
     }
 
 }
