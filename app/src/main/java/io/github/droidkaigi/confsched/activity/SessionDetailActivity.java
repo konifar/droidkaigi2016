@@ -43,6 +43,11 @@ public class SessionDetailActivity extends AppCompatActivity {
         activity.startActivityForResult(intent, requestCode);
     }
 
+    static void startForResult(@NonNull Fragment fragment, @NonNull Session session, int requestCode) {
+        Intent intent = createIntent(fragment.getContext(), session);
+        fragment.startActivityForResult(intent, requestCode);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

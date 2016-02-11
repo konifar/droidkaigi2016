@@ -16,7 +16,7 @@ dependencies:
 
 test:
   override:
-    - ./gradlew clean assembleProductionDebug
+    - ./gradlew clean assembleProductionDebug check
 
 deployment:
   production:
