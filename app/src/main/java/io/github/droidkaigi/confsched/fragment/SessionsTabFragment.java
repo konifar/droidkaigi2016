@@ -118,7 +118,7 @@ public class SessionsTabFragment extends Fragment {
 
         private void refresh(@NonNull Session session) {
             // TODO It may be heavy logic...
-            for (int i = 0; i < adapter.getItemCount(); i++) {
+            for (int i = 0, count = adapter.getItemCount(); i < count; i++) {
                 Session s = adapter.getItem(i);
                 if (session.equals(s)) {
                     s.checked = session.checked;
