@@ -68,4 +68,21 @@
 
     <string name="my_schedule_empty">No items here. Let\'s check out all sessions and put your favourite!</string>
     <string name="my_schedule_go_to_session_list">Go to All Sessions</string>
+
+    <string name="session_feedback_title_rate">Rate</string>
+    <string name="session_feedback_rating_label_text">Session rating:</string>
+    <string name="session_feedback_not_so_awesome">Not so awesome</string>
+    <string name="session_feedback_awesome">Awesome</string>
+    <string name="session_feedback_relevance"> How relevant was this session to your projects?  </string>
+    <string name="session_feedback_not_at_all_relevant">Not at all</string>
+    <string name="session_feedback_extremely_relevant">Extremely</string>
+    <string name="session_feedback_content_label_text">Based on the description/my expectations, the content was:</string>
+    <string name="session_feedback_basic">Too basic</string>
+    <string name="session_feedback_advanced">Too advanced</string>
+    <string name="session_feedback_speaker_quality">Speaker quality:</string>
+    <string name="session_feedback_poor">Poor</string>
+    <string name="session_feedback_outstanding">Outstanding</string>
+    <string name="session_feedback_submitlink">Submit Feedback</string>
+    <string name="session_feedback_other">Anything else we should know? (Please don\'t add any personal information in your comments)</string>
+    <string name="session_feedback_other_hint">Tell us!</string>
 </resources>

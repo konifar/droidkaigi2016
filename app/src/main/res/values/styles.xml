@@ -105,4 +105,21 @@
         <item name="colorAccent">@color/white</item>
     </style>
 
+    <!-- Session Feedback -->
+    <style name="FeedbackTitle">
+        <item name="android:textSize">@dimen/text</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+
+    <style name="FeedbackQuestionGuideText">
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:textColor">@color/theme600</item>
+    </style>
+
+    <style name="FeedbackNumberRatingBar">
+        <item name="android:progressDrawable">@drawable/number_ratingbar</item>
+        <item name="android:indeterminateDrawable">@drawable/number_ratingbar</item>
+        <item name="android:max">5</item>
+    </style>
+
 </resources>
