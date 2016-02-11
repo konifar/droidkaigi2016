@@ -29,7 +29,6 @@ public class AboutFragment extends Fragment {
     ActivityNavigator activityNavigator;
 
     private FragmentAboutBinding binding;
-    private String siteUrl;
 
     public static AboutFragment newInstance() {
         return new AboutFragment();
@@ -39,7 +38,6 @@ public class AboutFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentAboutBinding.inflate(inflater, container, false);
-        siteUrl = getString(R.string.about_site_url);
         initView();
         return binding.getRoot();
     }
@@ -55,6 +53,7 @@ public class AboutFragment extends Fragment {
         binding.txtRep.setText(repText);
         AppUtil.linkify(getActivity(), binding.txtRep, REP_TWITTER_NAME, AppUtil.getTwitterUrl(REP_TWITTER_NAME));
 
+        String siteUrl = getString(R.string.about_site_url);
         binding.txtSiteUrl.setText(LocaleUtil.getRtlConsideredText(siteUrl, getContext()));
         AppUtil.linkify(getActivity(), binding.txtSiteUrl, siteUrl, siteUrl);
 
