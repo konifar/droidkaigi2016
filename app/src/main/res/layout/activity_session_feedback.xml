@@ -95,7 +95,7 @@
                 android:paddingRight="@dimen/spacing"
                 android:paddingStart="@dimen/spacing"
                 android:paddingTop="@dimen/spacing_small"
-                android:text="@string/session_feedback_content_label_text"
+                android:text="@string/session_feedback_expectation_label_text"
                 android:textAlignment="viewStart" />
 
             <io.github.droidkaigi.confsched.widget.NumberRatingBar
@@ -126,14 +126,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start|left"
-                    android:text="@string/session_feedback_basic" />
+                    android:text="@string/session_feedback_below_expectation" />
 
                 <TextView
                     style="@style/FeedbackQuestionGuideText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end|right"
-                    android:text="@string/session_feedback_advanced" />
+                    android:text="@string/session_feedback_beyond_expectation" />
 
             </FrameLayout>
 
@@ -150,7 +150,7 @@
                 android:paddingRight="@dimen/spacing"
                 android:paddingStart="@dimen/spacing"
                 android:paddingTop="@dimen/spacing_small"
-                android:text="@string/session_feedback_speaker_quality"
+                android:text="@string/session_feedback_difficulty"
                 android:textAlignment="viewStart" />
 
             <io.github.droidkaigi.confsched.widget.NumberRatingBar
@@ -181,14 +181,69 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start|left"
-                    android:text="@string/session_feedback_poor" />
+                    android:text="@string/session_feedback_easy" />
 
                 <TextView
                     style="@style/FeedbackQuestionGuideText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end|right"
-                    android:text="@string/session_feedback_outstanding" />
+                    android:text="@string/session_feedback_hard" />
+
+            </FrameLayout>
+
+            <!-- Q4 -->
+            <TextView
+                style="@style/FeedbackTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:minHeight="?android:listPreferredItemHeightSmall"
+                android:paddingBottom="@dimen/spacing_small"
+                android:paddingEnd="@dimen/spacing"
+                android:paddingLeft="@dimen/spacing"
+                android:paddingRight="@dimen/spacing"
+                android:paddingStart="@dimen/spacing"
+                android:paddingTop="@dimen/spacing_small"
+                android:text="@string/session_feedback_knowledgeable"
+                android:textAlignment="viewStart" />
+
+            <io.github.droidkaigi.confsched.widget.NumberRatingBar
+                android:id="@+id/speaker_feedback_bar"
+                style="@style/FeedbackNumberRatingBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:layout_marginLeft="@dimen/spacing_small"
+                android:layout_marginRight="@dimen/spacing_small"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:maxHeight="?android:listPreferredItemHeightSmall"
+                android:minHeight="?android:listPreferredItemHeightSmall"
+                android:paddingTop="@dimen/spacing_small" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/spacing"
+                android:paddingEnd="@dimen/spacing"
+                android:paddingLeft="@dimen/spacing"
+                android:paddingRight="@dimen/spacing"
+                android:paddingStart="@dimen/spacing"
+                android:paddingTop="@dimen/spacing_xsmall">
+
+                <TextView
+                    style="@style/FeedbackQuestionGuideText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|left"
+                    android:text="@string/session_feedback_poor_knowledge" />
+
+                <TextView
+                    style="@style/FeedbackQuestionGuideText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|right"
+                    android:text="@string/session_feedback_outstanding_knowledge" />
 
             </FrameLayout>
 
