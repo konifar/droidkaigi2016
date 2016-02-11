@@ -1,3 +1,5 @@
+import com.android.ddmlib.DdmPreferences
+
 apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 apply plugin: 'me.tatarka.retrolambda'
@@ -33,6 +35,10 @@ android {
         versionCode versionMajor * 100 + versionMinor * 10 + versionPatch
         versionName "${versionMajor}.${versionMinor}.${versionPatch}"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        // Referred to https://github.com/circleci/EspressoSample to make the Espresso tests
+        // work on CircleCI.
+        DdmPreferences.setTimeOut(60000)
     }
 
     packagingOptions {
@@ -167,5 +173,10 @@ dependencies {
     androidTestCompile('com.squareup.assertj:assertj-android:1.0.1') {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
-
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.1') {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestCompile('com.android.support.test.espresso:espresso-intents:2.2.1') {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
 }
