@@ -39,6 +39,11 @@
     <string name="map_party_name">After party venue</string>
     <string name="map_party_building">Tokyo Tech Front (Kuramae Hall)</string>
     <string name="map_address">Tokyo Institute of Technology, Ookayama Campus\nOokayama 2&#8211;12&#8211;1, Meguro City, Tokyo</string>
+    <string name="map_fine_location_denied">Consider granting it in order to get the current location.</string>
+    <string name="map_fine_location_never_askagain">Dialog never shows again.\nPlease go setting and grant it if you want to.</string>
+    <string name="map_fine_location_rationale">Location permissions is needed to show your current position.</string>
+    <string name="map_button_allow">Allow</string>
+    <string name="map_button_deny">Deny</string>
 
     <string name="lang_ar">Arabic</string>
     <string name="lang_en">English</string>
