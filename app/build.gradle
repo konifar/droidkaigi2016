@@ -1,3 +1,5 @@
+import com.android.ddmlib.DdmPreferences
+
 apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 apply plugin: 'me.tatarka.retrolambda'
@@ -33,7 +35,10 @@ android {
         versionCode versionMajor * 100 + versionMinor * 10 + versionPatch
         versionName "${versionMajor}.${versionMinor}.${versionPatch}"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        com.android.ddmlib.DdmPreferences.setTimeOut(60000)
+
+        // Referred to https://github.com/circleci/EspressoSample to make the Espresso tests
+        // work on CircleCI.
+        DdmPreferences.setTimeOut(60000)
     }
 
     packagingOptions {

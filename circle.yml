@@ -23,10 +23,10 @@ test:
         parallel: true
     - circle-android wait-for-boot
   override:
-    # unlock the emulator screen
+      # unlock the emulator screen. Referred to https://github.com/circleci/EspressoSample
     - sleep 30
     - adb shell input keyevent 82
-    - ./gradlew clean assembleProductionDebug check connectedAndroidTest
+    - ./gradlew clean assembleProductionDebug check connectedAndroidTest -PdisablePreDex
 
 deployment:
   production:
