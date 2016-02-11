@@ -14,6 +14,7 @@ import android.webkit.WebViewClient;
 
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.databinding.ActivityWebViewBinding;
+import io.github.droidkaigi.confsched.util.AppUtil;
 
 public class WebViewActivity extends AppCompatActivity {
 
@@ -41,6 +42,7 @@ public class WebViewActivity extends AppCompatActivity {
 
         initToolbar(title);
         initWebView(url);
+        AppUtil.setTaskDescription(this, title, AppUtil.getThemeColorPrimary(this));
     }
 
     private void initWebView(@NonNull String url) {

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -23,6 +24,7 @@ import io.github.droidkaigi.confsched.activity.ActivityNavigator;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSessionDetailBinding;
 import io.github.droidkaigi.confsched.model.Session;
+import io.github.droidkaigi.confsched.util.AppUtil;
 
 public class SessionDetailFragment extends Fragment {
 
@@ -48,11 +50,13 @@ public class SessionDetailFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         session = Parcels.unwrap(getArguments().getParcelable(Session.class.getSimpleName()));
+        Activity activity = getActivity();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             // Change theme by category
-            getActivity().setTheme(session.category.getThemeResId());
+            activity.setTheme(session.category.getThemeResId());
         }
+        AppUtil.setTaskDescription(activity, session.title, ContextCompat.getColor(activity, session.category.getVividColorResId()));
     }
 
     private void initToolbar() {

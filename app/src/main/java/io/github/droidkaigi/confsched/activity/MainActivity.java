@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity
             binding.navView.setCheckedItem(page.getMenuId());
         }));
         initView();
+        AppUtil.setTaskDescription(this, getString(R.string.all_sessions), AppUtil.getThemeColorPrimary(this));
 
         replaceFragment(SessionsFragment.newInstance(shouldRefresh));
     }
@@ -134,6 +135,7 @@ public class MainActivity extends AppCompatActivity
     private void changePage(@StringRes int titleRes, @NonNull Fragment fragment) {
         new Handler().postDelayed(() -> {
             binding.toolbar.setTitle(titleRes);
+            AppUtil.setTaskDescription(this, getString(titleRes), AppUtil.getThemeColorPrimary(this));
             replaceFragment(fragment);
         }, 300);
     }
