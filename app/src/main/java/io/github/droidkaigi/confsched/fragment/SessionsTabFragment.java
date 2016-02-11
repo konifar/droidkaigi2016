@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import com.like.OnLikeListener;
 
 import org.parceler.Parcels;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -48,6 +50,8 @@ public class SessionsTabFragment extends Fragment {
 
     private List<Session> sessions;
 
+    private SessionsFragment.OnChangeSessionListener onChangeSessionListener = sessions->{/* no op */};
+
     @NonNull
     public static SessionsTabFragment newInstance(List<Session> sessions) {
         SessionsTabFragment fragment = new SessionsTabFragment();
@@ -67,6 +71,9 @@ public class SessionsTabFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         MainApplication.getComponent(this).inject(this);
+        if (context instanceof SessionsFragment.OnChangeSessionListener) {
+            onChangeSessionListener = (SessionsFragment.OnChangeSessionListener) context;
+        }
     }
 
     @Nullable
@@ -94,7 +101,10 @@ public class SessionsTabFragment extends Fragment {
             case REQ_DETAIL:
                 if (resultCode == Activity.RESULT_OK) {
                     Session session = Parcels.unwrap(data.getParcelableExtra(Session.class.getSimpleName()));
-                    if (session != null) adapter.refresh(session);
+                    if (session != null) {
+                        adapter.refresh(session);
+                        onChangeSessionListener.onChangeSession(Collections.singletonList(session));
+                    }
                 }
                 break;
         }
@@ -144,12 +154,14 @@ public class SessionsTabFragment extends Fragment {
                 public void liked(LikeButton likeButton) {
                     session.checked = true;
                     dao.updateChecked(session);
+                    onChangeSessionListener.onChangeSession(Collections.singletonList(session));
                 }
 
                 @Override
                 public void unLiked(LikeButton likeButton) {
                     session.checked = false;
                     dao.updateChecked(session);
+                    onChangeSessionListener.onChangeSession(Collections.singletonList(session));
                 }
             });
 

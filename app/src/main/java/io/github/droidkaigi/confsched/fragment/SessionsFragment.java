@@ -1,5 +1,8 @@
 package io.github.droidkaigi.confsched.fragment;
 
+import org.parceler.Parcels;
+
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,6 +28,7 @@ import javax.inject.Inject;
 import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.activity.ActivityNavigator;
+import io.github.droidkaigi.confsched.activity.SearchActivity;
 import io.github.droidkaigi.confsched.api.DroidKaigiClient;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSessionsBinding;
@@ -40,6 +44,10 @@ import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 
 public class SessionsFragment extends Fragment {
+
+    public interface OnChangeSessionListener {
+        void onChangeSession(List<Session> sessions);
+    }
 
     public static final String TAG = SessionsFragment.class.getSimpleName();
     private static final String ARG_SHOULD_REFRESH = "should_refresh";
@@ -60,6 +68,8 @@ public class SessionsFragment extends Fragment {
     private SessionsPagerAdapter adapter;
     private FragmentSessionsBinding binding;
     private boolean shouldRefresh;
+
+    private OnChangeSessionListener onChangeSessionListener = session -> { /*no op*/ };
 
     public static SessionsFragment newInstance() {
         return newInstance(false);
@@ -96,6 +106,9 @@ public class SessionsFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         MainApplication.getComponent(this).inject(this);
+        if (context instanceof OnChangeSessionListener) {
+            onChangeSessionListener = (OnChangeSessionListener) context;
+        }
     }
 
     private void initEmptyView() {
@@ -200,6 +213,7 @@ public class SessionsFragment extends Fragment {
         if (statusChangedSession == null || statusChangedSession.isEmpty()) {
             return;
         }
+        onChangeSessionListener.onChangeSession(statusChangedSession);
         compositeSubscription.add(loadData());
     }
 

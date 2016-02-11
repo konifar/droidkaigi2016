@@ -1,5 +1,6 @@
 package io.github.droidkaigi.confsched.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -9,9 +10,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 
 import org.parceler.Parcels;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -20,10 +25,12 @@ import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.ActivitySearchedSessionsBinding;
 import io.github.droidkaigi.confsched.fragment.SearchedSessionsFragment;
+import io.github.droidkaigi.confsched.fragment.SessionsFragment;
 import io.github.droidkaigi.confsched.model.SearchGroup;
+import io.github.droidkaigi.confsched.model.Session;
 import io.github.droidkaigi.confsched.util.AnalyticsTracker;
 
-public class SearchedSessionsActivity extends AppCompatActivity {
+public class SearchedSessionsActivity extends AppCompatActivity implements SessionsFragment.OnChangeSessionListener {
 
     @Inject
     AnalyticsTracker analyticsTracker;
@@ -31,6 +38,8 @@ public class SearchedSessionsActivity extends AppCompatActivity {
     SessionDao dao;
 
     private ActivitySearchedSessionsBinding binding;
+
+    private List<Session> statusChangedSession =new ArrayList<>();
 
     public static Intent createIntent(@NonNull Context context, @NonNull SearchGroup searchGroup) {
         Intent intent = new Intent(context, SearchedSessionsActivity.class);
@@ -87,4 +96,16 @@ public class SearchedSessionsActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onChangeSession(List<Session> sessions) {
+        statusChangedSession.addAll(sessions);
+    }
+
+    @Override
+    public void finish() {
+        Intent intent = new Intent();
+        intent.putExtra(SearchActivity.RESULT_STATUS_CHANGED_SESSIONS, Parcels.wrap(statusChangedSession));
+        setResult(Activity.RESULT_OK, intent);
+        super.finish();
+    }
 }

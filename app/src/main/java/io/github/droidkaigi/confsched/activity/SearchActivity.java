@@ -1,5 +1,8 @@
 package io.github.droidkaigi.confsched.activity;
 
+import org.parceler.Parcels;
+
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -49,6 +52,8 @@ import rx.Observable;
 public class SearchActivity extends AppCompatActivity implements TextWatcher {
 
     private static final String TAG = SearchActivity.class.getSimpleName();
+
+    public static final String RESULT_STATUS_CHANGED_SESSIONS = "statusChangedSessions";
     private static final int REQ_DETAIL = 1;
 
     private static final int REQ_SEARCH_PLACES_AND_CATEGORIES_VIEW = 2;
@@ -63,6 +68,8 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
     PlaceDao placeDao;
     @Inject
     CategoryDao categoryDao;
+
+    List<Session> statusChangedSessions = new ArrayList<>();
 
     private SearchResultsAdapter adapter;
     private ActivitySearchBinding binding;
@@ -84,6 +91,18 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
         initPlacesAndCategoriesView();
 
         loadData();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(RESULT_STATUS_CHANGED_SESSIONS, Parcels.wrap(statusChangedSessions));
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        statusChangedSessions = Parcels.unwrap(savedInstanceState.getParcelable(RESULT_STATUS_CHANGED_SESSIONS));
     }
 
     private void initPlacesAndCategoriesView() {
@@ -154,8 +173,11 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
 
     @Override
     public void finish() {
-        super.finish();
+        Intent intent = new Intent();
+        intent.putExtra(RESULT_STATUS_CHANGED_SESSIONS, Parcels.wrap(statusChangedSessions));
+        setResult(Activity.RESULT_OK, intent);
         overridePendingTransition(0, R.anim.activity_fade_exit);
+        super.finish();
     }
 
     @Override
@@ -181,6 +203,29 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
         } else {
             binding.searchPlacesAndCategoriesView.setVisibility(View.GONE);
             binding.recyclerView.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case REQ_DETAIL: {
+                if (resultCode != Activity.RESULT_OK) {
+                    return;
+                }
+                Session session = Parcels.unwrap(data.getParcelableExtra(Session.class.getSimpleName()));
+                statusChangedSessions.add(session);
+                break;
+            }
+            case REQ_SEARCH_PLACES_AND_CATEGORIES_VIEW: {
+                if (resultCode != Activity.RESULT_OK) {
+                    return;
+                }
+                List<Session> sessions = Parcels.unwrap(data.getParcelableExtra(RESULT_STATUS_CHANGED_SESSIONS));
+                statusChangedSessions.addAll(sessions);
+                break;
+            }
         }
     }
 
