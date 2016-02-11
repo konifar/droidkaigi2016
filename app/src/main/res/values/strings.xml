@@ -61,7 +61,6 @@
     <string name="about_license">License</string>
     <string name="about_questionnaire">Questionnaire</string>
     <string name="about_version_prefix">"V%1$s</string>
-    <string name="about_site_url">https://droidkaigi.github.io/2016/en</string>
 
     <string name="search_hint">Search by words</string>
 
