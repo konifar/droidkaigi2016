@@ -53,7 +53,7 @@
     <string name="sponsor_category_normal">サポーターズ</string>
 
     <string name="about_conference">DroidKaigiについて</string>
-    <string name="about_conference_descriptions">DroidKaigiはエンジニアが主役のAndroidカンファレンスです。今回は会期を2日間、国内外のエンジニアによるセッションを予定しています。\n\n会期中は、セッション（複数ルーム）以外にも以外にも協賛企業の各種出展があります。\n\nAndroidの利用シーンは多岐に渡り、一人ではとてもカバーしきれません。カンファレンスを通して業界全体で知見を共有し、より良いソフトウェア開発に繋げていきましょう。</string>
+    <string name="about_conference_descriptions">DroidKaigiはエンジニアが主役のAndroidカンファレンスです。今回は会期を2日間、国内外のエンジニアによるセッションを予定しています。\n\n会期中は、セッション（複数ルーム）以外にも協賛企業の各種出展があります。\n\nAndroidの利用シーンは多岐に渡り、一人ではとてもカバーしきれません。カンファレンスを通して業界全体で知見を共有し、より良いソフトウェア開発に繋げていきましょう。</string>
     <string name="about_rep">代表者：%1$s</string>
     <string name="about_social">ソーシャル</string>
     <string name="about_terms">利用規約</string>
