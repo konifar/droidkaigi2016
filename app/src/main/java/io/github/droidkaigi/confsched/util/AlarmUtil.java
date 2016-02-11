@@ -9,11 +9,24 @@ import org.parceler.Parcels;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import io.github.droidkaigi.confsched.model.Session;
 import io.github.droidkaigi.confsched.receiver.SessionScheduleReceiver;
 
 public class AlarmUtil {
+
+    private static final long REMIND_DURATION_MINUTES_FOR_START = TimeUnit.MINUTES.toMillis(5);
+
+    public static void handleSessionAlarm(Context context, Session session) {
+        if (session.checked==true) {
+            registerSessionAlarm(context, session);
+        }
+        else {
+            unregisterSessionAlarm(context, session);
+        }
+    }
+
     public static void registerSessionAlarm(Context context, Session session){
         PendingIntent sender = buildSessionAlarmSender(context, session);
 
@@ -37,7 +50,6 @@ public class AlarmUtil {
     }
 
     private static long calculateStartNotifyTime(Session session) {
-        // 5minutes early
-        return session.stime.getTime() - 300000;
+        return session.stime.getTime() - REMIND_DURATION_MINUTES_FOR_START;
     }
 }

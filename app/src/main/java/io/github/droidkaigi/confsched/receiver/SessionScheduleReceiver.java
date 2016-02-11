@@ -45,7 +45,7 @@ public class SessionScheduleReceiver extends BroadcastReceiver {
                 .setContentIntent(pendingIntent)
                 .setSmallIcon(R.drawable.ic_access_time_grey_600_24dp)
                 .setLargeIcon(appIcon)
-                .setContentTitle(context.getString(R.string.schedule_notification_title))
+                .setContentTitle(context.getString(R.string.schedule_notification_title, 5))
                 .setContentText(session.title)
                 .setDefaults(Notification.DEFAULT_ALL)
                 .setAutoCancel(true)
