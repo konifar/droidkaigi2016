@@ -14,11 +14,11 @@
     "etime": "2016-02-18 11:00:00",
     "category": {
       "id": 1,
-      "name": "基調講演"
+      "name": "Keynote"
     },
     "place": {
       "id": 1,
-      "name": "基調講演会場"
+      "name": "Keynote venue"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -38,11 +38,11 @@
     "etime": "2016-02-18 12:00:00",
     "category": {
       "id": 2,
-      "name": "その他"
+      "name": "Others"
     },
     "place": {
       "id": 2,
-      "name": "ルームA"
+      "name": "Hole A"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -62,11 +62,11 @@
     "etime": "2016-02-18 12:00:00",
     "category": {
       "id": 3,
-      "name": "UI・デザイン"
+      "name": "UI and Design"
     },
     "place": {
       "id": 3,
-      "name": "ルームB"
+      "name": "Hole B"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -86,11 +86,11 @@
     "etime": "2016-02-18 12:00:00",
     "category": {
       "id": 4,
-      "name": "ハードウェア"
+      "name": "Hardware"
     },
     "place": {
       "id": 4,
-      "name": "ルームC"
+      "name": "Hole C"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -110,11 +110,11 @@
     "etime": "2016-02-18 12:00:00",
     "category": {
       "id": 3,
-      "name": "UI・デザイン"
+      "name": "UI and Design"
     },
     "place": {
       "id": 5,
-      "name": "ルームD"
+      "name": "Hole D"
     },
     "language_id": "en",
     "slide_url": ""
@@ -134,11 +134,11 @@
     "etime": "2016-02-18 13:50:00",
     "category": {
       "id": 5,
-      "name": "プラットフォーム"
+      "name": "Platform"
     },
     "place": {
       "id": 2,
-      "name": "ルームA"
+      "name": "Hole A"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -158,11 +158,11 @@
     "etime": "2016-02-18 13:50:00",
     "category": {
       "id": 6,
-      "name": "開発環境・ツール"
+      "name": "Environment and Tool"
     },
     "place": {
       "id": 3,
-      "name": "ルームB"
+      "name": "Hole B"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -182,11 +182,11 @@
     "etime": "2016-02-18 13:50:00",
     "category": {
       "id": 6,
-      "name": "開発環境・ツール"
+      "name": "Environment and Tool"
     },
     "place": {
       "id": 4,
-      "name": "ルームC"
+      "name": "Hole C"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -206,11 +206,11 @@
     "etime": "2016-02-18 13:50:00",
     "category": {
       "id": 5,
-      "name": "プラットフォーム"
+      "name": "Platform"
     },
     "place": {
       "id": 5,
-      "name": "ルームD"
+      "name": "Hole D"
     },
     "language_id": "en",
     "slide_url": ""
@@ -230,11 +230,11 @@
     "etime": "2016-02-18 14:50:00",
     "category": {
       "id": 7,
-      "name": "メンテナンス"
+      "name": "Maintenance"
     },
     "place": {
       "id": 2,
-      "name": "ルームA"
+      "name": "Hole A"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -254,11 +254,11 @@
     "etime": "2016-02-18 14:50:00",
     "category": {
       "id": 6,
-      "name": "開発環境・ツール"
+      "name": "Environment and Tool"
     },
     "place": {
       "id": 3,
-      "name": "ルームB"
+      "name": "Hole B"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -278,11 +278,11 @@
     "etime": "2016-02-18 14:50:00",
     "category": {
       "id": 7,
-      "name": "メンテナンス"
+      "name": "Maintenance"
     },
     "place": {
       "id": 5,
-      "name": "ルームD"
+      "name": "Hole D"
     },
     "language_id": "en",
     "slide_url": ""
@@ -302,11 +302,11 @@
     "etime": "2016-02-18 15:40:00",
     "category": {
       "id": 3,
-      "name": "UI・デザイン"
+      "name": "UI and Design"
     },
     "place": {
       "id": 2,
-      "name": "ルームA"
+      "name": "Hole A"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -326,11 +326,11 @@
     "etime": "2016-02-18 15:40:00",
     "category": {
       "id": 8,
-      "name": "Androidの最新動向"
+      "name": "Latest Trend in Android"
     },
     "place": {
       "id": 3,
-      "name": "ルームB"
+      "name": "Hole B"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -350,11 +350,11 @@
     "etime": "2016-02-18 15:40:00",
     "category": {
       "id": 6,
-      "name": "開発環境・ツール"
+      "name": "Environment and Tool"
     },
     "place": {
       "id": 4,
-      "name": "ルームC"
+      "name": "Hole C"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -374,11 +374,11 @@
     "etime": "2016-02-18 15:40:00",
     "category": {
       "id": 6,
-      "name": "開発環境・ツール"
+      "name": "Environment and Tool"
     },
     "place": {
       "id": 5,
-      "name": "ルームD"
+      "name": "Hole D"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -398,11 +398,11 @@
     "etime": "2016-02-18 16:20:00",
     "category": {
       "id": 3,
-      "name": "UI・デザイン"
+      "name": "UI and Design"
     },
     "place": {
       "id": 2,
-      "name": "ルームA"
+      "name": "Hole A"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -422,11 +422,11 @@
     "etime": "2016-02-18 16:20:00",
     "category": {
       "id": 8,
-      "name": "Androidの最新動向"
+      "name": "Latest Trend in Android"
     },
     "place": {
       "id": 3,
-      "name": "ルームB"
+      "name": "Hole B"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -446,11 +446,11 @@
     "etime": "2016-02-18 16:20:00",
     "category": {
       "id": 7,
-      "name": "メンテナンス"
+      "name": "Maintenance"
     },
     "place": {
       "id": 5,
-      "name": "ルームD"
+      "name": "Hole D"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -470,11 +470,11 @@
     "etime": "2016-02-18 17:00:00",
     "category": {
       "id": 7,
-      "name": "メンテナンス"
+      "name": "Maintenance"
     },
     "place": {
       "id": 2,
-      "name": "ルームA"
+      "name": "Hole A"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -494,11 +494,11 @@
     "etime": "2016-02-18 17:00:00",
     "category": {
       "id": 6,
-      "name": "開発環境・ツール"
+      "name": "Environment and Tool"
     },
     "place": {
       "id": 3,
-      "name": "ルームB"
+      "name": "Hole B"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -518,11 +518,11 @@
     "etime": "2016-02-18 17:00:00",
     "category": {
       "id": 6,
-      "name": "開発環境・ツール"
+      "name": "Environment and Tool"
     },
     "place": {
       "id": 5,
-      "name": "ルームD"
+      "name": "Hole D"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -542,11 +542,11 @@
     "etime": "2016-02-19 11:00:00",
     "category": {
       "id": 1,
-      "name": "基調講演"
+      "name": "Keynote"
     },
     "place": {
       "id": 1,
-      "name": "基調講演会場"
+      "name": "Keynote venue"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -566,11 +566,11 @@
     "etime": "2016-02-19 12:00:00",
     "category": {
       "id": 2,
-      "name": "その他"
+      "name": "Others"
     },
     "place": {
       "id": 2,
-      "name": "ルームA"
+      "name": "Hole A"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -590,11 +590,11 @@
     "etime": "2016-02-19 12:00:00",
     "category": {
       "id": 7,
-      "name": "メンテナンス"
+      "name": "Maintenance"
     },
     "place": {
       "id": 3,
-      "name": "ルームB"
+      "name": "Hole B"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -614,11 +614,11 @@
     "etime": "2016-02-19 12:00:00",
     "category": {
       "id": 5,
-      "name": "プラットフォーム"
+      "name": "Platform"
     },
     "place": {
       "id": 4,
-      "name": "ルームC"
+      "name": "Hole C"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -638,11 +638,11 @@
     "etime": "2016-02-19 12:00:00",
     "category": {
       "id": 5,
-      "name": "プラットフォーム"
+      "name": "Platform"
     },
     "place": {
       "id": 5,
-      "name": "ルームD"
+      "name": "Hole D"
     },
     "language_id": "en",
     "slide_url": ""
@@ -662,11 +662,11 @@
     "etime": "2016-02-19 13:50:00",
     "category": {
       "id": 3,
-      "name": "UI・デザイン"
+      "name": "UI and Design"
     },
     "place": {
       "id": 2,
-      "name": "ルームA"
+      "name": "Hole A"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -686,11 +686,11 @@
     "etime": "2016-02-19 13:50:00",
     "category": {
       "id": 7,
-      "name": "メンテナンス"
+      "name": "Maintenance"
     },
     "place": {
       "id": 3,
-      "name": "ルームB"
+      "name": "Hole B"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -710,11 +710,11 @@
     "etime": "2016-02-19 13:50:00",
     "category": {
       "id": 4,
-      "name": "ハードウェア"
+      "name": "Hardware"
     },
     "place": {
       "id": 4,
-      "name": "ルームC"
+      "name": "Hole C"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -734,11 +734,11 @@
     "etime": "2016-02-19 13:50:00",
     "category": {
       "id": 5,
-      "name": "プラットフォーム"
+      "name": "Platform"
     },
     "place": {
       "id": 5,
-      "name": "ルームD"
+      "name": "Hole D"
     },
     "language_id": "en",
     "slide_url": ""
@@ -758,11 +758,11 @@
     "etime": "2016-02-19 14:50:00",
     "category": {
       "id": 7,
-      "name": "メンテナンス"
+      "name": "Maintenance"
     },
     "place": {
       "id": 2,
-      "name": "ルームA"
+      "name": "Hole A"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -782,11 +782,11 @@
     "etime": "2016-02-19 14:50:00",
     "category": {
       "id": 6,
-      "name": "開発環境・ツール"
+      "name": "Environment and Tool"
     },
     "place": {
       "id": 3,
-      "name": "ルームB"
+      "name": "Hole B"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -806,11 +806,11 @@
     "etime": "2016-02-19 14:50:00",
     "category": {
       "id": 7,
-      "name": "メンテナンス"
+      "name": "Maintenance"
     },
     "place": {
       "id": 4,
-      "name": "ルームC"
+      "name": "Hole C"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -830,11 +830,11 @@
     "etime": "2016-02-19 14:50:00",
     "category": {
       "id": 7,
-      "name": "メンテナンス"
+      "name": "Maintenance"
     },
     "place": {
       "id": 5,
-      "name": "ルームD"
+      "name": "Hole D"
     },
     "language_id": "en",
     "slide_url": ""
@@ -854,11 +854,11 @@
     "etime": "2016-02-19 15:40:00",
     "category": {
       "id": 7,
-      "name": "メンテナンス"
+      "name": "Maintenance"
     },
     "place": {
       "id": 2,
-      "name": "ルームA"
+      "name": "Hole A"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -878,11 +878,11 @@
     "etime": "2016-02-19 15:40:00",
     "category": {
       "id": 6,
-      "name": "開発環境・ツール"
+      "name": "Environment and Tool"
     },
     "place": {
       "id": 3,
-      "name": "ルームB"
+      "name": "Hole B"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -902,11 +902,11 @@
     "etime": "2016-02-19 15:40:00",
     "category": {
       "id": 8,
-      "name": "Androidの最新動向"
+      "name": "Latest Trend in Android"
     },
     "place": {
       "id": 4,
-      "name": "ルームC"
+      "name": "Hole C"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -926,11 +926,11 @@
     "etime": "2016-02-19 15:40:00",
     "category": {
       "id": 5,
-      "name": "プラットフォーム"
+      "name": "Platform"
     },
     "place": {
       "id": 5,
-      "name": "ルームD"
+      "name": "Hole D"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -950,11 +950,11 @@
     "etime": "2016-02-19 16:20:00",
     "category": {
       "id": 7,
-      "name": "メンテナンス"
+      "name": "Maintenance"
     },
     "place": {
       "id": 2,
-      "name": "ルームA"
+      "name": "Hole A"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -974,11 +974,11 @@
     "etime": "2016-02-19 16:20:00",
     "category": {
       "id": 2,
-      "name": "その他"
+      "name": "Others"
     },
     "place": {
       "id": 3,
-      "name": "ルームB"
+      "name": "Hole B"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -998,11 +998,11 @@
     "etime": "2016-02-19 16:20:00",
     "category": {
       "id": 8,
-      "name": "Androidの最新動向"
+      "name": "Latest Trend in Android"
     },
     "place": {
       "id": 5,
-      "name": "ルームD"
+      "name": "Hole D"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -1022,11 +1022,11 @@
     "etime": "2016-02-19 17:00:00",
     "category": {
       "id": 7,
-      "name": "メンテナンス"
+      "name": "Maintenance"
     },
     "place": {
       "id": 2,
-      "name": "ルームA"
+      "name": "Hole A"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -1046,11 +1046,11 @@
     "etime": "2016-02-19 17:00:00",
     "category": {
       "id": 2,
-      "name": "その他"
+      "name": "Others"
     },
     "place": {
       "id": 3,
-      "name": "ルームB"
+      "name": "Hole B"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -1070,11 +1070,11 @@
     "etime": "2016-02-19 17:00:00",
     "category": {
       "id": 2,
-      "name": "その他"
+      "name": "Others"
     },
     "place": {
       "id": 5,
-      "name": "ルームD"
+      "name": "Hole D"
     },
     "language_id": "ja",
     "slide_url": ""
