@@ -1,10 +1,12 @@
 package io.github.droidkaigi.confsched.util;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.res.Configuration;
 import android.net.Uri;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.customtabs.CustomTabsIntent;
 import android.support.v4.content.ContextCompat;
@@ -14,6 +16,7 @@ import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.TextView;
 
@@ -145,6 +148,18 @@ public class AppUtil {
                 .build();
 
         intent.launchUrl(activity, Uri.parse(url));
+    }
+
+    public static void setTaskDescription(Activity activity, String label, int color) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            activity.setTaskDescription(new ActivityManager.TaskDescription(label, null, color));
+        }
+    }
+
+    public static int getThemeColorPrimary(Context context) {
+        TypedValue value = new TypedValue();
+        context.getTheme().resolveAttribute(R.attr.colorPrimary, value, true);
+        return value.data;
     }
 
 }

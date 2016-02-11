@@ -29,6 +29,7 @@ import io.github.droidkaigi.confsched.fragment.SessionsFragment;
 import io.github.droidkaigi.confsched.model.SearchGroup;
 import io.github.droidkaigi.confsched.model.Session;
 import io.github.droidkaigi.confsched.util.AnalyticsTracker;
+import io.github.droidkaigi.confsched.util.AppUtil;
 
 public class SearchedSessionsActivity extends AppCompatActivity implements SessionsFragment.OnChangeSessionListener {
 
@@ -56,6 +57,7 @@ public class SearchedSessionsActivity extends AppCompatActivity implements Sessi
         SearchGroup searchGroup = Parcels.unwrap(getIntent().getParcelableExtra(SearchGroup.class.getSimpleName()));
 
         initToolbar(searchGroup);
+        AppUtil.setTaskDescription(this, searchGroup.getName(), AppUtil.getThemeColorPrimary(this));
 
         if(savedInstanceState == null) {
             replaceFragment(SearchedSessionsFragment.newInstance(searchGroup));
