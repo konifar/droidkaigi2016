@@ -31,7 +31,7 @@ public class SessionDao {
         this.orma = orma;
     }
 
-    private Session_Relation sessionRelation() {
+    public Session_Relation sessionRelation() {
         return orma.relationOfSession();
     }
 
@@ -112,25 +112,30 @@ public class SessionDao {
         placeRelation().deleter().execute();
     }
 
-    public void updateAll(List<Session> sessions) {
+    public void updateAllSync(List<Session> sessions) {
+        speakerRelation().deleter().execute();
+        categoryRelation().deleter().execute();
+        placeRelation().deleter().execute();
+
+        for (Session session : sessions) {
+            session.prepareSave();
+            insertSpeaker(session.speaker);
+            insertCategory(session.category);
+            insertPlace(session.place);
+            if (sessionRelation().idEq(session.id).count() == 0) {
+                sessionRelation().inserter().execute(session);
+            } else {
+                update(session);
+            }
+        }
+    }
+
+
+    public void updateAllAsync(List<Session> sessions) {
         orma.transactionAsync(new TransactionTask() {
             @Override
             public void execute() throws Exception {
-                speakerRelation().deleter().execute();
-                categoryRelation().deleter().execute();
-                placeRelation().deleter().execute();
-
-                Observable.from(sessions).forEach(session -> {
-                    session.prepareSave();
-                    insertSpeaker(session.speaker);
-                    insertCategory(session.category);
-                    insertPlace(session.place);
-                    if (sessionRelation().idEq(session.id).count() == 0) {
-                        sessionRelation().inserter().execute(session);
-                    } else {
-                        update(session);
-                    }
-                });
+                updateAllSync(sessions);
             }
         });
     }

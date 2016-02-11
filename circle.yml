@@ -4,6 +4,8 @@ machine:
   environment:
     ANDROID_HOME: /usr/local/android-sdk-linux
     JAVA_OPTS: "-Xms512m -Xmx1024m"
+    TERM: "dumb"
+    ADB_INSTALL_TIMEOUT: "10"
     GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
 
 dependencies:
@@ -15,8 +17,16 @@ dependencies:
     - ./gradlew dependencies
 
 test:
+  pre:
+    - emulator -avd circleci-android22 -no-audio -no-window:
+        background: true
+        parallel: true
+    - circle-android wait-for-boot
   override:
-    - ./gradlew clean assembleProductionDebug
+      # unlock the emulator screen. Referred to https://github.com/circleci/EspressoSample
+    - sleep 30
+    - adb shell input keyevent 82
+    - ./gradlew clean assembleProductionDebug check connectedAndroidTest -PdisablePreDex
 
 deployment:
   production:

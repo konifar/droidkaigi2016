@@ -110,7 +110,8 @@
                     android:layout_marginLeft="@dimen/spacing"
                     android:layout_marginRight="@dimen/spacing"
                     android:layout_marginStart="@dimen/spacing"
-                    android:layout_marginTop="@dimen/spacing_xsmall_negative">
+                    android:layout_marginTop="@dimen/spacing_xsmall_negative"
+                    app:forceRtlDirection="@{true}">
 
                     <TextView
                         android:id="@+id/txt_place"
@@ -132,8 +133,6 @@
                     <TextView
                         android:id="@+id/txt_language"
                         style="@style/Tag"
-                        android:layout_marginEnd="@dimen/spacing_small"
-                        android:layout_marginRight="@dimen/spacing_small"
                         android:layout_marginTop="@dimen/spacing_xsmall"
                         android:background="@drawable/tag_language"
                         android:text="@{session.getLanguageResId()}"
@@ -166,8 +165,8 @@
                         android:layout_below="@id/txt_speaker_title"
                         android:layout_marginTop="@dimen/spacing"
                         android:contentDescription="@string/speaker"
-                        app:speakerImageUrl="@{session.speaker.imageUrl}"
-                        app:speakerImageSize="@{@dimen/user_image_large}" />
+                        app:speakerImageSize="@{@dimen/user_image_large}"
+                        app:speakerImageUrl="@{session.speaker.imageUrl}" />
 
                     <TextView
                         android:id="@+id/txt_speaker_name"
@@ -183,7 +182,7 @@
                         android:layout_toRightOf="@id/img_speaker"
                         android:layout_toStartOf="@+id/speaker_sns_icons"
                         android:gravity="center_vertical"
-                        android:text="@{session.speaker.name}" />
+                        app:textRtlConsidered="@{session.speaker.name}" />
 
                     <io.github.droidkaigi.confsched.widget.SpeakerSnsIconsView
                         android:id="@+id/speaker_sns_icons"
@@ -215,6 +214,7 @@
                     app:categoryVividColor="@{session.category}" />
 
                 <TextView
+                    android:id="@+id/txt_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="@dimen/line_spacing_large"

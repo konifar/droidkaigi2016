@@ -1,5 +1,7 @@
 package io.github.droidkaigi.confsched.widget;
 
+import com.github.gfx.android.orma.exception.InvalidStatementException;
+
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
@@ -10,13 +12,10 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.github.gfx.android.orma.exception.InvalidStatementException;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import io.github.droidkaigi.confsched.R;
-import io.github.droidkaigi.confsched.activity.SearchedSessionsActivity;
 import io.github.droidkaigi.confsched.databinding.ItemSearchCategoryBinding;
 import io.github.droidkaigi.confsched.databinding.ItemSearchPlaceBinding;
 import io.github.droidkaigi.confsched.databinding.ItemSearchTitleBinding;
@@ -27,6 +26,11 @@ import io.github.droidkaigi.confsched.model.SearchGroup;
 import io.github.droidkaigi.confsched.widget.itemdecoration.DividerItemDecoration;
 
 public class SearchPlacesAndCategoriesView extends FrameLayout {
+
+    public interface OnClickSearchGroup {
+
+        void onClickSearchGroup(SearchGroup searchGroup);
+    }
 
     private ViewSearchPlacesAndCategoriesBinding binding;
 
@@ -66,14 +70,26 @@ public class SearchPlacesAndCategoriesView extends FrameLayout {
         binding.recyclerView.addItemDecoration(new DividerItemDecoration(getContext()));
     }
 
+    public void setOnClickSearchGroup(OnClickSearchGroup onClickSearchGroup) {
+        adapter.setOnClickSearchGroup(onClickSearchGroup);
+    }
+
     private class SearchGroupsAdapter extends ArrayRecyclerAdapter<SearchGroup, BindingHolder<ViewDataBinding>> {
 
         private static final int TYPE_CATEGORY = 0;
         private static final int TYPE_PLACE = 1;
         private static final int TYPE_TITLE = 2;
 
+        private OnClickSearchGroup onClickSearchGroup = searchGroup -> {
+            // no op
+        };
+
         public SearchGroupsAdapter(@NonNull Context context) {
             super(context);
+        }
+
+        public void setOnClickSearchGroup(OnClickSearchGroup onClickSearchGroup) {
+            this.onClickSearchGroup = onClickSearchGroup;
         }
 
         @Override
@@ -112,7 +128,7 @@ public class SearchPlacesAndCategoriesView extends FrameLayout {
         }
 
         private void showSearchedSessions(SearchGroup searchGroup) {
-            getContext().startActivity(SearchedSessionsActivity.createIntent(getContext(), searchGroup));
+            onClickSearchGroup.onClickSearchGroup(searchGroup);
         }
 
         @Override
