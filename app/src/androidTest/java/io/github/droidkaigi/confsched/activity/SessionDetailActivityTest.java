@@ -4,11 +4,6 @@ package io.github.droidkaigi.confsched.activity;
  * UI tests for {@link SessionDetailActivity} using Espresso.
  */
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
 import android.app.Activity;
 import android.app.Instrumentation;
 import android.content.Context;
@@ -17,6 +12,12 @@ import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.intent.rule.IntentsTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.MediumTest;
+
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -41,6 +42,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.Matchers.allOf;
 
+@Ignore
 @RunWith(AndroidJUnit4.class)
 @MediumTest
 public class SessionDetailActivityTest {
