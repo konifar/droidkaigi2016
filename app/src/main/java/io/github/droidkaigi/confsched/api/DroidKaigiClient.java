@@ -24,14 +24,17 @@ public class DroidKaigiClient {
 
     private final DroidKaigiService service;
 
+    public static Gson createGson() {
+        return new GsonBuilder().setDateFormat(JSON_DATE_FORMAT).create();
+    }
+
     @Inject
     public DroidKaigiClient(OkHttpClient client) {
-        Gson gson = new GsonBuilder().setDateFormat(JSON_DATE_FORMAT).create();
         Retrofit feedburnerRetrofit = new Retrofit.Builder()
                 .client(client)
                 .baseUrl(END_POINT)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addConverterFactory(GsonConverterFactory.create(createGson()))
                 .build();
         service = feedburnerRetrofit.create(DroidKaigiService.class);
     }

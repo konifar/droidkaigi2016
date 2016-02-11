@@ -92,7 +92,7 @@ public class SessionsFragment extends Fragment {
 
     private Subscription fetchAndSave() {
         return client.getSessions()
-                .doOnNext(dao::updateAll)
+                .doOnNext(dao::updateAllAsync)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe();
@@ -102,7 +102,7 @@ public class SessionsFragment extends Fragment {
         Observable<List<Session>> cachedSessions = dao.findAll();
         return cachedSessions.flatMap(sessions -> {
             if (sessions.isEmpty()) {
-                return client.getSessions().doOnNext(dao::updateAll);
+                return client.getSessions().doOnNext(dao::updateAllAsync);
             } else {
                 return Observable.just(sessions);
             }
