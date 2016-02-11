@@ -71,7 +71,7 @@ public class AboutFragment extends Fragment {
         binding.txtLicense.setOnClickListener(v ->
                 activityNavigator.showWebView(getActivity(), LICENSE_URL, getString(R.string.about_license)));
 
-        binding.txtVersion.setText(AppUtil.getVersionName(getActivity()));
+        binding.txtVersion.setText(AppUtil.getVersionName());
     }
 
 }
