@@ -189,9 +189,17 @@ public class SessionsFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        //TODO Should check the changes in the data set.
-
+        if (requestCode != REQ_SEARCH) {
+            return;
+        }
+        if (resultCode != Activity.RESULT_OK) {
+            return;
+        }
+        List<Session> statusChangedSession = Parcels
+                .unwrap(data.getParcelableExtra(SearchActivity.RESULT_STATUS_CHANGED_SESSIONS));
+        if (statusChangedSession == null || statusChangedSession.isEmpty()) {
+            return;
+        }
         compositeSubscription.add(loadData());
     }
 
