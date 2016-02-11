@@ -37,9 +37,6 @@ public class AlarmUtil {
     }
 
     private static long calculateStartNotifyTime(Session session) {
-        // DEBUG
-        //return 0;
-
         // 5minutes early
         return session.stime.getTime() - 300000;
     }
