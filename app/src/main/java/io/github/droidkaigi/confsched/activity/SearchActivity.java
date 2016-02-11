@@ -1,12 +1,16 @@
 package io.github.droidkaigi.confsched.activity;
 
+import org.parceler.Parcels;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -38,6 +42,7 @@ import io.github.droidkaigi.confsched.databinding.ActivitySearchBinding;
 import io.github.droidkaigi.confsched.databinding.ItemSearchResultBinding;
 import io.github.droidkaigi.confsched.model.SearchResult;
 import io.github.droidkaigi.confsched.model.Session;
+import io.github.droidkaigi.confsched.util.LocaleUtil;
 import io.github.droidkaigi.confsched.util.AnalyticsTracker;
 import io.github.droidkaigi.confsched.widget.ArrayRecyclerAdapter;
 import io.github.droidkaigi.confsched.widget.BindingHolder;
@@ -47,7 +52,11 @@ import rx.Observable;
 public class SearchActivity extends AppCompatActivity implements TextWatcher {
 
     private static final String TAG = SearchActivity.class.getSimpleName();
+
+    public static final String RESULT_STATUS_CHANGED_SESSIONS = "statusChangedSessions";
     private static final int REQ_DETAIL = 1;
+
+    private static final int REQ_SEARCH_PLACES_AND_CATEGORIES_VIEW = 2;
 
     @Inject
     AnalyticsTracker analyticsTracker;
@@ -60,13 +69,15 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
     @Inject
     CategoryDao categoryDao;
 
+    List<Session> statusChangedSessions = new ArrayList<>();
+
     private SearchResultsAdapter adapter;
     private ActivitySearchBinding binding;
 
-    static void start(@NonNull Activity activity) {
-        Intent intent = new Intent(activity, SearchActivity.class);
-        activity.startActivity(intent);
-        activity.overridePendingTransition(0, R.anim.activity_fade_exit);
+    static void start(@NonNull Fragment fragment, int requestCode) {
+        Intent intent = new Intent(fragment.getContext(), SearchActivity.class);
+        fragment.startActivityForResult(intent, requestCode);
+        fragment.getActivity().overridePendingTransition(0, R.anim.activity_fade_exit);
     }
 
     @Override
@@ -82,9 +93,25 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
         loadData();
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(RESULT_STATUS_CHANGED_SESSIONS, Parcels.wrap(statusChangedSessions));
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        statusChangedSessions = Parcels.unwrap(savedInstanceState.getParcelable(RESULT_STATUS_CHANGED_SESSIONS));
+    }
+
     private void initPlacesAndCategoriesView() {
         binding.searchPlacesAndCategoriesView.addPlaces(placeDao.findAll());
         binding.searchPlacesAndCategoriesView.addCategories(categoryDao.findAll());
+        binding.searchPlacesAndCategoriesView.setOnClickSearchGroup(searchGroup -> {
+            startActivityForResult(SearchedSessionsActivity.createIntent(SearchActivity.this, searchGroup),
+                    REQ_SEARCH_PLACES_AND_CATEGORIES_VIEW);
+        });
     }
 
     @Override
@@ -146,8 +173,11 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
 
     @Override
     public void finish() {
-        super.finish();
+        Intent intent = new Intent();
+        intent.putExtra(RESULT_STATUS_CHANGED_SESSIONS, Parcels.wrap(statusChangedSessions));
+        setResult(Activity.RESULT_OK, intent);
         overridePendingTransition(0, R.anim.activity_fade_exit);
+        super.finish();
     }
 
     @Override
@@ -173,6 +203,29 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
         } else {
             binding.searchPlacesAndCategoriesView.setVisibility(View.GONE);
             binding.recyclerView.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case REQ_DETAIL: {
+                if (resultCode != Activity.RESULT_OK) {
+                    return;
+                }
+                Session session = Parcels.unwrap(data.getParcelableExtra(Session.class.getSimpleName()));
+                statusChangedSessions.add(session);
+                break;
+            }
+            case REQ_SEARCH_PLACES_AND_CATEGORIES_VIEW: {
+                if (resultCode != Activity.RESULT_OK) {
+                    return;
+                }
+                List<Session> sessions = Parcels.unwrap(data.getParcelableExtra(RESULT_STATUS_CHANGED_SESSIONS));
+                statusChangedSessions.addAll(sessions);
+                break;
+            }
         }
     }
 
@@ -210,7 +263,13 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
             itemBinding.setSearchResult(searchResult);
 
             Drawable icon = ContextCompat.getDrawable(getContext(), searchResult.iconRes);
-            itemBinding.txtType.setCompoundDrawablesWithIntrinsicBounds(icon, null, null, null);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                itemBinding.txtType.setCompoundDrawablesRelativeWithIntrinsicBounds(icon, null, null, null);
+            } else if (LocaleUtil.shouldRtl(getContext())) {
+                itemBinding.txtType.setCompoundDrawablesWithIntrinsicBounds(null, null, icon, null);
+            } else {
+                itemBinding.txtType.setCompoundDrawablesWithIntrinsicBounds(icon, null, null, null);
+            }
 
             bindText(itemBinding.txtSearchResult, searchResult, binding.searchToolbar.getText());
 

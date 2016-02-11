@@ -15,6 +15,7 @@ import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.activity.ActivityNavigator;
 import io.github.droidkaigi.confsched.databinding.FragmentAboutBinding;
 import io.github.droidkaigi.confsched.util.AppUtil;
+import io.github.droidkaigi.confsched.util.LocaleUtil;
 
 public class AboutFragment extends Fragment {
 
@@ -53,7 +54,7 @@ public class AboutFragment extends Fragment {
         binding.txtRep.setText(repText);
         AppUtil.linkify(getActivity(), binding.txtRep, REP_TWITTER_NAME, AppUtil.getTwitterUrl(REP_TWITTER_NAME));
 
-        binding.txtSiteUrl.setText(SITE_URL);
+        binding.txtSiteUrl.setText(LocaleUtil.getRtlConsideredText(SITE_URL, getContext()));
         AppUtil.linkify(getActivity(), binding.txtSiteUrl, SITE_URL, SITE_URL);
 
         binding.imgFacebookClicker.setOnClickListener(v ->

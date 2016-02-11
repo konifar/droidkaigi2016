@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.databinding.DataBindingUtil;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -14,9 +15,11 @@ import android.widget.FrameLayout;
 
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.databinding.ToolbarSearchBinding;
+import io.github.droidkaigi.confsched.util.LocaleUtil;
 
 public class SearchToolbar extends FrameLayout {
 
+    private static final int DRAWABLE_LEFT = 0;
     private static final int DRAWABLE_RIGHT = 2;
 
     private ToolbarSearchBinding binding;
@@ -53,9 +56,16 @@ public class SearchToolbar extends FrameLayout {
         }
     }
 
+    private Drawable getCloseDrawable() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            return binding.editSearch.getCompoundDrawablesRelative()[DRAWABLE_RIGHT];
+        } else {
+            return binding.editSearch.getCompoundDrawables()[DRAWABLE_RIGHT];
+        }
+    }
+
     private void toggleCloseButtonVisible(boolean visible) {
-        Drawable closeDrawable = binding.editSearch.getCompoundDrawables()[DRAWABLE_RIGHT];
-        closeDrawable.setAlpha(visible ? 255 : 0);
+        getCloseDrawable().setAlpha(visible ? 255 : 0);
     }
 
     private void initView() {
@@ -79,9 +89,16 @@ public class SearchToolbar extends FrameLayout {
 
         binding.editSearch.setOnTouchListener((v, event) -> {
             if (event.getAction() == MotionEvent.ACTION_UP) {
-                Drawable closeDrawable = binding.editSearch.getCompoundDrawables()[DRAWABLE_RIGHT];
-                int leftEdgeOfRightDrawable = binding.editSearch.getRight() - closeDrawable.getBounds().width();
-                if (event.getRawX() >= leftEdgeOfRightDrawable) {
+                boolean shouldClear = false;
+                if (LocaleUtil.shouldRtl(getContext())) {
+                    int rightEdgeOfRightDrawable = binding.editSearch.getLeft() + getCloseDrawable().getBounds().width();
+                    shouldClear = event.getRawX() <= rightEdgeOfRightDrawable;
+                } else {
+                    int leftEdgeOfRightDrawable = binding.editSearch.getRight() - getCloseDrawable().getBounds().width();
+                    shouldClear = event.getRawX() >= leftEdgeOfRightDrawable;
+                }
+
+                if (shouldClear) {
                     clearText();
                     return true;
                 }

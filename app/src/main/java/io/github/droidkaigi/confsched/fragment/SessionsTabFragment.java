@@ -17,6 +17,7 @@ import com.like.OnLikeListener;
 
 import org.parceler.Parcels;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -34,7 +35,6 @@ import io.github.droidkaigi.confsched.widget.itemdecoration.SpaceItemDecoration;
 
 public class SessionsTabFragment extends Fragment {
 
-    private static final String TAG = SessionsTabFragment.class.getSimpleName();
     private static final String ARG_SESSIONS = "sessions";
     private static final int REQ_DETAIL = 1;
 
@@ -47,6 +47,8 @@ public class SessionsTabFragment extends Fragment {
     private FragmentSessionsTabBinding binding;
 
     private List<Session> sessions;
+
+    private SessionsFragment.OnChangeSessionListener onChangeSessionListener = sessions->{/* no op */};
 
     @NonNull
     public static SessionsTabFragment newInstance(List<Session> sessions) {
@@ -67,6 +69,9 @@ public class SessionsTabFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         MainApplication.getComponent(this).inject(this);
+        if (context instanceof SessionsFragment.OnChangeSessionListener) {
+            onChangeSessionListener = (SessionsFragment.OnChangeSessionListener) context;
+        }
     }
 
     @Nullable
@@ -94,7 +99,10 @@ public class SessionsTabFragment extends Fragment {
             case REQ_DETAIL:
                 if (resultCode == Activity.RESULT_OK) {
                     Session session = Parcels.unwrap(data.getParcelableExtra(Session.class.getSimpleName()));
-                    if (session != null) adapter.refresh(session);
+                    if (session != null) {
+                        adapter.refresh(session);
+                        onChangeSessionListener.onChangeSession(Collections.singletonList(session));
+                    }
                 }
                 break;
         }
@@ -108,7 +116,7 @@ public class SessionsTabFragment extends Fragment {
 
         private void refresh(@NonNull Session session) {
             // TODO It may be heavy logic...
-            for (int i = 0; i < adapter.getItemCount(); i++) {
+            for (int i = 0, count = adapter.getItemCount(); i < count; i++) {
                 Session s = adapter.getItem(i);
                 if (session.equals(s)) {
                     s.checked = session.checked;
@@ -144,17 +152,19 @@ public class SessionsTabFragment extends Fragment {
                 public void liked(LikeButton likeButton) {
                     session.checked = true;
                     dao.updateChecked(session);
+                    onChangeSessionListener.onChangeSession(Collections.singletonList(session));
                 }
 
                 @Override
                 public void unLiked(LikeButton likeButton) {
                     session.checked = false;
                     dao.updateChecked(session);
+                    onChangeSessionListener.onChangeSession(Collections.singletonList(session));
                 }
             });
 
             binding.cardView.setOnClickListener(v ->
-                    activityNavigator.showSessionDetail(getActivity(), session, REQ_DETAIL));
+                    activityNavigator.showSessionDetail(SessionsTabFragment.this, session, REQ_DETAIL));
         }
 
     }

@@ -16,6 +16,7 @@ import io.codetail.animation.ViewAnimationUtils;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.databinding.ViewMapSearchBinding;
 import io.github.droidkaigi.confsched.model.PlaceMap;
+import io.github.droidkaigi.confsched.util.LocaleUtil;
 import rx.Observable;
 
 public class MapSearchView extends FrameLayout {
@@ -62,13 +63,21 @@ public class MapSearchView extends FrameLayout {
         }
     }
 
+    private int getRevealCenterX(View container) {
+        if (LocaleUtil.shouldRtl(getContext())) {
+            return container.getLeft();
+        } else {
+            return container.getRight();
+        }
+    }
+
     private void revealOn() {
         if (binding.mapListContainer.getVisibility() == VISIBLE) return;
 
         View container = binding.mapListContainer;
         SupportAnimator animator = ViewAnimationUtils.createCircularReveal(
                 container,
-                container.getRight(),
+                getRevealCenterX(container),
                 container.getTop(),
                 0,
                 (float) Math.hypot(container.getWidth(), container.getHeight()));
@@ -105,7 +114,7 @@ public class MapSearchView extends FrameLayout {
         View container = binding.mapListContainer;
         SupportAnimator animator = ViewAnimationUtils.createCircularReveal(
                 container,
-                container.getRight(),
+                getRevealCenterX(container),
                 container.getTop(),
                 (float) Math.hypot(container.getWidth(), container.getHeight()),
                 0);

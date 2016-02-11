@@ -14,6 +14,7 @@
         <item name="android:dialogTheme">@style/DialogTheme</item>
         <item name="android:alertDialogTheme">@style/DialogTheme</item>
         <item name="android:alertDialogStyle">@style/DialogTheme</item>
+        <item name="android:textColorLink">@color/theme500</item>
     </style>
 
     <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog">
