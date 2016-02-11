@@ -23,6 +23,7 @@ import android.widget.TextView;
 import java.util.Arrays;
 import java.util.Locale;
 
+import io.github.droidkaigi.confsched.BuildConfig;
 import io.github.droidkaigi.confsched.R;
 
 public class AppUtil {
@@ -111,13 +112,7 @@ public class AppUtil {
     }
 
     public static String getVersionName(Context context) {
-        try {
-            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-            return context.getString(R.string.about_version_prefix, packageInfo.versionName);
-        } catch (Exception e) {
-            Log.e(TAG, e.getMessage() + "");
-            return "";
-        }
+        return context.getString(R.string.about_version_prefix, BuildConfig.VERSION_NAME);
     }
 
     public static void linkify(Activity activity, TextView textView, String linkText, String url) {
