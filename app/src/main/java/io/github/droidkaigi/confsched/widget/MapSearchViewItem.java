@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.databinding.ViewMapSearchItemBinding;
 import io.github.droidkaigi.confsched.model.PlaceMap;
+import io.github.droidkaigi.confsched.util.LocaleUtil;
 
 public class MapSearchViewItem extends FrameLayout {
 
@@ -30,8 +31,10 @@ public class MapSearchViewItem extends FrameLayout {
 
     public void bindData(@NonNull PlaceMap placeMap, @NonNull OnClickListener listener) {
         binding.imgMarker.setImageResource(placeMap.markerRes);
-        binding.txtName.setText(placeMap.nameRes);
-        binding.txtBuilding.setText(placeMap.buildingNameRes);
+        binding.txtName.setText(LocaleUtil.getRtlConsideredText(
+                getContext().getString(placeMap.nameRes), getContext()));
+        binding.txtBuilding.setText(LocaleUtil.getRtlConsideredText(
+                getContext().getString(placeMap.buildingNameRes), getContext()));
         binding.rootView.setOnClickListener(listener);
     }
 

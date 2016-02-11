@@ -64,7 +64,6 @@
 
     <string name="search_hint">Search by words</string>
 
-    <string name="app_close_confirm">Please tap the back key again to close.</string>
     <string name="app_close_now">Close now</string>
 
     <string name="my_schedule_empty">No items here. Let\'s check out all sessions and put your favourite!</string>

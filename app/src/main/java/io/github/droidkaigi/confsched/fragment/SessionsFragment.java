@@ -31,6 +31,7 @@ import io.github.droidkaigi.confsched.databinding.FragmentSessionsBinding;
 import io.github.droidkaigi.confsched.model.MainContentStateBrokerProvider;
 import io.github.droidkaigi.confsched.model.Page;
 import io.github.droidkaigi.confsched.model.Session;
+import io.github.droidkaigi.confsched.util.AppUtil;
 import io.github.droidkaigi.confsched.util.DateUtil;
 import rx.Observable;
 import rx.Subscription;
@@ -41,6 +42,7 @@ import rx.subscriptions.CompositeSubscription;
 public class SessionsFragment extends Fragment {
 
     public static final String TAG = SessionsFragment.class.getSimpleName();
+    private static final String ARG_SHOULD_REFRESH = "should_refresh";
 
     @Inject
     DroidKaigiClient client;
@@ -55,9 +57,18 @@ public class SessionsFragment extends Fragment {
 
     private SessionsPagerAdapter adapter;
     private FragmentSessionsBinding binding;
+    private boolean shouldRefresh;
 
     public static SessionsFragment newInstance() {
-        return new SessionsFragment();
+        return newInstance(false);
+    }
+
+    public static SessionsFragment newInstance(boolean shouldRefresh) {
+        SessionsFragment fragment = new SessionsFragment();
+        Bundle args = new Bundle();
+        args.putBoolean(ARG_SHOULD_REFRESH, shouldRefresh);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Nullable
@@ -65,7 +76,6 @@ public class SessionsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentSessionsBinding.inflate(inflater, container, false);
         setHasOptionsMenu(true);
-        initViewPager();
         initEmptyView();
         compositeSubscription.add(loadData());
         compositeSubscription.add(fetchAndSave());
@@ -73,15 +83,17 @@ public class SessionsFragment extends Fragment {
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            this.shouldRefresh = getArguments().getBoolean(ARG_SHOULD_REFRESH, false);
+        }
+    }
+
+    @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         MainApplication.getComponent(this).inject(this);
-    }
-
-    private void initViewPager() {
-        adapter = new SessionsPagerAdapter(getFragmentManager());
-        binding.viewPager.setAdapter(adapter);
-        binding.tabLayout.setupWithViewPager(binding.viewPager);
     }
 
     private void initEmptyView() {
@@ -91,7 +103,7 @@ public class SessionsFragment extends Fragment {
     }
 
     private Subscription fetchAndSave() {
-        return client.getSessions()
+        return client.getSessions(AppUtil.getCurrentLanguageId(getActivity()))
                 .doOnNext(dao::updateAllAsync)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -101,8 +113,9 @@ public class SessionsFragment extends Fragment {
     protected Subscription loadData() {
         Observable<List<Session>> cachedSessions = dao.findAll();
         return cachedSessions.flatMap(sessions -> {
-            if (sessions.isEmpty()) {
-                return client.getSessions().doOnNext(dao::updateAllAsync);
+            if (shouldRefresh || sessions.isEmpty()) {
+                return client.getSessions(AppUtil.getCurrentLanguageId(getActivity()))
+                        .doOnNext(dao::updateAllAsync);
             } else {
                 return Observable.just(sessions);
             }
@@ -136,10 +149,13 @@ public class SessionsFragment extends Fragment {
             }
         }
 
+        adapter = new SessionsPagerAdapter(getFragmentManager());
+
         for (Map.Entry<String, List<Session>> e : sessionsByDate.entrySet()) {
             addFragment(e.getKey(), e.getValue());
         }
 
+        binding.viewPager.setAdapter(adapter);
         binding.tabLayout.setupWithViewPager(binding.viewPager);
 
         if (sessions.isEmpty()) {
