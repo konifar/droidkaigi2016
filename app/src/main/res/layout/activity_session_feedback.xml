@@ -247,7 +247,9 @@
                 <EditText
                     android:id="@+id/other_comments_feedback_text"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black_alpha_87"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
             </android.support.design.widget.TextInputLayout>
 
             <!-- we need this space to anchor the button at the bottom on tall devices -->
