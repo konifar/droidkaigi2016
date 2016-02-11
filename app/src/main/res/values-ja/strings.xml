@@ -68,4 +68,6 @@
 
     <string name="my_schedule_empty">まだセッションが追加されていません。全てのセッションから聞きたいセッションを選んでみましょう!</string>
     <string name="my_schedule_go_to_session_list">全てのセッションを見る</string>
+
+    <string name="schedule_notification_title">開始5分前です</string>
 </resources>

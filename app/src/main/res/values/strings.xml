@@ -69,4 +69,6 @@
 
     <string name="my_schedule_empty">No items here. Let\'s check out all sessions and put your favourite!</string>
     <string name="my_schedule_go_to_session_list">Go to All Sessions</string>
+
+    <string name="schedule_notification_title">5 minutes to session below</string>
 </resources>

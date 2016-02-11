@@ -1,8 +1,6 @@
 package io.github.droidkaigi.confsched.fragment;
 
 import android.app.Activity;
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,7 +28,8 @@ import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSessionsTabBinding;
 import io.github.droidkaigi.confsched.databinding.ItemSessionBinding;
 import io.github.droidkaigi.confsched.model.Session;
-import io.github.droidkaigi.confsched.receiver.SessionScheduleReceiver;
+import io.github.droidkaigi.confsched.util.AlarmUtil;
+import io.github.droidkaigi.confsched.util.AppUtil;
 import io.github.droidkaigi.confsched.widget.ArrayRecyclerAdapter;
 import io.github.droidkaigi.confsched.widget.BindingHolder;
 import io.github.droidkaigi.confsched.widget.itemdecoration.SpaceItemDecoration;
@@ -147,14 +146,14 @@ public class SessionsTabFragment extends Fragment {
                 public void liked(LikeButton likeButton) {
                     session.checked = true;
                     dao.updateChecked(session);
-                    setAlarmManager(session);
+                    AlarmUtil.registerSessionAlarm(getActivity(), session);
                 }
 
                 @Override
                 public void unLiked(LikeButton likeButton) {
                     session.checked = false;
                     dao.updateChecked(session);
-                    // TODO: unregister notification of session
+                    AlarmUtil.unregisterSessionAlarm(getActivity(), session);
                 }
             });
 
@@ -162,24 +161,6 @@ public class SessionsTabFragment extends Fragment {
                     activityNavigator.showSessionDetail(getActivity(), session, REQ_DETAIL));
         }
 
-    }
-
-    private void setAlarmManager(Session session){
-        // TODO: make code clean
-        Context context = getActivity();
-        Intent intent = new Intent(context, SessionScheduleReceiver.class);
-
-        // TODO: check how to pass session data
-        intent.putExtra("session-title", session.title);
-        intent.putExtra("session-id", session.id);
-        intent.putExtra("session-stime",session.stime);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        AlarmManager manager = (AlarmManager) getContext().getSystemService(Context.ALARM_SERVICE);
-
-        //TODO: calculate time
-        long triggerAtMillis = 0;
-
-        manager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, triggerAtMillis, pendingIntent);
     }
 
 }

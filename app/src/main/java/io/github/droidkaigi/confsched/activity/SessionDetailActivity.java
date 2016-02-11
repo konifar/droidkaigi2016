@@ -32,7 +32,7 @@ public class SessionDetailActivity extends AppCompatActivity {
     private ActivitySessionDetailBinding binding;
     private Session session;
 
-    private static Intent createIntent(@NonNull Context context, @NonNull Session session) {
+    public static Intent createIntent(@NonNull Context context, @NonNull Session session) {
         Intent intent = new Intent(context, SessionDetailActivity.class);
         intent.putExtra(Session.class.getSimpleName(), Parcels.wrap(session));
         return intent;
