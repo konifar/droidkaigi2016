@@ -8,7 +8,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +35,6 @@ import io.github.droidkaigi.confsched.widget.itemdecoration.SpaceItemDecoration;
 
 public class SessionsTabFragment extends Fragment {
 
-    private static final String TAG = SessionsTabFragment.class.getSimpleName();
     private static final String ARG_SESSIONS = "sessions";
     private static final int REQ_DETAIL = 1;
 
