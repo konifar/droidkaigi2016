@@ -6,11 +6,11 @@ import android.view.MotionEvent;
 import android.widget.SeekBar;
 
 public class NumberRatingBar extends SeekBar {
-    private OnSeekBarChangeListener mUserSeekBarChangeListener;
+    private OnSeekBarChangeListener userSeekBarChangeListener;
 
     public NumberRatingBar(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        super.setOnSeekBarChangeListener(mSeekBarChangeListener);
+        super.setOnSeekBarChangeListener(seekBarChangeListener);
         updateSecondaryProgress();
         setThumb(null);
     }
@@ -25,29 +25,29 @@ public class NumberRatingBar extends SeekBar {
 
     @Override
     public void setOnSeekBarChangeListener(OnSeekBarChangeListener listener) {
-        mUserSeekBarChangeListener = listener;
+        userSeekBarChangeListener = listener;
     }
 
-    private OnSeekBarChangeListener mSeekBarChangeListener = new OnSeekBarChangeListener() {
+    private OnSeekBarChangeListener seekBarChangeListener = new OnSeekBarChangeListener() {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
             updateSecondaryProgress();
-            if (mUserSeekBarChangeListener != null) {
-                mUserSeekBarChangeListener.onProgressChanged(seekBar, progress, fromUser);
+            if (userSeekBarChangeListener != null) {
+                userSeekBarChangeListener.onProgressChanged(seekBar, progress, fromUser);
             }
         }
 
         @Override
         public void onStartTrackingTouch(SeekBar seekBar) {
-            if (mUserSeekBarChangeListener != null) {
-                mUserSeekBarChangeListener.onStartTrackingTouch(seekBar);
+            if (userSeekBarChangeListener != null) {
+                userSeekBarChangeListener.onStartTrackingTouch(seekBar);
             }
         }
 
         @Override
         public void onStopTrackingTouch(SeekBar seekBar) {
-            if (mUserSeekBarChangeListener != null) {
-                mUserSeekBarChangeListener.onStopTrackingTouch(seekBar);
+            if (userSeekBarChangeListener != null) {
+                userSeekBarChangeListener.onStopTrackingTouch(seekBar);
             }
         }
     };
