@@ -29,6 +29,7 @@ import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSessionDetailBinding;
 import io.github.droidkaigi.confsched.model.Session;
 import io.github.droidkaigi.confsched.util.AppUtil;
+import io.github.droidkaigi.confsched.util.IntentUtil;
 
 public class SessionDetailFragment extends Fragment {
 
@@ -117,7 +118,9 @@ public class SessionDetailFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item_share:
-                // TODO share logic
+                if (session.shareUrl != null) {
+                    IntentUtil.share(getContext(), session.shareUrl);
+                }
                 break;
         }
         return super.onOptionsItemSelected(item);
