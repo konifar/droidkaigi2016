@@ -119,10 +119,12 @@ public class SessionsFragment extends Fragment {
 
     private Subscription fetchAndSave() {
         return client.getSessions(AppUtil.getCurrentLanguageId(getActivity()))
-                .doOnNext(dao::updateAllAsync)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe((sessions -> {}), throwable -> Log.e(TAG, "Failed to fetchAndSave.", throwable));
+                .subscribe(
+                        dao::updateAllAsync,
+                        throwable -> Log.e(TAG, "Failed to fetchAndSave.", throwable)
+                );
     }
 
     protected Subscription loadData() {
@@ -145,7 +147,6 @@ public class SessionsFragment extends Fragment {
 
     private void onLoadDataFailure(Throwable throwable) {
         Log.e(TAG, "Load failed", throwable);
-        
     }
 
     protected void showEmptyView() {
