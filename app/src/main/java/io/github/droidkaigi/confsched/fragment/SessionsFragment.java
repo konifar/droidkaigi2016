@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -111,10 +112,12 @@ public class SessionsFragment extends Fragment {
 
     private Subscription fetchAndSave() {
         return client.getSessions(AppUtil.getCurrentLanguageId(getActivity()))
-                .doOnNext(dao::updateAllAsync)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe();
+                .subscribe(
+                        dao::updateAllAsync,
+                        throwable -> Log.e(TAG, "Failed to fetchAndSave.", throwable)
+                );
     }
 
     protected Subscription loadData() {
@@ -130,9 +133,19 @@ public class SessionsFragment extends Fragment {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                        this::groupByDateSessions,
-                        throwable -> Log.e(TAG, "Load failed", throwable)
+                        this::onLoadDataSuccess,
+                        this::onLoadDataFailure
                 );
+    }
+
+    private void onLoadDataSuccess(List<Session> sessions) {
+        Log.i(TAG, "Sessions Load succeeded.");
+        groupByDateSessions(sessions);
+    }
+
+    private void onLoadDataFailure(Throwable throwable) {
+        Log.e(TAG, "Sessions Load failed", throwable);
+        Snackbar.make(binding.containerMain, R.string.sessions_network_error, Snackbar.LENGTH_LONG).show();
     }
 
     protected void showEmptyView() {

@@ -11,6 +11,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -92,7 +93,7 @@ public class SessionDetailFragment extends Fragment {
             setResult();
         });
 
-        binding.txtFeedback.setOnClickListener(v -> activityNavigator.showFeedback(getActivity()));
+        binding.txtFeedback.setOnClickListener(v -> activityNavigator.showFeedback(getActivity(), session));
 
         return binding.getRoot();
     }
@@ -111,14 +112,16 @@ public class SessionDetailFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
-        menuInflater.inflate(R.menu.menu_session_detail, menu);
+        if (session != null && !TextUtils.isEmpty(session.shareUrl)) {
+            menuInflater.inflate(R.menu.menu_session_detail, menu);
+        }
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item_share:
-                if (session.shareUrl != null) {
+                if (!TextUtils.isEmpty(session.shareUrl)) {
                     IntentUtil.share(getContext(), session.shareUrl);
                 }
                 break;

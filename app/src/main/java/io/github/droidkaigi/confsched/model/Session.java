@@ -95,12 +95,13 @@ public class Session {
     }
 
     public int getLanguageResId() {
-        if ("en".equals(languageId)) {
-            return R.string.lang_en;
-        } else if ("ja".equals(languageId)) {
-            return R.string.lang_ja;
-        } else {
-            return R.string.lang_en;
+        switch (languageId) {
+            case "en":
+                return R.string.lang_en;
+            case "ja":
+                return R.string.lang_ja;
+            default:
+                return R.string.lang_en;
         }
     }
 

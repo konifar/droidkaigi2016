@@ -1,0 +1,24 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Session Feedback -->
+    <style name="FeedbackTitle">
+        <item name="android:textSize">@dimen/text</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+        <item name="android:paddingBottom">@dimen/spacing_small</item>
+        <item name="android:paddingEnd" tools:targetApi="jelly_bean_mr1">@dimen/spacing</item>
+        <item name="android:paddingLeft">@dimen/spacing</item>
+        <item name="android:paddingRight">@dimen/spacing</item>
+        <item name="android:paddingStart" tools:targetApi="jelly_bean_mr1">@dimen/spacing</item>
+        <item name="android:paddingTop">@dimen/spacing_small</item>
+    </style>
+
+    <style name="FeedbackQuestionGuideText">
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:textColor">@color/theme600</item>
+    </style>
+
+    <style name="FeedbackNumberRatingBar">
+        <item name="android:progressDrawable">@drawable/number_ratingbar</item>
+        <item name="android:indeterminateDrawable">@drawable/number_ratingbar</item>
+        <item name="android:max">5</item>
+    </style>
+</resources>
