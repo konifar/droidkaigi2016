@@ -3,7 +3,6 @@ package io.github.droidkaigi.confsched.util;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
-import android.content.pm.PackageInfo;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
