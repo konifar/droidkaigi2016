@@ -34,6 +34,7 @@ public class Sponsor {
         list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/sansan.png", "https://www.sansan.com"));
         list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/mercari.png", "https://www.mercari.com/jp"));
         list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/yj.png", "http://www.yahoo.co.jp"));
+        list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/ca.png", "https://www.cyberagent.co.jp/"));
         return list;
     }
 
