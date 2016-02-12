@@ -67,24 +67,28 @@
 
     <string name="search_hint">キーワードで検索</string>
 
-    <string name="app_close_now">すぐに閉じる</string>
-
     <string name="my_schedule_empty">まだセッションが追加されていません。全てのセッションから聞きたいセッションを選んでみましょう!</string>
     <string name="my_schedule_go_to_session_list">全てのセッションを見る</string>
 
+    <string name="session_feedback_accepted_successfully">ありがとうございます！フィードバックは送信されました。</string>
     <string name="session_feedback_below_expectation">期待外れ</string>
     <string name="session_feedback_beyond_expectation">期待以上</string>
-    <string name="session_feedback_difficulty">セッションの難易度はいかがでしたか?</string>
+    <string name="session_feedback_difficulty">セッションの難易度はいかがでしたか？</string>
     <string name="session_feedback_easy">基本的すぎた</string>
-    <string name="session_feedback_expectation_label_text">セッションの説明を読んで期待した通りの内容でしたか?</string>
+    <string name="session_feedback_expectation_label_text">セッションの説明を読んで期待した通りの内容でしたか？</string>
     <string name="session_feedback_extremely_relevant">非常に関連がある</string>
     <string name="session_feedback_hard">高度すぎた</string>
-    <string name="session_feedback_knowledgeable">技術的な知見は得られたでしょうか?</string>
+    <string name="session_feedback_knowledgeable">技術的な知見は得られたでしょうか？</string>
+    <string name="session_feedback_not_accepting">申し訳ありません。DroidKaigi終了から日にちが経っているため現在はフィードバックを送信できません。</string>
     <string name="session_feedback_not_at_all_relevant">ほとんど関連がない</string>
-    <string name="session_feedback_other">他にコメントがあればぜひ教えてください(個人が特定できるような内容は書かないでください)</string>
-    <string name="session_feedback_other_hint">コメントを書く!</string>
-    <string name="session_feedback_outstanding_knowledge">知見に溢れてiた</string>
+    <string name="session_feedback_other">他にコメントがあればぜひ教えてください（個人が特定できるような内容は書かないでください）</string>
+    <string name="session_feedback_other_hint">コメントを書く</string>
+    <string name="session_feedback_outstanding_knowledge">知見に溢れていた</string>
     <string name="session_feedback_poor_knowledge">あまり知見はなかった</string>
-    <string name="session_feedback_relevance">このセッションはあなたの仕事やプロジェクトに関連がありましたか?</string>
+    <string name="session_feedback_relevance">このセッションはあなたの仕事やプロジェクトに関連がありましたか？</string>
+    <string name="session_feedback_submit_error">送信中にエラーが発生しました。ネットワーク状態を確認してもう一度お試しください。</string>
+    <string name="session_feedback_submit_failure">送信に失敗しました。</string>
+    <string name="session_feedback_submit_success">送信しました。</string>
     <string name="session_feedback_submitlink">フィードバックを送信</string>
+
 </resources>

@@ -27,7 +27,7 @@ test:
 #    - sleep 30
 #    - adb shell input keyevent 82
 #    - ./gradlew clean assembleProductionDebug check connectedAndroidTest -PdisablePreDex
-    - ./gradlew clean assembleProductionDebug check
+    - ./gradlew clean assembleProductionRelease check
 
 deployment:
   production:
