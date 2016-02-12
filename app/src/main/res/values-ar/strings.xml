@@ -28,6 +28,7 @@
     <string name="settings">محيط</string>
     <string name="sponsors">كفيل</string>
     <string name="about">التفاصيل</string>
+    <string name="search">بحث</string>
 
     <string name="map_main_name">استقبال، مكان الرئيسي</string>
     <string name="map_main_building">70 الذكرى قاعة</string>
@@ -68,8 +69,6 @@
 
     <string name="search_hint">البحث بواسطة كلمة</string>
 
-    <string name="app_close_now">على مقربة مباشرة</string>
-
     <string name="my_schedule_empty">لم تتم إضافته بعد جلسة ذلك. دعونا اختيار الدورات تريد أن تسمع من جميع الدورات!</string>
     <string name="my_schedule_go_to_session_list">رؤية جميع الدورات</string>
 
@@ -93,4 +92,5 @@
     <string name="session_feedback_submit_failure">Submit failed</string>
     <string name="session_feedback_submit_success">Submit succeeded</string>
     <string name="session_feedback_submitlink">Submit Feedback</string>
+
 </resources>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about_inquiry_url">https://docs.google.com/forms/d/1fpxZOqprZyzBgMBb7HCCrq538oOzfzWkOMpItRqF-ro/viewform</string>
+    <string name="about_inquiry_url" translatable="false">https://docs.google.com/forms/d/1fpxZOqprZyzBgMBb7HCCrq538oOzfzWkOMpItRqF-ro/viewform</string>
     <string name="about_site_url">https://droidkaigi.github.io/2016/en</string>
-    <string name="bug_report_url">https://github.com/konifar/droidkaigi2016/issues/new?title=%5BBug%20Report%5D&amp;body=%23%20Problem%0A%0A%23%20Solution</string>
+    <string name="bug_report_url" translatable="false">https://github.com/konifar/droidkaigi2016/issues/new?title=%5BBug%20Report%5D&amp;body=%23%20Problem%0A%0A%23%20Solution</string>
 </resources>
