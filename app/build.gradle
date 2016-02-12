@@ -1,3 +1,5 @@
+import com.android.ddmlib.DdmPreferences
+
 apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 apply plugin: 'me.tatarka.retrolambda'
@@ -33,6 +35,10 @@ android {
         versionCode versionMajor * 100 + versionMinor * 10 + versionPatch
         versionName "${versionMajor}.${versionMinor}.${versionPatch}"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        // Referred to https://github.com/circleci/EspressoSample to make the Espresso tests
+        // work on CircleCI.
+        DdmPreferences.setTimeOut(60000)
     }
 
     packagingOptions {
@@ -124,8 +130,8 @@ dependencies {
     compile 'com.google.dagger:dagger:2.0.2'
     apt 'com.google.dagger:dagger-compiler:2.0.2'
     provided 'javax.annotation:jsr250-api:1.0'
-    compile 'com.google.code.gson:gson:2.4'
-    compile "com.squareup.okhttp3:okhttp:3.0.1"
+    compile 'com.google.code.gson:gson:2.5'
+    compile "com.squareup.okhttp3:okhttp:3.1.1"
     compile 'io.reactivex:rxjava:1.1.0'
     compile 'io.reactivex:rxandroid:1.1.0'
     compile "com.jakewharton.threetenabp:threetenabp:1.0.2"
@@ -136,9 +142,9 @@ dependencies {
     compile 'com.github.gfx.android.orma:orma:1.2.2'
 
     compile "com.squareup.picasso:picasso:2.5.2"
-    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta3'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta3'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta3'
+    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
 
     compile 'org.apmem.tools:layouts:1.10@aar'
     compile 'com.github.jd-alexander:LikeButton:0.1.7'
@@ -152,7 +158,12 @@ dependencies {
 
     debugCompile 'com.facebook.stetho:stetho:1.2.0'
 
+    testCompile 'com.github.gfx.android.robolectricinstrumentation:robolectric-instrumentation:3.0.8'
     testCompile 'junit:junit:4.12'
+    testCompile('com.squareup.assertj:assertj-android:1.0.1') {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    testCompile 'org.mockito:mockito-all:1.10.19'
     androidTestCompile('com.android.support.test:runner:0.4.1') {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
@@ -162,5 +173,10 @@ dependencies {
     androidTestCompile('com.squareup.assertj:assertj-android:1.0.1') {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
-
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.1') {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestCompile('com.android.support.test.espresso:espresso-intents:2.2.1') {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
 }

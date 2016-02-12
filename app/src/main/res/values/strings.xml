@@ -54,7 +54,7 @@
     <string name="sponsor_category_normal">Supporters</string>
 
     <string name="about_conference">About DroidKaigi</string>
-    <string name="about_conference_descriptions">For its 2016 edition, DroidKaigi will be held in two days and expects to see famous engineers from Japan and overseas giving talks. The schedule for sessions and speakers will be announced when ready. See the schedule section for more details.\n\nThere will be hands-on sessions and office hours as well other than conference sessions.\nAndroid is being used in various situations and in many ways. Why don\'t you come and join us to share your knowledge and create better software?</string>
+    <string name="about_conference_descriptions">For its 2016 edition, DroidKaigi will be held in two days and expects to see famous engineers from Japan and overseas giving talks.\n\nThere will be corporate exhibitions as well other than conference sessions.\n\nAndroid is being used in various situations and in many ways. Why don\'t you come and join us to share your knowledge and create better software?</string>
     <string name="about_rep">REP: %1$s</string>
     <string name="about_social">Social</string>
     <string name="about_terms">Terms of Use</string>
@@ -68,4 +68,25 @@
 
     <string name="my_schedule_empty">No items here. Let\'s check out all sessions and put your favourite!</string>
     <string name="my_schedule_go_to_session_list">Go to All Sessions</string>
+
+    <string name="session_feedback_accepted_successfully">Thank you! The feedback was accepted.</string>
+    <string name="session_feedback_below_expectation">Below</string>
+    <string name="session_feedback_beyond_expectation">Beyond</string>
+    <string name="session_feedback_difficulty">Was this session easy to understand?</string>
+    <string name="session_feedback_easy">Easy</string>
+    <string name="session_feedback_expectation_label_text">Based on the description, was the content as expected?</string>
+    <string name="session_feedback_extremely_relevant">Extremely</string>
+    <string name="session_feedback_hard">Hard</string>
+    <string name="session_feedback_knowledgeable">How knowledgeable was the content?</string>
+    <string name="session_feedback_not_accepting">Sorry. Currently we are not accepting the feedback. You can submit feedback only during the event dates.</string>
+    <string name="session_feedback_not_at_all_relevant">Not at all</string>
+    <string name="session_feedback_other">Anything else we should know? (Please don\'t add any personal information in your comments)</string>
+    <string name="session_feedback_other_hint">Other session feedback?</string>
+    <string name="session_feedback_outstanding_knowledge">Outstanding</string>
+    <string name="session_feedback_poor_knowledge">Poor</string>
+    <string name="session_feedback_relevance">How relevant was this session to your projects?</string>
+    <string name="session_feedback_submit_error">An error occurred while submitting. Make sure the network is available.</string>
+    <string name="session_feedback_submit_failure">Submit failed</string>
+    <string name="session_feedback_submit_success">Submit succeeded</string>
+    <string name="session_feedback_submitlink">Submit Feedback</string>
 </resources>

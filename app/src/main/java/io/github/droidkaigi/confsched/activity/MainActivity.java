@@ -31,6 +31,7 @@ import rx.subscriptions.CompositeSubscription;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private static final String TAG = MainActivity.class.getSimpleName();
+
     private static final String EXTRA_SHOULD_REFRESH = "should_refresh";
 
     @Inject
@@ -43,7 +44,8 @@ public class MainActivity extends AppCompatActivity
     CompositeSubscription subscription;
 
     private ActivityMainBinding binding;
-    private Fragment currentFragment;
+
+    private boolean isPressedBackOnce = false;
 
     static void start(@NonNull Activity activity) {
         start(activity, false);
@@ -74,8 +76,17 @@ public class MainActivity extends AppCompatActivity
             binding.navView.setCheckedItem(page.getMenuId());
         }));
         initView();
+        AppUtil.setTaskDescription(this, getString(R.string.all_sessions), AppUtil.getThemeColorPrimary(this));
 
-        replaceFragment(SessionsFragment.newInstance(shouldRefresh));
+        if (savedInstanceState == null) {
+            replaceFragment(SessionsFragment.newInstance(shouldRefresh));
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        subscription.unsubscribe();
     }
 
     private void initView() {
@@ -93,8 +104,6 @@ public class MainActivity extends AppCompatActivity
         ft.setCustomAnimations(R.anim.fragment_fade_enter, R.anim.fragment_fade_exit);
         ft.replace(R.id.content_view, fragment, fragment.getClass().getSimpleName());
         ft.commit();
-
-        currentFragment = fragment;
     }
 
     @Override
@@ -134,16 +143,9 @@ public class MainActivity extends AppCompatActivity
     private void changePage(@StringRes int titleRes, @NonNull Fragment fragment) {
         new Handler().postDelayed(() -> {
             binding.toolbar.setTitle(titleRes);
+            AppUtil.setTaskDescription(this, getString(titleRes), AppUtil.getThemeColorPrimary(this));
             replaceFragment(fragment);
         }, 300);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (currentFragment != null) {
-            currentFragment.onActivityResult(requestCode, resultCode, data);
-        }
     }
 
     @Override

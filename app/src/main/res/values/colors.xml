@@ -19,6 +19,7 @@
     <color name="white_alpha_95">#F2FFFFFF</color>
     <color name="black_alpha_12">#1F000000</color>
     <color name="black_alpha_30">#4D000000</color>
+    <color name="black_alpha_87">#DD000000</color>
 
     <!-- Others -->
     <color name="indigo500">#3F51B5</color>
