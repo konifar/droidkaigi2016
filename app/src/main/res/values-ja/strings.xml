@@ -29,6 +29,8 @@
     <string name="sponsors">スポンサー</string>
     <string name="about">詳細</string>
 
+    <string name="sessions_network_error">セッションのロードに失敗しました。しばらく時間をおいてからお試しください。</string>
+
     <string name="map_main_name">受付・基調講演会場</string>
     <string name="map_main_building">70周年記念講堂</string>
     <string name="map_ab_name">A・B会場</string>
