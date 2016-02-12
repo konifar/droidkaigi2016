@@ -122,7 +122,7 @@ public class SessionsFragment extends Fragment {
                 .doOnNext(dao::updateAllAsync)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe();
+                .subscribe((sessions -> {}), throwable -> Log.e(TAG, "Failed to fetchAndSave.", throwable));
     }
 
     protected Subscription loadData() {
@@ -139,8 +139,13 @@ public class SessionsFragment extends Fragment {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         this::groupByDateSessions,
-                        throwable -> Log.e(TAG, "Load failed", throwable)
+                        this::onLoadDataFailure
                 );
+    }
+
+    private void onLoadDataFailure(Throwable throwable) {
+        Log.e(TAG, "Load failed", throwable);
+        
     }
 
     protected void showEmptyView() {
