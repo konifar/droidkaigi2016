@@ -42,7 +42,7 @@
     },
     "place": {
       "id": 2,
-      "name": "Hole A"
+      "name": "Room A"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -66,7 +66,7 @@
     },
     "place": {
       "id": 3,
-      "name": "Hole B"
+      "name": "Room B"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -90,7 +90,7 @@
     },
     "place": {
       "id": 4,
-      "name": "Hole C"
+      "name": "Room C"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -114,7 +114,7 @@
     },
     "place": {
       "id": 5,
-      "name": "Hole D"
+      "name": "Room D"
     },
     "language_id": "en",
     "slide_url": ""
@@ -138,7 +138,7 @@
     },
     "place": {
       "id": 2,
-      "name": "Hole A"
+      "name": "Room A"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -162,7 +162,7 @@
     },
     "place": {
       "id": 3,
-      "name": "Hole B"
+      "name": "Room B"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -186,7 +186,7 @@
     },
     "place": {
       "id": 4,
-      "name": "Hole C"
+      "name": "Room C"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -210,7 +210,7 @@
     },
     "place": {
       "id": 5,
-      "name": "Hole D"
+      "name": "Room D"
     },
     "language_id": "en",
     "slide_url": ""
@@ -234,7 +234,7 @@
     },
     "place": {
       "id": 2,
-      "name": "Hole A"
+      "name": "Room A"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -258,7 +258,7 @@
     },
     "place": {
       "id": 3,
-      "name": "Hole B"
+      "name": "Room B"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -282,7 +282,7 @@
     },
     "place": {
       "id": 5,
-      "name": "Hole D"
+      "name": "Room D"
     },
     "language_id": "en",
     "slide_url": ""
@@ -306,7 +306,7 @@
     },
     "place": {
       "id": 2,
-      "name": "Hole A"
+      "name": "Room A"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -330,7 +330,7 @@
     },
     "place": {
       "id": 3,
-      "name": "Hole B"
+      "name": "Room B"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -354,7 +354,7 @@
     },
     "place": {
       "id": 4,
-      "name": "Hole C"
+      "name": "Room C"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -378,7 +378,7 @@
     },
     "place": {
       "id": 5,
-      "name": "Hole D"
+      "name": "Room D"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -402,7 +402,7 @@
     },
     "place": {
       "id": 2,
-      "name": "Hole A"
+      "name": "Room A"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -426,7 +426,7 @@
     },
     "place": {
       "id": 3,
-      "name": "Hole B"
+      "name": "Room B"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -450,7 +450,7 @@
     },
     "place": {
       "id": 5,
-      "name": "Hole D"
+      "name": "Room D"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -474,7 +474,7 @@
     },
     "place": {
       "id": 2,
-      "name": "Hole A"
+      "name": "Room A"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -498,7 +498,7 @@
     },
     "place": {
       "id": 3,
-      "name": "Hole B"
+      "name": "Room B"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -522,7 +522,7 @@
     },
     "place": {
       "id": 5,
-      "name": "Hole D"
+      "name": "Room D"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -570,7 +570,7 @@
     },
     "place": {
       "id": 2,
-      "name": "Hole A"
+      "name": "Room A"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -594,7 +594,7 @@
     },
     "place": {
       "id": 3,
-      "name": "Hole B"
+      "name": "Room B"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -618,7 +618,7 @@
     },
     "place": {
       "id": 4,
-      "name": "Hole C"
+      "name": "Room C"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -642,7 +642,7 @@
     },
     "place": {
       "id": 5,
-      "name": "Hole D"
+      "name": "Room D"
     },
     "language_id": "en",
     "slide_url": ""
@@ -666,7 +666,7 @@
     },
     "place": {
       "id": 2,
-      "name": "Hole A"
+      "name": "Room A"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -690,7 +690,7 @@
     },
     "place": {
       "id": 3,
-      "name": "Hole B"
+      "name": "Room B"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -714,7 +714,7 @@
     },
     "place": {
       "id": 4,
-      "name": "Hole C"
+      "name": "Room C"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -738,7 +738,7 @@
     },
     "place": {
       "id": 5,
-      "name": "Hole D"
+      "name": "Room D"
     },
     "language_id": "en",
     "slide_url": ""
@@ -762,7 +762,7 @@
     },
     "place": {
       "id": 2,
-      "name": "Hole A"
+      "name": "Room A"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -786,7 +786,7 @@
     },
     "place": {
       "id": 3,
-      "name": "Hole B"
+      "name": "Room B"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -810,7 +810,7 @@
     },
     "place": {
       "id": 4,
-      "name": "Hole C"
+      "name": "Room C"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -834,7 +834,7 @@
     },
     "place": {
       "id": 5,
-      "name": "Hole D"
+      "name": "Room D"
     },
     "language_id": "en",
     "slide_url": ""
@@ -858,7 +858,7 @@
     },
     "place": {
       "id": 2,
-      "name": "Hole A"
+      "name": "Room A"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -882,7 +882,7 @@
     },
     "place": {
       "id": 3,
-      "name": "Hole B"
+      "name": "Room B"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -906,7 +906,7 @@
     },
     "place": {
       "id": 4,
-      "name": "Hole C"
+      "name": "Room C"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -930,7 +930,7 @@
     },
     "place": {
       "id": 5,
-      "name": "Hole D"
+      "name": "Room D"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -954,7 +954,7 @@
     },
     "place": {
       "id": 2,
-      "name": "Hole A"
+      "name": "Room A"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -978,7 +978,7 @@
     },
     "place": {
       "id": 3,
-      "name": "Hole B"
+      "name": "Room B"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -1002,7 +1002,7 @@
     },
     "place": {
       "id": 5,
-      "name": "Hole D"
+      "name": "Room D"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -1026,7 +1026,7 @@
     },
     "place": {
       "id": 2,
-      "name": "Hole A"
+      "name": "Room A"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -1050,7 +1050,7 @@
     },
     "place": {
       "id": 3,
-      "name": "Hole B"
+      "name": "Room B"
     },
     "language_id": "ja",
     "slide_url": ""
@@ -1074,7 +1074,7 @@
     },
     "place": {
       "id": 5,
-      "name": "Hole D"
+      "name": "Room D"
     },
     "language_id": "ja",
     "slide_url": ""
