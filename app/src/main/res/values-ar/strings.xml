@@ -44,10 +44,6 @@
     <string name="map_button_allow">السماح</string>
     <string name="map_button_deny">رفض</string>
 
-    <string name="lang_ar">العربية</string>
-    <string name="lang_en">الإنجليزية</string>
-    <string name="lang_ja">اليابانية</string>
-
     <string name="settings_language">تعيين لغة</string>
     <string name="settings_language_description">يمكنك تغيير لغة العرض. بعد التغيير سيتم إعادة تشغيل التطبيق.</string>
     <string name="settings_bugreport">تقرير الشوائب</string>
