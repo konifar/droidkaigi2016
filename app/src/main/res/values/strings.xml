@@ -30,6 +30,8 @@
     <string name="about">About</string>
     <string name="search">Search</string>
 
+    <string name="sessions_network_error">Failed to load sessions. Try again after a while.</string>
+
     <string name="map_main_name">Reception, Keynote venue</string>
     <string name="map_main_building">70th Memorial Hall</string>
     <string name="map_ab_name">Room A, B</string>
