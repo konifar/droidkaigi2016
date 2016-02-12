@@ -1,7 +1,5 @@
 package io.github.droidkaigi.confsched.fragment;
 
-import org.parceler.Parcels;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -18,6 +16,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,15 +46,9 @@ import rx.subscriptions.CompositeSubscription;
 
 public class SessionsFragment extends Fragment {
 
-    public interface OnChangeSessionListener {
-        void onChangeSession(List<Session> sessions);
-    }
-
     public static final String TAG = SessionsFragment.class.getSimpleName();
     private static final String ARG_SHOULD_REFRESH = "should_refresh";
-
     private static final int REQ_SEARCH = 2;
-
     @Inject
     DroidKaigiClient client;
     @Inject
@@ -65,11 +59,9 @@ public class SessionsFragment extends Fragment {
     ActivityNavigator activityNavigator;
     @Inject
     MainContentStateBrokerProvider brokerProvider;
-
     private SessionsPagerAdapter adapter;
     private FragmentSessionsBinding binding;
     private boolean shouldRefresh;
-
     private OnChangeSessionListener onChangeSessionListener = session -> { /*no op*/ };
 
     public static SessionsFragment newInstance() {
@@ -229,6 +221,10 @@ public class SessionsFragment extends Fragment {
         }
         onChangeSessionListener.onChangeSession(statusChangedSession);
         compositeSubscription.add(loadData());
+    }
+
+    public interface OnChangeSessionListener {
+        void onChangeSession(List<Session> sessions);
     }
 
     private class SessionsPagerAdapter extends FragmentStatePagerAdapter {
