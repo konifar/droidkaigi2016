@@ -86,7 +86,7 @@ public class SessionDetailFragment extends Fragment {
             setResult();
         });
 
-        binding.txtFeedback.setOnClickListener(v -> activityNavigator.showFeedback(getActivity()));
+        binding.txtFeedback.setOnClickListener(v -> activityNavigator.showFeedback(getActivity(), session));
 
         return binding.getRoot();
     }

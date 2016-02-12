@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@android:id/background"
+        android:drawable="@drawable/number_ratingbar_background_off" />
+
+    <item android:id="@android:id/progress">
+        <clip>
+            <nine-patch android:src="@drawable/number_ratingbar_background_on" />
+        </clip>
+    </item>
+
+    <item android:id="@android:id/secondaryProgress">
+        <clip>
+            <nine-patch android:src="@drawable/number_ratingbar_background_off" />
+        </clip>
+    </item>
+
+</layer-list>
