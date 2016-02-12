@@ -79,6 +79,7 @@ public class SettingsFragment extends Fragment {
                     if (!currentLanguageId.equals(selectedLanguageId)) {
                         Log.d(TAG, "Selected language_id: " + selectedLanguageId);
                         AppUtil.setLocale(getActivity(), selectedLanguageId);
+                        dialog.dismiss();
                         restart();
                     }
                 })
