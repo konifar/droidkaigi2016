@@ -8,6 +8,7 @@
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="yes">Yes</string>
+    <string name="share">Share</string>
 
     <string name="speaker">Speaker</string>
     <string name="session_time_range">%1$s - %2$s (%3$smin)</string>

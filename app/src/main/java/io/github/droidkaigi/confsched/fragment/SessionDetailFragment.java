@@ -12,6 +12,9 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -20,6 +23,7 @@ import org.parceler.Parcels;
 import javax.inject.Inject;
 
 import io.github.droidkaigi.confsched.MainApplication;
+import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.activity.ActivityNavigator;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSessionDetailBinding;
@@ -75,6 +79,7 @@ public class SessionDetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentSessionDetailBinding.inflate(inflater, container, false);
+        setHasOptionsMenu(true);
         initToolbar();
         binding.setSession(session);
 
@@ -101,6 +106,21 @@ public class SessionDetailFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         MainApplication.getComponent(this).inject(this);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
+        menuInflater.inflate(R.menu.menu_session_detail, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.item_share:
+                // TODO share logic
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }
