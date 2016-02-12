@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -73,23 +72,14 @@ public class SettingsFragment extends Fragment {
         String currentLanguageId = AppUtil.getCurrentLanguageId(getActivity());
         int defaultItem = languageIds.indexOf(currentLanguageId);
         String[] items = languages.toArray(new String[languages.size()]);
-        final List<String> selectedLanguageIds = new ArrayList<>();
-        selectedLanguageIds.add(currentLanguageId);
-
         new AlertDialog.Builder(getActivity())
                 .setTitle(R.string.settings_language)
                 .setSingleChoiceItems(items, defaultItem, (dialog, which) -> {
-                    selectedLanguageIds.clear();
-                    selectedLanguageIds.add(languageIds.get(which));
-                })
-                .setPositiveButton(R.string.ok, (dialog, which) -> {
-                    if (!selectedLanguageIds.isEmpty()) {
-                        String selectedLanguageId = selectedLanguageIds.get(0);
-                        if (!currentLanguageId.equals(selectedLanguageId)) {
-                            Log.d(TAG, "Selected language_id: " + selectedLanguageId);
-                            AppUtil.setLocale(getActivity(), selectedLanguageId);
-                            restart();
-                        }
+                    String selectedLanguageId = languageIds.get(which);
+                    if (!currentLanguageId.equals(selectedLanguageId)) {
+                        Log.d(TAG, "Selected language_id: " + selectedLanguageId);
+                        AppUtil.setLocale(getActivity(), selectedLanguageId);
+                        restart();
                     }
                 })
                 .setNegativeButton(R.string.cancel, null)

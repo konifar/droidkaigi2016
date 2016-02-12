@@ -47,10 +47,6 @@
     <string name="map_button_allow">許可</string>
     <string name="map_button_deny">拒否</string>
 
-    <string name="lang_ar">アラビア語</string>
-    <string name="lang_en">英語</string>
-    <string name="lang_ja">日本語</string>
-
     <string name="settings_language">言語を設定</string>
     <string name="settings_language_description">表示言語を変更できます。変更後はアプリが再起動されます。</string>
     <string name="settings_bugreport">バグレポート</string>

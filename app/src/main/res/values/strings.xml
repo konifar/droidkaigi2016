@@ -47,9 +47,9 @@
     <string name="map_button_allow">Allow</string>
     <string name="map_button_deny">Deny</string>
 
-    <string name="lang_ar">Arabic</string>
-    <string name="lang_en">English</string>
-    <string name="lang_ja">Japanese</string>
+    <string name="lang_ar" translatable="false">العربية</string>
+    <string name="lang_en" translatable="false">English</string>
+    <string name="lang_ja" translatable="false">日本語</string>
 
     <string name="settings_language">Change language</string>
     <string name="settings_language_description">Choose language in this app. After changed, app will restart.</string>
