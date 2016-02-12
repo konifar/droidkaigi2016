@@ -28,6 +28,7 @@
     <string name="settings">محيط</string>
     <string name="sponsors">كفيل</string>
     <string name="about">التفاصيل</string>
+    <string name="search">بحث</string>
 
     <string name="sessions_network_error">فشل تحميل جلسات. حاول مرة أخرى بعد فترة من الوقت</string>
 

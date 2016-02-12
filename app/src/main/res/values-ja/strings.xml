@@ -28,6 +28,7 @@
     <string name="settings">設定</string>
     <string name="sponsors">スポンサー</string>
     <string name="about">詳細</string>
+    <string name="search">検索</string>
 
     <string name="sessions_network_error">セッションのロードに失敗しました。しばらく時間をおいてからお試しください。</string>
 
