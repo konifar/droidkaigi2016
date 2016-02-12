@@ -29,7 +29,7 @@
     <string name="sponsors">كفيل</string>
     <string name="about">التفاصيل</string>
 
-    <string name="sessions_network_error">Failed to load sessions. Try again after a while.</string>
+    <string name="sessions_network_error">فشل تحميل جلسات. حاول مرة أخرى بعد فترة من الوقت</string>
 
     <string name="map_main_name">استقبال، مكان الرئيسي</string>
     <string name="map_main_building">70 الذكرى قاعة</string>
