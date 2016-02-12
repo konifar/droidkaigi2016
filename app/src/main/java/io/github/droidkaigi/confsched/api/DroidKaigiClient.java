@@ -1,5 +1,7 @@
 package io.github.droidkaigi.confsched.api;
 
+import android.support.annotation.NonNull;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -55,13 +57,14 @@ public class DroidKaigiClient {
         googleFormService = googleFormRetrofit.create(GoogleFormService.class);
     }
 
-    public Observable<List<Session>> getSessions(String languageId) {
-        if ("ja".equals(languageId)) {
-            return service.getSessionsJa();
-        } else if ("ar".equals(languageId)) {
-            return service.getSessionsAr();
-        } else {
-            return service.getSessionsEn();
+    public Observable<List<Session>> getSessions(@NonNull String languageId) {
+        switch (languageId) {
+            case "ja":
+                return service.getSessionsJa();
+            case "ar":
+                return service.getSessionsJa();
+            default:
+                return service.getSessionsEn();
         }
     }
 

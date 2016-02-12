@@ -1,5 +1,7 @@
 package io.github.droidkaigi.confsched.util;
 
+import android.content.Context;
+import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Test;
@@ -20,4 +22,10 @@ public class AppUtilsTest {
         assertThat(AppUtil.getGitHubUrl("konifar")).isEqualTo("https://github.com/konifar");
     }
 
+    @Test
+    public void testCurrentLanguageId() throws Exception {
+        Context context = InstrumentationRegistry.getContext();
+        // AppUtil.getCurrentLanguageId does not return empty or null value.
+        assertThat(AppUtil.getCurrentLanguageId(context)).isNotNull().isNotEmpty();
+    }
 }
