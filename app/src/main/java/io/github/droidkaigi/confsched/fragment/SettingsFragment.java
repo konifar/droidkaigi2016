@@ -64,7 +64,7 @@ public class SettingsFragment extends Fragment {
     private void showLanguagesDialog() {
         List<String> languageIds = Arrays.asList(AppUtil.SUPPORT_LANG);
         List<String> languages = Observable.from(languageIds)
-                .map(languageId -> AppUtil.getLanguage(getActivity(), languageId))
+                .map(languageId -> AppUtil.getLanguage(getActivity(), languageId, languageId))
                 .toList()
                 .toBlocking()
                 .single();
