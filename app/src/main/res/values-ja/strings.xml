@@ -30,6 +30,8 @@
     <string name="about">詳細</string>
     <string name="search">検索</string>
 
+    <string name="sessions_network_error">セッションのロードに失敗しました。しばらく時間をおいてからお試しください。</string>
+
     <string name="map_main_name">受付・基調講演会場</string>
     <string name="map_main_building">70周年記念講堂</string>
     <string name="map_ab_name">A・B会場</string>
@@ -44,10 +46,6 @@
     <string name="map_fine_location_rationale">現在地を表示する為に、位置情報のパーミッションが必要です。</string>
     <string name="map_button_allow">許可</string>
     <string name="map_button_deny">拒否</string>
-
-    <string name="lang_ar">アラビア語</string>
-    <string name="lang_en">英語</string>
-    <string name="lang_ja">日本語</string>
 
     <string name="settings_language">言語を設定</string>
     <string name="settings_language_description">表示言語を変更できます。変更後はアプリが再起動されます。</string>

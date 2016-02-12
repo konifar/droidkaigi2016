@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="AboutTitle">
         <item name="android:layout_width">match_parent</item>
@@ -14,17 +14,17 @@
     <style name="AboutRow">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginEnd">@dimen/spacing_negative</item>
+        <item name="android:layout_marginEnd" tools:targetApi="jelly_bean_mr1">@dimen/spacing_negative</item>
         <item name="android:layout_marginLeft">@dimen/spacing_negative</item>
         <item name="android:layout_marginRight">@dimen/spacing_negative</item>
-        <item name="android:layout_marginStart">@dimen/spacing_negative</item>
+        <item name="android:layout_marginStart" tools:targetApi="jelly_bean_mr1">@dimen/spacing_negative</item>
         <item name="android:background">@drawable/clickable</item>
         <item name="android:clickable">true</item>
         <item name="android:paddingBottom">@dimen/spacing_large</item>
-        <item name="android:paddingEnd">@dimen/spacing</item>
+        <item name="android:paddingEnd" tools:targetApi="jelly_bean_mr1">@dimen/spacing</item>
         <item name="android:paddingLeft">@dimen/spacing</item>
         <item name="android:paddingRight">@dimen/spacing</item>
-        <item name="android:paddingStart">@dimen/spacing</item>
+        <item name="android:paddingStart" tools:targetApi="jelly_bean_mr1">@dimen/spacing</item>
         <item name="android:paddingTop">@dimen/spacing_large</item>
         <item name="android:textColor">@color/theme500</item>
         <item name="android:textStyle">bold</item>

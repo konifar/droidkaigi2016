@@ -30,6 +30,8 @@
     <string name="about">التفاصيل</string>
     <string name="search">بحث</string>
 
+    <string name="sessions_network_error">فشل تحميل جلسات. حاول مرة أخرى بعد فترة من الوقت</string>
+
     <string name="map_main_name">استقبال، مكان الرئيسي</string>
     <string name="map_main_building">70 الذكرى قاعة</string>
     <string name="map_ab_name">A، B مكان</string>
@@ -44,10 +46,6 @@
     <string name="map_fine_location_rationale">هناك حاجة إلى أذونات الموقع لإظهار موقعك الحالي</string>
     <string name="map_button_allow">السماح</string>
     <string name="map_button_deny">رفض</string>
-
-    <string name="lang_ar">العربية</string>
-    <string name="lang_en">الإنجليزية</string>
-    <string name="lang_ja">اليابانية</string>
 
     <string name="settings_language">تعيين لغة</string>
     <string name="settings_language_description">يمكنك تغيير لغة العرض. بعد التغيير سيتم إعادة تشغيل التطبيق.</string>
