@@ -62,7 +62,9 @@ public class DroidKaigiClient {
             case "ja":
                 return service.getSessionsJa();
             case "ar":
-                return service.getSessionsJa();
+                return service.getSessionsAr();
+            case "en":
+                return service.getSessionsEn();
             default:
                 return service.getSessionsEn();
         }
