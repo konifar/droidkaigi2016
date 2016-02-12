@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">DroidKaigi 2016</string>
     <string name="tag_line">A conference tailored for Android developers!</string>
     <string name="session_detail">Session Detail</string>
 
