@@ -11,10 +11,10 @@ import javax.inject.Singleton;
 import io.github.droidkaigi.confsched.model.Session;
 import io.github.droidkaigi.confsched.model.SessionFeedback;
 import okhttp3.OkHttpClient;
-import retrofit2.GsonConverterFactory;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -32,14 +32,17 @@ public class DroidKaigiClient {
     private final DroidKaigiService service;
     private final GoogleFormService googleFormService;
 
+    public static Gson createGson() {
+        return new GsonBuilder().setDateFormat(JSON_DATE_FORMAT).create();
+    }
+
     @Inject
     public DroidKaigiClient(OkHttpClient client) {
-        Gson gson = new GsonBuilder().setDateFormat(JSON_DATE_FORMAT).create();
         Retrofit feedburnerRetrofit = new Retrofit.Builder()
                 .client(client)
                 .baseUrl(END_POINT)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addConverterFactory(GsonConverterFactory.create(createGson()))
                 .build();
         service = feedburnerRetrofit.create(DroidKaigiService.class);
 
@@ -47,7 +50,7 @@ public class DroidKaigiClient {
                 .client(client)
                 .baseUrl(GOOGLE_FORM_END_POINT)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addConverterFactory(GsonConverterFactory.create(createGson()))
                 .build();
         googleFormService = googleFormRetrofit.create(GoogleFormService.class);
     }

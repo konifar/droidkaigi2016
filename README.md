@@ -7,10 +7,15 @@
 
 ## Features
 
+![](art/droidkaigi1.png)
+
 * Show all sessions
 * Manage schedule
 * Show map
 * Search sessions and speakers
+
+
+![](art/droidkaigi2.gif)
 
 
 ## Development Environment
