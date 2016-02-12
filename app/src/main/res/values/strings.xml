@@ -32,9 +32,9 @@
 
     <string name="map_main_name">Reception, Keynote venue</string>
     <string name="map_main_building">70th Memorial Hall</string>
-    <string name="map_ab_name">Hall A, B</string>
+    <string name="map_ab_name">Room A, B</string>
     <string name="map_ab_building">South 2 bldg.</string>
-    <string name="map_cd_name">Hall C, D</string>
+    <string name="map_cd_name">Room C, D</string>
     <string name="map_cd_building">South 4 bldg.</string>
     <string name="map_party_name">After party venue</string>
     <string name="map_party_building">Tokyo Tech Front (Kuramae Hall)</string>
