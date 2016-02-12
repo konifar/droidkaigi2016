@@ -62,6 +62,12 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.ColoredStatusBar" />
 
+        <activity
+            android:name=".activity.SessionFeedbackActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.ColoredStatusBar" />
     </application>
 
 </manifest>
