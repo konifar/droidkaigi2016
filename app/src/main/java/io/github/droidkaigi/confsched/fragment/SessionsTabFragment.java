@@ -153,7 +153,7 @@ public class SessionsTabFragment extends Fragment {
                 public void liked(LikeButton likeButton) {
                     session.checked = true;
                     dao.updateChecked(session);
-                    AlarmUtil.handleSessionAlarm(getActivity(), session);
+                    AlarmUtil.handleSessionAlarm(getContext(), session);
                     onChangeSessionListener.onChangeSession(Collections.singletonList(session));
                 }
 
@@ -161,7 +161,7 @@ public class SessionsTabFragment extends Fragment {
                 public void unLiked(LikeButton likeButton) {
                     session.checked = false;
                     dao.updateChecked(session);
-                    AlarmUtil.handleSessionAlarm(getActivity(), session);
+                    AlarmUtil.handleSessionAlarm(getContext(), session);
                     onChangeSessionListener.onChangeSession(Collections.singletonList(session));
                 }
             });
