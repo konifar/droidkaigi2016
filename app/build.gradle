@@ -56,6 +56,13 @@ android {
             keyAlias "androiddebugkey"
             keyPassword "android"
         }
+
+        release {
+            storeFile rootProject.file("release.keystore")
+            storePassword System.getenv("KSTOREPWD")
+            keyAlias "droidkaigi"
+            keyPassword System.getenv("KEYPWD")
+        }
     }
 
     buildTypes {
@@ -73,7 +80,7 @@ android {
             buildConfigField("String", "GA_TRACKING_ID", "\"${ga_tracking_id_debug}\"")
         }
         release {
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
             shrinkResources true
             debuggable false
             zipAlignEnabled true

@@ -117,3 +117,7 @@
 -keep class * implements android.os.Parcelable {
   public static final android.os.Parcelable$Creator *;
 }
+
+-dontwarn android.databinding.**
+-dontwarn org.antlr.v4.**
+-dontwarn org.abego.treelayout.**

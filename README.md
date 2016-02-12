@@ -91,7 +91,7 @@ src/main/java/io/github/droidkaigi/confsched/di
 
 ### Orma
 This project uses ORM library [Android-Orma](http://gfx.github.io/Android-Orma/).
-Android-Orma is a lightning-fast and anotation based wrapper library of SQLiteDatabase.
+Android-Orma is a lightning-fast and annotation based wrapper library of SQLiteDatabase.
 
 Some model classes in `model` package have `@Table` annotation.
 

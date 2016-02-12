@@ -158,7 +158,7 @@
     "etime": "2016-02-18 13:50:00",
     "category": {
       "id": 6,
-      "name": "Environment and Tool"
+      "name": "Productivity and Tooling"
     },
     "place": {
       "id": 3,
@@ -182,7 +182,7 @@
     "etime": "2016-02-18 13:50:00",
     "category": {
       "id": 6,
-      "name": "Environment and Tool"
+      "name": "Productivity and Tooling"
     },
     "place": {
       "id": 4,
@@ -230,7 +230,7 @@
     "etime": "2016-02-18 14:50:00",
     "category": {
       "id": 7,
-      "name": "Maintenance"
+      "name": "Quality and Sustainability"
     },
     "place": {
       "id": 2,
@@ -254,7 +254,7 @@
     "etime": "2016-02-18 14:50:00",
     "category": {
       "id": 6,
-      "name": "Environment and Tool"
+      "name": "Productivity and Tooling"
     },
     "place": {
       "id": 3,
@@ -278,7 +278,7 @@
     "etime": "2016-02-18 14:50:00",
     "category": {
       "id": 7,
-      "name": "Maintenance"
+      "name": "Quality and Sustainability"
     },
     "place": {
       "id": 5,
@@ -326,7 +326,7 @@
     "etime": "2016-02-18 15:40:00",
     "category": {
       "id": 8,
-      "name": "Latest Trend in Android"
+      "name": "Trends in Android technology"
     },
     "place": {
       "id": 3,
@@ -350,7 +350,7 @@
     "etime": "2016-02-18 15:40:00",
     "category": {
       "id": 6,
-      "name": "Environment and Tool"
+      "name": "Productivity and Tooling"
     },
     "place": {
       "id": 4,
@@ -374,7 +374,7 @@
     "etime": "2016-02-18 15:40:00",
     "category": {
       "id": 6,
-      "name": "Environment and Tool"
+      "name": "Productivity and Tooling"
     },
     "place": {
       "id": 5,
@@ -422,7 +422,7 @@
     "etime": "2016-02-18 16:20:00",
     "category": {
       "id": 8,
-      "name": "Latest Trend in Android"
+      "name": "Trends in Android technology"
     },
     "place": {
       "id": 3,
@@ -446,7 +446,7 @@
     "etime": "2016-02-18 16:20:00",
     "category": {
       "id": 7,
-      "name": "Maintenance"
+      "name": "Quality and Sustainability"
     },
     "place": {
       "id": 5,
@@ -470,7 +470,7 @@
     "etime": "2016-02-18 17:00:00",
     "category": {
       "id": 7,
-      "name": "Maintenance"
+      "name": "Quality and Sustainability"
     },
     "place": {
       "id": 2,
@@ -494,7 +494,7 @@
     "etime": "2016-02-18 17:00:00",
     "category": {
       "id": 6,
-      "name": "Environment and Tool"
+      "name": "Productivity and Tooling"
     },
     "place": {
       "id": 3,
@@ -518,7 +518,7 @@
     "etime": "2016-02-18 17:00:00",
     "category": {
       "id": 6,
-      "name": "Environment and Tool"
+      "name": "Productivity and Tooling"
     },
     "place": {
       "id": 5,
@@ -590,7 +590,7 @@
     "etime": "2016-02-19 12:00:00",
     "category": {
       "id": 7,
-      "name": "Maintenance"
+      "name": "Quality and Sustainability"
     },
     "place": {
       "id": 3,
@@ -686,7 +686,7 @@
     "etime": "2016-02-19 13:50:00",
     "category": {
       "id": 7,
-      "name": "Maintenance"
+      "name": "Quality and Sustainability"
     },
     "place": {
       "id": 3,
@@ -758,7 +758,7 @@
     "etime": "2016-02-19 14:50:00",
     "category": {
       "id": 7,
-      "name": "Maintenance"
+      "name": "Quality and Sustainability"
     },
     "place": {
       "id": 2,
@@ -782,7 +782,7 @@
     "etime": "2016-02-19 14:50:00",
     "category": {
       "id": 6,
-      "name": "Environment and Tool"
+      "name": "Productivity and Tooling"
     },
     "place": {
       "id": 3,
@@ -806,7 +806,7 @@
     "etime": "2016-02-19 14:50:00",
     "category": {
       "id": 7,
-      "name": "Maintenance"
+      "name": "Quality and Sustainability"
     },
     "place": {
       "id": 4,
@@ -830,7 +830,7 @@
     "etime": "2016-02-19 14:50:00",
     "category": {
       "id": 7,
-      "name": "Maintenance"
+      "name": "Quality and Sustainability"
     },
     "place": {
       "id": 5,
@@ -854,7 +854,7 @@
     "etime": "2016-02-19 15:40:00",
     "category": {
       "id": 7,
-      "name": "Maintenance"
+      "name": "Quality and Sustainability"
     },
     "place": {
       "id": 2,
@@ -878,7 +878,7 @@
     "etime": "2016-02-19 15:40:00",
     "category": {
       "id": 6,
-      "name": "Environment and Tool"
+      "name": "Productivity and Tooling"
     },
     "place": {
       "id": 3,
@@ -902,7 +902,7 @@
     "etime": "2016-02-19 15:40:00",
     "category": {
       "id": 8,
-      "name": "Latest Trend in Android"
+      "name": "Trends in Android technology"
     },
     "place": {
       "id": 4,
@@ -950,7 +950,7 @@
     "etime": "2016-02-19 16:20:00",
     "category": {
       "id": 7,
-      "name": "Maintenance"
+      "name": "Quality and Sustainability"
     },
     "place": {
       "id": 2,
@@ -998,7 +998,7 @@
     "etime": "2016-02-19 16:20:00",
     "category": {
       "id": 8,
-      "name": "Latest Trend in Android"
+      "name": "Trends in Android technology"
     },
     "place": {
       "id": 5,
@@ -1022,7 +1022,7 @@
     "etime": "2016-02-19 17:00:00",
     "category": {
       "id": 7,
-      "name": "Maintenance"
+      "name": "Quality and Sustainability"
     },
     "place": {
       "id": 2,
