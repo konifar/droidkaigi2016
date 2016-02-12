@@ -38,6 +38,11 @@
     <string name="map_party_name">مكان تجمع اجتماعي</string>
     <string name="map_party_building">معهد طوكيو للتكنولوجيا Kuramae كايكان (Kuramae هول)</string>
     <string name="map_address">معهد طوكيو للتكنولوجيا Ookayama الحرم الجامعي \ ن ميغورو-كو، طوكيو Ookayama 2&#8211;12&#8211;1</string>
+    <string name="map_fine_location_denied">النظر في منح ذلك من أجل الحصول على الموقع الحالي</string>
+    <string name="map_fine_location_never_askagain">الحوار لم يظهر مرة أخرى. \ الرجاء الذهاب تحديد ومنح ذلك إذا كنت ت</string>
+    <string name="map_fine_location_rationale">هناك حاجة إلى أذونات الموقع لإظهار موقعك الحالي</string>
+    <string name="map_button_allow">السماح</string>
+    <string name="map_button_deny">رفض</string>
 
     <string name="lang_ar">العربية</string>
     <string name="lang_en">الإنجليزية</string>
@@ -67,4 +72,25 @@
 
     <string name="my_schedule_empty">لم تتم إضافته بعد جلسة ذلك. دعونا اختيار الدورات تريد أن تسمع من جميع الدورات!</string>
     <string name="my_schedule_go_to_session_list">رؤية جميع الدورات</string>
+
+    <string name="session_feedback_accepted_successfully">Thank you! The feedback was accepted.</string>
+    <string name="session_feedback_below_expectation">Below</string>
+    <string name="session_feedback_beyond_expectation">Beyond</string>
+    <string name="session_feedback_difficulty">Was this session easy to understand?</string>
+    <string name="session_feedback_easy">Easy</string>
+    <string name="session_feedback_expectation_label_text">Based on the description, was the content as expected?</string>
+    <string name="session_feedback_extremely_relevant">Extremely</string>
+    <string name="session_feedback_hard">Hard</string>
+    <string name="session_feedback_knowledgeable">How knowledgeable was the content?</string>
+    <string name="session_feedback_not_accepting">Sorry. Currently we are not accepting the feedback. You can submit feedback only during the event dates.</string>
+    <string name="session_feedback_not_at_all_relevant">Not at all</string>
+    <string name="session_feedback_other">Anything else we should know? (Please don\'t add any personal information in your comments)</string>
+    <string name="session_feedback_other_hint">Other session feedback?</string>
+    <string name="session_feedback_outstanding_knowledge">Outstanding</string>
+    <string name="session_feedback_poor_knowledge">Poor</string>
+    <string name="session_feedback_relevance">How relevant was this session to your projects?</string>
+    <string name="session_feedback_submit_error">An error occurred while submitting. Make sure the network is available.</string>
+    <string name="session_feedback_submit_failure">Submit failed</string>
+    <string name="session_feedback_submit_success">Submit succeeded</string>
+    <string name="session_feedback_submitlink">Submit Feedback</string>
 </resources>

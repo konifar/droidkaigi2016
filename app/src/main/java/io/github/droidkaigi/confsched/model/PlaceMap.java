@@ -32,7 +32,7 @@ public class PlaceMap {
     }
 
     public static List<PlaceMap> createList() {
-        List<PlaceMap> list = new ArrayList<>();
+        List<PlaceMap> list = new ArrayList<>(4);
 
         list.add(new PlaceMap(R.string.map_main_name, R.string.map_main_building,
                 R.drawable.ic_place_red_500_36dp, 35.605899, 139.683541));

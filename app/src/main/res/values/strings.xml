@@ -32,13 +32,18 @@
 
     <string name="map_main_name">Reception, Keynote venue</string>
     <string name="map_main_building">70th Memorial Hall</string>
-    <string name="map_ab_name">Hall A, B</string>
+    <string name="map_ab_name">Room A, B</string>
     <string name="map_ab_building">South 2 bldg.</string>
-    <string name="map_cd_name">Hall C, D</string>
+    <string name="map_cd_name">Room C, D</string>
     <string name="map_cd_building">South 4 bldg.</string>
     <string name="map_party_name">After party venue</string>
     <string name="map_party_building">Tokyo Tech Front (Kuramae Hall)</string>
     <string name="map_address">Tokyo Institute of Technology, Ookayama Campus\nOokayama 2&#8211;12&#8211;1, Meguro City, Tokyo</string>
+    <string name="map_fine_location_denied">Consider granting it in order to get the current location.</string>
+    <string name="map_fine_location_never_askagain">Dialog never shows again.\nPlease go setting and grant it if you want to.</string>
+    <string name="map_fine_location_rationale">Location permissions is needed to show your current position.</string>
+    <string name="map_button_allow">Allow</string>
+    <string name="map_button_deny">Deny</string>
 
     <string name="lang_ar">Arabic</string>
     <string name="lang_en">English</string>
@@ -70,4 +75,25 @@
     <string name="my_schedule_go_to_session_list">Go to All Sessions</string>
 
     <string name="schedule_notification_title">%1$d minutes before session</string>
+
+    <string name="session_feedback_accepted_successfully">Thank you! The feedback was accepted.</string>
+    <string name="session_feedback_below_expectation">Below</string>
+    <string name="session_feedback_beyond_expectation">Beyond</string>
+    <string name="session_feedback_difficulty">Was this session easy to understand?</string>
+    <string name="session_feedback_easy">Easy</string>
+    <string name="session_feedback_expectation_label_text">Based on the description, was the content as expected?</string>
+    <string name="session_feedback_extremely_relevant">Extremely</string>
+    <string name="session_feedback_hard">Hard</string>
+    <string name="session_feedback_knowledgeable">How knowledgeable was the content?</string>
+    <string name="session_feedback_not_accepting">Sorry. Currently we are not accepting the feedback. You can submit feedback only during the event dates.</string>
+    <string name="session_feedback_not_at_all_relevant">Not at all</string>
+    <string name="session_feedback_other">Anything else we should know? (Please don\'t add any personal information in your comments)</string>
+    <string name="session_feedback_other_hint">Other session feedback?</string>
+    <string name="session_feedback_outstanding_knowledge">Outstanding</string>
+    <string name="session_feedback_poor_knowledge">Poor</string>
+    <string name="session_feedback_relevance">How relevant was this session to your projects?</string>
+    <string name="session_feedback_submit_error">An error occurred while submitting. Make sure the network is available.</string>
+    <string name="session_feedback_submit_failure">Submit failed</string>
+    <string name="session_feedback_submit_success">Submit succeeded</string>
+    <string name="session_feedback_submitlink">Submit Feedback</string>
 </resources>
