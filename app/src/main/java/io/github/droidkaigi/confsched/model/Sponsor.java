@@ -15,7 +15,7 @@ public class Sponsor {
     }
 
     public static List<Sponsor> createPlatinumList() {
-        List<Sponsor> list = new ArrayList<>();
+        List<Sponsor> list = new ArrayList<>(4);
         list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/mixi.png", "https://mixi.co.jp"));
         list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/findjob.png", "http://www.find-job.net"));
         list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/mixiagent.png", "http://mixi-agent.jp"));
@@ -24,13 +24,13 @@ public class Sponsor {
     }
 
     public static List<Sponsor> createVideoList() {
-        List<Sponsor> list = new ArrayList<>();
+        List<Sponsor> list = new ArrayList<>(1);
         list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/smartnews.png", "http://about.smartnews.com"));
         return list;
     }
 
     public static List<Sponsor> createFoodsList() {
-        List<Sponsor> list = new ArrayList<>();
+        List<Sponsor> list = new ArrayList<>(3);
         list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/sansan.png", "https://www.sansan.com"));
         list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/mercari.png", "https://www.mercari.com/jp"));
         list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/yj.png", "http://www.yahoo.co.jp"));
@@ -38,7 +38,7 @@ public class Sponsor {
     }
 
     public static List<Sponsor> createNormalList() {
-        List<Sponsor> list = new ArrayList<>();
+        List<Sponsor> list = new ArrayList<>(12);
         list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/gmo_pepabo.png", "http://pepabo.com"));
         list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/seesaa.png", "http://www.seesaa.co.jp"));
         list.add(new Sponsor("https://droidkaigi.github.io/2016/images/logo/cookpad.png", "https://info.cookpad.com"));
