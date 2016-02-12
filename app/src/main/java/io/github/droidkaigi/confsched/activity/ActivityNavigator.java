@@ -32,8 +32,8 @@ public class ActivityNavigator {
         SearchActivity.start(fragment, requestCode);
     }
 
-    public void showFeedback(@NonNull Context context) {
-        // TODO
+    public void showFeedback(@NonNull Context context, @NonNull Session session) {
+        SessionFeedbackActivity.start(context, session);
     }
 
 }
