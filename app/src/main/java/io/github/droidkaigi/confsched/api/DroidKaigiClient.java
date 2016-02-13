@@ -28,10 +28,6 @@ import rx.Observable;
 @Singleton
 public class DroidKaigiClient {
 
-    private static final String END_POINT = "https://raw.githubusercontent.com";
-    private static final String GOOGLE_FORM_END_POINT = "https://docs.google.com/forms/d/";
-    private static final String GITHUB_END_POINT = "https://api.github.com";
-    private static final String JSON_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
     private static final String SESSIONS_API_ROUTES = "/konifar/droidkaigi2016/master/app/src/main/res/raw/";
 
     private final DroidKaigiService service;
@@ -39,14 +35,14 @@ public class DroidKaigiClient {
     private final GithubService githubService;
 
     public static Gson createGson() {
-        return new GsonBuilder().setDateFormat(JSON_DATE_FORMAT).create();
+        return new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
     }
 
     @Inject
     public DroidKaigiClient(OkHttpClient client) {
         Retrofit feedburnerRetrofit = new Retrofit.Builder()
                 .client(client)
-                .baseUrl(END_POINT)
+                .baseUrl("https://raw.githubusercontent.com")
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(createGson()))
                 .build();
@@ -54,7 +50,7 @@ public class DroidKaigiClient {
 
         Retrofit googleFormRetrofit = new Retrofit.Builder()
                 .client(client)
-                .baseUrl(GOOGLE_FORM_END_POINT)
+                .baseUrl("https://docs.google.com/forms/d/")
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(createGson()))
                 .build();
@@ -62,7 +58,7 @@ public class DroidKaigiClient {
 
         Retrofit githubRetrofit = new Retrofit.Builder()
                 .client(client)
-                .baseUrl(GITHUB_END_POINT)
+                .baseUrl("https://api.github.com")
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(createGson()))
                 .build();
