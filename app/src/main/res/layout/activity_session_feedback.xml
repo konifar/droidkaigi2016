@@ -39,10 +39,9 @@
                         android:layout_height="wrap_content"
                         android:focusable="true"
                         android:focusableInTouchMode="true"
-                        android:gravity="center_vertical"
+                        android:gravity="center_vertical|start"
                         android:minHeight="?android:listPreferredItemHeightSmall"
-                        android:text="@string/session_feedback_relevance"
-                        android:textAlignment="viewStart">
+                        android:text="@string/session_feedback_relevance">
 
                         <requestFocus />
                     </TextView>
@@ -103,10 +102,9 @@
                         style="@style/FeedbackTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
+                        android:gravity="center_vertical|start"
                         android:minHeight="?android:listPreferredItemHeightSmall"
-                        android:text="@string/session_feedback_expectation_label_text"
-                        android:textAlignment="viewStart" />
+                        android:text="@string/session_feedback_expectation_label_text" />
 
                     <io.github.droidkaigi.confsched.widget.NumberRatingBar
                         android:id="@+id/as_expected_feedback_bar"
@@ -165,10 +163,9 @@
                         style="@style/FeedbackTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
+                        android:gravity="center_vertical|start"
                         android:minHeight="?android:listPreferredItemHeightSmall"
-                        android:text="@string/session_feedback_difficulty"
-                        android:textAlignment="viewStart" />
+                        android:text="@string/session_feedback_difficulty" />
 
                     <io.github.droidkaigi.confsched.widget.NumberRatingBar
                         android:id="@+id/difficulty_feedback_bar"
@@ -226,10 +223,9 @@
                         style="@style/FeedbackTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
+                        android:gravity="center_vertical|start"
                         android:minHeight="?android:listPreferredItemHeightSmall"
-                        android:text="@string/session_feedback_knowledgeable"
-                        android:textAlignment="viewStart" />
+                        android:text="@string/session_feedback_knowledgeable" />
 
                     <io.github.droidkaigi.confsched.widget.NumberRatingBar
                         android:id="@+id/knowledgeable_feedback_bar"
@@ -287,10 +283,9 @@
                         style="@style/FeedbackTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
+                        android:gravity="center_vertical|start"
                         android:minHeight="?android:listPreferredItemHeightSmall"
-                        android:text="@string/session_feedback_other"
-                        android:textAlignment="viewStart" />
+                        android:text="@string/session_feedback_other" />
 
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
