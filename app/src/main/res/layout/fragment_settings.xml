@@ -91,7 +91,7 @@
                 android:layout_toLeftOf="@+id/notification_setting_switch"
                 android:layout_toStartOf="@+id/notification_setting_switch"
                 android:ellipsize="end"
-                android:lines="2"
+                android:lines="1"
                 android:text="@string/settings_notification_description"
                 android:textColor="@color/grey600"
                 android:textSize="@dimen/text_small" />
