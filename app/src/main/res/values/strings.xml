@@ -47,9 +47,21 @@
     <string name="map_button_allow">Allow</string>
     <string name="map_button_deny">Deny</string>
 
-    <string name="lang_ar" translatable="false">العربية</string>
-    <string name="lang_en" translatable="false">English</string>
-    <string name="lang_ja" translatable="false">日本語</string>
+    <string name="lang_ar_in_ar" translatable="false">العربية</string>
+    <string name="lang_en_in_ar" translatable="false">الإنجليزية</string>
+    <string name="lang_ja_in_ar" translatable="false">اليابانية</string>
+
+    <string name="lang_ar_in_en" translatable="false">Arabic</string>
+    <string name="lang_en_in_en" translatable="false">English</string>
+    <string name="lang_ja_in_en" translatable="false">Japanese</string>
+
+    <string name="lang_ar_in_ja" translatable="false">アラビア語</string>
+    <string name="lang_en_in_ja" translatable="false">英語</string>
+    <string name="lang_ja_in_ja" translatable="false">日本語</string>
+
+    <string name="lang_ar">@string/lang_ar_in_en</string>
+    <string name="lang_en">@string/lang_en_in_en</string>
+    <string name="lang_ja">@string/lang_ja_in_en</string>
 
     <string name="settings_language">Change language</string>
     <string name="settings_language_description">Choose language in this app. After changed, app will restart.</string>

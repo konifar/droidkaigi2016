@@ -47,6 +47,10 @@
     <string name="map_button_allow">許可</string>
     <string name="map_button_deny">拒否</string>
 
+    <string name="lang_ar">@string/lang_ar_in_ja</string>
+    <string name="lang_en">@string/lang_en_in_ja</string>
+    <string name="lang_ja">@string/lang_ja_in_ja</string>
+
     <string name="settings_language">言語を設定</string>
     <string name="settings_language_description">表示言語を変更できます。変更後はアプリが再起動されます。</string>
     <string name="settings_bugreport">バグレポート</string>
