@@ -32,7 +32,7 @@ test:
 general:
   artifacts:
     - "app/build/outputs/apk/app-production-release.apk" # relative to the build directory
-    - "app/build/outputs/apk/app-develop-debug.apk" # relative to the build directory
+#    - "app/build/outputs/apk/app-develop-debug.apk" # relative to the build directory
 
 deployment:
   production:
