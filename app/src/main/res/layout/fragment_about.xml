@@ -58,11 +58,11 @@
                     android:layout_marginLeft="@dimen/spacing_negative"
                     android:layout_marginRight="@dimen/spacing_negative"
                     android:layout_marginStart="@dimen/spacing_negative"
-                    android:layout_marginTop="@dimen/spacing"
-                    android:layout_marginBottom="@dimen/spacing_small"/>
+                    android:layout_marginTop="@dimen/spacing" />
 
                 <TextView
                     style="@style/AboutTitle"
+                    android:layout_marginTop="@dimen/spacing"
                     android:text="@string/about_social" />
 
                 <RelativeLayout
