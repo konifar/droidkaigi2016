@@ -23,7 +23,7 @@
                     app:elevation="@dimen/elevation"
                     app:tabIndicatorColor="@color/accent100"
                     app:tabMode="fixed"
-                    app:tabTextColor="@color/grey300"
+                    app:tabTextColor="@color/white_alpha_40"
                     tools:targetApi="lollipop"/>
 
             <io.github.droidkaigi.confsched.widget.RtlViewPager
