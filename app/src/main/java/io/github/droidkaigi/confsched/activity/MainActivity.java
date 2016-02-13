@@ -78,17 +78,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    private void changePage(Page page) {
-        binding.appbar.setExpanded(true, true);
-        final Fragment fragment = page.createFragment();
-        toggleToolbarElevation(page.shouldToggleToolbar());
-        new Handler().postDelayed(() -> {
-            binding.toolbar.setTitle(page.getTitleResId());
-            AppUtil.setTaskDescription(this, getString(page.getTitleResId()), AppUtil.getThemeColorPrimary(this));
-            replaceFragment(fragment);
-        }, 300);
-    }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -165,6 +154,17 @@ public class MainActivity extends AppCompatActivity
             float elevation = enable ? getResources().getDimension(R.dimen.elevation) : 0;
             binding.toolbar.setElevation(elevation);
         }
+    }
+
+    private void changePage(Page page) {
+        binding.appbar.setExpanded(true, true);
+        final Fragment fragment = page.createFragment();
+        toggleToolbarElevation(page.shouldToggleToolbar());
+        new Handler().postDelayed(() -> {
+            binding.toolbar.setTitle(page.getTitleResId());
+            AppUtil.setTaskDescription(this, getString(page.getTitleResId()), AppUtil.getThemeColorPrimary(this));
+            replaceFragment(fragment);
+        }, 300);
     }
 
     @Override
