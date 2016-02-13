@@ -13,6 +13,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.crashlytics.android.Crashlytics;
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -89,6 +91,8 @@ public class ContributorsActivity extends AppCompatActivity {
     // renderSavedContributors is called when error
     private void renderSavedContributors(Throwable throwable) {
         Log.e(TAG, "Failed to fetchContributors.", throwable);
+        Crashlytics.logException(throwable);
+
         List<Contributor> contributors = dao.findAll();
         ContributorsAdapter contributorsAdapter = new ContributorsAdapter(this);
         contributorsAdapter.addAll(contributors);
