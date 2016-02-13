@@ -71,14 +71,14 @@ public class AboutFragment extends Fragment {
         });
         binding.txtLicense.setOnClickListener(v ->
                 activityNavigator.showWebView(getActivity(), LICENSE_URL, getString(R.string.about_license)));
+
         binding.txtGithubRepository.setOnClickListener(v ->
                 AppUtil.showWebPage(getActivity(), AppUtil.getGitHubUrl(CONF_REPOSITORY_NAME)));
 
         binding.txtContributors.setOnClickListener(v ->
-            startActivity(ContributorsActivity.createIntent(getActivity()))
+            startActivity(ContributorsActivity.createIntent(getContext()))
         );
-
-        binding.txtVersion.setText(AppUtil.getVersionName(getActivity()));
+        binding.txtVersion.setText(AppUtil.getVersionName(getContext()));
     }
 
 }
