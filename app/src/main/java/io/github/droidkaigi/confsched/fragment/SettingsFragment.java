@@ -22,6 +22,7 @@ import io.github.droidkaigi.confsched.activity.ActivityNavigator;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSettingsBinding;
 import io.github.droidkaigi.confsched.util.AppUtil;
+import io.github.droidkaigi.confsched.util.PrefUtil;
 import rx.Observable;
 
 import static io.github.droidkaigi.confsched.util.IntentUtil.toBrowser;
@@ -59,6 +60,10 @@ public class SettingsFragment extends Fragment {
         binding.txtLanguage.setText(AppUtil.getCurrentLanguage(getActivity()));
         binding.languageSettingsContainer.setOnClickListener(v -> showLanguagesDialog());
         binding.txtBugreport.setOnClickListener(v -> showBugReport());
+
+        boolean notificationSetting = PrefUtil.get(getContext(), PrefUtil.KEY_NOTIFICATION_SETTING, true);
+        binding.notificationSettingSwitch.setChecked(notificationSetting);
+        binding.notificationSettingSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> setNotificationSetting(isChecked));
     }
 
     private void showLanguagesDialog() {
@@ -96,4 +101,7 @@ public class SettingsFragment extends Fragment {
         startActivity(toBrowser(getString(R.string.bug_report_url)));
     }
 
+    private void setNotificationSetting(boolean isChecked) {
+        PrefUtil.put(getContext(), PrefUtil.KEY_NOTIFICATION_SETTING, isChecked);
+    }
 }

@@ -17,11 +17,17 @@ import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.activity.MainActivity;
 import io.github.droidkaigi.confsched.activity.SessionDetailActivity;
 import io.github.droidkaigi.confsched.model.Session;
+import io.github.droidkaigi.confsched.util.PrefUtil;
 
 public class SessionScheduleReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        boolean notificationSetting = PrefUtil.get(context, PrefUtil.KEY_NOTIFICATION_SETTING, true);
+        if (!notificationSetting) {
+            return;
+        }
+
         Session session = Parcels.unwrap(intent.getParcelableExtra(Session.class.getSimpleName()));
 
         // launch SessionDetailsActivity stacked with MainActivity

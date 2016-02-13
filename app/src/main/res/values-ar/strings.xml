@@ -49,6 +49,8 @@
 
     <string name="settings_language">تعيين لغة</string>
     <string name="settings_language_description">يمكنك تغيير لغة العرض. بعد التغيير سيتم إعادة تشغيل التطبيق.</string>
+    <string name="settings_notification">إعلام</string>
+    <string name="settings_notification_description">اختيار ما إذا كان لتلقي التبليغ في هذا التطبيق .</string>
     <string name="settings_bugreport">تقرير الشوائب</string>
 
     <string name="sponsor_category_platinum">الراعي قسط</string>
