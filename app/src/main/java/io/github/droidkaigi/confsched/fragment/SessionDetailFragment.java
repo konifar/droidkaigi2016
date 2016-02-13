@@ -35,8 +35,6 @@ import io.github.droidkaigi.confsched.util.IntentUtil;
 
 public class SessionDetailFragment extends Fragment {
 
-    private static final String TAG = SessionDetailFragment.class.getSimpleName();
-
     @Inject
     SessionDao dao;
     @Inject

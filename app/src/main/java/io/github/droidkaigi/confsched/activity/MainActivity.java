@@ -30,7 +30,6 @@ import rx.subscriptions.CompositeSubscription;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private static final String TAG = MainActivity.class.getSimpleName();
 
     private static final String EXTRA_SHOULD_REFRESH = "should_refresh";
 
@@ -44,12 +43,6 @@ public class MainActivity extends AppCompatActivity
     CompositeSubscription subscription;
 
     private ActivityMainBinding binding;
-
-    private boolean isPressedBackOnce = false;
-
-    static void start(@NonNull Activity activity) {
-        start(activity, false);
-    }
 
     static void start(@NonNull Activity activity, boolean shouldRefresh) {
         Intent intent = new Intent(activity, MainActivity.class);
@@ -121,7 +114,6 @@ public class MainActivity extends AppCompatActivity
         super.onBackPressed();
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         binding.drawer.closeDrawer(GravityCompat.START);

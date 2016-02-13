@@ -11,7 +11,7 @@ import io.github.droidkaigi.confsched.fragment.SponsorsFragment;
 import dagger.Subcomponent;
 
 @FragmentScope
-@Subcomponent(modules = {FragmentModule.class})
+@Subcomponent(modules = FragmentModule.class)
 public interface FragmentComponent {
 
     void inject(SettingsFragment fragment);

@@ -19,7 +19,6 @@ import io.github.droidkaigi.confsched.util.LocaleUtil;
 
 public class AboutFragment extends Fragment {
 
-    public static final String TAG = AboutFragment.class.getSimpleName();
     private static final String REP_TWITTER_NAME = "mhidaka";
     private static final String CONF_TWITTER_NAME = "DroidKaigi";
     private static final String CONF_FACEBOOK_NAME = "DroidKaigi";

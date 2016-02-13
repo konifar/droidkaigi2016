@@ -14,10 +14,6 @@ public class AnalyticsTracker {
         this.tracker = tracker;
     }
 
-    public Tracker getTracker() {
-        return tracker;
-    }
-
     public void sendScreenView(String screenName) {
         tracker.setScreenName(screenName);
         tracker.send(new HitBuilders.ScreenViewBuilder().build());

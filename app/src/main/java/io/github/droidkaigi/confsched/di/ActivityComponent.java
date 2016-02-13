@@ -9,7 +9,7 @@ import io.github.droidkaigi.confsched.activity.SessionFeedbackActivity;
 import io.github.droidkaigi.confsched.di.scope.ActivityScope;
 
 @ActivityScope
-@Subcomponent(modules = {ActivityModule.class})
+@Subcomponent(modules = ActivityModule.class)
 public interface ActivityComponent {
 
     void inject(MainActivity activity);
