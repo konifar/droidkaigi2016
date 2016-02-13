@@ -92,6 +92,7 @@
 
     <string name="my_schedule_empty">لم تتم إضافته بعد جلسة ذلك. دعونا اختيار الدورات تريد أن تسمع من جميع الدورات!</string>
     <string name="my_schedule_go_to_session_list">رؤية جميع الدورات</string>
+    <string name="my_schedule_conflicted">تتعارض مع جلسة أخرى</string>
 
     <plurals name="schedule_notification_title">
         <item quantity="zero">قبل %1$d دقيقة من الجلسة</item>
