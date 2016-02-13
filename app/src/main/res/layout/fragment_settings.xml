@@ -65,6 +65,58 @@
 
         <View style="@style/Border" />
 
+        <RelativeLayout android:id="@+id/notification_setting_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/clickable"
+            android:padding="@dimen/spacing">
+
+            <TextView
+                android:id="@+id/notification_setting_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/notification_setting_switch"
+                android:layout_toStartOf="@+id/notification_setting_switch"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="@string/settings_notification"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/notification_setting_title"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:layout_toLeftOf="@+id/notification_setting_switch"
+                android:layout_toStartOf="@+id/notification_setting_switch"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="@string/settings_notification_description"
+                android:textColor="@color/grey600"
+                android:textSize="@dimen/text_small" />
+
+            <Switch
+                android:id="@+id/notification_setting_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/spacing"
+                android:layout_marginStart="@dimen/spacing"
+                android:paddingBottom="@dimen/spacing_xsmall"
+                android:paddingEnd="@dimen/spacing_small"
+                android:paddingLeft="@dimen/spacing_small"
+                android:paddingRight="@dimen/spacing_small"
+                android:paddingStart="@dimen/spacing_small"
+                android:paddingTop="@dimen/spacing_xsmall"
+                />
+
+        </RelativeLayout>
+
+        <View style="@style/Border" />
+
         <TextView
             android:id="@+id/txt_bugreport"
             android:layout_width="match_parent"

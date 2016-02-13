@@ -65,6 +65,8 @@
 
     <string name="settings_language">Change language</string>
     <string name="settings_language_description">Choose language in this app. After changed, app will restart.</string>
+    <string name="settings_notification">Notification</string>
+    <string name="settings_notification_description">Choose whether to receive notification in this app.</string>
     <string name="settings_bugreport">Bug report</string>
 
     <string name="sponsor_category_platinum">Platinum Sponsors</string>
