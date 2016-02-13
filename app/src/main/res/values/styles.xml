@@ -70,7 +70,7 @@
         <item name="android:drawableEnd">@drawable/ic_close_white_18dp</item>
         <item name="android:imeOptions">actionSearch</item>
         <item name="android:inputType">text</item>
-        <item name="android:textCursorDrawable">@color/white_alpha_95</item>
+        <item name="android:textCursorDrawable">@drawable/rect_edit_text_cursor</item>
         <item name="android:maxLines">1</item>
         <item name="android:paddingRight">@dimen/spacing_small</item>
         <item name="android:textColor">@color/white</item>
