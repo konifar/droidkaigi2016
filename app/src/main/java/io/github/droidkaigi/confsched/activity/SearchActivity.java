@@ -51,8 +51,6 @@ import rx.Observable;
 
 public class SearchActivity extends AppCompatActivity implements TextWatcher {
 
-    private static final String TAG = SearchActivity.class.getSimpleName();
-
     public static final String RESULT_STATUS_CHANGED_SESSIONS = "statusChangedSessions";
     private static final int REQ_DETAIL = 1;
 
@@ -108,10 +106,9 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
     private void initPlacesAndCategoriesView() {
         binding.searchPlacesAndCategoriesView.addPlaces(placeDao.findAll());
         binding.searchPlacesAndCategoriesView.addCategories(categoryDao.findAll());
-        binding.searchPlacesAndCategoriesView.setOnClickSearchGroup(searchGroup -> {
-            startActivityForResult(SearchedSessionsActivity.createIntent(SearchActivity.this, searchGroup),
-                    REQ_SEARCH_PLACES_AND_CATEGORIES_VIEW);
-        });
+        binding.searchPlacesAndCategoriesView.setOnClickSearchGroup(searchGroup ->
+                startActivityForResult(SearchedSessionsActivity.createIntent(SearchActivity.this, searchGroup),
+                REQ_SEARCH_PLACES_AND_CATEGORIES_VIEW));
     }
 
     @Override
@@ -239,7 +236,6 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
         private TextAppearanceSpan textAppearanceSpan;
         private List<SearchResult> filteredList;
         private List<SearchResult> allList;
-        ;
 
         public SearchResultsAdapter(@NonNull Context context) {
             super(context);
