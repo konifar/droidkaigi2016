@@ -71,7 +71,6 @@
 
         <receiver
             android:name=".receiver.SessionScheduleReceiver"
-            android:process=":remote"
             android:exported="false"/>
     </application>
 
