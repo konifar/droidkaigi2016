@@ -191,9 +191,6 @@
                                 android:id="@+id/other_comments_feedback_text"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:inputType="textMultiLine"
-                                android:lines="3"
-                                android:minLines="3"
                                 android:textColor="@color/black_alpha_87"
                                 android:textSize="@dimen/text" />
 
