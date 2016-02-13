@@ -97,5 +97,6 @@
     <string name="session_feedback_submit_failure">送信に失敗しました。</string>
     <string name="session_feedback_submit_success">送信しました。</string>
     <string name="session_feedback_submitlink">フィードバックを送信</string>
+    <string name="about_github_repository">GitHubリポジトリ</string>
 
 </resources>

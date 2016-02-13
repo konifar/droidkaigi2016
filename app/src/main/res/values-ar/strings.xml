@@ -97,5 +97,6 @@
     <string name="session_feedback_submit_failure">Submit failed</string>
     <string name="session_feedback_submit_success">Submit succeeded</string>
     <string name="session_feedback_submitlink">Submit Feedback</string>
+    <string name="about_github_repository">GitHub Repository</string>
 
 </resources>
