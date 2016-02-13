@@ -23,8 +23,8 @@ public class SessionScheduleReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        boolean notificationSetting = PrefUtil.get(context, PrefUtil.KEY_NOTIFICATION_SETTING, true);
-        if (!notificationSetting) {
+        boolean shouldNotify = PrefUtil.get(context, PrefUtil.KEY_NOTIFICATION_SETTING, true);
+        if (!shouldNotify) {
             return;
         }
 
