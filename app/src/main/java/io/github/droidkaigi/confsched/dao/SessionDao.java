@@ -1,8 +1,8 @@
 package io.github.droidkaigi.confsched.dao;
 
-import com.github.gfx.android.orma.TransactionTask;
-
 import android.support.annotation.NonNull;
+
+import com.github.gfx.android.orma.TransactionTask;
 
 import java.util.List;
 
@@ -150,7 +150,9 @@ public class SessionDao {
                 .etime(session.etime)
                 .placeId(session.place.id)
                 .languageId(session.languageId)
-                .slideUrl(session.slideUrl);
+                .slideUrl(session.slideUrl)
+                .movieUrl(session.movieUrl)
+                .shareUrl(session.shareUrl);
 
         if (session.category != null) {
             updater.categoryId(session.category.id);

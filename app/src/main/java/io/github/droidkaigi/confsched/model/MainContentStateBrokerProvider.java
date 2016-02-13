@@ -6,12 +6,13 @@ import javax.inject.Inject;
  * @author KeishinYokomaku
  */
 public class MainContentStateBrokerProvider {
-	private static final MainContentStateBroker BROKER = new MainContentStateBroker();
+    private static final MainContentStateBroker BROKER = new MainContentStateBroker();
 
-	@Inject
-	public MainContentStateBrokerProvider() {}
+    @Inject
+    public MainContentStateBrokerProvider() {
+    }
 
-	public MainContentStateBroker get() {
-		return BROKER;
-	}
+    public MainContentStateBroker get() {
+        return BROKER;
+    }
 }

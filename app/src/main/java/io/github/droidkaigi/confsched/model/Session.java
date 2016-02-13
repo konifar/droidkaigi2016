@@ -1,13 +1,12 @@
 package io.github.droidkaigi.confsched.model;
 
-import com.google.gson.annotations.SerializedName;
+import android.support.annotation.Nullable;
 
 import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.Table;
+import com.google.gson.annotations.SerializedName;
 
 import org.parceler.Parcel;
-
-import android.support.annotation.Nullable;
 
 import java.util.Date;
 
@@ -65,6 +64,16 @@ public class Session {
     @SerializedName("slide_url")
     public String slideUrl;
 
+    @Column(defaultExpr = "''")
+    @Nullable
+    @SerializedName("movie_url")
+    public String movieUrl;
+
+    @Column(defaultExpr = "''")
+    @Nullable
+    @SerializedName("share_url")
+    public String shareUrl;
+
     @Column(indexed = true)
     public boolean checked;
 
@@ -86,12 +95,13 @@ public class Session {
     }
 
     public int getLanguageResId() {
-        if ("en".equals(languageId)) {
-            return R.string.lang_en;
-        } else if ("ja".equals(languageId)) {
-            return R.string.lang_ja;
-        } else {
-            return R.string.lang_en;
+        switch (languageId) {
+            case "en":
+                return R.string.lang_en;
+            case "ja":
+                return R.string.lang_ja;
+            default:
+                return R.string.lang_en;
         }
     }
 

@@ -15,15 +15,16 @@
             android:orientation="vertical">
 
             <android.support.design.widget.TabLayout
-                android:id="@+id/tab_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/theme500"
-                android:elevation="@dimen/elevation"
-                app:elevation="@dimen/elevation"
-                app:tabIndicatorColor="@color/accent100"
-                app:tabMode="fixed"
-                app:tabTextColor="@color/grey300" />
+                    android:id="@+id/tab_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/theme500"
+                    android:elevation="@dimen/elevation"
+                    app:elevation="@dimen/elevation"
+                    app:tabIndicatorColor="@color/accent100"
+                    app:tabMode="fixed"
+                    app:tabTextColor="@color/grey300"
+                    tools:targetApi="lollipop"/>
 
             <io.github.droidkaigi.confsched.widget.RtlViewPager
                 android:id="@+id/view_pager"

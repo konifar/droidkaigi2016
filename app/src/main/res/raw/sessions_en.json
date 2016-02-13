@@ -14,14 +14,16 @@
     "etime": "2016-02-18 11:00:00",
     "category": {
       "id": 1,
-      "name": "基調講演"
+      "name": "Keynote"
     },
     "place": {
       "id": 1,
-      "name": "基調講演会場"
+      "name": "Keynote venue"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": ""
   },
   {
     "id": 2,
@@ -38,14 +40,16 @@
     "etime": "2016-02-18 12:00:00",
     "category": {
       "id": 2,
-      "name": "その他"
+      "name": "Others"
     },
     "place": {
       "id": 2,
-      "name": "ルームA"
+      "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-11-30-12-00-a"
   },
   {
     "id": 3,
@@ -62,14 +66,16 @@
     "etime": "2016-02-18 12:00:00",
     "category": {
       "id": 3,
-      "name": "UI・デザイン"
+      "name": "UI and Design"
     },
     "place": {
       "id": 3,
-      "name": "ルームB"
+      "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-11-30-12-00-b"
   },
   {
     "id": 4,
@@ -86,14 +92,16 @@
     "etime": "2016-02-18 12:00:00",
     "category": {
       "id": 4,
-      "name": "ハードウェア"
+      "name": "Hardware"
     },
     "place": {
       "id": 4,
-      "name": "ルームC"
+      "name": "Room C"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-11-30-12-00-c"
   },
   {
     "id": 5,
@@ -110,14 +118,16 @@
     "etime": "2016-02-18 12:00:00",
     "category": {
       "id": 3,
-      "name": "UI・デザイン"
+      "name": "UI and Design"
     },
     "place": {
       "id": 5,
-      "name": "ルームD"
+      "name": "Room D"
     },
     "language_id": "en",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-11-30-12-00-d"
   },
   {
     "id": 6,
@@ -134,14 +144,16 @@
     "etime": "2016-02-18 13:50:00",
     "category": {
       "id": 5,
-      "name": "プラットフォーム"
+      "name": "Platform"
     },
     "place": {
       "id": 2,
-      "name": "ルームA"
+      "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-13-00-13-50-a"
   },
   {
     "id": 7,
@@ -158,14 +170,16 @@
     "etime": "2016-02-18 13:50:00",
     "category": {
       "id": 6,
-      "name": "開発環境・ツール"
+      "name": "Productivity and Tooling"
     },
     "place": {
       "id": 3,
-      "name": "ルームB"
+      "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-13-00-13-50-b"
   },
   {
     "id": 8,
@@ -182,14 +196,16 @@
     "etime": "2016-02-18 13:50:00",
     "category": {
       "id": 6,
-      "name": "開発環境・ツール"
+      "name": "Productivity and Tooling"
     },
     "place": {
       "id": 4,
-      "name": "ルームC"
+      "name": "Room C"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-13-00-13-50-c"
   },
   {
     "id": 9,
@@ -206,14 +222,16 @@
     "etime": "2016-02-18 13:50:00",
     "category": {
       "id": 5,
-      "name": "プラットフォーム"
+      "name": "Platform"
     },
     "place": {
       "id": 5,
-      "name": "ルームD"
+      "name": "Room D"
     },
     "language_id": "en",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-13-00-13-50-d"
   },
   {
     "id": 10,
@@ -230,14 +248,16 @@
     "etime": "2016-02-18 14:50:00",
     "category": {
       "id": 7,
-      "name": "メンテナンス"
+      "name": "Quality and Sustainability"
     },
     "place": {
       "id": 2,
-      "name": "ルームA"
+      "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-14-00-14-50-a"
   },
   {
     "id": 11,
@@ -254,14 +274,16 @@
     "etime": "2016-02-18 14:50:00",
     "category": {
       "id": 6,
-      "name": "開発環境・ツール"
+      "name": "Productivity and Tooling"
     },
     "place": {
       "id": 3,
-      "name": "ルームB"
+      "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-14-00-14-50-b"
   },
   {
     "id": 12,
@@ -278,14 +300,16 @@
     "etime": "2016-02-18 14:50:00",
     "category": {
       "id": 7,
-      "name": "メンテナンス"
+      "name": "Quality and Sustainability"
     },
     "place": {
       "id": 5,
-      "name": "ルームD"
+      "name": "Room D"
     },
     "language_id": "en",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-14-00-14-50-d"
   },
   {
     "id": 13,
@@ -302,14 +326,16 @@
     "etime": "2016-02-18 15:40:00",
     "category": {
       "id": 3,
-      "name": "UI・デザイン"
+      "name": "UI and Design"
     },
     "place": {
       "id": 2,
-      "name": "ルームA"
+      "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-10-15-40-a"
   },
   {
     "id": 14,
@@ -326,14 +352,16 @@
     "etime": "2016-02-18 15:40:00",
     "category": {
       "id": 8,
-      "name": "Androidの最新動向"
+      "name": "Trends in Android technology"
     },
     "place": {
       "id": 3,
-      "name": "ルームB"
+      "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-10-15-40-b"
   },
   {
     "id": 15,
@@ -350,14 +378,16 @@
     "etime": "2016-02-18 15:40:00",
     "category": {
       "id": 6,
-      "name": "開発環境・ツール"
+      "name": "Productivity and Tooling"
     },
     "place": {
       "id": 4,
-      "name": "ルームC"
+      "name": "Room C"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-10-15-40-c"
   },
   {
     "id": 16,
@@ -374,14 +404,16 @@
     "etime": "2016-02-18 15:40:00",
     "category": {
       "id": 6,
-      "name": "開発環境・ツール"
+      "name": "Productivity and Tooling"
     },
     "place": {
       "id": 5,
-      "name": "ルームD"
+      "name": "Room D"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-10-15-40-d"
   },
   {
     "id": 17,
@@ -398,14 +430,16 @@
     "etime": "2016-02-18 16:20:00",
     "category": {
       "id": 3,
-      "name": "UI・デザイン"
+      "name": "UI and Design"
     },
     "place": {
       "id": 2,
-      "name": "ルームA"
+      "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-50-16-20-a"
   },
   {
     "id": 18,
@@ -422,14 +456,16 @@
     "etime": "2016-02-18 16:20:00",
     "category": {
       "id": 8,
-      "name": "Androidの最新動向"
+      "name": "Trends in Android technology"
     },
     "place": {
       "id": 3,
-      "name": "ルームB"
+      "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-50-16-20-b"
   },
   {
     "id": 19,
@@ -446,14 +482,16 @@
     "etime": "2016-02-18 16:20:00",
     "category": {
       "id": 7,
-      "name": "メンテナンス"
+      "name": "Quality and Sustainability"
     },
     "place": {
       "id": 5,
-      "name": "ルームD"
+      "name": "Room D"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-50-16-20-d"
   },
   {
     "id": 20,
@@ -470,14 +508,16 @@
     "etime": "2016-02-18 17:00:00",
     "category": {
       "id": 7,
-      "name": "メンテナンス"
+      "name": "Quality and Sustainability"
     },
     "place": {
       "id": 2,
-      "name": "ルームA"
+      "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-16-30-17-00-a"
   },
   {
     "id": 21,
@@ -494,14 +534,16 @@
     "etime": "2016-02-18 17:00:00",
     "category": {
       "id": 6,
-      "name": "開発環境・ツール"
+      "name": "Productivity and Tooling"
     },
     "place": {
       "id": 3,
-      "name": "ルームB"
+      "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-16-30-17-00-b"
   },
   {
     "id": 22,
@@ -518,14 +560,16 @@
     "etime": "2016-02-18 17:00:00",
     "category": {
       "id": 6,
-      "name": "開発環境・ツール"
+      "name": "Productivity and Tooling"
     },
     "place": {
       "id": 5,
-      "name": "ルームD"
+      "name": "Room D"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-16-30-17-00-d"
   },
   {
     "id": 23,
@@ -542,14 +586,16 @@
     "etime": "2016-02-19 11:00:00",
     "category": {
       "id": 1,
-      "name": "基調講演"
+      "name": "Keynote"
     },
     "place": {
       "id": 1,
-      "name": "基調講演会場"
+      "name": "Keynote venue"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": ""
   },
   {
     "id": 24,
@@ -566,14 +612,16 @@
     "etime": "2016-02-19 12:00:00",
     "category": {
       "id": 2,
-      "name": "その他"
+      "name": "Others"
     },
     "place": {
       "id": 2,
-      "name": "ルームA"
+      "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-11-30-12-00-a"
   },
   {
     "id": 25,
@@ -590,14 +638,16 @@
     "etime": "2016-02-19 12:00:00",
     "category": {
       "id": 7,
-      "name": "メンテナンス"
+      "name": "Quality and Sustainability"
     },
     "place": {
       "id": 3,
-      "name": "ルームB"
+      "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-11-30-12-00-b"
   },
   {
     "id": 26,
@@ -614,14 +664,16 @@
     "etime": "2016-02-19 12:00:00",
     "category": {
       "id": 5,
-      "name": "プラットフォーム"
+      "name": "Platform"
     },
     "place": {
       "id": 4,
-      "name": "ルームC"
+      "name": "Room C"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-11-30-12-00-c"
   },
   {
     "id": 27,
@@ -638,14 +690,16 @@
     "etime": "2016-02-19 12:00:00",
     "category": {
       "id": 5,
-      "name": "プラットフォーム"
+      "name": "Platform"
     },
     "place": {
       "id": 5,
-      "name": "ルームD"
+      "name": "Room D"
     },
     "language_id": "en",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-11-30-12-00-d"
   },
   {
     "id": 28,
@@ -662,14 +716,16 @@
     "etime": "2016-02-19 13:50:00",
     "category": {
       "id": 3,
-      "name": "UI・デザイン"
+      "name": "UI and Design"
     },
     "place": {
       "id": 2,
-      "name": "ルームA"
+      "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-13-00-13-50-a"
   },
   {
     "id": 29,
@@ -686,14 +742,16 @@
     "etime": "2016-02-19 13:50:00",
     "category": {
       "id": 7,
-      "name": "メンテナンス"
+      "name": "Quality and Sustainability"
     },
     "place": {
       "id": 3,
-      "name": "ルームB"
+      "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-13-00-13-50-b"
   },
   {
     "id": 30,
@@ -710,14 +768,16 @@
     "etime": "2016-02-19 13:50:00",
     "category": {
       "id": 4,
-      "name": "ハードウェア"
+      "name": "Hardware"
     },
     "place": {
       "id": 4,
-      "name": "ルームC"
+      "name": "Room C"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-13-00-13-50-c"
   },
   {
     "id": 31,
@@ -734,14 +794,16 @@
     "etime": "2016-02-19 13:50:00",
     "category": {
       "id": 5,
-      "name": "プラットフォーム"
+      "name": "Platform"
     },
     "place": {
       "id": 5,
-      "name": "ルームD"
+      "name": "Room D"
     },
     "language_id": "en",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-13-00-13-50-d"
   },
   {
     "id": 32,
@@ -758,14 +820,16 @@
     "etime": "2016-02-19 14:50:00",
     "category": {
       "id": 7,
-      "name": "メンテナンス"
+      "name": "Quality and Sustainability"
     },
     "place": {
       "id": 2,
-      "name": "ルームA"
+      "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-14-00-14-50-a"
   },
   {
     "id": 33,
@@ -782,14 +846,16 @@
     "etime": "2016-02-19 14:50:00",
     "category": {
       "id": 6,
-      "name": "開発環境・ツール"
+      "name": "Productivity and Tooling"
     },
     "place": {
       "id": 3,
-      "name": "ルームB"
+      "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-14-00-14-50-b"
   },
   {
     "id": 34,
@@ -806,14 +872,16 @@
     "etime": "2016-02-19 14:50:00",
     "category": {
       "id": 7,
-      "name": "メンテナンス"
+      "name": "Quality and Sustainability"
     },
     "place": {
       "id": 4,
-      "name": "ルームC"
+      "name": "Room C"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-14-00-14-50-c"
   },
   {
     "id": 35,
@@ -830,14 +898,16 @@
     "etime": "2016-02-19 14:50:00",
     "category": {
       "id": 7,
-      "name": "メンテナンス"
+      "name": "Quality and Sustainability"
     },
     "place": {
       "id": 5,
-      "name": "ルームD"
+      "name": "Room D"
     },
     "language_id": "en",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-14-00-14-50-d"
   },
   {
     "id": 36,
@@ -854,14 +924,16 @@
     "etime": "2016-02-19 15:40:00",
     "category": {
       "id": 7,
-      "name": "メンテナンス"
+      "name": "Quality and Sustainability"
     },
     "place": {
       "id": 2,
-      "name": "ルームA"
+      "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-10-15-40-a"
   },
   {
     "id": 37,
@@ -878,14 +950,16 @@
     "etime": "2016-02-19 15:40:00",
     "category": {
       "id": 6,
-      "name": "開発環境・ツール"
+      "name": "Productivity and Tooling"
     },
     "place": {
       "id": 3,
-      "name": "ルームB"
+      "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-10-15-40-b"
   },
   {
     "id": 38,
@@ -902,14 +976,16 @@
     "etime": "2016-02-19 15:40:00",
     "category": {
       "id": 8,
-      "name": "Androidの最新動向"
+      "name": "Trends in Android technology"
     },
     "place": {
       "id": 4,
-      "name": "ルームC"
+      "name": "Room C"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-10-15-40-c"
   },
   {
     "id": 39,
@@ -926,14 +1002,16 @@
     "etime": "2016-02-19 15:40:00",
     "category": {
       "id": 5,
-      "name": "プラットフォーム"
+      "name": "Platform"
     },
     "place": {
       "id": 5,
-      "name": "ルームD"
+      "name": "Room D"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-10-15-40-d"
   },
   {
     "id": 40,
@@ -950,14 +1028,16 @@
     "etime": "2016-02-19 16:20:00",
     "category": {
       "id": 7,
-      "name": "メンテナンス"
+      "name": "Quality and Sustainability"
     },
     "place": {
       "id": 2,
-      "name": "ルームA"
+      "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-50-16-20-a"
   },
   {
     "id": 41,
@@ -967,21 +1047,23 @@
       "id": 40,
       "name": "宮下 竜大郎",
       "image_url": "https://pbs.twimg.com/profile_images/625336726655897600/3XGY2KW0.jpg",
-      "twitter_name": "ryugoo_",
+      "twitter_name": "ryugoo",
       "github_name": "ryugoo"
     },
     "stime": "2016-02-19 15:50:00",
     "etime": "2016-02-19 16:20:00",
     "category": {
       "id": 2,
-      "name": "その他"
+      "name": "Others"
     },
     "place": {
       "id": 3,
-      "name": "ルームB"
+      "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-50-16-20-b"
   },
   {
     "id": 42,
@@ -998,14 +1080,16 @@
     "etime": "2016-02-19 16:20:00",
     "category": {
       "id": 8,
-      "name": "Androidの最新動向"
+      "name": "Trends in Android technology"
     },
     "place": {
       "id": 5,
-      "name": "ルームD"
+      "name": "Room D"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-50-16-20-d"
   },
   {
     "id": 43,
@@ -1022,14 +1106,16 @@
     "etime": "2016-02-19 17:00:00",
     "category": {
       "id": 7,
-      "name": "メンテナンス"
+      "name": "Quality and Sustainability"
     },
     "place": {
       "id": 2,
-      "name": "ルームA"
+      "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-16-30-17-00-a"
   },
   {
     "id": 44,
@@ -1046,14 +1132,16 @@
     "etime": "2016-02-19 17:00:00",
     "category": {
       "id": 2,
-      "name": "その他"
+      "name": "Others"
     },
     "place": {
       "id": 3,
-      "name": "ルームB"
+      "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-16-30-17-00-b"
   },
   {
     "id": 45,
@@ -1070,13 +1158,15 @@
     "etime": "2016-02-19 17:00:00",
     "category": {
       "id": 2,
-      "name": "その他"
+      "name": "Others"
     },
     "place": {
       "id": 5,
-      "name": "ルームD"
+      "name": "Room D"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-16-30-17-00-d"
   }
 ]
