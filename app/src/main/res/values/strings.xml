@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">DroidKaigi 2016</string>
     <string name="tag_line">A conference tailored for Android developers!</string>
     <string name="session_detail">Session Detail</string>
 
@@ -30,6 +29,8 @@
     <string name="about">About</string>
     <string name="search">Search</string>
 
+    <string name="sessions_network_error">Failed to load sessions. Try again after a while.</string>
+
     <string name="map_main_name">Reception, Keynote venue</string>
     <string name="map_main_building">70th Memorial Hall</string>
     <string name="map_ab_name">Room A, B</string>
@@ -45,9 +46,9 @@
     <string name="map_button_allow">Allow</string>
     <string name="map_button_deny">Deny</string>
 
-    <string name="lang_ar">Arabic</string>
-    <string name="lang_en">English</string>
-    <string name="lang_ja">Japanese</string>
+    <string name="lang_ar" translatable="false">العربية</string>
+    <string name="lang_en" translatable="false">English</string>
+    <string name="lang_ja" translatable="false">日本語</string>
 
     <string name="settings_language">Change language</string>
     <string name="settings_language_description">Choose language in this app. After changed, app will restart.</string>
@@ -68,8 +69,6 @@
     <string name="about_version_prefix">"V%1$s</string>
 
     <string name="search_hint">Search by words</string>
-
-    <string name="app_close_now">Close now</string>
 
     <string name="my_schedule_empty">No items here. Let\'s check out all sessions and put your favourite!</string>
     <string name="my_schedule_go_to_session_list">Go to All Sessions</string>

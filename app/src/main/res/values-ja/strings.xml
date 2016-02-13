@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">DroidKaigi 2016</string>
     <string name="tag_line">Androidエンジニアが主役のカンファレンス</string>
     <string name="session_detail">セッション詳細</string>
 
@@ -28,6 +27,9 @@
     <string name="settings">設定</string>
     <string name="sponsors">スポンサー</string>
     <string name="about">詳細</string>
+    <string name="search">検索</string>
+
+    <string name="sessions_network_error">セッションのロードに失敗しました。しばらく時間をおいてからお試しください。</string>
 
     <string name="map_main_name">受付・基調講演会場</string>
     <string name="map_main_building">70周年記念講堂</string>
@@ -43,10 +45,6 @@
     <string name="map_fine_location_rationale">現在地を表示する為に、位置情報のパーミッションが必要です。</string>
     <string name="map_button_allow">許可</string>
     <string name="map_button_deny">拒否</string>
-
-    <string name="lang_ar">アラビア語</string>
-    <string name="lang_en">英語</string>
-    <string name="lang_ja">日本語</string>
 
     <string name="settings_language">言語を設定</string>
     <string name="settings_language_description">表示言語を変更できます。変更後はアプリが再起動されます。</string>
@@ -68,26 +66,30 @@
 
     <string name="search_hint">キーワードで検索</string>
 
-    <string name="app_close_now">すぐに閉じる</string>
-
     <string name="my_schedule_empty">まだセッションが追加されていません。全てのセッションから聞きたいセッションを選んでみましょう!</string>
     <string name="my_schedule_go_to_session_list">全てのセッションを見る</string>
 
     <string name="schedule_notification_title">開始%1$d分前です</string>
 
+    <string name="session_feedback_accepted_successfully">ありがとうございます！フィードバックは送信されました。</string>
     <string name="session_feedback_below_expectation">期待外れ</string>
     <string name="session_feedback_beyond_expectation">期待以上</string>
-    <string name="session_feedback_difficulty">セッションの難易度はいかがでしたか?</string>
+    <string name="session_feedback_difficulty">セッションの難易度はいかがでしたか？</string>
     <string name="session_feedback_easy">基本的すぎた</string>
-    <string name="session_feedback_expectation_label_text">セッションの説明を読んで期待した通りの内容でしたか?</string>
+    <string name="session_feedback_expectation_label_text">セッションの説明を読んで期待した通りの内容でしたか？</string>
     <string name="session_feedback_extremely_relevant">非常に関連がある</string>
     <string name="session_feedback_hard">高度すぎた</string>
-    <string name="session_feedback_knowledgeable">技術的な知見は得られたでしょうか?</string>
+    <string name="session_feedback_knowledgeable">技術的な知見は得られたでしょうか？</string>
+    <string name="session_feedback_not_accepting">申し訳ありません。DroidKaigi終了から日にちが経っているため現在はフィードバックを送信できません。</string>
     <string name="session_feedback_not_at_all_relevant">ほとんど関連がない</string>
-    <string name="session_feedback_other">他にコメントがあればぜひ教えてください(個人が特定できるような内容は書かないでください)</string>
-    <string name="session_feedback_other_hint">コメントを書く!</string>
-    <string name="session_feedback_outstanding_knowledge">知見に溢れてiた</string>
+    <string name="session_feedback_other">他にコメントがあればぜひ教えてください（個人が特定できるような内容は書かないでください）</string>
+    <string name="session_feedback_other_hint">コメントを書く</string>
+    <string name="session_feedback_outstanding_knowledge">知見に溢れていた</string>
     <string name="session_feedback_poor_knowledge">あまり知見はなかった</string>
-    <string name="session_feedback_relevance">このセッションはあなたの仕事やプロジェクトに関連がありましたか?</string>
+    <string name="session_feedback_relevance">このセッションはあなたの仕事やプロジェクトに関連がありましたか？</string>
+    <string name="session_feedback_submit_error">送信中にエラーが発生しました。ネットワーク状態を確認してもう一度お試しください。</string>
+    <string name="session_feedback_submit_failure">送信に失敗しました。</string>
+    <string name="session_feedback_submit_success">送信しました。</string>
     <string name="session_feedback_submitlink">フィードバックを送信</string>
+
 </resources>

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="SponsorCategory">
         <item name="android:layout_width">match_parent</item>
@@ -18,10 +18,10 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">horizontal</item>
-        <item name="android:paddingEnd">@dimen/spacing</item>
+        <item name="android:paddingEnd" tools:targetApi="jelly_bean_mr1">@dimen/spacing</item>
         <item name="android:paddingLeft">@dimen/spacing</item>
         <item name="android:paddingRight">@dimen/spacing_small</item>
-        <item name="android:paddingStart">@dimen/spacing_small</item>
+        <item name="android:paddingStart" tools:targetApi="jelly_bean_mr1">@dimen/spacing_small</item>
     </style>
 
 </resources>

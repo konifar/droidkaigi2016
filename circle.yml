@@ -29,6 +29,11 @@ test:
 #    - ./gradlew clean assembleProductionDebug check connectedAndroidTest -PdisablePreDex
     - ./gradlew clean assembleProductionDebug check
 
+general:
+  artifacts:
+    # TODO Fix this because this section run before deployment section, release build apk is nothing.
+    - "app/build/outputs/apk/app-production-release.apk" # relative to the build directory
+
 deployment:
   production:
     branch: master
