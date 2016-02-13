@@ -27,5 +27,6 @@
         <item name="android:layout_marginLeft">@dimen/spacing_small</item>
         <item name="android:layout_marginRight">@dimen/spacing_small</item>
         <item name="android:layout_marginBottom">@dimen/spacing_small</item>
+        <item name="cardUseCompatPadding">true</item>
     </style>
 </resources>
