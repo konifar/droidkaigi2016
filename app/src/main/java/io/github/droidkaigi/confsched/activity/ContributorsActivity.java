@@ -62,7 +62,7 @@ public class ContributorsActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_contributors);
         MainApplication.getComponent(this).inject(this);
         initToolbar();
-        binding.recyclerView.addItemDecoration(new DividerItemDecoration(this));
+        binding.recyclerView.addItemDecoration(new DividerItemDecoration(getApplicationContext(), R.drawable.border_small));
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         compositeSubscription.add(fetchContributors());
     }
