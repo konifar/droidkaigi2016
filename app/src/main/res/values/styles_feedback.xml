@@ -3,6 +3,7 @@
     <style name="FeedbackTitle">
         <item name="android:textSize">@dimen/text</item>
         <item name="android:textColor">?android:textColorSecondary</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:paddingBottom">@dimen/spacing_small</item>
         <item name="android:paddingEnd" tools:targetApi="jelly_bean_mr1">@dimen/spacing</item>
         <item name="android:paddingLeft">@dimen/spacing</item>
@@ -20,5 +21,11 @@
         <item name="android:progressDrawable">@drawable/number_ratingbar</item>
         <item name="android:indeterminateDrawable">@drawable/number_ratingbar</item>
         <item name="android:max">5</item>
+    </style>
+
+    <style name="FeedbackCardItem">
+        <item name="android:layout_marginLeft">@dimen/spacing_small</item>
+        <item name="android:layout_marginRight">@dimen/spacing_small</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_small</item>
     </style>
 </resources>

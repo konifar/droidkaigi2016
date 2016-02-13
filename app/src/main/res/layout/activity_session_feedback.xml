@@ -23,234 +23,295 @@
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
             <!-- Q1 -->
-            <TextView
-                style="@style/FeedbackTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:gravity="center_vertical"
-                android:minHeight="?android:listPreferredItemHeightSmall"
-                android:text="@string/session_feedback_relevance"
-                android:textAlignment="viewStart">
-
-                <requestFocus />
-            </TextView>
-
-            <io.github.droidkaigi.confsched.widget.NumberRatingBar
-                android:id="@+id/relevant_feedback_bar"
-                style="@style/FeedbackNumberRatingBar"
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/spacing_small"
-                android:layout_marginLeft="@dimen/spacing_small"
-                android:layout_marginRight="@dimen/spacing_small"
-                android:layout_marginStart="@dimen/spacing_small"
-                android:maxHeight="?android:listPreferredItemHeightSmall"
-                android:minHeight="?android:listPreferredItemHeightSmall"
-                android:paddingTop="@dimen/spacing_small" />
+                style="@style/FeedbackCardItem">
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/spacing"
-                android:paddingEnd="@dimen/spacing"
-                android:paddingLeft="@dimen/spacing"
-                android:paddingRight="@dimen/spacing"
-                android:paddingStart="@dimen/spacing"
-                android:paddingTop="@dimen/spacing_xsmall">
-
-                <TextView
-                    style="@style/FeedbackQuestionGuideText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start|left"
-                    android:text="@string/session_feedback_not_at_all_relevant" />
-
-                <TextView
-                    style="@style/FeedbackQuestionGuideText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end|right"
-                    android:text="@string/session_feedback_extremely_relevant" />
-
-            </FrameLayout>
-
-            <!-- Q2 -->
-            <TextView
-                style="@style/FeedbackTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:minHeight="?android:listPreferredItemHeightSmall"
-                android:text="@string/session_feedback_expectation_label_text"
-                android:textAlignment="viewStart" />
-
-            <io.github.droidkaigi.confsched.widget.NumberRatingBar
-                android:id="@+id/as_expected_feedback_bar"
-                style="@style/FeedbackNumberRatingBar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/spacing_small"
-                android:layout_marginLeft="@dimen/spacing_small"
-                android:layout_marginRight="@dimen/spacing_small"
-                android:layout_marginStart="@dimen/spacing_small"
-                android:maxHeight="?android:listPreferredItemHeightSmall"
-                android:minHeight="?android:listPreferredItemHeightSmall"
-                android:paddingTop="@dimen/spacing_small" />
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/spacing"
-                android:paddingEnd="@dimen/spacing"
-                android:paddingLeft="@dimen/spacing"
-                android:paddingRight="@dimen/spacing"
-                android:paddingStart="@dimen/spacing"
-                android:paddingTop="@dimen/spacing_xsmall">
-
-                <TextView
-                    style="@style/FeedbackQuestionGuideText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start|left"
-                    android:text="@string/session_feedback_below_expectation" />
-
-                <TextView
-                    style="@style/FeedbackQuestionGuideText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end|right"
-                    android:text="@string/session_feedback_beyond_expectation" />
-
-            </FrameLayout>
-
-            <!-- Q3 -->
-            <TextView
-                style="@style/FeedbackTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:minHeight="?android:listPreferredItemHeightSmall"
-                android:text="@string/session_feedback_difficulty"
-                android:textAlignment="viewStart" />
-
-            <io.github.droidkaigi.confsched.widget.NumberRatingBar
-                android:id="@+id/difficulty_feedback_bar"
-                style="@style/FeedbackNumberRatingBar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/spacing_small"
-                android:layout_marginLeft="@dimen/spacing_small"
-                android:layout_marginRight="@dimen/spacing_small"
-                android:layout_marginStart="@dimen/spacing_small"
-                android:maxHeight="?android:listPreferredItemHeightSmall"
-                android:minHeight="?android:listPreferredItemHeightSmall"
-                android:paddingTop="@dimen/spacing_small" />
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/spacing"
-                android:paddingEnd="@dimen/spacing"
-                android:paddingLeft="@dimen/spacing"
-                android:paddingRight="@dimen/spacing"
-                android:paddingStart="@dimen/spacing"
-                android:paddingTop="@dimen/spacing_xsmall">
-
-                <TextView
-                    style="@style/FeedbackQuestionGuideText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start|left"
-                    android:text="@string/session_feedback_easy" />
-
-                <TextView
-                    style="@style/FeedbackQuestionGuideText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end|right"
-                    android:text="@string/session_feedback_hard" />
-
-            </FrameLayout>
-
-            <!-- Q4 -->
-            <TextView
-                style="@style/FeedbackTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:minHeight="?android:listPreferredItemHeightSmall"
-                android:text="@string/session_feedback_knowledgeable"
-                android:textAlignment="viewStart" />
-
-            <io.github.droidkaigi.confsched.widget.NumberRatingBar
-                android:id="@+id/knowledgeable_feedback_bar"
-                style="@style/FeedbackNumberRatingBar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/spacing_small"
-                android:layout_marginLeft="@dimen/spacing_small"
-                android:layout_marginRight="@dimen/spacing_small"
-                android:layout_marginStart="@dimen/spacing_small"
-                android:maxHeight="?android:listPreferredItemHeightSmall"
-                android:minHeight="?android:listPreferredItemHeightSmall"
-                android:paddingTop="@dimen/spacing_small" />
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/spacing"
-                android:paddingEnd="@dimen/spacing"
-                android:paddingLeft="@dimen/spacing"
-                android:paddingRight="@dimen/spacing"
-                android:paddingStart="@dimen/spacing"
-                android:paddingTop="@dimen/spacing_xsmall">
-
-                <TextView
-                    style="@style/FeedbackQuestionGuideText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start|left"
-                    android:text="@string/session_feedback_poor_knowledge" />
-
-                <TextView
-                    style="@style/FeedbackQuestionGuideText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end|right"
-                    android:text="@string/session_feedback_outstanding_knowledge" />
-
-            </FrameLayout>
-
-            <!-- Additional Comment -->
-            <TextView
-                style="@style/FeedbackTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:minHeight="?android:listPreferredItemHeightSmall"
-                android:text="@string/session_feedback_other"
-                android:textAlignment="viewStart" />
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/session_feedback_other_hint"
-                android:paddingBottom="@dimen/spacing_small"
-                android:paddingEnd="@dimen/spacing"
-                android:paddingLeft="@dimen/spacing"
-                android:paddingRight="@dimen/spacing"
-                android:paddingStart="@dimen/spacing"
-                app:counterMaxLength="400">
-
-                <EditText
-                    android:id="@+id/other_comments_feedback_text"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black_alpha_87"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
-            </android.support.design.widget.TextInputLayout>
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/FeedbackTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:gravity="center_vertical"
+                        android:minHeight="?android:listPreferredItemHeightSmall"
+                        android:text="@string/session_feedback_relevance"
+                        android:textAlignment="viewStart">
+
+                        <requestFocus />
+                    </TextView>
+
+                    <io.github.droidkaigi.confsched.widget.NumberRatingBar
+                        android:id="@+id/relevant_feedback_bar"
+                        style="@style/FeedbackNumberRatingBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/spacing_small"
+                        android:layout_marginLeft="@dimen/spacing_small"
+                        android:layout_marginRight="@dimen/spacing_small"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        android:maxHeight="?android:listPreferredItemHeightSmall"
+                        android:minHeight="?android:listPreferredItemHeightSmall"
+                        android:paddingTop="@dimen/spacing_small" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="@dimen/spacing"
+                        android:paddingEnd="@dimen/spacing"
+                        android:paddingLeft="@dimen/spacing"
+                        android:paddingRight="@dimen/spacing"
+                        android:paddingStart="@dimen/spacing"
+                        android:paddingTop="@dimen/spacing_xsmall">
+
+                        <TextView
+                            style="@style/FeedbackQuestionGuideText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start|left"
+                            android:text="@string/session_feedback_not_at_all_relevant" />
+
+                        <TextView
+                            style="@style/FeedbackQuestionGuideText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end|right"
+                            android:text="@string/session_feedback_extremely_relevant" />
+
+                    </FrameLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <!-- Q2 -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/FeedbackCardItem">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/FeedbackTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minHeight="?android:listPreferredItemHeightSmall"
+                        android:text="@string/session_feedback_expectation_label_text"
+                        android:textAlignment="viewStart" />
+
+                    <io.github.droidkaigi.confsched.widget.NumberRatingBar
+                        android:id="@+id/as_expected_feedback_bar"
+                        style="@style/FeedbackNumberRatingBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/spacing_small"
+                        android:layout_marginLeft="@dimen/spacing_small"
+                        android:layout_marginRight="@dimen/spacing_small"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        android:maxHeight="?android:listPreferredItemHeightSmall"
+                        android:minHeight="?android:listPreferredItemHeightSmall"
+                        android:paddingTop="@dimen/spacing_small" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="@dimen/spacing"
+                        android:paddingEnd="@dimen/spacing"
+                        android:paddingLeft="@dimen/spacing"
+                        android:paddingRight="@dimen/spacing"
+                        android:paddingStart="@dimen/spacing"
+                        android:paddingTop="@dimen/spacing_xsmall">
+
+                        <TextView
+                            style="@style/FeedbackQuestionGuideText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start|left"
+                            android:text="@string/session_feedback_below_expectation" />
+
+                        <TextView
+                            style="@style/FeedbackQuestionGuideText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end|right"
+                            android:text="@string/session_feedback_beyond_expectation" />
+
+                    </FrameLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <!-- Q3 -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/FeedbackCardItem">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/FeedbackTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minHeight="?android:listPreferredItemHeightSmall"
+                        android:text="@string/session_feedback_difficulty"
+                        android:textAlignment="viewStart" />
+
+                    <io.github.droidkaigi.confsched.widget.NumberRatingBar
+                        android:id="@+id/difficulty_feedback_bar"
+                        style="@style/FeedbackNumberRatingBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/spacing_small"
+                        android:layout_marginLeft="@dimen/spacing_small"
+                        android:layout_marginRight="@dimen/spacing_small"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        android:maxHeight="?android:listPreferredItemHeightSmall"
+                        android:minHeight="?android:listPreferredItemHeightSmall"
+                        android:paddingTop="@dimen/spacing_small" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="@dimen/spacing"
+                        android:paddingEnd="@dimen/spacing"
+                        android:paddingLeft="@dimen/spacing"
+                        android:paddingRight="@dimen/spacing"
+                        android:paddingStart="@dimen/spacing"
+                        android:paddingTop="@dimen/spacing_xsmall">
+
+                        <TextView
+                            style="@style/FeedbackQuestionGuideText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start|left"
+                            android:text="@string/session_feedback_easy" />
+
+                        <TextView
+                            style="@style/FeedbackQuestionGuideText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end|right"
+                            android:text="@string/session_feedback_hard" />
+
+                    </FrameLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <!-- Q4 -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/FeedbackCardItem">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/FeedbackTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minHeight="?android:listPreferredItemHeightSmall"
+                        android:text="@string/session_feedback_knowledgeable"
+                        android:textAlignment="viewStart" />
+
+                    <io.github.droidkaigi.confsched.widget.NumberRatingBar
+                        android:id="@+id/knowledgeable_feedback_bar"
+                        style="@style/FeedbackNumberRatingBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/spacing_small"
+                        android:layout_marginLeft="@dimen/spacing_small"
+                        android:layout_marginRight="@dimen/spacing_small"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        android:maxHeight="?android:listPreferredItemHeightSmall"
+                        android:minHeight="?android:listPreferredItemHeightSmall"
+                        android:paddingTop="@dimen/spacing_small" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="@dimen/spacing"
+                        android:paddingEnd="@dimen/spacing"
+                        android:paddingLeft="@dimen/spacing"
+                        android:paddingRight="@dimen/spacing"
+                        android:paddingStart="@dimen/spacing"
+                        android:paddingTop="@dimen/spacing_xsmall">
+
+                        <TextView
+                            style="@style/FeedbackQuestionGuideText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start|left"
+                            android:text="@string/session_feedback_poor_knowledge" />
+
+                        <TextView
+                            style="@style/FeedbackQuestionGuideText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end|right"
+                            android:text="@string/session_feedback_outstanding_knowledge" />
+
+                    </FrameLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <!-- Additional Comment -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/FeedbackCardItem">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/FeedbackTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minHeight="?android:listPreferredItemHeightSmall"
+                        android:text="@string/session_feedback_other"
+                        android:textAlignment="viewStart" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/session_feedback_other_hint"
+                        android:paddingBottom="@dimen/spacing_small"
+                        android:paddingEnd="@dimen/spacing"
+                        android:paddingLeft="@dimen/spacing"
+                        android:paddingRight="@dimen/spacing"
+                        android:paddingStart="@dimen/spacing"
+                        app:counterMaxLength="400">
+
+                        <EditText
+                            android:id="@+id/other_comments_feedback_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/black_alpha_87" />
+                    </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
 
             <!-- we need this space to anchor the button at the bottom on tall devices -->
             <android.support.v4.widget.Space
@@ -276,7 +337,6 @@
                     android:layout_gravity="center"
                     android:drawablePadding="8dp"
                     android:gravity="center_vertical"
-                    android:paddingRight="24dp"
                     android:text="@string/session_feedback_submitlink"
                     android:textAllCaps="true"
                     android:textAppearance="@style/TextAppearance.AppCompat.Button"
