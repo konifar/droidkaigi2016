@@ -88,7 +88,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
             manifestPlaceholders = [
-                    mapsApiKey: System.getenv('ANDROID_MAPS_API_KEY') != null ? System.getenv('ANDROID_MAPS_API_KEY') : android_maps_api_key
+                    mapsApiKey: System.getenv('ANDROID_MAPS_API_KEY_RELEASE') != null ? System.getenv('ANDROID_MAPS_API_KEY_RELEASE') : android_maps_api_key
             ]
             buildConfigField("String", "GA_TRACKING_ID", "\"${ga_tracking_id_release}\"")
         }
