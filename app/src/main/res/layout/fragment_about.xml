@@ -62,6 +62,7 @@
 
                 <TextView
                     style="@style/AboutTitle"
+                    android:layout_marginTop="@dimen/spacing"
                     android:text="@string/about_social" />
 
                 <RelativeLayout
