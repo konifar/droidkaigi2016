@@ -1,15 +1,13 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Session Feedback -->
     <style name="FeedbackTitle">
         <item name="android:textSize">@dimen/text</item>
         <item name="android:textColor">?android:textColorSecondary</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:paddingBottom">@dimen/spacing_small</item>
-        <item name="android:paddingEnd" tools:targetApi="jelly_bean_mr1">@dimen/spacing</item>
-        <item name="android:paddingLeft">@dimen/spacing</item>
-        <item name="android:paddingRight">@dimen/spacing</item>
-        <item name="android:paddingStart" tools:targetApi="jelly_bean_mr1">@dimen/spacing</item>
-        <item name="android:paddingTop">@dimen/spacing_small</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
     </style>
 
     <style name="FeedbackQuestionGuideText">
