@@ -45,6 +45,12 @@ public class DataBindingAttributeUtil {
         }
     }
 
+    @BindingAdapter({"contributorAvatarUrl", "contributorAvatarSize"})
+    public static void setContributorAvatarUrlWithSize(ImageView imageView, @Nullable String imageUrl, float sizeInDimen) {
+        // FIXME: should separate setContributorAvatarUrlWithSize from setSpeakerImageUrlWithSize
+        setSpeakerImageUrlWithSize(imageView, imageUrl, sizeInDimen);
+    }
+
     @BindingAdapter("coverFadeBackground")
     public static void setCoverFadeBackground(View view, @NonNull Category category) {
         view.setBackgroundResource(category.getPaleColorResId());

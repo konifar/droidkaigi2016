@@ -13,6 +13,7 @@ import javax.inject.Inject;
 import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.activity.ActivityNavigator;
+import io.github.droidkaigi.confsched.activity.ContributorsActivity;
 import io.github.droidkaigi.confsched.databinding.FragmentAboutBinding;
 import io.github.droidkaigi.confsched.util.AppUtil;
 import io.github.droidkaigi.confsched.util.LocaleUtil;
@@ -72,6 +73,10 @@ public class AboutFragment extends Fragment {
                 activityNavigator.showWebView(getActivity(), LICENSE_URL, getString(R.string.about_license)));
         binding.txtGithubRepository.setOnClickListener(v ->
                 AppUtil.showWebPage(getActivity(), AppUtil.getGitHubUrl(CONF_REPOSITORY_NAME)));
+
+        binding.txtContributors.setOnClickListener(v ->
+            startActivity(ContributorsActivity.createIntent(getActivity()))
+        );
 
         binding.txtVersion.setText(AppUtil.getVersionName(getActivity()));
     }
