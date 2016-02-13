@@ -55,7 +55,6 @@
     <string name="settings_language_description">表示言語を変更できます。変更後はアプリが再起動されます。</string>
     <string name="settings_notification">通知設定</string>
     <string name="settings_notification_description">通知を受け取るかどうかを設定できます。</string>
-    <string name="settings_bugreport">バグレポート</string>
 
     <string name="sponsor_category_platinum">プラチナスポンサー</string>
     <string name="sponsor_category_video">ビデオスポンサー</string>
