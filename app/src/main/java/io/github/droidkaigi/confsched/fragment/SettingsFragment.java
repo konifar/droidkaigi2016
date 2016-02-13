@@ -61,6 +61,7 @@ public class SettingsFragment extends Fragment {
         binding.languageSettingsContainer.setOnClickListener(v -> showLanguagesDialog());
         binding.txtBugreport.setOnClickListener(v -> showBugReport());
 
+        binding.notificationSettingContainer.setOnClickListener(v -> switchNotificationSetting());
         boolean notificationSetting = PrefUtil.get(getContext(), PrefUtil.KEY_NOTIFICATION_SETTING, true);
         binding.notificationSettingSwitch.setChecked(notificationSetting);
         binding.notificationSettingSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> setNotificationSetting(isChecked));
@@ -103,5 +104,11 @@ public class SettingsFragment extends Fragment {
 
     private void setNotificationSetting(boolean isChecked) {
         PrefUtil.put(getContext(), PrefUtil.KEY_NOTIFICATION_SETTING, isChecked);
+    }
+
+    private void switchNotificationSetting() {
+        boolean newValule = !PrefUtil.get(getContext(), PrefUtil.KEY_NOTIFICATION_SETTING, true);
+        setNotificationSetting(newValule);
+        binding.notificationSettingSwitch.setChecked(newValule);
     }
 }
