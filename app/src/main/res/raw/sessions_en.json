@@ -21,7 +21,9 @@
       "name": "Keynote venue"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": ""
   },
   {
     "id": 2,
@@ -45,7 +47,9 @@
       "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-11-30-12-00-a"
   },
   {
     "id": 3,
@@ -69,7 +73,9 @@
       "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-11-30-12-00-b"
   },
   {
     "id": 4,
@@ -93,7 +99,9 @@
       "name": "Room C"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-11-30-12-00-c"
   },
   {
     "id": 5,
@@ -117,7 +125,9 @@
       "name": "Room D"
     },
     "language_id": "en",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-11-30-12-00-d"
   },
   {
     "id": 6,
@@ -141,7 +151,9 @@
       "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-13-00-13-50-a"
   },
   {
     "id": 7,
@@ -165,7 +177,9 @@
       "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-13-00-13-50-b"
   },
   {
     "id": 8,
@@ -189,7 +203,9 @@
       "name": "Room C"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-13-00-13-50-c"
   },
   {
     "id": 9,
@@ -213,7 +229,9 @@
       "name": "Room D"
     },
     "language_id": "en",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-13-00-13-50-d"
   },
   {
     "id": 10,
@@ -237,7 +255,9 @@
       "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-14-00-14-50-a"
   },
   {
     "id": 11,
@@ -261,7 +281,9 @@
       "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-14-00-14-50-b"
   },
   {
     "id": 12,
@@ -285,7 +307,9 @@
       "name": "Room D"
     },
     "language_id": "en",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-14-00-14-50-d"
   },
   {
     "id": 13,
@@ -309,7 +333,9 @@
       "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-10-15-40-a"
   },
   {
     "id": 14,
@@ -333,7 +359,9 @@
       "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-10-15-40-b"
   },
   {
     "id": 15,
@@ -357,7 +385,9 @@
       "name": "Room C"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-10-15-40-c"
   },
   {
     "id": 16,
@@ -381,7 +411,9 @@
       "name": "Room D"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-10-15-40-d"
   },
   {
     "id": 17,
@@ -405,7 +437,9 @@
       "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-50-16-20-a"
   },
   {
     "id": 18,
@@ -429,7 +463,9 @@
       "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-50-16-20-b"
   },
   {
     "id": 19,
@@ -453,7 +489,9 @@
       "name": "Room D"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-50-16-20-d"
   },
   {
     "id": 20,
@@ -477,7 +515,9 @@
       "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-16-30-17-00-a"
   },
   {
     "id": 21,
@@ -501,7 +541,9 @@
       "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-16-30-17-00-b"
   },
   {
     "id": 22,
@@ -525,7 +567,9 @@
       "name": "Room D"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-16-30-17-00-d"
   },
   {
     "id": 23,
@@ -549,7 +593,9 @@
       "name": "Keynote venue"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": ""
   },
   {
     "id": 24,
@@ -573,7 +619,9 @@
       "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-11-30-12-00-a"
   },
   {
     "id": 25,
@@ -597,7 +645,9 @@
       "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-11-30-12-00-b"
   },
   {
     "id": 26,
@@ -621,7 +671,9 @@
       "name": "Room C"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-11-30-12-00-c"
   },
   {
     "id": 27,
@@ -645,7 +697,9 @@
       "name": "Room D"
     },
     "language_id": "en",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-11-30-12-00-d"
   },
   {
     "id": 28,
@@ -669,7 +723,9 @@
       "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-13-00-13-50-a"
   },
   {
     "id": 29,
@@ -693,7 +749,9 @@
       "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-13-00-13-50-b"
   },
   {
     "id": 30,
@@ -717,7 +775,9 @@
       "name": "Room C"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-13-00-13-50-c"
   },
   {
     "id": 31,
@@ -741,7 +801,9 @@
       "name": "Room D"
     },
     "language_id": "en",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-13-00-13-50-d"
   },
   {
     "id": 32,
@@ -765,7 +827,9 @@
       "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-14-00-14-50-a"
   },
   {
     "id": 33,
@@ -789,7 +853,9 @@
       "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-14-00-14-50-b"
   },
   {
     "id": 34,
@@ -813,7 +879,9 @@
       "name": "Room C"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-14-00-14-50-c"
   },
   {
     "id": 35,
@@ -837,7 +905,9 @@
       "name": "Room D"
     },
     "language_id": "en",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-14-00-14-50-d"
   },
   {
     "id": 36,
@@ -861,7 +931,9 @@
       "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-10-15-40-a"
   },
   {
     "id": 37,
@@ -885,7 +957,9 @@
       "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-10-15-40-b"
   },
   {
     "id": 38,
@@ -909,7 +983,9 @@
       "name": "Room C"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-10-15-40-c"
   },
   {
     "id": 39,
@@ -933,7 +1009,9 @@
       "name": "Room D"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-10-15-40-d"
   },
   {
     "id": 40,
@@ -957,7 +1035,9 @@
       "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-50-16-20-a"
   },
   {
     "id": 41,
@@ -967,7 +1047,7 @@
       "id": 40,
       "name": "宮下 竜大郎",
       "image_url": "https://pbs.twimg.com/profile_images/625336726655897600/3XGY2KW0.jpg",
-      "twitter_name": "ryugoo_",
+      "twitter_name": "ryugoo",
       "github_name": "ryugoo"
     },
     "stime": "2016-02-19 15:50:00",
@@ -981,7 +1061,9 @@
       "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-50-16-20-b"
   },
   {
     "id": 42,
@@ -1005,7 +1087,9 @@
       "name": "Room D"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-50-16-20-d"
   },
   {
     "id": 43,
@@ -1029,7 +1113,9 @@
       "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-16-30-17-00-a"
   },
   {
     "id": 44,
@@ -1053,7 +1139,9 @@
       "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-16-30-17-00-b"
   },
   {
     "id": 45,
@@ -1077,6 +1165,8 @@
       "name": "Room D"
     },
     "language_id": "ja",
-    "slide_url": ""
+    "slide_url": "",
+    "movie_url": "",
+    "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-16-30-17-00-d"
   }
 ]

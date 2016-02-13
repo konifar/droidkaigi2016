@@ -7,6 +7,7 @@
     <string name="ok">حسنا</string>
     <string name="cancel">إلغاء</string>
     <string name="yes">نعم</string>
+    <string name="share">شارك</string>
 
     <string name="speaker">المتحدث</string>
     <string name="session_time_range">%1$s ~ %2$s (%3$s دقائق)</string>
@@ -46,6 +47,10 @@
     <string name="map_button_allow">السماح</string>
     <string name="map_button_deny">رفض</string>
 
+    <string name="lang_ar">@string/lang_ar_in_ar</string>
+    <string name="lang_en">@string/lang_en_in_ar</string>
+    <string name="lang_ja">@string/lang_ja_in_ar</string>
+
     <string name="settings_language">تعيين لغة</string>
     <string name="settings_language_description">يمكنك تغيير لغة العرض. بعد التغيير سيتم إعادة تشغيل التطبيق.</string>
     <string name="settings_bugreport">تقرير الشوائب</string>
@@ -68,6 +73,8 @@
 
     <string name="my_schedule_empty">لم تتم إضافته بعد جلسة ذلك. دعونا اختيار الدورات تريد أن تسمع من جميع الدورات!</string>
     <string name="my_schedule_go_to_session_list">رؤية جميع الدورات</string>
+
+    <string name="schedule_notification_title">قبل %1$d دقائق من الجلسة</string>
 
     <string name="session_feedback_accepted_successfully">Thank you! The feedback was accepted.</string>
     <string name="session_feedback_below_expectation">Below</string>

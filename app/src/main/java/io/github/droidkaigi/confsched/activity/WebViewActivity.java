@@ -49,7 +49,8 @@ public class WebViewActivity extends AppCompatActivity {
         binding.webview.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                return false;
+                AppUtil.showWebPage(WebViewActivity.this, url);
+                return true;
             }
         });
         binding.webview.loadUrl(url);

@@ -1,13 +1,12 @@
 package io.github.droidkaigi.confsched.model;
 
-import com.google.gson.annotations.SerializedName;
+import android.support.annotation.Nullable;
 
 import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.Table;
+import com.google.gson.annotations.SerializedName;
 
 import org.parceler.Parcel;
-
-import android.support.annotation.Nullable;
 
 import java.util.Date;
 
@@ -64,6 +63,16 @@ public class Session {
     @Nullable
     @SerializedName("slide_url")
     public String slideUrl;
+
+    @Column(defaultExpr = "''")
+    @Nullable
+    @SerializedName("movie_url")
+    public String movieUrl;
+
+    @Column(defaultExpr = "''")
+    @Nullable
+    @SerializedName("share_url")
+    public String shareUrl;
 
     @Column(indexed = true)
     public boolean checked;

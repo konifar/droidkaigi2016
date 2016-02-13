@@ -43,7 +43,7 @@ public class AppModule {
 
     @Singleton
     @Provides
-    public Tracker providesGoogleAnalyticsTracker(Context context) {
+    public Tracker provideGoogleAnalyticsTracker(Context context) {
         GoogleAnalytics ga = GoogleAnalytics.getInstance(context);
         Tracker tracker = ga.newTracker(BuildConfig.GA_TRACKING_ID);
         tracker.enableAdvertisingIdCollection(true);
