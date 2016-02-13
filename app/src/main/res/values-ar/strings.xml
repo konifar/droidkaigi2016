@@ -7,6 +7,7 @@
     <string name="ok">حسنا</string>
     <string name="cancel">إلغاء</string>
     <string name="yes">نعم</string>
+    <string name="share">شارك</string>
 
     <string name="speaker">المتحدث</string>
     <string name="session_time_range">%1$s ~ %2$s (%3$s دقائق)</string>

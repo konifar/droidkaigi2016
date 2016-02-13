@@ -7,6 +7,7 @@
     <string name="ok">OK</string>
     <string name="cancel">キャンセル</string>
     <string name="yes">はい</string>
+    <string name="share">シェア</string>
 
     <string name="speaker">スピーカー</string>
     <string name="session_time_range">%1$s 〜 %2$s（%3$s分）</string>
