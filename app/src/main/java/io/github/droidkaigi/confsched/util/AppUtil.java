@@ -93,6 +93,10 @@ public class AppUtil {
         return getString(context, LANG_STRING_RES_PREFIX + languageId);
     }
 
+    public static String getLanguage(Context context, String languageId, String in) {
+        return getString(context, LANG_STRING_RES_PREFIX + languageId + "_in_" + in);
+    }
+
     public static String getString(@NonNull Context context, @NonNull String resName) {
         try {
             int resourceId = context.getResources().getIdentifier(
