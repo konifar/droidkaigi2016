@@ -24,6 +24,7 @@ import io.github.droidkaigi.confsched.activity.ActivityNavigator;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSessionDetailBinding;
 import io.github.droidkaigi.confsched.model.Session;
+import io.github.droidkaigi.confsched.util.AlarmUtil;
 import io.github.droidkaigi.confsched.util.AppUtil;
 
 public class SessionDetailFragment extends Fragment {
@@ -84,6 +85,7 @@ public class SessionDetailFragment extends Fragment {
             session.checked = checked;
             dao.updateChecked(session);
             setResult();
+            AlarmUtil.handleSessionAlarm(getActivity(), session);
         });
 
         binding.txtFeedback.setOnClickListener(v -> activityNavigator.showFeedback(getActivity(), session));

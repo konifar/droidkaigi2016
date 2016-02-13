@@ -69,6 +69,8 @@
     <string name="my_schedule_empty">まだセッションが追加されていません。全てのセッションから聞きたいセッションを選んでみましょう!</string>
     <string name="my_schedule_go_to_session_list">全てのセッションを見る</string>
 
+    <string name="schedule_notification_title">開始%1$d分前です</string>
+
     <string name="session_feedback_accepted_successfully">ありがとうございます！フィードバックは送信されました。</string>
     <string name="session_feedback_below_expectation">期待外れ</string>
     <string name="session_feedback_beyond_expectation">期待以上</string>

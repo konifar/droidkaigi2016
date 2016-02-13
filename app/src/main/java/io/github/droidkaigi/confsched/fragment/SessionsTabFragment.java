@@ -29,6 +29,7 @@ import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSessionsTabBinding;
 import io.github.droidkaigi.confsched.databinding.ItemSessionBinding;
 import io.github.droidkaigi.confsched.model.Session;
+import io.github.droidkaigi.confsched.util.AlarmUtil;
 import io.github.droidkaigi.confsched.widget.ArrayRecyclerAdapter;
 import io.github.droidkaigi.confsched.widget.BindingHolder;
 import io.github.droidkaigi.confsched.widget.itemdecoration.SpaceItemDecoration;
@@ -152,6 +153,7 @@ public class SessionsTabFragment extends Fragment {
                 public void liked(LikeButton likeButton) {
                     session.checked = true;
                     dao.updateChecked(session);
+                    AlarmUtil.handleSessionAlarm(getContext(), session);
                     onChangeSessionListener.onChangeSession(Collections.singletonList(session));
                 }
 
@@ -159,6 +161,7 @@ public class SessionsTabFragment extends Fragment {
                 public void unLiked(LikeButton likeButton) {
                     session.checked = false;
                     dao.updateChecked(session);
+                    AlarmUtil.handleSessionAlarm(getContext(), session);
                     onChangeSessionListener.onChangeSession(Collections.singletonList(session));
                 }
             });
