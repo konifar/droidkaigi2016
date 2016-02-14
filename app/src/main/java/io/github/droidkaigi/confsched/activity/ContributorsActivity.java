@@ -102,8 +102,12 @@ public class ContributorsActivity extends AppCompatActivity {
     }
 
     private void bindContributors(List<Contributor> contributors) {
-        String title = binding.toolbar.getTitle().toString();
-        binding.toolbar.setTitle(title + getString(R.string.number_with_brackets, contributors.size()));
+        int count = contributors.size();
+        String title = binding.toolbar.getTitle().toString()
+                + " "
+                + getResources().getQuantityString(R.plurals.number_with_brackets, count, count);
+
+        binding.toolbar.setTitle(title);
 
         ContributorsAdapter adapter = new ContributorsAdapter(this);
         adapter.addAll(contributors);

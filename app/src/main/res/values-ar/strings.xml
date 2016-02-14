@@ -73,14 +73,28 @@
     <string name="about_version_prefix">V%1$s</string>
 
     <string name="contributors_load_error">فشل تحميل المساهمين .</string>
-    <string name="number_with_brackets"> (%1$d)</string>
+    <plurals name="number_with_brackets">
+        <item quantity="zero">(%1$d أشخاص)</item>
+        <item quantity="one">(%1$d شخص)</item>
+        <item quantity="two">(%1$d شخصين)</item>
+        <item quantity="few">(%1$d أشخاص)</item>
+        <item quantity="many">(%1$d شخص)</item>
+        <item quantity="other">(%1$d شخص)</item>
+    </plurals>
 
     <string name="search_hint">البحث بواسطة كلمة</string>
 
     <string name="my_schedule_empty">لم تتم إضافته بعد جلسة ذلك. دعونا اختيار الدورات تريد أن تسمع من جميع الدورات!</string>
     <string name="my_schedule_go_to_session_list">رؤية جميع الدورات</string>
 
-    <string name="schedule_notification_title">قبل %1$d دقائق من الجلسة</string>
+    <plurals name="schedule_notification_title">
+        <item quantity="zero">قبل %1$d دقيقة من الجلسة</item>
+        <item quantity="one">قبل %1$d دقيقة من الجلسة</item>
+        <item quantity="two">قبل %1$d دقيقة من الجلسة</item>
+        <item quantity="few">قبل %1$d دقائق من الجلسة</item>
+        <item quantity="many">قبل %1$d دقائق من الجلسة</item>
+        <item quantity="other">قبل %1$d دقائق من الجلسة</item>
+    </plurals>
 
     <string name="session_feedback_accepted_successfully">Thank you! The feedback was accepted.</string>
     <string name="session_feedback_below_expectation">Below</string>

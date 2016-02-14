@@ -85,14 +85,21 @@
     <string name="about_version_prefix">"V%1$s</string>
 
     <string name="contributors_load_error">Failed to load contributors.</string>
-    <string name="number_with_brackets"> (%1$d)</string>
+
+    <plurals name="number_with_brackets">
+        <item quantity="one">(%1$d person)</item>
+        <item quantity="other">(%1$d people)</item>
+    </plurals>
 
     <string name="search_hint">Search by words</string>
 
     <string name="my_schedule_empty">No items here. Let\'s check out all sessions and put your favourite!</string>
     <string name="my_schedule_go_to_session_list">Go to All Sessions</string>
 
-    <string name="schedule_notification_title">%1$d minutes before session</string>
+    <plurals name="schedule_notification_title">
+        <item quantity="one">%1$d minute before session</item>
+        <item quantity="other">%1$d minutes before session</item>
+    </plurals>
 
     <string name="session_feedback_accepted_successfully">Thank you! The feedback was accepted.</string>
     <string name="session_feedback_below_expectation">Below</string>

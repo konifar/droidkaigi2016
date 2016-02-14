@@ -21,6 +21,8 @@ import io.github.droidkaigi.confsched.util.PrefUtil;
 
 public class SessionScheduleReceiver extends BroadcastReceiver {
 
+    private static final int REMIND_MINUTES = 5;
+
     @Override
     public void onReceive(Context context, Intent intent) {
         boolean shouldNotify = PrefUtil.get(context, PrefUtil.KEY_NOTIFICATION_SETTING, true);
@@ -33,18 +35,21 @@ public class SessionScheduleReceiver extends BroadcastReceiver {
         // launch SessionDetailsActivity stacked with MainActivity
         Intent sessionDetailIntent = SessionDetailActivity.createIntent(context, session);
         Intent mainIntent = new Intent(context, MainActivity.class);
-        mainIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        mainIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
         Intent[] intents = {mainIntent, sessionDetailIntent};
         PendingIntent pendingIntent = PendingIntent.getActivities(context, 0, intents, PendingIntent.FLAG_CANCEL_CURRENT);
 
         Bitmap appIcon = BitmapFactory.decodeResource(context.getResources(), R.mipmap.ic_launcher);
 
+        String title = context.getResources().getQuantityString(
+                R.plurals.schedule_notification_title, REMIND_MINUTES, REMIND_MINUTES);
+
         Notification notification = new NotificationCompat.Builder(context)
                 .setContentIntent(pendingIntent)
                 .setSmallIcon(R.drawable.ic_access_time_grey_600_24dp)
                 .setLargeIcon(appIcon)
-                .setContentTitle(context.getString(R.string.schedule_notification_title, 5))
+                .setContentTitle(title)
                 .setContentText(session.title)
                 .setDefaults(Notification.DEFAULT_ALL)
                 .setAutoCancel(true)
