@@ -1,6 +1,7 @@
 package io.github.droidkaigi.confsched.di;
 
 import dagger.Subcomponent;
+import io.github.droidkaigi.confsched.activity.ContributorsActivity;
 import io.github.droidkaigi.confsched.activity.MainActivity;
 import io.github.droidkaigi.confsched.activity.SearchActivity;
 import io.github.droidkaigi.confsched.activity.SearchedSessionsActivity;
@@ -21,6 +22,8 @@ public interface ActivityComponent {
     void inject(SearchedSessionsActivity activity);
 
     void inject(SessionFeedbackActivity activity);
+
+    void inject(ContributorsActivity activity);
 
     FragmentComponent plus(FragmentModule module);
 

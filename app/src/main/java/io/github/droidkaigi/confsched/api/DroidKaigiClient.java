@@ -10,6 +10,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import io.github.droidkaigi.confsched.model.Contributor;
 import io.github.droidkaigi.confsched.model.Session;
 import io.github.droidkaigi.confsched.model.SessionFeedback;
 import okhttp3.OkHttpClient;
@@ -21,28 +22,27 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import rx.Observable;
 
 @Singleton
 public class DroidKaigiClient {
 
-    private static final String END_POINT = "https://raw.githubusercontent.com";
-    private static final String GOOGLE_FORM_END_POINT = "https://docs.google.com/forms/d/";
-    private static final String JSON_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
     private static final String SESSIONS_API_ROUTES = "/konifar/droidkaigi2016/master/app/src/main/res/raw/";
 
     private final DroidKaigiService service;
     private final GoogleFormService googleFormService;
+    private final GithubService githubService;
 
     public static Gson createGson() {
-        return new GsonBuilder().setDateFormat(JSON_DATE_FORMAT).create();
+        return new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
     }
 
     @Inject
     public DroidKaigiClient(OkHttpClient client) {
         Retrofit feedburnerRetrofit = new Retrofit.Builder()
                 .client(client)
-                .baseUrl(END_POINT)
+                .baseUrl("https://raw.githubusercontent.com")
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(createGson()))
                 .build();
@@ -50,11 +50,19 @@ public class DroidKaigiClient {
 
         Retrofit googleFormRetrofit = new Retrofit.Builder()
                 .client(client)
-                .baseUrl(GOOGLE_FORM_END_POINT)
+                .baseUrl("https://docs.google.com/forms/d/")
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(createGson()))
                 .build();
         googleFormService = googleFormRetrofit.create(GoogleFormService.class);
+
+        Retrofit githubRetrofit = new Retrofit.Builder()
+                .client(client)
+                .baseUrl("https://api.github.com")
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(createGson()))
+                .build();
+        githubService = githubRetrofit.create(GithubService.class);
     }
 
     public Observable<List<Session>> getSessions(@NonNull String languageId) {
@@ -72,6 +80,10 @@ public class DroidKaigiClient {
 
     public Observable<Response<Void>> submitSessionFeedback(SessionFeedback f) {
         return googleFormService.submitSessionFeedback(f.sessionId, f.sessionName, f.relevancy, f.asExpected, f.difficulty, f.knowledgeable, f.comment);
+    }
+
+    public Observable<List<Contributor>> getContributors() {
+        return githubService.getContributors("konifar", "droidkaigi2016");
     }
 
     public interface DroidKaigiService {
@@ -99,5 +111,10 @@ public class DroidKaigiClient {
                 @Field("entry.675295234") int knowledgeable,
                 @Field("entry.1455307059") String comment
         );
+    }
+
+    public interface GithubService {
+        @GET("/repos/{owner}/{repo}/contributors")
+        Observable<List<Contributor>> getContributors(@Path("owner") String owner, @Path("repo") String repo);
     }
 }

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="contributor"
+            type="io.github.droidkaigi.confsched.model.Contributor" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/img_contributor"
+            android:layout_width="@dimen/user_image_large"
+            android:layout_height="@dimen/user_image_large"
+            app:contributorAvatarUrl="@{contributor.avatarUrl}"
+            app:contributorAvatarSize="@{@dimen/user_image_large}" />
+
+        <TextView
+            android:id="@+id/txt_contributor_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/img_contributor"
+            android:layout_alignTop="@id/img_contributor"
+            android:layout_marginLeft="@dimen/icon_spacing_large"
+            android:layout_marginStart="@dimen/icon_spacing_large"
+            android:layout_toEndOf="@id/img_contributor"
+            android:layout_toRightOf="@id/img_contributor"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/text_large"
+            app:textRtlConsidered="@{contributor.name}" />
+
+    </RelativeLayout>
+
+
+</layout>

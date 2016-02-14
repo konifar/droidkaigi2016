@@ -13,6 +13,7 @@ import javax.inject.Inject;
 import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.activity.ActivityNavigator;
+import io.github.droidkaigi.confsched.activity.ContributorsActivity;
 import io.github.droidkaigi.confsched.databinding.FragmentAboutBinding;
 import io.github.droidkaigi.confsched.util.AppUtil;
 import io.github.droidkaigi.confsched.util.LocaleUtil;
@@ -69,11 +70,15 @@ public class AboutFragment extends Fragment {
             AppUtil.showWebPage(getActivity(), getString(R.string.about_inquiry_url));
         });
         binding.txtLicense.setOnClickListener(v ->
-                activityNavigator.showWebView(getActivity(), LICENSE_URL, getString(R.string.about_license)));
+                activityNavigator.showWebView(getContext(), LICENSE_URL, getString(R.string.about_license)));
+
         binding.txtGithubRepository.setOnClickListener(v ->
                 AppUtil.showWebPage(getActivity(), AppUtil.getGitHubUrl(CONF_REPOSITORY_NAME)));
 
-        binding.txtVersion.setText(AppUtil.getVersionName(getActivity()));
+        binding.txtContributors.setOnClickListener(v ->
+            startActivity(ContributorsActivity.createIntent(getContext()))
+        );
+        binding.txtVersion.setText(AppUtil.getVersionName(getContext()));
     }
 
 }
