@@ -22,6 +22,7 @@ public class AboutFragment extends Fragment {
     private static final String REP_TWITTER_NAME = "mhidaka";
     private static final String CONF_TWITTER_NAME = "DroidKaigi";
     private static final String CONF_FACEBOOK_NAME = "DroidKaigi";
+    private static final String CONF_REPOSITORY_NAME = "konifar/droidkaigi2016";
     private static final String LICENSE_URL = "file:///android_asset/license.html";
 
     @Inject
@@ -69,6 +70,8 @@ public class AboutFragment extends Fragment {
         });
         binding.txtLicense.setOnClickListener(v ->
                 activityNavigator.showWebView(getActivity(), LICENSE_URL, getString(R.string.about_license)));
+        binding.txtGithubRepository.setOnClickListener(v ->
+                AppUtil.showWebPage(getActivity(), AppUtil.getGitHubUrl(CONF_REPOSITORY_NAME)));
 
         binding.txtVersion.setText(AppUtil.getVersionName(getActivity()));
     }

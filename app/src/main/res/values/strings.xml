@@ -79,6 +79,7 @@
     <string name="about_social">Social</string>
     <string name="about_terms">Terms of Use</string>
     <string name="about_license">License</string>
+    <string name="about_github_repository">GitHub Repository</string>
     <string name="about_questionnaire">Questionnaire</string>
     <string name="about_version_prefix">"V%1$s</string>
 

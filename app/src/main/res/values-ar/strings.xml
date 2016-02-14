@@ -67,6 +67,7 @@
     <string name="about_social">اجتماعي</string>
     <string name="about_terms">شروط الاستخدام</string>
     <string name="about_license">رخصة</string>
+    <string name="about_github_repository">GitHub مستودع</string>
     <string name="about_questionnaire">استطلاع</string>
     <string name="about_version_prefix">V%1$s</string>
 
