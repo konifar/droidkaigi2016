@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="contributor"
             type="io.github.droidkaigi.confsched.model.Contributor" />
@@ -12,16 +13,17 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/spacing"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:background="@color/white">
+        android:background="@drawable/clickable_white"
+        android:clickable="true"
+        android:padding="@dimen/spacing">
 
         <ImageView
             android:id="@+id/img_contributor"
             android:layout_width="@dimen/user_image_large"
             android:layout_height="@dimen/user_image_large"
-            app:contributorAvatarUrl="@{contributor.avatarUrl}"
-            app:contributorAvatarSize="@{@dimen/user_image_large}" />
+            android:contentDescription="@string/icon"
+            app:contributorAvatarSize="@{@dimen/user_image_large}"
+            app:contributorAvatarUrl="@{contributor.avatarUrl}" />
 
         <TextView
             android:id="@+id/txt_contributor_name"

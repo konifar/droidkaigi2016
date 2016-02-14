@@ -72,6 +72,9 @@
     <string name="about_questionnaire">استطلاع</string>
     <string name="about_version_prefix">V%1$s</string>
 
+    <string name="contributors_load_error">فشل تحميل المساهمين .</string>
+    <string name="number_with_brackets"> (%1$d)</string>
+
     <string name="search_hint">البحث بواسطة كلمة</string>
 
     <string name="my_schedule_empty">لم تتم إضافته بعد جلسة ذلك. دعونا اختيار الدورات تريد أن تسمع من جميع الدورات!</string>

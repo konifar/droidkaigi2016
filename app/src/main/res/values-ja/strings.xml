@@ -72,6 +72,9 @@
     <string name="about_questionnaire">アンケート</string>
     <string name="about_version_prefix">V%1$s</string>
 
+    <string name="contributors_load_error">開発者一覧の取得に失敗しました。</string>
+    <string name="number_with_brackets">（%1$d）</string>
+
     <string name="search_hint">キーワードで検索</string>
 
     <string name="my_schedule_empty">まだセッションが追加されていません。全てのセッションから聞きたいセッションを選んでみましょう!</string>
