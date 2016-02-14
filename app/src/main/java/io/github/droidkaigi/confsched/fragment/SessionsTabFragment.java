@@ -49,7 +49,7 @@ public class SessionsTabFragment extends Fragment {
 
     private List<Session> sessions;
 
-    private SessionsFragment.OnChangeSessionListener onChangeSessionListener = sessions->{/* no op */};
+    private SessionsFragment.OnChangeSessionListener onChangeSessionListener = sessions -> {/* no op */};
 
     @NonNull
     public static SessionsTabFragment newInstance(List<Session> sessions) {
