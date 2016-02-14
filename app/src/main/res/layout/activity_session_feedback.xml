@@ -210,7 +210,7 @@
                     android:clickable="true"
                     android:gravity="center"
                     android:padding="@dimen/spacing"
-                    android:text="@string/session_feedback_submitlink"
+                    android:text="@string/session_feedback_submit_link"
                     android:textAllCaps="true"
                     android:textAppearance="@style/TextAppearance.AppCompat.Button"
                     android:textColor="@color/white"
