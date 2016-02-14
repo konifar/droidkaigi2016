@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String EXTRA_SHOULD_REFRESH = "should_refresh";
+    private static final String EXTRA_TITLE = "title";
 
     @Inject
     AnalyticsTracker analyticsTracker;
@@ -68,12 +69,21 @@ public class MainActivity extends AppCompatActivity
             changePage(page.getTitleResId(), page.createFragment());
             binding.navView.setCheckedItem(page.getMenuId());
         }));
+
         initView();
         AppUtil.setTaskDescription(this, getString(R.string.all_sessions), AppUtil.getThemeColorPrimary(this));
 
         if (savedInstanceState == null) {
             replaceFragment(SessionsFragment.newInstance(shouldRefresh));
+        } else {
+            binding.toolbar.setTitle(savedInstanceState.getString(EXTRA_TITLE));
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(EXTRA_TITLE, binding.toolbar.getTitle().toString());
     }
 
     @Override
@@ -85,7 +95,7 @@ public class MainActivity extends AppCompatActivity
     private void initView() {
         setSupportActionBar(binding.toolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,
-                binding.drawer, binding.toolbar, R.string.open, R.string.close);
+                                                                        binding.drawer, binding.toolbar, R.string.open, R.string.close);
         binding.drawer.setDrawerListener(toggle);
         toggle.syncState();
         binding.navView.setNavigationItemSelectedListener(this);
