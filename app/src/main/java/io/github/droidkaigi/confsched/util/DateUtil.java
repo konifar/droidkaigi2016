@@ -8,7 +8,6 @@ import android.text.format.DateUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Formatter;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
@@ -20,28 +19,20 @@ public class DateUtil {
 
     @NonNull
     public static String getMonthDate(Date date, Context context) {
-        return getMonthDate(date, LocaleUtil.getCurrentLocale(context), context);
-    }
-
-    @NonNull
-    public static String getMonthDate(Date date, Locale locale, Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-            String pattern = DateFormat.getBestDateTimePattern(locale, FORMAT_MMDD);
-            SimpleDateFormat sdf = new SimpleDateFormat(pattern, locale);
-            return sdf.format(date);
+            String pattern = DateFormat.getBestDateTimePattern(Locale.getDefault(), FORMAT_MMDD);
+            return new SimpleDateFormat(pattern).format(date);
         } else {
             int flag = DateUtils.FORMAT_ABBREV_ALL | DateUtils.FORMAT_NO_YEAR;
-            Formatter f = new Formatter(new StringBuilder(50), LocaleUtil.getCurrentLocale(context));
-            return DateUtils.formatDateRange(context, f, date.getTime(), date.getTime(), flag).toString();
+            return DateUtils.formatDateTime(context, date.getTime(), flag);
         }
     }
 
     @NonNull
-    public static String getHourMinute(Date date, Context context) {
+    public static String getHourMinute(Date date) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-            Locale locale = LocaleUtil.getCurrentLocale(context);
-            String pattern = DateFormat.getBestDateTimePattern(locale, FORMAT_KKMM);
-            return new SimpleDateFormat(pattern, locale).format(date);
+            String pattern = DateFormat.getBestDateTimePattern(Locale.getDefault(), FORMAT_KKMM);
+            return new SimpleDateFormat(pattern).format(date);
         } else {
             return String.valueOf(DateFormat.format(FORMAT_KKMM, date));
         }

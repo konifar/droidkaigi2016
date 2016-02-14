@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_xsmall"
-            android:text="@{DateUtil.getHourMinute(session.stime, context)}" />
+            android:text="@{DateUtil.getHourMinute(session.stime)}" />
 
         <android.support.v7.widget.CardView
             android:id="@+id/card_view"
@@ -112,8 +112,8 @@
                     android:layout_below="@id/tag_container"
                     android:layout_marginTop="@dimen/spacing_small"
                     android:contentDescription="@string/speaker"
-                    app:speakerImageUrl="@{session.speaker.imageUrl}"
-                    app:speakerImageSize="@{@dimen/user_image_small}" />
+                    app:speakerImageSize="@{@dimen/user_image_small}"
+                    app:speakerImageUrl="@{session.speaker.imageUrl}" />
 
                 <TextView
                     android:id="@+id/txt_speaker_name"

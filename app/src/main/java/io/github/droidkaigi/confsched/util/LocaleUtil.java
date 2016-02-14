@@ -20,24 +20,25 @@ import io.github.droidkaigi.confsched.BuildConfig;
 
 public class LocaleUtil {
 
+    public static final String LANG_EN_ID = "en";
+    public static final String LANG_JA_ID = "ja";
+    public static final String LANG_AR_ID = "ar";
+    public static final String[] SUPPORT_LANG = {LANG_EN_ID, LANG_JA_ID, LANG_AR_ID};
+
     private static final String TAG = LocaleUtil.class.getSimpleName();
 
-    private static final String FORMAT_YYYY_MMM_DD_HH_MM_SS = "yyyy-MMM-dd HH:mm:ss";
-    private static final String TIME_ZONE_GMT = "GMT";
     private static final TimeZone CONFERENCE_TIMEZONE = TimeZone.getTimeZone(BuildConfig.CONFERENCE_TIMEZONE);
 
     private static final String LANG_STRING_RES_PREFIX = "lang_";
-    private static final String LANG_EN_ID = "en";
-    public static final String[] SUPPORT_LANG = {LANG_EN_ID, "ja", "ar"};
 
     private static final String RTL_MARK = "\u200F";
 
-    public static boolean shouldRtl(Context context) {
-        return TextUtilsCompat.getLayoutDirectionFromLocale(getCurrentLocale(context)) == ViewCompat.LAYOUT_DIRECTION_RTL;
+    public static boolean shouldRtl() {
+        return TextUtilsCompat.getLayoutDirectionFromLocale(Locale.getDefault()) == ViewCompat.LAYOUT_DIRECTION_RTL;
     }
 
-    public static String getRtlConsideredText(String text, Context context) {
-        if (shouldRtl(context)) {
+    public static String getRtlConsideredText(String text) {
+        if (shouldRtl()) {
             return RTL_MARK + text;
         } else {
             return text;
@@ -55,10 +56,6 @@ public class LocaleUtil {
         Locale.setDefault(locale);
         config.locale = locale;
         context.getResources().updateConfiguration(config, context.getResources().getDisplayMetrics());
-    }
-
-    public static Locale getCurrentLocale(Context context) {
-        return new Locale(getCurrentLanguageId(context));
     }
 
     public static String getCurrentLanguageId(Context context) {

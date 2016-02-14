@@ -11,6 +11,7 @@ import org.parceler.Parcel;
 import java.util.Date;
 
 import io.github.droidkaigi.confsched.R;
+import io.github.droidkaigi.confsched.util.LocaleUtil;
 
 @Parcel
 @Table
@@ -96,9 +97,9 @@ public class Session {
 
     public int getLanguageResId() {
         switch (languageId) {
-            case "en":
+            case LocaleUtil.LANG_EN_ID:
                 return R.string.lang_en;
-            case "ja":
+            case LocaleUtil.LANG_JA_ID:
                 return R.string.lang_ja;
             default:
                 return R.string.lang_en;
