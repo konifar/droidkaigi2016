@@ -36,18 +36,16 @@ public class SettingSwitchRowView extends RelativeLayout {
         if (!isInEditMode()) {
             TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SettingSwitchRow);
 
-            try {
-                String title = a.getString(R.styleable.SettingSwitchRow_settingTitle);
-                String description = a.getString(R.styleable.SettingSwitchRow_settingDescription);
+            String title = a.getString(R.styleable.SettingSwitchRow_settingTitle);
+            String description = a.getString(R.styleable.SettingSwitchRow_settingDescription);
 
-                binding.settingTitle.setText(title);
-                binding.settingDescription.setText(description);
+            binding.settingTitle.setText(title);
+            binding.settingDescription.setText(description);
 
-                binding.getRoot().setOnClickListener(v -> switchSetting());
-                binding.settingSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> setSetting(isChecked));
-            } finally {
-                a.recycle();
-            }
+            binding.getRoot().setOnClickListener(v -> switchSetting());
+            binding.settingSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> setSetting(isChecked));
+
+            a.recycle();
         }
     }
 
