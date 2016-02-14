@@ -21,7 +21,7 @@ import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.activity.ActivityNavigator;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSettingsBinding;
-import io.github.droidkaigi.confsched.util.AppUtil;
+import io.github.droidkaigi.confsched.util.LocaleUtil;
 import io.github.droidkaigi.confsched.util.PrefUtil;
 import rx.Observable;
 
@@ -55,7 +55,7 @@ public class SettingsFragment extends Fragment {
     }
 
     private void initView() {
-        binding.txtLanguage.setText(AppUtil.getCurrentLanguage(getActivity()));
+        binding.txtLanguage.setText(LocaleUtil.getCurrentLanguage(getActivity()));
         binding.languageSettingsContainer.setOnClickListener(v -> showLanguagesDialog());
 
         binding.notificationSettingContainer.setOnClickListener(v -> switchNotificationSetting());
@@ -65,14 +65,14 @@ public class SettingsFragment extends Fragment {
     }
 
     private void showLanguagesDialog() {
-        List<String> languageIds = Arrays.asList(AppUtil.SUPPORT_LANG);
+        List<String> languageIds = Arrays.asList(LocaleUtil.SUPPORT_LANG);
         List<String> languages = Observable.from(languageIds)
-                .map(languageId -> AppUtil.getLanguage(getActivity(), languageId, languageId))
+                .map(languageId -> LocaleUtil.getLanguage(getActivity(), languageId, languageId))
                 .toList()
                 .toBlocking()
                 .single();
 
-        String currentLanguageId = AppUtil.getCurrentLanguageId(getActivity());
+        String currentLanguageId = LocaleUtil.getCurrentLanguageId(getActivity());
         int defaultItem = languageIds.indexOf(currentLanguageId);
         String[] items = languages.toArray(new String[languages.size()]);
         new AlertDialog.Builder(getActivity())
@@ -81,7 +81,7 @@ public class SettingsFragment extends Fragment {
                     String selectedLanguageId = languageIds.get(which);
                     if (!currentLanguageId.equals(selectedLanguageId)) {
                         Log.d(TAG, "Selected language_id: " + selectedLanguageId);
-                        AppUtil.setLocale(getActivity(), selectedLanguageId);
+                        LocaleUtil.setLocale(getActivity(), selectedLanguageId);
                         dialog.dismiss();
                         restart();
                     }

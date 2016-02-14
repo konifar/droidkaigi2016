@@ -55,7 +55,7 @@ public class AboutFragment extends Fragment {
         AppUtil.linkify(getActivity(), binding.txtRep, REP_TWITTER_NAME, AppUtil.getTwitterUrl(REP_TWITTER_NAME));
 
         String siteUrl = getString(R.string.about_site_url);
-        binding.txtSiteUrl.setText(LocaleUtil.getRtlConsideredText(siteUrl, getContext()));
+        binding.txtSiteUrl.setText(LocaleUtil.getRtlConsideredText(siteUrl));
         AppUtil.linkify(getActivity(), binding.txtSiteUrl, siteUrl, siteUrl);
 
         binding.imgFacebookClicker.setOnClickListener(v ->

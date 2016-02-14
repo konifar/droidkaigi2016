@@ -64,7 +64,7 @@ public class MapSearchView extends FrameLayout {
     }
 
     private int getRevealCenterX(View container) {
-        if (LocaleUtil.shouldRtl(getContext())) {
+        if (LocaleUtil.shouldRtl()) {
             return container.getLeft();
         } else {
             return container.getRight();
