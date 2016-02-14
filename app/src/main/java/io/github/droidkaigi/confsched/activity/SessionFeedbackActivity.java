@@ -127,8 +127,8 @@ public class SessionFeedbackActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    protected void onStop() {
+        super.onStop();
         if (subscription != null) {
             subscription.unsubscribe();
         }
