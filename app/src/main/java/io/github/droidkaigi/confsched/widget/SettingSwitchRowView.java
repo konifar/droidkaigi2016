@@ -7,13 +7,15 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.widget.Checkable;
+import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
 
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.databinding.ViewSettingSwitchRowBinding;
 import io.github.droidkaigi.confsched.util.PrefUtil;
 
-public class SettingSwitchRowView extends RelativeLayout {
+public class SettingSwitchRowView extends RelativeLayout implements Checkable {
 
     private static final String TAG = SettingSwitchRowView.class.getSimpleName();
 
@@ -73,4 +75,38 @@ public class SettingSwitchRowView extends RelativeLayout {
         }
     }
 
+    public void setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener listener) {
+        binding.settingSwitch.setOnCheckedChangeListener(listener);
+    }
+
+    @Override
+    public void setEnabled(boolean enabled) {
+        super.setEnabled(enabled);
+        binding.getRoot().setEnabled(enabled);
+        binding.settingSwitch.setEnabled(enabled);
+        if (enabled) {
+            binding.settingTitle.setTextColor(getResources().getColor(R.color.black));
+            binding.settingDescription.setTextColor(getResources().getColor(R.color.grey600));
+        } else {
+            int disabledTextColor = getResources().getColor(R.color.black_alpha_30);
+            binding.settingTitle.setTextColor(disabledTextColor);
+            binding.settingDescription.setTextColor(disabledTextColor);
+        }
+    }
+
+    @Override
+    public void setChecked(boolean checked) {
+        setSetting(checked);
+        binding.settingSwitch.setChecked(checked);
+    }
+
+    @Override
+    public boolean isChecked() {
+        return binding.settingSwitch.isChecked();
+    }
+
+    @Override
+    public void toggle() {
+        switchSetting();
+    }
 }

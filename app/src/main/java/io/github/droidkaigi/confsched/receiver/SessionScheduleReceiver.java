@@ -45,6 +45,8 @@ public class SessionScheduleReceiver extends BroadcastReceiver {
         String title = context.getResources().getQuantityString(
                 R.plurals.schedule_notification_title, REMIND_MINUTES, REMIND_MINUTES);
 
+        boolean headsUp = PrefUtil.get(context, PrefUtil.KEY_HEADS_UP_SETTING, true);
+
         Notification notification = new NotificationCompat.Builder(context)
                 .setContentIntent(pendingIntent)
                 .setSmallIcon(R.drawable.ic_access_time_grey_600_24dp)
@@ -53,6 +55,9 @@ public class SessionScheduleReceiver extends BroadcastReceiver {
                 .setContentText(session.title)
                 .setDefaults(Notification.DEFAULT_ALL)
                 .setAutoCancel(true)
+                .setPriority(headsUp ? NotificationCompat.PRIORITY_HIGH : NotificationCompat.PRIORITY_DEFAULT)
+                .setCategory(NotificationCompat.CATEGORY_EVENT)
+                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                 .build();
 
         NotificationManager manager = (NotificationManager) context.getSystemService(Service.NOTIFICATION_SERVICE);

@@ -67,6 +67,28 @@
         <View style="@style/Border" />
 
         <io.github.droidkaigi.confsched.widget.SettingSwitchRowView
+            android:id="@+id/local_time_switch_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:settingDescription="@string/settings_local_time_description"
+            app:settingTitle="@string/settings_local_time" />
+
+        <View style="@style/Border" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_notification_group"
+                android:textColor="?attr/colorPrimary"/>
+
+        </RelativeLayout>
+
+        <io.github.droidkaigi.confsched.widget.SettingSwitchRowView
             android:id="@+id/notification_switch_row"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -76,13 +98,14 @@
         <View style="@style/Border" />
 
         <io.github.droidkaigi.confsched.widget.SettingSwitchRowView
-            android:id="@+id/local_time_switch_row"
+            android:id="@+id/heads_up_switch_row"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:settingDescription="@string/settings_local_time_description"
-            app:settingTitle="@string/settings_local_time" />
+            android:visibility="gone"
+            app:settingDescription="@string/settings_heads_up_notification_description"
+            app:settingTitle="@string/settings_heads_up_notification" />
 
-        <View style="@style/Border" />
+        <View android:id="@+id/heads_up_border" style="@style/Border" android:visibility="gone" />
 
     </LinearLayout>
 

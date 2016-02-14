@@ -10,6 +10,7 @@ public class PrefUtil {
 
     public static final String KEY_CURRENT_LANGUAGE_ID = "current_language_id";
     public static final String KEY_NOTIFICATION_SETTING = "notification_setting";
+    public static final String KEY_HEADS_UP_SETTING = "heads_up_setting";
     public static final String KEY_SHOW_LOCAL_TIME = "show_local_time";
 
     private static SharedPreferences pref;

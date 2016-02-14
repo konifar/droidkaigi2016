@@ -53,8 +53,11 @@
 
     <string name="settings_language">言語を設定</string>
     <string name="settings_language_description">表示言語を変更できます。変更後はアプリが再起動されます。</string>
+    <string name="settings_notification_group">通知</string>
     <string name="settings_notification">通知設定</string>
     <string name="settings_notification_description">通知を受け取るかどうかを設定できます。</string>
+    <string name="settings_heads_up_notification">ヘッドアップ通知</string>
+    <string name="settings_heads_up_notification_description">ヘッドアップ通知を使用するかどうかを設定できます。</string>
     <string name="settings_local_time">現地時間を表示</string>
     <string name="settings_local_time_description">チェックすると、セッションの時間はあなたのデバイスに設定された現地時間で表示されます。</string>
 
