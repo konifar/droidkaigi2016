@@ -71,6 +71,7 @@
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
+                    android:background="?attr/selectableItemBackground"
                     app:layout_collapseMode="pin" />
 
             </net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout>
