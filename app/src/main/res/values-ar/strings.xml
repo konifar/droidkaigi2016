@@ -80,7 +80,14 @@
     <string name="my_schedule_empty">لم تتم إضافته بعد جلسة ذلك. دعونا اختيار الدورات تريد أن تسمع من جميع الدورات!</string>
     <string name="my_schedule_go_to_session_list">رؤية جميع الدورات</string>
 
-    <string name="schedule_notification_title">قبل %1$d دقائق من الجلسة</string>
+    <plurals name="schedule_notification_title">
+        <item quantity="zero">قبل %1$d دقيقة من الجلسة</item>
+        <item quantity="one">قبل %1$d دقيقة من الجلسة</item>
+        <item quantity="two">قبل %1$d دقيقة من الجلسة</item>
+        <item quantity="few">قبل %1$d دقائق من الجلسة</item>
+        <item quantity="many">قبل %1$d دقائق من الجلسة</item>
+        <item quantity="other">قبل %1$d دقائق من الجلسة</item>
+    </plurals>
 
     <string name="session_feedback_accepted_successfully">Thank you! The feedback was accepted.</string>
     <string name="session_feedback_below_expectation">Below</string>

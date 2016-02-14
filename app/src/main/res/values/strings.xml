@@ -92,7 +92,10 @@
     <string name="my_schedule_empty">No items here. Let\'s check out all sessions and put your favourite!</string>
     <string name="my_schedule_go_to_session_list">Go to All Sessions</string>
 
-    <string name="schedule_notification_title">%1$d minutes before session</string>
+    <plurals name="schedule_notification_title">
+        <item quantity="one">%1$d minute before session</item>
+        <item quantity="other">%1$d minutes before session</item>
+    </plurals>
 
     <string name="session_feedback_accepted_successfully">Thank you! The feedback was accepted.</string>
     <string name="session_feedback_below_expectation">Below</string>
