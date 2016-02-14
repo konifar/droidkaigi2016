@@ -84,6 +84,9 @@
     <string name="about_questionnaire">Questionnaire</string>
     <string name="about_version_prefix">"V%1$s</string>
 
+    <string name="contributors_load_error">Failed to load contributors.</string>
+    <string name="number_with_brackets"> (%1$d)</string>
+
     <string name="search_hint">Search by words</string>
 
     <string name="my_schedule_empty">No items here. Let\'s check out all sessions and put your favourite!</string>

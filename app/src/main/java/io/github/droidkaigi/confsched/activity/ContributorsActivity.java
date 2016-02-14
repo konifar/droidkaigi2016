@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -82,9 +83,7 @@ public class ContributorsActivity extends AppCompatActivity {
     }
 
     private void renderContributors(List<Contributor> contributors) {
-        ContributorsAdapter contributorsAdapter = new ContributorsAdapter(this);
-        contributorsAdapter.addAll(contributors);
-        binding.recyclerView.setAdapter(contributorsAdapter);
+        bindContributors(contributors);
         dao.upserterAll(contributors);
     }
 
@@ -94,9 +93,21 @@ public class ContributorsActivity extends AppCompatActivity {
         Crashlytics.logException(throwable);
 
         List<Contributor> contributors = dao.findAll();
-        ContributorsAdapter contributorsAdapter = new ContributorsAdapter(this);
-        contributorsAdapter.addAll(contributors);
-        binding.recyclerView.setAdapter(contributorsAdapter);
+
+        if (contributors.isEmpty()) {
+            Snackbar.make(binding.getRoot(), R.string.contributors_load_error, Snackbar.LENGTH_LONG).show();
+        } else {
+            bindContributors(contributors);
+        }
+    }
+
+    private void bindContributors(List<Contributor> contributors) {
+        String title = binding.toolbar.getTitle().toString();
+        binding.toolbar.setTitle(title + getString(R.string.number_with_brackets, contributors.size()));
+
+        ContributorsAdapter adapter = new ContributorsAdapter(this);
+        adapter.addAll(contributors);
+        binding.recyclerView.setAdapter(adapter);
     }
 
     private void initToolbar() {
