@@ -97,6 +97,8 @@
                     android:drawablePadding="@dimen/icon_spacing"
                     android:drawableStart="@drawable/ic_access_time_grey_500_18dp"
                     android:ellipsize="end"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
                     android:lines="1"
                     android:padding="@dimen/spacing"
                     android:textColor="@color/grey500"
