@@ -85,7 +85,11 @@
     <string name="about_version_prefix">"V%1$s</string>
 
     <string name="contributors_load_error">Failed to load contributors.</string>
-    <string name="number_with_brackets"> (%1$d)</string>
+
+    <plurals name="number_with_brackets">
+        <item quantity="one">(%1$d person)</item>
+        <item quantity="other">(%1$d people)</item>
+    </plurals>
 
     <string name="search_hint">Search by words</string>
 

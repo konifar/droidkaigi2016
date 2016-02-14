@@ -73,7 +73,14 @@
     <string name="about_version_prefix">V%1$s</string>
 
     <string name="contributors_load_error">فشل تحميل المساهمين .</string>
-    <string name="number_with_brackets"> (%1$d)</string>
+    <plurals name="number_with_brackets">
+        <item quantity="zero">(%1$d أشخاص)</item>
+        <item quantity="one">(%1$d شخص)</item>
+        <item quantity="two">(%1$d شخصين)</item>
+        <item quantity="few">(%1$d أشخاص)</item>
+        <item quantity="many">(%1$d شخص)</item>
+        <item quantity="other">(%1$d شخص)</item>
+    </plurals>
 
     <string name="search_hint">البحث بواسطة كلمة</string>
 
