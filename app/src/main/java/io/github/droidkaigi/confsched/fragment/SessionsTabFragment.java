@@ -109,6 +109,10 @@ public class SessionsTabFragment extends Fragment {
         }
     }
 
+    public void scrollUpToTop() {
+        binding.recyclerView.smoothScrollToPosition(0);
+    }
+
     private class SessionsAdapter extends ArrayRecyclerAdapter<Session, BindingHolder<ItemSessionBinding>> {
 
         public SessionsAdapter(@NonNull Context context) {

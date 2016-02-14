@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -177,6 +179,7 @@ public class SessionsFragment extends Fragment {
 
         binding.viewPager.setAdapter(adapter);
         binding.tabLayout.setupWithViewPager(binding.viewPager);
+        binding.tabLayout.setOnTabSelectedListener(new CustomViewPagerOnTabSelectedListener(binding.viewPager));
 
         if (sessions.isEmpty()) {
             showEmptyView();
@@ -259,6 +262,23 @@ public class SessionsFragment extends Fragment {
             fragments.add(fragment);
             titles.add(title);
             notifyDataSetChanged();
+        }
+
+    }
+
+    private class CustomViewPagerOnTabSelectedListener extends TabLayout.ViewPagerOnTabSelectedListener {
+
+        public CustomViewPagerOnTabSelectedListener(ViewPager viewPager) {
+            super(viewPager);
+        }
+
+        @Override
+        public void onTabReselected(TabLayout.Tab tab) {
+            super.onTabReselected(tab);
+            SessionsTabFragment fragment = (SessionsTabFragment) adapter.getItem(tab.getPosition());
+            if (fragment != null) {
+                fragment.scrollUpToTop();
+            }
         }
 
     }
