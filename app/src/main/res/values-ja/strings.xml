@@ -106,6 +106,6 @@
     <string name="session_feedback_submit_error">送信中にエラーが発生しました。ネットワーク状態を確認してもう一度お試しください。</string>
     <string name="session_feedback_submit_failure">送信に失敗しました。</string>
     <string name="session_feedback_submit_success">送信しました。</string>
-    <string name="session_feedback_submitlink">フィードバックを送信</string>
+    <string name="session_feedback_submit_link">フィードバックを送信</string>
 
 </resources>
