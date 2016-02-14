@@ -44,7 +44,7 @@ public class DateUtil {
             String pattern = DateFormat.getBestDateTimePattern(Locale.getDefault(), FORMAT_YYYYMMDDKKMM);
             return new SimpleDateFormat(pattern).format(date);
         } else {
-            java.text.DateFormat dayOfWeekFormat = SimpleDateFormat.getDateInstance(SimpleDateFormat.LONG);
+            java.text.DateFormat dayOfWeekFormat = java.text.DateFormat.getDateInstance(java.text.DateFormat.LONG);
             java.text.DateFormat shortTimeFormat = java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT);
             dayOfWeekFormat.setTimeZone(LocaleUtil.getDisplayTimeZone(context));
             shortTimeFormat.setTimeZone(LocaleUtil.getDisplayTimeZone(context));
