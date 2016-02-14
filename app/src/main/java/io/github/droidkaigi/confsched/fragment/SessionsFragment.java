@@ -36,8 +36,8 @@ import io.github.droidkaigi.confsched.databinding.FragmentSessionsBinding;
 import io.github.droidkaigi.confsched.model.MainContentStateBrokerProvider;
 import io.github.droidkaigi.confsched.model.Page;
 import io.github.droidkaigi.confsched.model.Session;
-import io.github.droidkaigi.confsched.util.AppUtil;
 import io.github.droidkaigi.confsched.util.DateUtil;
+import io.github.droidkaigi.confsched.util.LocaleUtil;
 import rx.Observable;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
@@ -111,7 +111,7 @@ public class SessionsFragment extends Fragment {
     }
 
     private Subscription fetchAndSave() {
-        return client.getSessions(AppUtil.getCurrentLanguageId(getActivity()))
+        return client.getSessions(LocaleUtil.getCurrentLanguageId(getActivity()))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
@@ -124,7 +124,7 @@ public class SessionsFragment extends Fragment {
         Observable<List<Session>> cachedSessions = dao.findAll();
         return cachedSessions.flatMap(sessions -> {
             if (shouldRefresh || sessions.isEmpty()) {
-                return client.getSessions(AppUtil.getCurrentLanguageId(getActivity()))
+                return client.getSessions(LocaleUtil.getCurrentLanguageId(getActivity()))
                         .doOnNext(dao::updateAllAsync);
             } else {
                 return Observable.just(sessions);

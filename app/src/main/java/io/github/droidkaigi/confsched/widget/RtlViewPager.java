@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 
 import java.util.Map;
 
-import io.github.droidkaigi.confsched.util.AppUtil;
+import io.github.droidkaigi.confsched.util.LocaleUtil;
 
 public class RtlViewPager extends ViewPager {
 
@@ -123,7 +123,7 @@ public class RtlViewPager extends ViewPager {
     }
 
     protected boolean isRtl() {
-        return TextUtilsCompat.getLayoutDirectionFromLocale(AppUtil.getCurrentLocale(getContext())) == ViewCompat.LAYOUT_DIRECTION_RTL;
+        return TextUtilsCompat.getLayoutDirectionFromLocale(LocaleUtil.getCurrentLocale(getContext())) == ViewCompat.LAYOUT_DIRECTION_RTL;
     }
 
     @Override

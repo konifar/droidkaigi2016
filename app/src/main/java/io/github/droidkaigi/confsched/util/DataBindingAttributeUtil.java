@@ -1,7 +1,6 @@
 package io.github.droidkaigi.confsched.util;
 
 import android.databinding.BindingAdapter;
-import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;

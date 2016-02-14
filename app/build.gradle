@@ -78,6 +78,7 @@ android {
                     mapsApiKey: System.getenv('ANDROID_MAPS_API_KEY') != null ? System.getenv('ANDROID_MAPS_API_KEY') : android_maps_api_key
             ]
             buildConfigField("String", "GA_TRACKING_ID", "\"${ga_tracking_id_debug}\"")
+            buildConfigField "String", "CONFERENCE_TIMEZONE", "\"Asia/Tokyo\""
         }
         release {
             signingConfig signingConfigs.release
@@ -91,6 +92,7 @@ android {
                     mapsApiKey: System.getenv('ANDROID_MAPS_API_KEY_RELEASE') != null ? System.getenv('ANDROID_MAPS_API_KEY_RELEASE') : android_maps_api_key
             ]
             buildConfigField("String", "GA_TRACKING_ID", "\"${ga_tracking_id_release}\"")
+            buildConfigField "String", "CONFERENCE_TIMEZONE", "\"Asia/Tokyo\""
         }
     }
 

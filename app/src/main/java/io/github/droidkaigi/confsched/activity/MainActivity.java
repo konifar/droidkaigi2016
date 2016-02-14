@@ -26,6 +26,7 @@ import io.github.droidkaigi.confsched.model.MainContentStateBrokerProvider;
 import io.github.droidkaigi.confsched.model.Page;
 import io.github.droidkaigi.confsched.util.AnalyticsTracker;
 import io.github.droidkaigi.confsched.util.AppUtil;
+import io.github.droidkaigi.confsched.util.LocaleUtil;
 import rx.subscriptions.CompositeSubscription;
 
 public class MainActivity extends AppCompatActivity
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AppUtil.initLocale(this);
+        LocaleUtil.initLocale(this);
 
         boolean shouldRefresh = getIntent().getBooleanExtra(EXTRA_SHOULD_REFRESH, false);
 

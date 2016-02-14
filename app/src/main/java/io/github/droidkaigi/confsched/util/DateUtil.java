@@ -8,6 +8,7 @@ import android.text.format.DateUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Formatter;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
@@ -19,7 +20,7 @@ public class DateUtil {
 
     @NonNull
     public static String getMonthDate(Date date, Context context) {
-        return getMonthDate(date, AppUtil.getCurrentLocale(context), context);
+        return getMonthDate(date, LocaleUtil.getCurrentLocale(context), context);
     }
 
     @NonNull
@@ -29,15 +30,16 @@ public class DateUtil {
             SimpleDateFormat sdf = new SimpleDateFormat(pattern, locale);
             return sdf.format(date);
         } else {
-            int flag = DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NO_YEAR;
-            return DateUtils.formatDateTime(context, date.getTime(), flag);
+            int flag = DateUtils.FORMAT_ABBREV_ALL | DateUtils.FORMAT_NO_YEAR;
+            Formatter f = new Formatter(new StringBuilder(50), LocaleUtil.getCurrentLocale(context));
+            return DateUtils.formatDateRange(context, f, date.getTime(), date.getTime(), flag).toString();
         }
     }
 
     @NonNull
     public static String getHourMinute(Date date, Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-            Locale locale = AppUtil.getCurrentLocale(context);
+            Locale locale = LocaleUtil.getCurrentLocale(context);
             String pattern = DateFormat.getBestDateTimePattern(locale, FORMAT_KKMM);
             return new SimpleDateFormat(pattern, locale).format(date);
         } else {
@@ -47,13 +49,15 @@ public class DateUtil {
 
     @NonNull
     public static String getLongFormatDate(Date date, Context context) {
-        Locale locale = AppUtil.getCurrentLocale(context);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-            String pattern = DateFormat.getBestDateTimePattern(locale, FORMAT_YYYYMMDDKKMM);
-            return new SimpleDateFormat(pattern, locale).format(date);
+            String pattern = DateFormat.getBestDateTimePattern(Locale.getDefault(), FORMAT_YYYYMMDDKKMM);
+            return new SimpleDateFormat(pattern).format(date);
         } else {
-            SimpleDateFormat sdf = (SimpleDateFormat) java.text.DateFormat.getDateInstance(java.text.DateFormat.LONG, locale);
-            return sdf.format(date) + getHourMinute(date, context);
+            java.text.DateFormat dayOfWeekFormat = SimpleDateFormat.getDateInstance(SimpleDateFormat.LONG);
+            java.text.DateFormat shortTimeFormat = java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT);
+            dayOfWeekFormat.setTimeZone(LocaleUtil.getDisplayTimeZone(context));
+            shortTimeFormat.setTimeZone(LocaleUtil.getDisplayTimeZone(context));
+            return dayOfWeekFormat.format(date) + " " + shortTimeFormat.format(date);
         }
     }
 
