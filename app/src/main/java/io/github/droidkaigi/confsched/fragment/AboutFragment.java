@@ -63,9 +63,6 @@ public class AboutFragment extends Fragment {
         binding.imgTwitterClicker.setOnClickListener(v ->
                 AppUtil.showWebPage(getActivity(), AppUtil.getTwitterUrl(CONF_TWITTER_NAME)));
 
-        binding.txtTerms.setOnClickListener(v -> {
-            // TODO
-        });
         binding.txtQuestionnaire.setOnClickListener(v -> {
             AppUtil.showWebPage(getActivity(), getString(R.string.about_inquiry_url));
         });
@@ -76,7 +73,7 @@ public class AboutFragment extends Fragment {
                 AppUtil.showWebPage(getActivity(), AppUtil.getGitHubUrl(CONF_REPOSITORY_NAME)));
 
         binding.txtContributors.setOnClickListener(v ->
-            startActivity(ContributorsActivity.createIntent(getContext()))
+                        startActivity(ContributorsActivity.createIntent(getContext()))
         );
         binding.txtVersion.setText(AppUtil.getVersionName(getContext()));
     }
