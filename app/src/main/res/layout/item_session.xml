@@ -134,7 +134,7 @@
                     android:lines="1"
                     app:textRtlConsidered="@{session.speaker.name}" />
 
-                <com.like.LikeButton
+                <io.github.droidkaigi.confsched.widget.CustomLikeButton
                     android:id="@+id/btn_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
