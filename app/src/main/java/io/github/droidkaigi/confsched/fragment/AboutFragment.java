@@ -70,7 +70,7 @@ public class AboutFragment extends Fragment {
             AppUtil.showWebPage(getActivity(), getString(R.string.about_inquiry_url));
         });
         binding.txtLicense.setOnClickListener(v ->
-                activityNavigator.showWebView(getActivity(), LICENSE_URL, getString(R.string.about_license)));
+                activityNavigator.showWebView(getContext(), LICENSE_URL, getString(R.string.about_license)));
 
         binding.txtGithubRepository.setOnClickListener(v ->
                 AppUtil.showWebPage(getActivity(), AppUtil.getGitHubUrl(CONF_REPOSITORY_NAME)));
