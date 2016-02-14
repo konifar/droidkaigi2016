@@ -1,10 +1,11 @@
 package io.github.droidkaigi.confsched.util;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.Context;
-import android.content.pm.PackageInfo;
 import android.content.res.Configuration;
 import android.net.Uri;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.customtabs.CustomTabsIntent;
 import android.support.v4.content.ContextCompat;
@@ -14,12 +15,14 @@ import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.TextView;
 
 import java.util.Arrays;
 import java.util.Locale;
 
+import io.github.droidkaigi.confsched.BuildConfig;
 import io.github.droidkaigi.confsched.R;
 
 public class AppUtil {
@@ -34,7 +37,6 @@ public class AppUtil {
     private static final String STRING_RES_TYPE = "string";
     private static final String LANG_EN_ID = "en";
     public static final String[] SUPPORT_LANG = {LANG_EN_ID, "ja", "ar"};
-    private static final Locale DEFAULT_LANG = new Locale(LANG_EN_ID);
 
     public static String getTwitterUrl(@NonNull String name) {
         return TWITTER_URL + name;
@@ -91,6 +93,10 @@ public class AppUtil {
         return getString(context, LANG_STRING_RES_PREFIX + languageId);
     }
 
+    public static String getLanguage(Context context, String languageId, String in) {
+        return getString(context, LANG_STRING_RES_PREFIX + languageId + "_in_" + in);
+    }
+
     public static String getString(@NonNull Context context, @NonNull String resName) {
         try {
             int resourceId = context.getResources().getIdentifier(
@@ -108,13 +114,7 @@ public class AppUtil {
     }
 
     public static String getVersionName(Context context) {
-        try {
-            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-            return context.getString(R.string.about_version_prefix, packageInfo.versionName);
-        } catch (Exception e) {
-            Log.e(TAG, e.getMessage() + "");
-            return "";
-        }
+        return context.getString(R.string.about_version_prefix, BuildConfig.VERSION_NAME);
     }
 
     public static void linkify(Activity activity, TextView textView, String linkText, String url) {
@@ -145,6 +145,18 @@ public class AppUtil {
                 .build();
 
         intent.launchUrl(activity, Uri.parse(url));
+    }
+
+    public static void setTaskDescription(Activity activity, String label, int color) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            activity.setTaskDescription(new ActivityManager.TaskDescription(label, null, color));
+        }
+    }
+
+    public static int getThemeColorPrimary(Context context) {
+        TypedValue value = new TypedValue();
+        context.getTheme().resolveAttribute(R.attr.colorPrimary, value, true);
+        return value.data;
     }
 
 }

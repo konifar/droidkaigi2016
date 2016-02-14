@@ -1,6 +1,7 @@
 package io.github.droidkaigi.confsched.util;
 
 import android.databinding.BindingAdapter;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -27,21 +28,31 @@ import io.github.droidkaigi.confsched.widget.transformation.CropCircleTransforma
 
 public class DataBindingAttributeUtil {
 
-    @BindingAdapter({"speakerImageUrl", "speakerImageSize"})
-    public static void setSpeakerImageUrlWithSize(ImageView imageView, @Nullable String imageUrl, float sizeInDimen) {
+    public static void setImageUrlWithSize(ImageView imageView, @Nullable String imageUrl, float sizeInDimen, int placeholderResId) {
         if (TextUtils.isEmpty(imageUrl)) {
-            imageView.setImageDrawable(ContextCompat.getDrawable(imageView.getContext(), R.drawable.ic_speaker_placeholder));
+            imageView.setImageDrawable(ContextCompat.getDrawable(imageView.getContext(), placeholderResId));
         } else {
             final int size = Math.round(sizeInDimen);
             imageView.setBackground(ContextCompat.getDrawable(imageView.getContext(), R.drawable.circle_border_grey200));
             Picasso.with(imageView.getContext())
                     .load(imageUrl)
                     .resize(size, size)
-                    .placeholder(R.drawable.ic_speaker_placeholder)
-                    .error(R.drawable.ic_speaker_placeholder)
+                    .centerInside()
+                    .placeholder(placeholderResId)
+                    .error(placeholderResId)
                     .transform(new CropCircleTransformation())
                     .into(imageView);
         }
+    }
+
+    @BindingAdapter({"speakerImageUrl", "speakerImageSize"})
+    public static void setSpeakerImageUrlWithSize(ImageView imageView, @Nullable String imageUrl, float sizeInDimen) {
+        setImageUrlWithSize(imageView, imageUrl, sizeInDimen, R.drawable.ic_speaker_placeholder);
+    }
+
+    @BindingAdapter({"contributorAvatarUrl", "contributorAvatarSize"})
+    public static void setContributorAvatarUrlWithSize(ImageView imageView, @Nullable String imageUrl, float sizeInDimen) {
+        setImageUrlWithSize(imageView, imageUrl, sizeInDimen, R.drawable.ic_speaker_placeholder);
     }
 
     @BindingAdapter("coverFadeBackground")

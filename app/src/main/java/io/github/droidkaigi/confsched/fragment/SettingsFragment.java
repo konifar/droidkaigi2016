@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,9 +22,8 @@ import io.github.droidkaigi.confsched.activity.ActivityNavigator;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSettingsBinding;
 import io.github.droidkaigi.confsched.util.AppUtil;
+import io.github.droidkaigi.confsched.util.PrefUtil;
 import rx.Observable;
-
-import static io.github.droidkaigi.confsched.util.IntentUtil.toBrowser;
 
 public class SettingsFragment extends Fragment {
 
@@ -59,13 +57,17 @@ public class SettingsFragment extends Fragment {
     private void initView() {
         binding.txtLanguage.setText(AppUtil.getCurrentLanguage(getActivity()));
         binding.languageSettingsContainer.setOnClickListener(v -> showLanguagesDialog());
-        binding.txtBugreport.setOnClickListener(v -> showBugReport());
+
+        binding.notificationSettingContainer.setOnClickListener(v -> switchNotificationSetting());
+        boolean notificationSetting = PrefUtil.get(getContext(), PrefUtil.KEY_NOTIFICATION_SETTING, true);
+        binding.notificationSettingSwitch.setChecked(notificationSetting);
+        binding.notificationSettingSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> setNotificationSetting(isChecked));
     }
 
     private void showLanguagesDialog() {
         List<String> languageIds = Arrays.asList(AppUtil.SUPPORT_LANG);
         List<String> languages = Observable.from(languageIds)
-                .map(languageId -> AppUtil.getLanguage(getActivity(), languageId))
+                .map(languageId -> AppUtil.getLanguage(getActivity(), languageId, languageId))
                 .toList()
                 .toBlocking()
                 .single();
@@ -73,23 +75,15 @@ public class SettingsFragment extends Fragment {
         String currentLanguageId = AppUtil.getCurrentLanguageId(getActivity());
         int defaultItem = languageIds.indexOf(currentLanguageId);
         String[] items = languages.toArray(new String[languages.size()]);
-        final List<String> selectedLanguageIds = new ArrayList<>();
-        selectedLanguageIds.add(currentLanguageId);
-
         new AlertDialog.Builder(getActivity())
                 .setTitle(R.string.settings_language)
                 .setSingleChoiceItems(items, defaultItem, (dialog, which) -> {
-                    selectedLanguageIds.clear();
-                    selectedLanguageIds.add(languageIds.get(which));
-                })
-                .setPositiveButton(R.string.ok, (dialog, which) -> {
-                    if (!selectedLanguageIds.isEmpty()) {
-                        String selectedLanguageId = selectedLanguageIds.get(0);
-                        if (!currentLanguageId.equals(selectedLanguageId)) {
-                            Log.d(TAG, "Selected language_id: " + selectedLanguageId);
-                            AppUtil.setLocale(getActivity(), selectedLanguageId);
-                            restart();
-                        }
+                    String selectedLanguageId = languageIds.get(which);
+                    if (!currentLanguageId.equals(selectedLanguageId)) {
+                        Log.d(TAG, "Selected language_id: " + selectedLanguageId);
+                        AppUtil.setLocale(getActivity(), selectedLanguageId);
+                        dialog.dismiss();
+                        restart();
                     }
                 })
                 .setNegativeButton(R.string.cancel, null)
@@ -102,8 +96,13 @@ public class SettingsFragment extends Fragment {
         activity.finish();
     }
 
-    private void showBugReport() {
-        startActivity(toBrowser(getString(R.string.bug_report_url)));
+    private void setNotificationSetting(boolean isChecked) {
+        PrefUtil.put(getContext(), PrefUtil.KEY_NOTIFICATION_SETTING, isChecked);
     }
 
+    private void switchNotificationSetting() {
+        boolean newValule = !PrefUtil.get(getContext(), PrefUtil.KEY_NOTIFICATION_SETTING, true);
+        setNotificationSetting(newValule);
+        binding.notificationSettingSwitch.setChecked(newValule);
+    }
 }

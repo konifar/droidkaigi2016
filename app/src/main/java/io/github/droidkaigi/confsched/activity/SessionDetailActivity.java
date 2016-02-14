@@ -17,22 +17,16 @@ import javax.inject.Inject;
 
 import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
-import io.github.droidkaigi.confsched.databinding.ActivitySessionDetailBinding;
 import io.github.droidkaigi.confsched.fragment.SessionDetailFragment;
 import io.github.droidkaigi.confsched.model.Session;
 import io.github.droidkaigi.confsched.util.AnalyticsTracker;
 
 public class SessionDetailActivity extends AppCompatActivity {
 
-    private static final String TAG = SessionDetailActivity.class.getSimpleName();
-
     @Inject
     AnalyticsTracker analyticsTracker;
 
-    private ActivitySessionDetailBinding binding;
-    private Session session;
-
-    private static Intent createIntent(@NonNull Context context, @NonNull Session session) {
+    public static Intent createIntent(@NonNull Context context, @NonNull Session session) {
         Intent intent = new Intent(context, SessionDetailActivity.class);
         intent.putExtra(Session.class.getSimpleName(), Parcels.wrap(session));
         return intent;
@@ -43,14 +37,18 @@ public class SessionDetailActivity extends AppCompatActivity {
         activity.startActivityForResult(intent, requestCode);
     }
 
+    static void startForResult(@NonNull Fragment fragment, @NonNull Session session, int requestCode) {
+        Intent intent = createIntent(fragment.getContext(), session);
+        fragment.startActivityForResult(intent, requestCode);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_session_detail);
+        DataBindingUtil.setContentView(this, R.layout.activity_session_detail);
         MainApplication.getComponent(this).inject(this);
 
-        session = Parcels.unwrap(getIntent().getParcelableExtra(Session.class.getSimpleName()));
-
+        Session session = Parcels.unwrap(getIntent().getParcelableExtra(Session.class.getSimpleName()));
         replaceFragment(SessionDetailFragment.create(session));
     }
 

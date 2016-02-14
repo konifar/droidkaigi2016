@@ -13,17 +13,17 @@ import javax.inject.Inject;
 import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.activity.ActivityNavigator;
+import io.github.droidkaigi.confsched.activity.ContributorsActivity;
 import io.github.droidkaigi.confsched.databinding.FragmentAboutBinding;
 import io.github.droidkaigi.confsched.util.AppUtil;
 import io.github.droidkaigi.confsched.util.LocaleUtil;
 
 public class AboutFragment extends Fragment {
 
-    public static final String TAG = AboutFragment.class.getSimpleName();
     private static final String REP_TWITTER_NAME = "mhidaka";
-    private static final String SITE_URL = "https://droidkaigi.github.io/2016";
     private static final String CONF_TWITTER_NAME = "DroidKaigi";
     private static final String CONF_FACEBOOK_NAME = "DroidKaigi";
+    private static final String CONF_REPOSITORY_NAME = "konifar/droidkaigi2016";
     private static final String LICENSE_URL = "file:///android_asset/license.html";
 
     @Inject
@@ -54,24 +54,28 @@ public class AboutFragment extends Fragment {
         binding.txtRep.setText(repText);
         AppUtil.linkify(getActivity(), binding.txtRep, REP_TWITTER_NAME, AppUtil.getTwitterUrl(REP_TWITTER_NAME));
 
-        binding.txtSiteUrl.setText(LocaleUtil.getRtlConsideredText(SITE_URL, getContext()));
-        AppUtil.linkify(getActivity(), binding.txtSiteUrl, SITE_URL, SITE_URL);
+        String siteUrl = getString(R.string.about_site_url);
+        binding.txtSiteUrl.setText(LocaleUtil.getRtlConsideredText(siteUrl, getContext()));
+        AppUtil.linkify(getActivity(), binding.txtSiteUrl, siteUrl, siteUrl);
 
         binding.imgFacebookClicker.setOnClickListener(v ->
                 AppUtil.showWebPage(getActivity(), AppUtil.getFacebookUrl(CONF_FACEBOOK_NAME)));
         binding.imgTwitterClicker.setOnClickListener(v ->
                 AppUtil.showWebPage(getActivity(), AppUtil.getTwitterUrl(CONF_TWITTER_NAME)));
 
-        binding.txtTerms.setOnClickListener(v -> {
-            // TODO
-        });
         binding.txtQuestionnaire.setOnClickListener(v -> {
             AppUtil.showWebPage(getActivity(), getString(R.string.about_inquiry_url));
         });
         binding.txtLicense.setOnClickListener(v ->
-                activityNavigator.showWebView(getActivity(), LICENSE_URL, getString(R.string.about_license)));
+                activityNavigator.showWebView(getContext(), LICENSE_URL, getString(R.string.about_license)));
 
-        binding.txtVersion.setText(AppUtil.getVersionName(getActivity()));
+        binding.txtGithubRepository.setOnClickListener(v ->
+                AppUtil.showWebPage(getActivity(), AppUtil.getGitHubUrl(CONF_REPOSITORY_NAME)));
+
+        binding.txtContributors.setOnClickListener(v ->
+                        startActivity(ContributorsActivity.createIntent(getContext()))
+        );
+        binding.txtVersion.setText(AppUtil.getVersionName(getContext()));
     }
 
 }

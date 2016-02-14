@@ -2,15 +2,20 @@
 
 [DroidKaigi](https://droidkaigi.github.io/2016/en/) is a conference tailored for developers on 18th and 19th February 2016.
 
-[<img src="https://dply.me/3r0x9j/button/large" alt="Try it on your device via DeployGate">](https://dply.me/3r0x9j#install)
+[<img src="https://dply.me/rlr6yr/button/large" alt="Try it on your device via DeployGate">](https://dply.me/rlr6yr#install)
 
 
 ## Features
+
+![](art/droidkaigi1.png)
 
 * Show all sessions
 * Manage schedule
 * Show map
 * Search sessions and speakers
+
+
+![](art/droidkaigi2.gif)
 
 
 ## Development Environment
@@ -86,7 +91,7 @@ src/main/java/io/github/droidkaigi/confsched/di
 
 ### Orma
 This project uses ORM library [Android-Orma](http://gfx.github.io/Android-Orma/).
-Android-Orma is a lightning-fast and anotation based wrapper library of SQLiteDatabase.
+Android-Orma is a lightning-fast and annotation based wrapper library of SQLiteDatabase.
 
 Some model classes in `model` package have `@Table` annotation.
 

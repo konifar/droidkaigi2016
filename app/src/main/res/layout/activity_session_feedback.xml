@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.SessionFeedbackActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="@dimen/elevation"
+            app:elevation="@dimen/elevation"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/spacing_small">
+
+                <!-- Q1 -->
+                <android.support.v7.widget.CardView style="@style/FeedbackCardItem">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/spacing">
+
+                        <TextView
+                            android:id="@+id/txt_feedback_relevance"
+                            style="@style/FeedbackTitle"
+                            android:text="@string/session_feedback_relevance" />
+
+                        <io.github.droidkaigi.confsched.widget.NumberRatingBar
+                            android:id="@+id/relevant_feedback_bar"
+                            style="@style/FeedbackNumberRatingBar"
+                            android:layout_below="@id/txt_feedback_relevance"
+                            android:layout_marginTop="@dimen/spacing_small" />
+
+                        <TextView
+                            style="@style/FeedbackQuestionGuideText.Start"
+                            android:layout_below="@id/relevant_feedback_bar"
+                            android:text="@string/session_feedback_not_at_all_relevant" />
+
+                        <TextView
+                            style="@style/FeedbackQuestionGuideText.End"
+                            android:layout_below="@id/relevant_feedback_bar"
+                            android:text="@string/session_feedback_extremely_relevant" />
+
+                    </RelativeLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <!-- Q2 -->
+                <android.support.v7.widget.CardView style="@style/FeedbackCardItem">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/spacing">
+
+                        <TextView
+                            android:id="@+id/txt_feedback_expectation"
+                            style="@style/FeedbackTitle"
+                            android:text="@string/session_feedback_expectation_label_text" />
+
+                        <io.github.droidkaigi.confsched.widget.NumberRatingBar
+                            android:id="@+id/as_expected_feedback_bar"
+                            style="@style/FeedbackNumberRatingBar"
+                            android:layout_below="@id/txt_feedback_expectation"
+                            android:layout_marginTop="@dimen/spacing_small" />
+
+                        <TextView
+                            style="@style/FeedbackQuestionGuideText.Start"
+                            android:layout_below="@id/as_expected_feedback_bar"
+                            android:text="@string/session_feedback_below_expectation" />
+
+                        <TextView
+                            style="@style/FeedbackQuestionGuideText.End"
+                            android:layout_below="@id/as_expected_feedback_bar"
+                            android:text="@string/session_feedback_beyond_expectation" />
+
+                    </RelativeLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <!-- Q3 -->
+                <android.support.v7.widget.CardView style="@style/FeedbackCardItem">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/spacing">
+
+                        <TextView
+                            android:id="@+id/txt_feedback_difficulty"
+                            style="@style/FeedbackTitle"
+                            android:text="@string/session_feedback_difficulty" />
+
+                        <io.github.droidkaigi.confsched.widget.NumberRatingBar
+                            android:id="@+id/difficulty_feedback_bar"
+                            style="@style/FeedbackNumberRatingBar"
+                            android:layout_below="@id/txt_feedback_difficulty"
+                            android:layout_marginTop="@dimen/spacing_small" />
+
+                        <TextView
+                            style="@style/FeedbackQuestionGuideText.Start"
+                            android:layout_below="@id/difficulty_feedback_bar"
+                            android:text="@string/session_feedback_easy" />
+
+                        <TextView
+                            style="@style/FeedbackQuestionGuideText.End"
+                            android:layout_below="@id/difficulty_feedback_bar"
+                            android:text="@string/session_feedback_hard" />
+
+                    </RelativeLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <!-- Q4 -->
+                <android.support.v7.widget.CardView
+                    style="@style/FeedbackCardItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/spacing">
+
+                        <TextView
+                            android:id="@+id/txt_feedback_knowledgeable"
+                            style="@style/FeedbackTitle"
+                            android:text="@string/session_feedback_knowledgeable" />
+
+                        <io.github.droidkaigi.confsched.widget.NumberRatingBar
+                            android:id="@+id/knowledgeable_feedback_bar"
+                            style="@style/FeedbackNumberRatingBar"
+                            android:layout_below="@id/txt_feedback_knowledgeable"
+                            android:layout_marginTop="@dimen/spacing_small" />
+
+                        <TextView
+                            style="@style/FeedbackQuestionGuideText.Start"
+                            android:layout_below="@id/knowledgeable_feedback_bar"
+                            android:text="@string/session_feedback_poor_knowledge" />
+
+                        <TextView
+                            style="@style/FeedbackQuestionGuideText.End"
+                            android:layout_below="@id/knowledgeable_feedback_bar"
+                            android:text="@string/session_feedback_outstanding_knowledge" />
+
+                    </RelativeLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <!-- Additional Comment -->
+                <android.support.v7.widget.CardView
+                    style="@style/FeedbackCardItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/spacing">
+
+                        <TextView
+                            style="@style/FeedbackTitle"
+                            android:text="@string/session_feedback_other" />
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_small"
+                            android:hint="@string/session_feedback_other_hint"
+                            app:counterMaxLength="400">
+
+                            <EditText
+                                android:id="@+id/other_comments_feedback_text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black_alpha_87"
+                                android:textSize="@dimen/text" />
+
+                        </android.support.design.widget.TextInputLayout>
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <!-- Submit button -->
+                <TextView
+                    android:id="@+id/submit_feedback_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_xsmall"
+                    android:background="@drawable/clickable_primary"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:padding="@dimen/spacing"
+                    android:text="@string/session_feedback_submitlink"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_xlarge" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>

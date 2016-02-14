@@ -24,8 +24,6 @@ import rx.Observable;
 
 public class SponsorsFragment extends Fragment {
 
-    public static final String TAG = SponsorsFragment.class.getSimpleName();
-
     private FragmentSponsorsBinding binding;
 
     @Inject

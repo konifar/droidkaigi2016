@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Text -->
     <style name="TextTitle">
@@ -50,11 +50,11 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:paddingBottom">@dimen/tag_padding_vertical</item>
-        <item name="android:paddingEnd">@dimen/tag_padding_horizontal</item>
+        <item name="android:paddingEnd" tools:targetApi="jelly_bean_mr1">@dimen/tag_padding_horizontal</item>
         <item name="android:paddingLeft">@dimen/tag_padding_horizontal</item>
         <item name="android:paddingTop">@dimen/tag_padding_vertical</item>
         <item name="android:paddingRight">@dimen/tag_padding_horizontal</item>
-        <item name="android:paddingStart">@dimen/tag_padding_horizontal</item>
+        <item name="android:paddingStart" tools:targetApi="jelly_bean_mr1">@dimen/tag_padding_horizontal</item>
         <item name="android:textSize">@dimen/text_small</item>
         <item name="android:textColor">@color/grey600</item>
     </style>
@@ -70,7 +70,7 @@
         <item name="android:drawableEnd">@drawable/ic_close_white_18dp</item>
         <item name="android:imeOptions">actionSearch</item>
         <item name="android:inputType">text</item>
-        <item name="android:textCursorDrawable">@color/white_alpha_95</item>
+        <item name="android:textCursorDrawable">@drawable/rect_edit_text_cursor</item>
         <item name="android:maxLines">1</item>
         <item name="android:paddingRight">@dimen/spacing_small</item>
         <item name="android:textColor">@color/white</item>
@@ -94,8 +94,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginLeft">@dimen/spacing_small</item>
         <item name="android:layout_marginRight">@dimen/spacing_small</item>
-        <item name="android:layout_marginEnd">@dimen/spacing_small</item>
-        <item name="android:layout_marginStart">@dimen/spacing_small</item>
+        <item name="android:layout_marginEnd" tools:targetApi="jelly_bean_mr1">@dimen/spacing_small</item>
+        <item name="android:layout_marginStart" tools:targetApi="jelly_bean_mr1">@dimen/spacing_small</item>
         <item name="android:ellipsize">end</item>
         <item name="android:lines">1</item>
         <item name="android:textSize">@dimen/text_xlarge</item>

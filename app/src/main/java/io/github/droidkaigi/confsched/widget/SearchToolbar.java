@@ -19,7 +19,6 @@ import io.github.droidkaigi.confsched.util.LocaleUtil;
 
 public class SearchToolbar extends FrameLayout {
 
-    private static final int DRAWABLE_LEFT = 0;
     private static final int DRAWABLE_RIGHT = 2;
 
     private ToolbarSearchBinding binding;

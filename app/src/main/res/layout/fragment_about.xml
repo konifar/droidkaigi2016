@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="io.github.droidkaigi.confsched.activity.MainActivity">
+
+    <data>
+
+        <import type="io.github.droidkaigi.confsched.R" />
+    </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -62,6 +68,7 @@
 
                 <TextView
                     style="@style/AboutTitle"
+                    android:layout_marginTop="@dimen/spacing"
                     android:text="@string/about_social" />
 
                 <RelativeLayout
@@ -120,23 +127,33 @@
                     android:layout_marginTop="@dimen/spacing" />
 
                 <TextView
-                    android:id="@+id/txt_terms"
+                    android:id="@+id/txt_questionnaire"
                     style="@style/AboutRow"
-                    android:text="@string/about_terms"
-                    android:visibility="gone" />
+                    android:text="@string/about_questionnaire" />
 
                 <View
                     style="@style/Border"
                     android:layout_marginEnd="@dimen/spacing_negative"
                     android:layout_marginLeft="@dimen/spacing_negative"
                     android:layout_marginRight="@dimen/spacing_negative"
-                    android:layout_marginStart="@dimen/spacing_negative"
-                    android:visibility="gone" />
+                    android:layout_marginStart="@dimen/spacing_negative" />
 
                 <TextView
-                    android:id="@+id/txt_questionnaire"
+                    android:id="@+id/txt_contributors"
                     style="@style/AboutRow"
-                    android:text="@string/about_questionnaire" />
+                    android:text="@string/about_contributors" />
+
+                <View
+                    style="@style/Border"
+                    android:layout_marginEnd="@dimen/spacing_negative"
+                    android:layout_marginLeft="@dimen/spacing_negative"
+                    android:layout_marginRight="@dimen/spacing_negative"
+                    android:layout_marginStart="@dimen/spacing_negative" />
+
+                <TextView
+                    android:id="@+id/txt_github_repository"
+                    style="@style/AboutRow"
+                    app:textRtlConsidered="@{context.getString(R.string.about_github_repository)}" />
 
                 <View
                     style="@style/Border"

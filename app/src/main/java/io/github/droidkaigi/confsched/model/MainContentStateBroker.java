@@ -9,13 +9,13 @@ import rx.subjects.Subject;
  * @author KeishinYokomaku
  */
 public class MainContentStateBroker {
-	private final Subject<Page, Page> bus = new SerializedSubject<>(PublishSubject.create());
+    private final Subject<Page, Page> bus = new SerializedSubject<>(PublishSubject.create());
 
-	public void set(Page page) {
-		bus.onNext(page);
-	}
+    public void set(Page page) {
+        bus.onNext(page);
+    }
 
-	public Observable<Page> observe() {
-		return bus;
-	}
+    public Observable<Page> observe() {
+        return bus;
+    }
 }

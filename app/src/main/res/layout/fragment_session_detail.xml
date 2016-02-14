@@ -214,13 +214,15 @@
                     app:categoryVividColor="@{session.category}" />
 
                 <TextView
+                    android:id="@+id/txt_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="@dimen/line_spacing_large"
                     android:padding="@dimen/spacing"
                     android:textColor="@color/grey600"
                     android:textSize="@dimen/text"
-                    app:sessionDescription="@{session}" />
+                    app:sessionDescription="@{session}"
+                    android:textIsSelectable="true" />
 
                 <View
                     style="@style/Border"

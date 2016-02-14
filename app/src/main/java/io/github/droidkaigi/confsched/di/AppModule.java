@@ -1,12 +1,12 @@
 package io.github.droidkaigi.confsched.di;
 
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.Tracker;
+
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
-
-import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.android.gms.analytics.Tracker;
 
 import java.io.File;
 
@@ -43,7 +43,7 @@ public class AppModule {
 
     @Singleton
     @Provides
-    public Tracker providesGoogleAnalyticsTracker(Context context) {
+    public Tracker provideGoogleAnalyticsTracker(Context context) {
         GoogleAnalytics ga = GoogleAnalytics.getInstance(context);
         Tracker tracker = ga.newTracker(BuildConfig.GA_TRACKING_ID);
         tracker.enableAdvertisingIdCollection(true);

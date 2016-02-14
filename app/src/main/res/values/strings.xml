@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">DroidKaigi 2016</string>
     <string name="tag_line">A conference tailored for Android developers!</string>
     <string name="session_detail">Session Detail</string>
 
@@ -8,6 +7,7 @@
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="yes">Yes</string>
+    <string name="share">Share</string>
 
     <string name="speaker">Speaker</string>
     <string name="session_time_range">%1$s - %2$s (%3$smin)</string>
@@ -30,23 +30,43 @@
     <string name="about">About</string>
     <string name="search">Search</string>
 
+    <string name="sessions_network_error">Failed to load sessions. Try again after a while.</string>
+
     <string name="map_main_name">Reception, Keynote venue</string>
     <string name="map_main_building">70th Memorial Hall</string>
-    <string name="map_ab_name">Hall A, B</string>
+    <string name="map_ab_name">Room A, B</string>
     <string name="map_ab_building">South 2 bldg.</string>
-    <string name="map_cd_name">Hall C, D</string>
+    <string name="map_cd_name">Room C, D</string>
     <string name="map_cd_building">South 4 bldg.</string>
     <string name="map_party_name">After party venue</string>
     <string name="map_party_building">Tokyo Tech Front (Kuramae Hall)</string>
     <string name="map_address">Tokyo Institute of Technology, Ookayama Campus\nOokayama 2&#8211;12&#8211;1, Meguro City, Tokyo</string>
+    <string name="map_fine_location_denied">Consider granting it in order to get the current location.</string>
+    <string name="map_fine_location_never_askagain">Dialog never shows again.\nPlease go setting and grant it if you want to.</string>
+    <string name="map_fine_location_rationale">Location permissions is needed to show your current position.</string>
+    <string name="map_button_allow">Allow</string>
+    <string name="map_button_deny">Deny</string>
 
-    <string name="lang_ar">Arabic</string>
-    <string name="lang_en">English</string>
-    <string name="lang_ja">Japanese</string>
+    <string name="lang_ar_in_ar" translatable="false">العربية</string>
+    <string name="lang_en_in_ar" translatable="false">الإنجليزية</string>
+    <string name="lang_ja_in_ar" translatable="false">اليابانية</string>
+
+    <string name="lang_ar_in_en" translatable="false">Arabic</string>
+    <string name="lang_en_in_en" translatable="false">English</string>
+    <string name="lang_ja_in_en" translatable="false">Japanese</string>
+
+    <string name="lang_ar_in_ja" translatable="false">アラビア語</string>
+    <string name="lang_en_in_ja" translatable="false">英語</string>
+    <string name="lang_ja_in_ja" translatable="false">日本語</string>
+
+    <string name="lang_ar">@string/lang_ar_in_en</string>
+    <string name="lang_en">@string/lang_en_in_en</string>
+    <string name="lang_ja">@string/lang_ja_in_en</string>
 
     <string name="settings_language">Change language</string>
     <string name="settings_language_description">Choose language in this app. After changed, app will restart.</string>
-    <string name="settings_bugreport">Bug report</string>
+    <string name="settings_notification">Notification</string>
+    <string name="settings_notification_description">Choose whether to receive notification in this app.</string>
 
     <string name="sponsor_category_platinum">Platinum Sponsors</string>
     <string name="sponsor_category_video">Video Sponsors</string>
@@ -54,19 +74,51 @@
     <string name="sponsor_category_normal">Supporters</string>
 
     <string name="about_conference">About DroidKaigi</string>
-    <string name="about_conference_descriptions">For its 2016 edition, DroidKaigi will be held in two days and expects to see famous engineers from Japan and overseas giving talks. The schedule for sessions and speakers will be announced when ready. See the schedule section for more details.\n\nThere will be hands-on sessions and office hours as well other than conference sessions.\nAndroid is being used in various situations and in many ways. Why don\'t you come and join us to share your knowledge and create better software?</string>
+    <string name="about_conference_descriptions">For its 2016 edition, DroidKaigi will be held in two days and expects to see famous engineers from Japan and overseas giving talks.\n\nThere will be corporate exhibitions as well other than conference sessions.\n\nAndroid is being used in various situations and in many ways. Why don\'t you come and join us to share your knowledge and create better software?</string>
     <string name="about_rep">REP: %1$s</string>
     <string name="about_social">Social</string>
     <string name="about_terms">Terms of Use</string>
     <string name="about_license">License</string>
+    <string name="about_github_repository">GitHub Repository</string>
+    <string name="about_contributors">Contributors</string>
     <string name="about_questionnaire">Questionnaire</string>
     <string name="about_version_prefix">"V%1$s</string>
 
-    <string name="search_hint">Search by words</string>
+    <string name="contributors_load_error">Failed to load contributors.</string>
 
-    <string name="app_close_confirm">Please tap the back key again to close.</string>
-    <string name="app_close_now">Close now</string>
+    <plurals name="number_with_brackets">
+        <item quantity="one">(%1$d person)</item>
+        <item quantity="other">(%1$d people)</item>
+    </plurals>
+
+    <string name="search_hint">Search by words</string>
 
     <string name="my_schedule_empty">No items here. Let\'s check out all sessions and put your favourite!</string>
     <string name="my_schedule_go_to_session_list">Go to All Sessions</string>
+
+    <plurals name="schedule_notification_title">
+        <item quantity="one">%1$d minute before session</item>
+        <item quantity="other">%1$d minutes before session</item>
+    </plurals>
+
+    <string name="session_feedback_accepted_successfully">Thank you! The feedback was accepted.</string>
+    <string name="session_feedback_below_expectation">Below</string>
+    <string name="session_feedback_beyond_expectation">Beyond</string>
+    <string name="session_feedback_difficulty">Was this session easy to understand?</string>
+    <string name="session_feedback_easy">Easy</string>
+    <string name="session_feedback_expectation_label_text">Based on the description, was the content as expected?</string>
+    <string name="session_feedback_extremely_relevant">Extremely</string>
+    <string name="session_feedback_hard">Hard</string>
+    <string name="session_feedback_knowledgeable">How knowledgeable was the content?</string>
+    <string name="session_feedback_not_accepting">Sorry. Currently we are not accepting the feedback. You can submit feedback only during the event dates.</string>
+    <string name="session_feedback_not_at_all_relevant">Not at all</string>
+    <string name="session_feedback_other">Anything else we should know? (Please don\'t add any personal information in your comments)</string>
+    <string name="session_feedback_other_hint">Other session feedback?</string>
+    <string name="session_feedback_outstanding_knowledge">Outstanding</string>
+    <string name="session_feedback_poor_knowledge">Poor</string>
+    <string name="session_feedback_relevance">How relevant was this session to your projects?</string>
+    <string name="session_feedback_submit_error">An error occurred while submitting. Make sure the network is available.</string>
+    <string name="session_feedback_submit_failure">Submit failed</string>
+    <string name="session_feedback_submit_success">Submit succeeded</string>
+    <string name="session_feedback_submitlink">Submit Feedback</string>
 </resources>
