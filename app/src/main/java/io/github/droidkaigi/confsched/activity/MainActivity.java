@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity
     private void initView() {
         setSupportActionBar(binding.toolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,
-                                                                        binding.drawer, binding.toolbar, R.string.open, R.string.close);
+                binding.drawer, binding.toolbar, R.string.open, R.string.close);
         binding.drawer.setDrawerListener(toggle);
         toggle.syncState();
         binding.navView.setNavigationItemSelectedListener(this);
