@@ -53,6 +53,9 @@ public class SessionScheduleReceiver extends BroadcastReceiver {
                 .setContentText(session.title)
                 .setDefaults(Notification.DEFAULT_ALL)
                 .setAutoCancel(true)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setCategory(NotificationCompat.CATEGORY_EVENT)
+                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                 .build();
 
         NotificationManager manager = (NotificationManager) context.getSystemService(Service.NOTIFICATION_SERVICE);
