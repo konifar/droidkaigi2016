@@ -7,14 +7,17 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.ViewTreeObserver;
 
 import javax.inject.Inject;
 
@@ -64,8 +67,7 @@ public class MainActivity extends AppCompatActivity
         MainApplication.getComponent(this).inject(this);
 
         subscription.add(brokerProvider.get().observe().subscribe(page -> {
-            toggleToolbarElevation(page.shouldToggleToolbar());
-            changePage(page.getTitleResId(), page.createFragment());
+            changePage(page);
             binding.navView.setCheckedItem(page.getMenuId());
         }));
         initView();
@@ -90,6 +92,29 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
         binding.navView.setNavigationItemSelectedListener(this);
         binding.navView.setCheckedItem(R.id.nav_all_sessions);
+
+        binding.getRoot().getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                if (ViewCompat.isLaidOut(binding.appbar)) {
+                    binding.getRoot().getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                    initAppBarBehavior();
+                }
+            }
+        });
+
+    }
+
+    private void initAppBarBehavior() {
+        CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) binding.appbar.getLayoutParams();
+        AppBarLayout.Behavior behavior = (AppBarLayout.Behavior) params.getBehavior();
+        behavior.setDragCallback(new AppBarLayout.Behavior.DragCallback() {
+            @Override
+            public boolean canDrag(@NonNull AppBarLayout appBarLayout) {
+                // Disable AppbarLayout drag for MapFragment Bottom Bar Scrolling.
+                return false;
+            }
+        });
     }
 
     private void replaceFragment(Fragment fragment) {
@@ -119,8 +144,7 @@ public class MainActivity extends AppCompatActivity
         binding.drawer.closeDrawer(GravityCompat.START);
 
         Page page = Page.forMenuId(item);
-        toggleToolbarElevation(page.shouldToggleToolbar());
-        changePage(page.getTitleResId(), page.createFragment());
+        changePage(page);
 
         return true;
     }
@@ -132,10 +156,13 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    private void changePage(@StringRes int titleRes, @NonNull Fragment fragment) {
+    private void changePage(Page page) {
+        binding.appbar.setExpanded(true, true);
+        final Fragment fragment = page.createFragment();
+        toggleToolbarElevation(page.shouldToggleToolbar());
         new Handler().postDelayed(() -> {
-            binding.toolbar.setTitle(titleRes);
-            AppUtil.setTaskDescription(this, getString(titleRes), AppUtil.getThemeColorPrimary(this));
+            binding.toolbar.setTitle(page.getTitleResId());
+            AppUtil.setTaskDescription(this, getString(page.getTitleResId()), AppUtil.getThemeColorPrimary(this));
             replaceFragment(fragment);
         }, 300);
     }
