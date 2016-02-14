@@ -1,5 +1,6 @@
 package io.github.droidkaigi.confsched.model;
 
+import android.content.Context;
 import android.support.annotation.Nullable;
 
 import com.github.gfx.android.orma.annotation.Column;
@@ -79,6 +80,14 @@ public class Session {
     public boolean checked;
 
     public Session() {
+    }
+
+    public Date getDisplaySTime(Context context) {
+        return LocaleUtil.getDisplayDate(stime, context);
+    }
+
+    public Date getDisplayETime(Context context) {
+        return LocaleUtil.getDisplayDate(etime, context);
     }
 
     public void prepareSave() {

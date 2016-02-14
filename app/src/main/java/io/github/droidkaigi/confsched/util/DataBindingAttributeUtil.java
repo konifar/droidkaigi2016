@@ -20,6 +20,8 @@ import net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout;
 
 import org.apmem.tools.layouts.FlowLayout;
 
+import java.util.Date;
+
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.model.Category;
 import io.github.droidkaigi.confsched.model.Session;
@@ -71,19 +73,25 @@ public class DataBindingAttributeUtil {
 
     @BindingAdapter("sessionTimeRange")
     public static void setSessionTimeRange(TextView textView, @NonNull Session session) {
+        Date displaySTime = session.getDisplaySTime(textView.getContext());
+        Date displayETime = session.getDisplayETime(textView.getContext());
+
         String timeRange = textView.getContext().getString(R.string.session_time_range,
-                DateUtil.getHourMinute(session.stime),
-                DateUtil.getHourMinute(session.etime),
-                DateUtil.getMinutes(session.stime, session.etime));
+                DateUtil.getHourMinute(displaySTime),
+                DateUtil.getHourMinute(displayETime),
+                DateUtil.getMinutes(displaySTime, displayETime));
         textView.setText(timeRange);
     }
 
     @BindingAdapter("sessionDetailTimeRange")
     public static void setSessionDetailTimeRange(TextView textView, @NonNull Session session) {
+        Date displaySTime = session.getDisplaySTime(textView.getContext());
+        Date displayETime = session.getDisplayETime(textView.getContext());
+
         String timeRange = textView.getContext().getString(R.string.session_time_range,
-                DateUtil.getLongFormatDate(session.stime, textView.getContext()),
-                DateUtil.getHourMinute(session.etime),
-                DateUtil.getMinutes(session.stime, session.etime));
+                DateUtil.getLongFormatDate(displaySTime, textView.getContext()),
+                DateUtil.getHourMinute(displayETime),
+                DateUtil.getMinutes(displaySTime, displayETime));
         textView.setText(timeRange);
     }
 
