@@ -69,9 +69,9 @@ public class SettingSwitchRowView extends RelativeLayout implements Checkable {
         if (TextUtils.isEmpty(prefKey)) {
             Log.d(TAG, "PrefKey must be set. Call init()");
         } else {
-            boolean newValule = !PrefUtil.get(getContext(), prefKey, true);
-            setSetting(newValule);
-            binding.settingSwitch.setChecked(newValule);
+            boolean newValue = !PrefUtil.get(getContext(), prefKey, true);
+            setSetting(newValue);
+            binding.settingSwitch.setChecked(newValue);
         }
     }
 
