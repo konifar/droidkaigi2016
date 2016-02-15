@@ -149,8 +149,8 @@ dependencies {
 
     apt 'com.github.gfx.android.orma:orma-processor:1.3.0'
     compile 'com.github.gfx.android.orma:orma:1.3.0'
-    compile 'com.github.hotchemi:permissionsdispatcher:2.0.5'
-    apt 'com.github.hotchemi:permissionsdispatcher-processor:2.0.5'
+    compile 'com.github.hotchemi:permissionsdispatcher:2.0.6'
+    apt 'com.github.hotchemi:permissionsdispatcher-processor:2.0.6'
 
     compile "com.squareup.picasso:picasso:2.5.2"
     compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
