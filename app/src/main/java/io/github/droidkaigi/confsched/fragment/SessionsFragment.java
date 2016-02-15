@@ -107,12 +107,11 @@ public class SessionsFragment extends Fragment implements StackedPageListener {
     }
 
     private void initEmptyView() {
-        binding.emptyViewButton.setOnClickListener(v -> {
-            brokerProvider.get().set(Page.ALL_SESSIONS);
-        });
+        binding.emptyViewButton.setOnClickListener(v -> brokerProvider.get().set(Page.ALL_SESSIONS));
     }
 
     private Subscription fetchAndSave() {
+        showLoadingView();
         return client.getSessions(LocaleUtil.getCurrentLanguageId(getActivity()))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -123,6 +122,7 @@ public class SessionsFragment extends Fragment implements StackedPageListener {
     }
 
     protected Subscription loadData() {
+        showLoadingView();
         Observable<List<Session>> cachedSessions = dao.findAll();
         return cachedSessions.flatMap(sessions -> {
             if (shouldRefresh || sessions.isEmpty()) {
@@ -143,6 +143,7 @@ public class SessionsFragment extends Fragment implements StackedPageListener {
     private void onLoadDataSuccess(List<Session> sessions) {
         Log.i(TAG, "Sessions Load succeeded.");
         groupByDateSessions(sessions);
+
     }
 
     private void onLoadDataFailure(Throwable throwable) {
@@ -156,6 +157,14 @@ public class SessionsFragment extends Fragment implements StackedPageListener {
 
     protected void hideEmptyView() {
         binding.emptyView.setVisibility(View.GONE);
+    }
+
+    protected void showLoadingView() {
+        binding.progressBarContainer.setVisibility(View.VISIBLE);
+    }
+
+    protected void hideLoadingView() {
+        binding.progressBarContainer.setVisibility(View.GONE);
     }
 
     protected void groupByDateSessions(List<Session> sessions) {
@@ -181,6 +190,7 @@ public class SessionsFragment extends Fragment implements StackedPageListener {
         binding.tabLayout.setupWithViewPager(binding.viewPager);
         binding.tabLayout.setOnTabSelectedListener(new CustomViewPagerOnTabSelectedListener(binding.viewPager));
 
+        hideLoadingView();
         if (sessions.isEmpty()) {
             showEmptyView();
         } else {
