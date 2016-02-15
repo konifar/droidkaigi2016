@@ -46,7 +46,7 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 
-public class SessionsFragment extends Fragment {
+public class SessionsFragment extends Fragment implements StackedPageListener {
 
     public static final String TAG = SessionsFragment.class.getSimpleName();
     private static final String ARG_SHOULD_REFRESH = "should_refresh";
@@ -223,6 +223,11 @@ public class SessionsFragment extends Fragment {
             return;
         }
         onChangeSessionListener.onChangeSession(statusChangedSession);
+        compositeSubscription.add(loadData());
+    }
+
+    @Override
+    public void onTop() {
         compositeSubscription.add(loadData());
     }
 

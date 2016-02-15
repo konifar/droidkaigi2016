@@ -6,6 +6,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -70,6 +72,16 @@ public class MapFragment extends Fragment {
         setHasOptionsMenu(true);
         initBackPressed();
         return binding.getRoot();
+    }
+
+    @Override
+    public void onDestroyView() {
+        FragmentManager fm = getChildFragmentManager();
+        SupportMapFragment map = (SupportMapFragment) fm.findFragmentById(R.id.map);
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.remove(map);
+        ft.commit();
+        super.onDestroyView();
     }
 
     @Override
