@@ -75,6 +75,9 @@ public class AboutFragment extends Fragment {
         binding.txtContributors.setOnClickListener(v ->
                         startActivity(ContributorsActivity.createIntent(getContext()))
         );
+        binding.txtYoutube.setOnClickListener(v -> {
+            AppUtil.showWebPage(getActivity(), "https://www.youtube.com/channel/UCgK6L-PKx2OZBuhrQ6mmQZw");
+        });
         binding.txtVersion.setText(AppUtil.getVersionName(getContext()));
     }
 

@@ -163,6 +163,18 @@
                     android:layout_marginStart="@dimen/spacing_negative" />
 
                 <TextView
+                    android:id="@+id/txt_youtube"
+                    style="@style/AboutRow"
+                    android:text="@string/about_youtube" />
+
+                <View
+                    style="@style/Border"
+                    android:layout_marginEnd="@dimen/spacing_negative"
+                    android:layout_marginLeft="@dimen/spacing_negative"
+                    android:layout_marginRight="@dimen/spacing_negative"
+                    android:layout_marginStart="@dimen/spacing_negative" />
+
+                <TextView
                     android:id="@+id/txt_license"
                     style="@style/AboutRow"
                     android:text="@string/about_license" />
