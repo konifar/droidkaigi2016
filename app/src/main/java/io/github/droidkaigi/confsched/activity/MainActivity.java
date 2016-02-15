@@ -194,6 +194,7 @@ public class MainActivity extends AppCompatActivity
         binding.toolbar.setTitle(page.getTitleResId());
         changeToolbarColor(page.getToolbarColor());
         changeStatusBarColor(page.getStatusBarColor());
+        toggleToolbarElevation(page.shouldToggleToolbar());
         if (current instanceof StackedPageListener) {
             StackedPageListener l = (StackedPageListener) current;
             l.onTop();
