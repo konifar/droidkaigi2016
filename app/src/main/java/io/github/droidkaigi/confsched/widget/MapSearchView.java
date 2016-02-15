@@ -25,6 +25,8 @@ public class MapSearchView extends FrameLayout {
 
     private ViewMapSearchBinding binding;
 
+    private OnVisibilityChangeListener onVisibilityChangeListener;
+
     public MapSearchView(Context context) {
         this(context, null);
     }
@@ -53,6 +55,10 @@ public class MapSearchView extends FrameLayout {
 
     public boolean isVisible() {
         return binding.mapListContainer.getVisibility() == VISIBLE;
+    }
+
+    public void setOnVisibilityChangeListener(OnVisibilityChangeListener listener) {
+        onVisibilityChangeListener = listener;
     }
 
     public void toggle() {
@@ -87,6 +93,9 @@ public class MapSearchView extends FrameLayout {
             @Override
             public void onAnimationStart() {
                 binding.mapListContainer.setVisibility(VISIBLE);
+                if (onVisibilityChangeListener != null) {
+                    onVisibilityChangeListener.onChange();
+                }
             }
 
             @Override
@@ -129,6 +138,9 @@ public class MapSearchView extends FrameLayout {
             @Override
             public void onAnimationEnd() {
                 binding.mapListContainer.setVisibility(INVISIBLE);
+                if (onVisibilityChangeListener != null) {
+                    onVisibilityChangeListener.onChange();
+                }
             }
 
             @Override
@@ -147,6 +159,10 @@ public class MapSearchView extends FrameLayout {
 
     public interface OnItemClickListener {
         void onClick(PlaceMap placeMap);
+    }
+
+    public interface OnVisibilityChangeListener {
+        void onChange();
     }
 
 }
