@@ -1,5 +1,6 @@
 package io.github.droidkaigi.confsched.model;
 
+import android.support.annotation.ColorRes;
 import android.support.v4.app.Fragment;
 import android.view.MenuItem;
 
@@ -21,7 +22,7 @@ public enum Page {
             return SessionsFragment.newInstance();
         }
     },
-    MY_SCHEDULE(R.id.nav_my_schedule, R.string.my_schedule, false, MyScheduleFragment.class.getSimpleName()) {
+    MY_SCHEDULE(R.id.nav_my_schedule, R.string.my_schedule, false, MyScheduleFragment.class.getSimpleName(), R.color.bluegrey500, R.color.bluegrey600) {
         @Override
         public Fragment createFragment() {
             return MyScheduleFragment.newInstance();
@@ -56,11 +57,22 @@ public enum Page {
     private final int titleResId;
     private final boolean toggleToolbar;
     private final String pageName;
+    private final int toolbarColor;
+    private final int statusBarColor;
+
+    private static final int DEFAULT_TOOLBAR_COLOR = R.color.theme500;
+    private static final int DEFAULT_STATUS_BAR_COLOR = R.color.theme600;
 
     Page(int menuId, int titleResId, boolean toggleToolbar, String pageName) {
+        this(menuId, titleResId, toggleToolbar, pageName, DEFAULT_TOOLBAR_COLOR, DEFAULT_STATUS_BAR_COLOR);
+    }
+
+    Page(int menuId, int titleResId, boolean toggleToolbar, String pageName, int toolbarColor, int statusBarColor) {
         this.menuId = menuId;
         this.titleResId = titleResId;
         this.toggleToolbar = toggleToolbar;
+        this.toolbarColor = toolbarColor;
+        this.statusBarColor = statusBarColor;
         this.pageName = pageName;
     }
 
@@ -101,4 +113,14 @@ public enum Page {
     }
 
     public abstract Fragment createFragment();
+
+    @ColorRes
+    public int getToolbarColor() {
+        return toolbarColor;
+    }
+
+    @ColorRes
+    public int getStatusBarColor() {
+        return statusBarColor;
+    }
 }
