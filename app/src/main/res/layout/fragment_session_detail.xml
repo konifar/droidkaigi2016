@@ -136,6 +136,8 @@
                     <TextView
                         android:id="@+id/txt_language"
                         style="@style/Tag"
+                        android:layout_marginEnd="@dimen/spacing_small"
+                        android:layout_marginRight="@dimen/spacing_small"
                         android:layout_marginTop="@dimen/spacing_xsmall"
                         android:background="@drawable/tag_language"
                         android:text="@{session.getLanguageResId()}"
