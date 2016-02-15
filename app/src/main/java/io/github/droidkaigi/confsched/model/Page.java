@@ -22,7 +22,7 @@ public enum Page {
             return SessionsFragment.newInstance();
         }
     },
-    MY_SCHEDULE(R.id.nav_my_schedule, R.string.my_schedule, false, MyScheduleFragment.class.getSimpleName(), R.color.amber500, R.color.amber600) {
+    MY_SCHEDULE(R.id.nav_my_schedule, R.string.my_schedule, false, MyScheduleFragment.class.getSimpleName(), R.color.bluegrey500, R.color.bluegrey600) {
         @Override
         public Fragment createFragment() {
             return MyScheduleFragment.newInstance();
