@@ -10,6 +10,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -82,6 +83,7 @@ public class SessionsFragment extends Fragment implements StackedPageListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentSessionsBinding.inflate(inflater, container, false);
+        initTabLayout(binding.tabLayout);
         setHasOptionsMenu(true);
         initEmptyView();
         compositeSubscription.add(loadData());
@@ -104,6 +106,10 @@ public class SessionsFragment extends Fragment implements StackedPageListener {
         if (context instanceof OnChangeSessionListener) {
             onChangeSessionListener = (OnChangeSessionListener) context;
         }
+    }
+
+    protected void initTabLayout(TabLayout tabLayout) {
+        tabLayout.setBackgroundColor(ContextCompat.getColor(getContext(), Page.ALL_SESSIONS.getToolbarColor()));
     }
 
     private void initEmptyView() {
