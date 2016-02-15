@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        tools:context="io.github.droidkaigi.confsched.activity.SessionDetailActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="io.github.droidkaigi.confsched.activity.SessionDetailActivity">
 
     <data>
 
-        <import type="io.github.droidkaigi.confsched.util.DateUtil"/>
+        <import type="io.github.droidkaigi.confsched.util.DateUtil" />
 
         <variable
             name="session"
-            type="io.github.droidkaigi.confsched.model.Session"/>
+            type="io.github.droidkaigi.confsched.model.Session" />
     </data>
 
     <android.support.design.widget.CoordinatorLayout
@@ -50,7 +50,7 @@
                         android:contentDescription="@string/session_detail"
                         android:fitsSystemWindows="true"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/img_default_cover_auto_mirrored"/>
+                        android:src="@drawable/img_default_cover_auto_mirrored" />
 
                     <View
                         android:id="@+id/fade_cover"
@@ -63,7 +63,7 @@
                         android:layout_alignStart="@id/img_cover"
                         android:layout_alignTop="@id/img_cover"
                         android:fitsSystemWindows="true"
-                        app:coverFadeBackground="@{session.category}"/>
+                        app:coverFadeBackground="@{session.category}" />
 
                 </RelativeLayout>
 
@@ -72,7 +72,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     android:background="?attr/selectableItemBackground"
-                    app:layout_collapseMode="pin"/>
+                    app:layout_collapseMode="pin" />
 
             </net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout>
 
@@ -103,7 +103,7 @@
                     android:padding="@dimen/spacing"
                     android:textColor="@color/grey500"
                     android:textSize="@dimen/text"
-                    app:sessionDetailTimeRange="@{session}"/>
+                    app:sessionDetailTimeRange="@{session}" />
 
                 <org.apmem.tools.layouts.FlowLayout
                     android:id="@+id/tag_container"
@@ -123,7 +123,7 @@
                         android:layout_marginRight="@dimen/spacing_small"
                         android:layout_marginTop="@dimen/spacing_xsmall"
                         android:background="@drawable/tag_language"
-                        android:text="@{session.place.name}"/>
+                        android:text="@{session.place.name}" />
 
                     <io.github.droidkaigi.confsched.widget.CategoryView
                         android:id="@+id/txt_category"
@@ -131,23 +131,21 @@
                         android:layout_marginEnd="@dimen/spacing_small"
                         android:layout_marginRight="@dimen/spacing_small"
                         android:layout_marginTop="@dimen/spacing_xsmall"
-                        app:category="@{session.category}"/>
+                        app:category="@{session.category}" />
 
                     <TextView
                         android:id="@+id/txt_language"
                         style="@style/Tag"
-                        android:layout_marginEnd="@dimen/spacing_small"
-                        android:layout_marginRight="@dimen/spacing_small"
                         android:layout_marginTop="@dimen/spacing_xsmall"
                         android:background="@drawable/tag_language"
                         android:text="@{session.getLanguageResId()}"
-                        android:textColor="@color/grey600"/>
+                        android:textColor="@color/grey600" />
 
                 </org.apmem.tools.layouts.FlowLayout>
 
                 <View
                     style="@style/Border"
-                    android:layout_marginTop="@dimen/spacing"/>
+                    android:layout_marginTop="@dimen/spacing" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -161,7 +159,7 @@
                         style="@style/SessionDetailTitle"
                         android:layout_marginTop="@dimen/spacing_small"
                         android:text="@string/speaker"
-                        app:categoryVividColor="@{session.category}"/>
+                        app:categoryVividColor="@{session.category}" />
 
                     <ImageView
                         android:id="@+id/img_speaker"
@@ -171,7 +169,7 @@
                         android:layout_marginTop="@dimen/spacing"
                         android:contentDescription="@string/speaker"
                         app:speakerImageSize="@{@dimen/user_image_large}"
-                        app:speakerImageUrl="@{session.speaker.imageUrl}"/>
+                        app:speakerImageUrl="@{session.speaker.imageUrl}" />
 
                     <TextView
                         android:id="@+id/txt_speaker_name"
@@ -187,7 +185,7 @@
                         android:layout_toRightOf="@id/img_speaker"
                         android:layout_toStartOf="@+id/speaker_sns_icons"
                         android:gravity="center_vertical"
-                        app:textRtlConsidered="@{session.speaker.name}"/>
+                        app:textRtlConsidered="@{session.speaker.name}" />
 
                     <io.github.droidkaigi.confsched.widget.SpeakerSnsIconsView
                         android:id="@+id/speaker_sns_icons"
@@ -203,7 +201,7 @@
                         android:layout_marginRight="@dimen/spacing_small_negative"
                         android:layout_marginStart="@dimen/spacing"
                         android:gravity="center_vertical"
-                        app:speakerSnsIcons="@{session.speaker}"/>
+                        app:speakerSnsIcons="@{session.speaker}" />
 
                 </RelativeLayout>
 
@@ -216,7 +214,7 @@
                     android:paddingRight="@dimen/spacing"
                     android:paddingStart="@dimen/spacing"
                     android:text="@string/description"
-                    app:categoryVividColor="@{session.category}"/>
+                    app:categoryVividColor="@{session.category}" />
 
                 <TextView
                     android:id="@+id/txt_description"
@@ -227,11 +225,11 @@
                     android:textColor="@color/grey600"
                     android:textIsSelectable="true"
                     android:textSize="@dimen/text"
-                    app:sessionDescription="@{session}"/>
+                    app:sessionDescription="@{session}" />
 
                 <View
                     style="@style/Border"
-                    android:layout_marginTop="@dimen/spacing"/>
+                    android:layout_marginTop="@dimen/spacing" />
 
                 <TextView
                     android:id="@+id/txt_feedback"
@@ -244,7 +242,7 @@
                     android:text="@string/send_feedback"
                     android:textColor="@color/grey600"
                     android:textSize="@dimen/text_xlarge"
-                    app:categoryVividColor="@{session.category}"/>
+                    app:categoryVividColor="@{session.category}" />
 
             </LinearLayout>
 
@@ -261,7 +259,7 @@
             app:layout_anchor="@+id/app_bar"
             app:layout_anchorGravity="bottom|right|end"
             app:sessionFab="@{session}"
-            app:theme="@style/FabTheme"/>
+            app:theme="@style/FabTheme" />
 
     </android.support.design.widget.CoordinatorLayout>
 
