@@ -85,6 +85,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/settings_notification_group"
                 android:textColor="?attr/colorPrimary"
+                android:textStyle="bold"
                 android:textSize="@dimen/text_large" />
 
         </RelativeLayout>
