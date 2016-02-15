@@ -23,6 +23,8 @@ public class SettingSwitchRowView extends RelativeLayout implements Checkable {
 
     private String prefKey;
 
+    private CompoundButton.OnCheckedChangeListener onCheckedChangeListener;
+
     public SettingSwitchRowView(Context context) {
         this(context, null);
     }
@@ -45,7 +47,12 @@ public class SettingSwitchRowView extends RelativeLayout implements Checkable {
             binding.settingDescription.setText(description);
 
             binding.getRoot().setOnClickListener(v -> switchSetting());
-            binding.settingSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> setSetting(isChecked));
+            binding.settingSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                setSetting(isChecked);
+                if (onCheckedChangeListener != null) {
+                    onCheckedChangeListener.onCheckedChanged(buttonView, isChecked);
+                }
+            });
 
             a.recycle();
         }
@@ -76,7 +83,7 @@ public class SettingSwitchRowView extends RelativeLayout implements Checkable {
     }
 
     public void setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener listener) {
-        binding.settingSwitch.setOnCheckedChangeListener(listener);
+        onCheckedChangeListener = listener;
     }
 
     @Override
