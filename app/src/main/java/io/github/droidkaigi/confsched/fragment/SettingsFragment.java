@@ -11,12 +11,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import java.util.Arrays;
-import java.util.List;
-
-import javax.inject.Inject;
-
 import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.activity.ActivityNavigator;
@@ -24,6 +18,9 @@ import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSettingsBinding;
 import io.github.droidkaigi.confsched.util.LocaleUtil;
 import io.github.droidkaigi.confsched.util.PrefUtil;
+import java.util.Arrays;
+import java.util.List;
+import javax.inject.Inject;
 import rx.Observable;
 
 public class SettingsFragment extends Fragment {
@@ -67,7 +64,6 @@ public class SettingsFragment extends Fragment {
             binding.headsUpBorder.setVisibility(View.VISIBLE);
             binding.notificationSwitchRow.setOnCheckedChangeListener((buttonView, isChecked) -> {
                 binding.headsUpSwitchRow.setEnabled(isChecked);
-                binding.headsUpSwitchRow.setChecked(isChecked);
             });
         }
     }
