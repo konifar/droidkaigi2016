@@ -117,7 +117,6 @@ public class SessionsFragment extends Fragment implements StackedPageListener {
     }
 
     private Subscription fetchAndSave() {
-        showLoadingView();
         return client.getSessions(LocaleUtil.getCurrentLanguageId(getActivity()))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
