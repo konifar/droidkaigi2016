@@ -574,7 +574,7 @@
   {
     "id": 23,
     "title": "Support Libraryノススメ | Support Library Internal",
-    "description": "",
+    "description": "Android アプリを開発している方であればいずれかのサポート ライブラリを使ったことがあるでしょう。各サポート ライブラリをざっと紹介した上で、よく聞かれる質問にお答えしつつ、Design ライブラリの新機能や開発の裏側などもお伝えしたいと思います。",
     "speaker": {
       "id": 23,
       "name": "Yuichi Araki",
