@@ -94,7 +94,7 @@ public class SessionsTabFragment extends Fragment {
     }
 
     protected SessionsAdapter createAdapter() {
-        return new SessionsAdapter(getActivity());
+        return new SessionsAdapter(getContext());
     }
 
     @Override
