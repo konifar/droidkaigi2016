@@ -2,7 +2,6 @@
 <resources
         xmlns:tools="http://schemas.android.com/tools"
         tools:ignore="MissingTranslation" >
-    <string name="about_inquiry_url">https://docs.google.com/forms/d/1fpxZOqprZyzBgMBb7HCCrq538oOzfzWkOMpItRqF-ro/viewform</string>
+    <string name="about_inquiry_url">https://docs.google.com/forms/d/1X9x9eb92_BeRaELjePq8FgeqTa70MyChkmUWFce47jo/viewform</string>
     <string name="about_site_url">https://droidkaigi.github.io/2016/en</string>
-    <string name="bug_report_url">https://github.com/konifar/droidkaigi2016/issues/new?title=%5BBug%20Report%5D&amp;body=%23%20Problem%0A%0A%23%20Solution</string>
 </resources>

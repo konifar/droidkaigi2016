@@ -3,6 +3,7 @@ package io.github.droidkaigi.confsched.fragment;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,21 +11,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import java.util.Arrays;
-import java.util.List;
-
-import javax.inject.Inject;
-
 import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.activity.ActivityNavigator;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSettingsBinding;
-import io.github.droidkaigi.confsched.util.AppUtil;
+import io.github.droidkaigi.confsched.util.LocaleUtil;
+import io.github.droidkaigi.confsched.util.PrefUtil;
+import java.util.Arrays;
+import java.util.List;
+import javax.inject.Inject;
 import rx.Observable;
-
-import static io.github.droidkaigi.confsched.util.IntentUtil.toBrowser;
 
 public class SettingsFragment extends Fragment {
 
@@ -56,20 +53,30 @@ public class SettingsFragment extends Fragment {
     }
 
     private void initView() {
-        binding.txtLanguage.setText(AppUtil.getCurrentLanguage(getActivity()));
+        binding.txtLanguage.setText(LocaleUtil.getCurrentLanguage(getActivity()));
         binding.languageSettingsContainer.setOnClickListener(v -> showLanguagesDialog());
-        binding.txtBugreport.setOnClickListener(v -> showBugReport());
+        binding.notificationSwitchRow.init(PrefUtil.KEY_NOTIFICATION_SETTING, true);
+        binding.localTimeSwitchRow.init(PrefUtil.KEY_SHOW_LOCAL_TIME, false);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            binding.headsUpSwitchRow.init(PrefUtil.KEY_HEADS_UP_SETTING, true);
+            binding.headsUpSwitchRow.setVisibility(View.VISIBLE);
+            binding.headsUpBorder.setVisibility(View.VISIBLE);
+            binding.notificationSwitchRow.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                binding.headsUpSwitchRow.setEnabled(isChecked);
+            });
+        }
     }
 
     private void showLanguagesDialog() {
-        List<String> languageIds = Arrays.asList(AppUtil.SUPPORT_LANG);
+        List<String> languageIds = Arrays.asList(LocaleUtil.SUPPORT_LANG);
         List<String> languages = Observable.from(languageIds)
-                .map(languageId -> AppUtil.getLanguage(getActivity(), languageId, languageId))
+                .map(languageId -> LocaleUtil.getLanguage(getActivity(), languageId, languageId))
                 .toList()
                 .toBlocking()
                 .single();
 
-        String currentLanguageId = AppUtil.getCurrentLanguageId(getActivity());
+        String currentLanguageId = LocaleUtil.getCurrentLanguageId(getActivity());
         int defaultItem = languageIds.indexOf(currentLanguageId);
         String[] items = languages.toArray(new String[languages.size()]);
         new AlertDialog.Builder(getActivity())
@@ -78,7 +85,7 @@ public class SettingsFragment extends Fragment {
                     String selectedLanguageId = languageIds.get(which);
                     if (!currentLanguageId.equals(selectedLanguageId)) {
                         Log.d(TAG, "Selected language_id: " + selectedLanguageId);
-                        AppUtil.setLocale(getActivity(), selectedLanguageId);
+                        LocaleUtil.setLocale(getActivity(), selectedLanguageId);
                         dialog.dismiss();
                         restart();
                     }
@@ -91,10 +98,6 @@ public class SettingsFragment extends Fragment {
         Activity activity = getActivity();
         activityNavigator.showMain(activity, true);
         activity.finish();
-    }
-
-    private void showBugReport() {
-        startActivity(toBrowser(getString(R.string.bug_report_url)));
     }
 
 }

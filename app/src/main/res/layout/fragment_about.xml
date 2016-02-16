@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="io.github.droidkaigi.confsched.activity.MainActivity">
+
+    <data>
+
+        <import type="io.github.droidkaigi.confsched.R" />
+    </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -62,52 +68,55 @@
 
                 <TextView
                     style="@style/AboutTitle"
+                    android:layout_marginTop="@dimen/spacing"
                     android:text="@string/about_social" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing">
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_marginLeft="@dimen/spacing_xsmall_negative"
+                    android:layout_marginStart="@dimen/spacing_xsmall_negative">
 
-                    <ImageView
-                        android:id="@+id/img_twitter"
-                        android:layout_width="@dimen/sns_icon_large"
-                        android:layout_height="@dimen/sns_icon_large"
-                        android:contentDescription="@string/icon"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ic_twitter_40dp" />
-
-                    <View
+                    <FrameLayout
                         android:id="@+id/img_twitter_clicker"
-                        style="@style/ClickCover"
-                        android:layout_alignBottom="@id/img_twitter"
-                        android:layout_alignEnd="@id/img_twitter"
-                        android:layout_alignLeft="@id/img_twitter"
-                        android:layout_alignRight="@id/img_twitter"
-                        android:layout_alignStart="@id/img_twitter"
-                        android:layout_alignTop="@id/img_twitter" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/clickable_oval"
+                        android:padding="@dimen/spacing_xsmall"
+                        android:layout_toEndOf="@id/img_twitter_clicker"
+                        android:layout_toRightOf="@id/img_twitter_clicker">
 
-                    <ImageView
-                        android:id="@+id/img_facebook"
-                        android:layout_width="@dimen/sns_icon_large"
-                        android:layout_height="@dimen/sns_icon_large"
-                        android:layout_marginLeft="@dimen/spacing"
-                        android:layout_marginStart="@dimen/spacing"
-                        android:layout_toEndOf="@id/img_twitter"
-                        android:layout_toRightOf="@id/img_twitter"
-                        android:contentDescription="@string/icon"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ic_facebook_40dp" />
+                        <ImageView
+                            android:id="@+id/img_twitter"
+                            android:layout_width="@dimen/sns_icon_large"
+                            android:layout_height="@dimen/sns_icon_large"
+                            android:contentDescription="@string/icon"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ic_twitter_40dp" />
 
-                    <View
+                    </FrameLayout>
+
+                    <FrameLayout
                         android:id="@+id/img_facebook_clicker"
-                        style="@style/ClickCover"
-                        android:layout_alignBottom="@id/img_facebook"
-                        android:layout_alignEnd="@id/img_facebook"
-                        android:layout_alignLeft="@id/img_facebook"
-                        android:layout_alignRight="@id/img_facebook"
-                        android:layout_alignStart="@id/img_facebook"
-                        android:layout_alignTop="@id/img_facebook" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/spacing_small"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        android:background="@drawable/clickable_oval"
+                        android:padding="@dimen/spacing_xsmall"
+                        android:layout_toEndOf="@id/img_twitter_clicker"
+                        android:layout_toRightOf="@id/img_twitter_clicker">
+
+                        <ImageView
+                            android:id="@+id/img_facebook"
+                            android:layout_width="@dimen/sns_icon_large"
+                            android:layout_height="@dimen/sns_icon_large"
+                            android:contentDescription="@string/icon"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ic_facebook_40dp" />
+
+                    </FrameLayout>
 
                 </RelativeLayout>
 
@@ -120,23 +129,45 @@
                     android:layout_marginTop="@dimen/spacing" />
 
                 <TextView
-                    android:id="@+id/txt_terms"
+                    android:id="@+id/txt_questionnaire"
                     style="@style/AboutRow"
-                    android:text="@string/about_terms"
-                    android:visibility="gone" />
+                    android:text="@string/about_questionnaire" />
 
                 <View
                     style="@style/Border"
                     android:layout_marginEnd="@dimen/spacing_negative"
                     android:layout_marginLeft="@dimen/spacing_negative"
                     android:layout_marginRight="@dimen/spacing_negative"
-                    android:layout_marginStart="@dimen/spacing_negative"
-                    android:visibility="gone" />
+                    android:layout_marginStart="@dimen/spacing_negative" />
 
                 <TextView
-                    android:id="@+id/txt_questionnaire"
+                    android:id="@+id/txt_contributors"
                     style="@style/AboutRow"
-                    android:text="@string/about_questionnaire" />
+                    android:text="@string/about_contributors" />
+
+                <View
+                    style="@style/Border"
+                    android:layout_marginEnd="@dimen/spacing_negative"
+                    android:layout_marginLeft="@dimen/spacing_negative"
+                    android:layout_marginRight="@dimen/spacing_negative"
+                    android:layout_marginStart="@dimen/spacing_negative" />
+
+                <TextView
+                    android:id="@+id/txt_github_repository"
+                    style="@style/AboutRow"
+                    app:textRtlConsidered="@{context.getString(R.string.about_github_repository)}" />
+
+                <View
+                    style="@style/Border"
+                    android:layout_marginEnd="@dimen/spacing_negative"
+                    android:layout_marginLeft="@dimen/spacing_negative"
+                    android:layout_marginRight="@dimen/spacing_negative"
+                    android:layout_marginStart="@dimen/spacing_negative" />
+
+                <TextView
+                    android:id="@+id/txt_youtube"
+                    style="@style/AboutRow"
+                    android:text="@string/about_youtube" />
 
                 <View
                     style="@style/Border"

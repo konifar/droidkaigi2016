@@ -20,6 +20,8 @@ import net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout;
 
 import org.apmem.tools.layouts.FlowLayout;
 
+import java.util.Date;
+
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.model.Category;
 import io.github.droidkaigi.confsched.model.Session;
@@ -27,10 +29,9 @@ import io.github.droidkaigi.confsched.widget.transformation.CropCircleTransforma
 
 public class DataBindingAttributeUtil {
 
-    @BindingAdapter({"speakerImageUrl", "speakerImageSize"})
-    public static void setSpeakerImageUrlWithSize(ImageView imageView, @Nullable String imageUrl, float sizeInDimen) {
+    public static void setImageUrlWithSize(ImageView imageView, @Nullable String imageUrl, float sizeInDimen, int placeholderResId) {
         if (TextUtils.isEmpty(imageUrl)) {
-            imageView.setImageDrawable(ContextCompat.getDrawable(imageView.getContext(), R.drawable.ic_speaker_placeholder));
+            imageView.setImageDrawable(ContextCompat.getDrawable(imageView.getContext(), placeholderResId));
         } else {
             final int size = Math.round(sizeInDimen);
             imageView.setBackground(ContextCompat.getDrawable(imageView.getContext(), R.drawable.circle_border_grey200));
@@ -38,11 +39,21 @@ public class DataBindingAttributeUtil {
                     .load(imageUrl)
                     .resize(size, size)
                     .centerInside()
-                    .placeholder(R.drawable.ic_speaker_placeholder)
-                    .error(R.drawable.ic_speaker_placeholder)
+                    .placeholder(placeholderResId)
+                    .error(placeholderResId)
                     .transform(new CropCircleTransformation())
                     .into(imageView);
         }
+    }
+
+    @BindingAdapter({"speakerImageUrl", "speakerImageSize"})
+    public static void setSpeakerImageUrlWithSize(ImageView imageView, @Nullable String imageUrl, float sizeInDimen) {
+        setImageUrlWithSize(imageView, imageUrl, sizeInDimen, R.drawable.ic_speaker_placeholder);
+    }
+
+    @BindingAdapter({"contributorAvatarUrl", "contributorAvatarSize"})
+    public static void setContributorAvatarUrlWithSize(ImageView imageView, @Nullable String imageUrl, float sizeInDimen) {
+        setImageUrlWithSize(imageView, imageUrl, sizeInDimen, R.drawable.ic_speaker_placeholder);
     }
 
     @BindingAdapter("coverFadeBackground")
@@ -62,19 +73,25 @@ public class DataBindingAttributeUtil {
 
     @BindingAdapter("sessionTimeRange")
     public static void setSessionTimeRange(TextView textView, @NonNull Session session) {
+        Date displaySTime = session.getDisplaySTime(textView.getContext());
+        Date displayETime = session.getDisplayETime(textView.getContext());
+
         String timeRange = textView.getContext().getString(R.string.session_time_range,
-                DateUtil.getHourMinute(session.stime, textView.getContext()),
-                DateUtil.getHourMinute(session.etime, textView.getContext()),
-                DateUtil.getMinutes(session.stime, session.etime));
+                DateUtil.getHourMinute(displaySTime),
+                DateUtil.getHourMinute(displayETime),
+                DateUtil.getMinutes(displaySTime, displayETime));
         textView.setText(timeRange);
     }
 
     @BindingAdapter("sessionDetailTimeRange")
     public static void setSessionDetailTimeRange(TextView textView, @NonNull Session session) {
+        Date displaySTime = session.getDisplaySTime(textView.getContext());
+        Date displayETime = session.getDisplayETime(textView.getContext());
+
         String timeRange = textView.getContext().getString(R.string.session_time_range,
-                DateUtil.getLongFormatDate(session.stime, textView.getContext()),
-                DateUtil.getHourMinute(session.etime, textView.getContext()),
-                DateUtil.getMinutes(session.stime, session.etime));
+                DateUtil.getLongFormatDate(displaySTime, textView.getContext()),
+                DateUtil.getHourMinute(displayETime),
+                DateUtil.getMinutes(displaySTime, displayETime));
         textView.setText(timeRange);
     }
 
@@ -92,7 +109,7 @@ public class DataBindingAttributeUtil {
 
     @BindingAdapter("forceRtlDirection")
     public static void setForceRtlDirection(FlowLayout flowLayout, boolean isCenterVertical) {
-        if (LocaleUtil.shouldRtl(flowLayout.getContext())) {
+        if (LocaleUtil.shouldRtl()) {
             ViewCompat.setLayoutDirection(flowLayout, ViewCompat.LAYOUT_DIRECTION_RTL);
 
             int gravity = isCenterVertical ? GravityCompat.START | Gravity.CENTER_VERTICAL : GravityCompat.START;
@@ -102,7 +119,7 @@ public class DataBindingAttributeUtil {
 
     @BindingAdapter("textRtlConsidered")
     public static void setTextRtlConsidered(TextView textView, String text) {
-        textView.setText(LocaleUtil.getRtlConsideredText(text, textView.getContext()));
+        textView.setText(LocaleUtil.getRtlConsideredText(text));
     }
 
 }

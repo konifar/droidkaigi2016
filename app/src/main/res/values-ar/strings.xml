@@ -53,7 +53,13 @@
 
     <string name="settings_language">تعيين لغة</string>
     <string name="settings_language_description">يمكنك تغيير لغة العرض. بعد التغيير سيتم إعادة تشغيل التطبيق.</string>
-    <string name="settings_bugreport">تقرير الشوائب</string>
+    <string name="settings_notification_group">إعلام</string>
+    <string name="settings_notification">إعلام</string>
+    <string name="settings_notification_description">اختيار ما إذا كان لتلقي التبليغ في هذا التطبيق .</string>
+    <string name="settings_heads_up_notification">إعلام رؤساء متابعة</string>
+    <string name="settings_heads_up_notification_description">اختيار ما إذا كنت تريد استخدام الإعلام رؤساء المتابعة.</string>
+    <string name="settings_local_time">مرات العرض المحلية</string>
+    <string name="settings_local_time_description">استخدام بالتوقيت المحلي الخاص بك بدلا من بالتوقيت المحلي للمؤتمر .</string>
 
     <string name="sponsor_category_platinum">الراعي قسط</string>
     <string name="sponsor_category_video">الراعي الفيديو</string>
@@ -66,35 +72,56 @@
     <string name="about_social">اجتماعي</string>
     <string name="about_terms">شروط الاستخدام</string>
     <string name="about_license">رخصة</string>
+    <string name="about_youtube">&#8207;YouTube قناة</string>
+    <string name="about_github_repository">GitHub مستودع</string>
+    <string name="about_contributors">مساهم</string>
     <string name="about_questionnaire">استطلاع</string>
     <string name="about_version_prefix">V%1$s</string>
+
+    <string name="contributors_load_error">فشل تحميل المساهمين .</string>
+    <plurals name="number_with_brackets">
+        <item quantity="zero">(%1$d أشخاص)</item>
+        <item quantity="one">(%1$d شخص)</item>
+        <item quantity="two">(%1$d شخصين)</item>
+        <item quantity="few">(%1$d أشخاص)</item>
+        <item quantity="many">(%1$d شخص)</item>
+        <item quantity="other">(%1$d شخص)</item>
+    </plurals>
 
     <string name="search_hint">البحث بواسطة كلمة</string>
 
     <string name="my_schedule_empty">لم تتم إضافته بعد جلسة ذلك. دعونا اختيار الدورات تريد أن تسمع من جميع الدورات!</string>
     <string name="my_schedule_go_to_session_list">رؤية جميع الدورات</string>
+    <string name="my_schedule_conflicted">تتعارض مع جلسة أخرى</string>
 
-    <string name="schedule_notification_title">قبل %1$d دقائق من الجلسة</string>
+    <plurals name="schedule_notification_title">
+        <item quantity="zero">قبل %1$d دقيقة من الجلسة</item>
+        <item quantity="one">قبل %1$d دقيقة من الجلسة</item>
+        <item quantity="two">قبل %1$d دقيقة من الجلسة</item>
+        <item quantity="few">قبل %1$d دقائق من الجلسة</item>
+        <item quantity="many">قبل %1$d دقائق من الجلسة</item>
+        <item quantity="other">قبل %1$d دقائق من الجلسة</item>
+    </plurals>
 
-    <string name="session_feedback_accepted_successfully">Thank you! The feedback was accepted.</string>
-    <string name="session_feedback_below_expectation">Below</string>
-    <string name="session_feedback_beyond_expectation">Beyond</string>
-    <string name="session_feedback_difficulty">Was this session easy to understand?</string>
-    <string name="session_feedback_easy">Easy</string>
-    <string name="session_feedback_expectation_label_text">Based on the description, was the content as expected?</string>
-    <string name="session_feedback_extremely_relevant">Extremely</string>
-    <string name="session_feedback_hard">Hard</string>
-    <string name="session_feedback_knowledgeable">How knowledgeable was the content?</string>
-    <string name="session_feedback_not_accepting">Sorry. Currently we are not accepting the feedback. You can submit feedback only during the event dates.</string>
-    <string name="session_feedback_not_at_all_relevant">Not at all</string>
-    <string name="session_feedback_other">Anything else we should know? (Please don\'t add any personal information in your comments)</string>
-    <string name="session_feedback_other_hint">Other session feedback?</string>
-    <string name="session_feedback_outstanding_knowledge">Outstanding</string>
-    <string name="session_feedback_poor_knowledge">Poor</string>
-    <string name="session_feedback_relevance">How relevant was this session to your projects?</string>
-    <string name="session_feedback_submit_error">An error occurred while submitting. Make sure the network is available.</string>
-    <string name="session_feedback_submit_failure">Submit failed</string>
-    <string name="session_feedback_submit_success">Submit succeeded</string>
-    <string name="session_feedback_submitlink">Submit Feedback</string>
+    <string name="session_feedback_accepted_successfully">شكرا! تم قبول ردود الفعل.</string>
+    <string name="session_feedback_below_expectation">أدناه</string>
+    <string name="session_feedback_beyond_expectation">وراء</string>
+    <string name="session_feedback_difficulty">وكانت هذه الدورة من السهل أن نفهم؟</string>
+    <string name="session_feedback_easy">سهل</string>
+    <string name="session_feedback_expectation_label_text">وبناء على الوصف، كان المحتوى كما هو متوقع؟</string>
+    <string name="session_feedback_extremely_relevant">جدا</string>
+    <string name="session_feedback_hard">الصعب</string>
+    <string name="session_feedback_knowledgeable">معرفة كيف كانت المحتوى؟</string>
+    <string name="session_feedback_not_accepting">آسف. حاليا نحن لا يقبل ردود الفعل. يمكنك إرسال ردود الفعل فقط خلال تواريخ الأحداث.</string>
+    <string name="session_feedback_not_at_all_relevant">على الاطلاق</string>
+    <string name="session_feedback_other">أي شيء آخر يجب أن نعلم؟ (يرجى عدم إضافة أي معلومات شخصية في تعليقاتكم)</string>
+    <string name="session_feedback_other_hint">ردود الفعل جلسة أخرى؟</string>
+    <string name="session_feedback_outstanding_knowledge">معلقة</string>
+    <string name="session_feedback_poor_knowledge">فقير</string>
+    <string name="session_feedback_relevance">حول مدى صلة هذه الدورة إلى المشاريع الخاصة بك؟</string>
+    <string name="session_feedback_submit_error">حدث خطأ أثناء تقديم. تأكد من أن الشبكة هي المتاحة.</string>
+    <string name="session_feedback_submit_failure">فشل إرسال</string>
+    <string name="session_feedback_submit_success">إرسال نجحت</string>
+    <string name="session_feedback_submit_link">إرسال ملاحظات</string>
 
 </resources>

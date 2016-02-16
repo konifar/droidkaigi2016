@@ -122,6 +122,21 @@ https://waffle.io/konifar/droidkaigi2016
 If you have a feature you want or find some bugs, please write an issue.
 
 
+## For speakers
+If you want to change description of your session, feel free to send PullRequest :+1:
+
+You have to fix 3 json files below.
+* [sessions_ar.json](https://github.com/konifar/droidkaigi2016/blob/master/app/src/main/res/raw/sessions_ar.json)
+* [sessions_en.json](https://github.com/konifar/droidkaigi2016/blob/master/app/src/main/res/raw/sessions_en.json)
+* [sessions_ja.json](https://github.com/konifar/droidkaigi2016/blob/master/app/src/main/res/raw/sessions_en.json)
+
+If you can write only English or Japanese, it is good to write same description in `sessions_en.json` and `sessions_ja.json`.
+And if you can translate to Arabic by using GoogleTranslate, please write Arabic description in `sessions_ar.json`.
+
+Thanks! Enjoy together!
+
+
+
 ## Libraries
 This project uses some modern Android libraries.
 
