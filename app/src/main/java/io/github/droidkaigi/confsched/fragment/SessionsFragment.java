@@ -147,8 +147,11 @@ public class SessionsFragment extends Fragment implements StackedPageListener {
 
     private void onLoadDataSuccess(List<Session> sessions) {
         Log.i(TAG, "Sessions Load succeeded.");
+        // TODO This is temporary bug fix. https://github.com/konifar/droidkaigi2016/issues/264
+        if (shouldRefresh) {
+            sessions = dao.findAll().toBlocking().single();
+        }
         groupByDateSessions(sessions);
-
     }
 
     private void onLoadDataFailure(Throwable throwable) {
