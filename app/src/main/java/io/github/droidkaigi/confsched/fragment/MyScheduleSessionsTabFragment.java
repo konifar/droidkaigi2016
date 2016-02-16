@@ -3,6 +3,7 @@ package io.github.droidkaigi.confsched.fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.util.ArrayMap;
 import android.util.Pair;
 import android.view.View;
 
@@ -35,7 +36,7 @@ public class MyScheduleSessionsTabFragment extends SessionsTabFragment {
 
     private class MyScheduleAdapter extends SessionsAdapter {
 
-        private Map<Long, Pair<Integer, Integer>> rangeMap = new HashMap<>();
+        private Map<Long, Pair<Integer, Integer>> rangeMap = new ArrayMap<>();
 
         public MyScheduleAdapter(@NonNull Context context) {
             super(context);
