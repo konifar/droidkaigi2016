@@ -115,6 +115,12 @@ public class Session {
         }
     }
 
+    public boolean shouldNotify(long remindDuration) {
+        Date now = new Date();
+        long diff = stime.getTime() - now.getTime();
+        return (remindDuration < diff) ? true : false;
+    }
+
     @Override
     public boolean equals(Object o) {
         return o instanceof Session && ((Session) o).id == id || super.equals(o);

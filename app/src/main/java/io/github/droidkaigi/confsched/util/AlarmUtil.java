@@ -25,6 +25,10 @@ public class AlarmUtil {
     }
 
     public static void registerSessionAlarm(Context context, Session session) {
+        if (!session.shouldNotify(REMIND_DURATION_MINUTES_FOR_START)) {
+            return;
+        }
+
         PendingIntent sender = buildSessionAlarmSender(context, session);
 
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
