@@ -116,7 +116,7 @@ public class Session {
     }
 
     public boolean shouldNotify(long remindDuration) {
-        Date now = new Date();
+        Date now = LocaleUtil.getConfTimezoneCurrentDate();
         long diff = stime.getTime() - now.getTime();
         return remindDuration < diff;
     }
