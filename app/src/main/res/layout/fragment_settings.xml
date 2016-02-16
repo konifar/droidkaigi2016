@@ -4,111 +4,115 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="io.github.droidkaigi.confsched.activity.MainActivity">
 
-    <LinearLayout
-        android:id="@+id/root_view"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
-        android:orientation="vertical">
+        android:background="@color/white">
 
-        <RelativeLayout
-            android:id="@+id/language_settings_container"
+        <LinearLayout
+            android:id="@+id/root_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/clickable"
-            android:padding="@dimen/spacing">
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/txt_title"
+            <RelativeLayout
+                android:id="@+id/language_settings_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toLeftOf="@+id/txt_language"
-                android:layout_toStartOf="@+id/txt_language"
-                android:ellipsize="end"
-                android:lines="1"
-                android:text="@string/settings_language"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text" />
+                android:background="@drawable/clickable"
+                android:padding="@dimen/spacing">
 
-            <TextView
+                <TextView
+                    android:id="@+id/txt_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/txt_language"
+                    android:layout_toStartOf="@+id/txt_language"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:text="@string/settings_language"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_title"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_toLeftOf="@+id/txt_language"
+                    android:layout_toStartOf="@+id/txt_language"
+                    android:ellipsize="end"
+                    android:lines="2"
+                    android:text="@string/settings_language_description"
+                    android:textColor="@color/grey600"
+                    android:textSize="@dimen/text_small" />
+
+                <TextView
+                    android:id="@+id/txt_language"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/spacing"
+                    android:layout_marginStart="@dimen/spacing"
+                    android:background="@drawable/tag_language"
+                    android:paddingBottom="@dimen/spacing_xsmall"
+                    android:paddingEnd="@dimen/spacing_small"
+                    android:paddingLeft="@dimen/spacing_small"
+                    android:paddingRight="@dimen/spacing_small"
+                    android:paddingStart="@dimen/spacing_small"
+                    android:paddingTop="@dimen/spacing_xsmall"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text" />
+
+            </RelativeLayout>
+
+            <View style="@style/Border" />
+
+            <io.github.droidkaigi.confsched.widget.SettingSwitchRowView
+                android:id="@+id/local_time_switch_row"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/txt_title"
-                android:layout_marginTop="@dimen/spacing_small"
-                android:layout_toLeftOf="@+id/txt_language"
-                android:layout_toStartOf="@+id/txt_language"
-                android:ellipsize="end"
-                android:lines="2"
-                android:text="@string/settings_language_description"
-                android:textColor="@color/grey600"
-                android:textSize="@dimen/text_small" />
+                app:settingDescription="@string/settings_local_time_description"
+                app:settingTitle="@string/settings_local_time" />
 
-            <TextView
-                android:id="@+id/txt_language"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/spacing"
-                android:layout_marginStart="@dimen/spacing"
-                android:background="@drawable/tag_language"
-                android:paddingBottom="@dimen/spacing_xsmall"
-                android:paddingEnd="@dimen/spacing_small"
-                android:paddingLeft="@dimen/spacing_small"
-                android:paddingRight="@dimen/spacing_small"
-                android:paddingStart="@dimen/spacing_small"
-                android:paddingTop="@dimen/spacing_xsmall"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text" />
+            <View style="@style/Border" />
 
-        </RelativeLayout>
-
-        <View style="@style/Border" />
-
-        <io.github.droidkaigi.confsched.widget.SettingSwitchRowView
-            android:id="@+id/local_time_switch_row"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:settingDescription="@string/settings_local_time_description"
-            app:settingTitle="@string/settings_local_time" />
-
-        <View style="@style/Border" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/spacing">
-
-            <TextView
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/settings_notification_group"
-                android:textColor="?attr/colorPrimary"
-                android:textStyle="bold"
-                android:textSize="@dimen/text_large" />
+                android:padding="@dimen/spacing">
 
-        </RelativeLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_notification_group"
+                    android:textColor="?attr/colorPrimary"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/text_large"/>
 
-        <io.github.droidkaigi.confsched.widget.SettingSwitchRowView
-            android:id="@+id/notification_switch_row"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:settingDescription="@string/settings_notification_description"
-            app:settingTitle="@string/settings_notification" />
+            </RelativeLayout>
 
-        <View style="@style/Border" />
+            <io.github.droidkaigi.confsched.widget.SettingSwitchRowView
+                android:id="@+id/notification_switch_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:settingDescription="@string/settings_notification_description"
+                app:settingTitle="@string/settings_notification" />
 
-        <io.github.droidkaigi.confsched.widget.SettingSwitchRowView
-            android:id="@+id/heads_up_switch_row"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:settingDescription="@string/settings_heads_up_notification_description"
-            app:settingTitle="@string/settings_heads_up_notification" />
+            <View style="@style/Border" />
 
-        <View android:id="@+id/heads_up_border" style="@style/Border" android:visibility="gone" />
+            <io.github.droidkaigi.confsched.widget.SettingSwitchRowView
+                android:id="@+id/heads_up_switch_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:settingDescription="@string/settings_heads_up_notification_description"
+                app:settingTitle="@string/settings_heads_up_notification" />
 
-    </LinearLayout>
+            <View android:id="@+id/heads_up_border" style="@style/Border" android:visibility="gone" />
 
+        </LinearLayout>
+    </ScrollView>
 </layout>
