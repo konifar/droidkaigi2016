@@ -96,7 +96,7 @@ public class SettingsFragment extends Fragment {
 
     private void restart() {
         Activity activity = getActivity();
-        activityNavigator.showMain(activity, true);
+        activityNavigator.showMain(activity, false);
         activity.finish();
     }
 
