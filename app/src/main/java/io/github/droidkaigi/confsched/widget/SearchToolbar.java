@@ -19,7 +19,6 @@ import io.github.droidkaigi.confsched.util.LocaleUtil;
 
 public class SearchToolbar extends FrameLayout {
 
-    private static final int DRAWABLE_LEFT = 0;
     private static final int DRAWABLE_RIGHT = 2;
 
     private ToolbarSearchBinding binding;
@@ -90,7 +89,7 @@ public class SearchToolbar extends FrameLayout {
         binding.editSearch.setOnTouchListener((v, event) -> {
             if (event.getAction() == MotionEvent.ACTION_UP) {
                 boolean shouldClear = false;
-                if (LocaleUtil.shouldRtl(getContext())) {
+                if (LocaleUtil.shouldRtl()) {
                     int rightEdgeOfRightDrawable = binding.editSearch.getLeft() + getCloseDrawable().getBounds().width();
                     shouldClear = event.getRawX() <= rightEdgeOfRightDrawable;
                 } else {

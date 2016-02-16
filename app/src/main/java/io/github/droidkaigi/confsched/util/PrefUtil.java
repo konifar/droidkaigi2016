@@ -9,6 +9,9 @@ import android.support.annotation.Nullable;
 public class PrefUtil {
 
     public static final String KEY_CURRENT_LANGUAGE_ID = "current_language_id";
+    public static final String KEY_NOTIFICATION_SETTING = "notification_setting";
+    public static final String KEY_HEADS_UP_SETTING = "heads_up_setting";
+    public static final String KEY_SHOW_LOCAL_TIME = "show_local_time";
 
     private static SharedPreferences pref;
 
@@ -45,5 +48,8 @@ public class PrefUtil {
         return getPref(context).getString(name, defaultValue);
     }
 
+    public static boolean get(Context context, @NonNull String name, boolean defaultValue) {
+        return getPref(context).getBoolean(name, defaultValue);
+    }
 }
 

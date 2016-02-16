@@ -6,9 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -36,15 +39,15 @@ import io.github.droidkaigi.confsched.databinding.FragmentSessionsBinding;
 import io.github.droidkaigi.confsched.model.MainContentStateBrokerProvider;
 import io.github.droidkaigi.confsched.model.Page;
 import io.github.droidkaigi.confsched.model.Session;
-import io.github.droidkaigi.confsched.util.AppUtil;
 import io.github.droidkaigi.confsched.util.DateUtil;
+import io.github.droidkaigi.confsched.util.LocaleUtil;
 import rx.Observable;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 
-public class SessionsFragment extends Fragment {
+public class SessionsFragment extends Fragment implements StackedPageListener {
 
     public static final String TAG = SessionsFragment.class.getSimpleName();
     private static final String ARG_SHOULD_REFRESH = "should_refresh";
@@ -80,6 +83,7 @@ public class SessionsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentSessionsBinding.inflate(inflater, container, false);
+        initTabLayout(binding.tabLayout);
         setHasOptionsMenu(true);
         initEmptyView();
         compositeSubscription.add(loadData());
@@ -104,14 +108,17 @@ public class SessionsFragment extends Fragment {
         }
     }
 
+    protected void initTabLayout(TabLayout tabLayout) {
+        tabLayout.setBackgroundColor(ContextCompat.getColor(getContext(), Page.ALL_SESSIONS.getToolbarColor()));
+    }
+
     private void initEmptyView() {
-        binding.emptyViewButton.setOnClickListener(v -> {
-            brokerProvider.get().set(Page.ALL_SESSIONS);
-        });
+        binding.emptyViewButton.setOnClickListener(v -> brokerProvider.get().set(Page.ALL_SESSIONS));
     }
 
     private Subscription fetchAndSave() {
-        return client.getSessions(AppUtil.getCurrentLanguageId(getActivity()))
+        showLoadingView();
+        return client.getSessions(LocaleUtil.getCurrentLanguageId(getActivity()))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
@@ -121,10 +128,11 @@ public class SessionsFragment extends Fragment {
     }
 
     protected Subscription loadData() {
+        showLoadingView();
         Observable<List<Session>> cachedSessions = dao.findAll();
         return cachedSessions.flatMap(sessions -> {
             if (shouldRefresh || sessions.isEmpty()) {
-                return client.getSessions(AppUtil.getCurrentLanguageId(getActivity()))
+                return client.getSessions(LocaleUtil.getCurrentLanguageId(getActivity()))
                         .doOnNext(dao::updateAllAsync);
             } else {
                 return Observable.just(sessions);
@@ -141,6 +149,7 @@ public class SessionsFragment extends Fragment {
     private void onLoadDataSuccess(List<Session> sessions) {
         Log.i(TAG, "Sessions Load succeeded.");
         groupByDateSessions(sessions);
+
     }
 
     private void onLoadDataFailure(Throwable throwable) {
@@ -154,6 +163,14 @@ public class SessionsFragment extends Fragment {
 
     protected void hideEmptyView() {
         binding.emptyView.setVisibility(View.GONE);
+    }
+
+    protected void showLoadingView() {
+        binding.progressBarContainer.setVisibility(View.VISIBLE);
+    }
+
+    protected void hideLoadingView() {
+        binding.progressBarContainer.setVisibility(View.GONE);
     }
 
     protected void groupByDateSessions(List<Session> sessions) {
@@ -177,7 +194,9 @@ public class SessionsFragment extends Fragment {
 
         binding.viewPager.setAdapter(adapter);
         binding.tabLayout.setupWithViewPager(binding.viewPager);
+        binding.tabLayout.setOnTabSelectedListener(new CustomViewPagerOnTabSelectedListener(binding.viewPager));
 
+        hideLoadingView();
         if (sessions.isEmpty()) {
             showEmptyView();
         } else {
@@ -223,6 +242,11 @@ public class SessionsFragment extends Fragment {
         compositeSubscription.add(loadData());
     }
 
+    @Override
+    public void onTop() {
+        compositeSubscription.add(loadData());
+    }
+
     public interface OnChangeSessionListener {
         void onChangeSession(List<Session> sessions);
     }
@@ -259,6 +283,23 @@ public class SessionsFragment extends Fragment {
             fragments.add(fragment);
             titles.add(title);
             notifyDataSetChanged();
+        }
+
+    }
+
+    private class CustomViewPagerOnTabSelectedListener extends TabLayout.ViewPagerOnTabSelectedListener {
+
+        public CustomViewPagerOnTabSelectedListener(ViewPager viewPager) {
+            super(viewPager);
+        }
+
+        @Override
+        public void onTabReselected(TabLayout.Tab tab) {
+            super.onTabReselected(tab);
+            SessionsTabFragment fragment = (SessionsTabFragment) adapter.getItem(tab.getPosition());
+            if (fragment != null) {
+                fragment.scrollUpToTop();
+            }
         }
 
     }

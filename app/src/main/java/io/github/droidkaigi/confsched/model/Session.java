@@ -1,5 +1,6 @@
 package io.github.droidkaigi.confsched.model;
 
+import android.content.Context;
 import android.support.annotation.Nullable;
 
 import com.github.gfx.android.orma.annotation.Column;
@@ -11,6 +12,7 @@ import org.parceler.Parcel;
 import java.util.Date;
 
 import io.github.droidkaigi.confsched.R;
+import io.github.droidkaigi.confsched.util.LocaleUtil;
 
 @Parcel
 @Table
@@ -80,6 +82,14 @@ public class Session {
     public Session() {
     }
 
+    public Date getDisplaySTime(Context context) {
+        return LocaleUtil.getDisplayDate(stime, context);
+    }
+
+    public Date getDisplayETime(Context context) {
+        return LocaleUtil.getDisplayDate(etime, context);
+    }
+
     public void prepareSave() {
         speakerId = speaker.id;
         if (category != null) categoryId = category.id;
@@ -96,9 +106,9 @@ public class Session {
 
     public int getLanguageResId() {
         switch (languageId) {
-            case "en":
+            case LocaleUtil.LANG_EN_ID:
                 return R.string.lang_en;
-            case "ja":
+            case LocaleUtil.LANG_JA_ID:
                 return R.string.lang_ja;
             default:
                 return R.string.lang_en;

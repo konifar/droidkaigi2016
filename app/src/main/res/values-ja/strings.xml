@@ -53,7 +53,13 @@
 
     <string name="settings_language">言語を設定</string>
     <string name="settings_language_description">表示言語を変更できます。変更後はアプリが再起動されます。</string>
-    <string name="settings_bugreport">バグレポート</string>
+    <string name="settings_notification_group">通知</string>
+    <string name="settings_notification">通知設定</string>
+    <string name="settings_notification_description">通知を受け取るかどうかを設定できます。</string>
+    <string name="settings_heads_up_notification">ヘッドアップ通知</string>
+    <string name="settings_heads_up_notification_description">ヘッドアップ通知を使用するかどうかを設定できます。</string>
+    <string name="settings_local_time">現地時間を表示</string>
+    <string name="settings_local_time_description">チェックすると、セッションの時間はあなたのデバイスに設定された現地時間で表示されます。</string>
 
     <string name="sponsor_category_platinum">プラチナスポンサー</string>
     <string name="sponsor_category_video">ビデオスポンサー</string>
@@ -66,15 +72,26 @@
     <string name="about_social">ソーシャル</string>
     <string name="about_terms">利用規約</string>
     <string name="about_license">ライセンス</string>
+    <string name="about_youtube">YouTube 公式チャンネル</string>
+    <string name="about_github_repository">GitHubリポジトリ</string>
+    <string name="about_contributors">素敵な開発者一覧</string>
     <string name="about_questionnaire">アンケート</string>
     <string name="about_version_prefix">V%1$s</string>
+
+    <string name="contributors_load_error">開発者一覧の取得に失敗しました。</string>
+
+    <plurals name="number_with_brackets">
+        <item quantity="other"> (%1$d人)</item>
+    </plurals>
 
     <string name="search_hint">キーワードで検索</string>
 
     <string name="my_schedule_empty">まだセッションが追加されていません。全てのセッションから聞きたいセッションを選んでみましょう!</string>
     <string name="my_schedule_go_to_session_list">全てのセッションを見る</string>
 
-    <string name="schedule_notification_title">開始%1$d分前です</string>
+    <plurals name="schedule_notification_title">
+        <item quantity="other">開始%1$d分前です</item>
+    </plurals>
 
     <string name="session_feedback_accepted_successfully">ありがとうございます！フィードバックは送信されました。</string>
     <string name="session_feedback_below_expectation">期待外れ</string>
@@ -95,6 +112,6 @@
     <string name="session_feedback_submit_error">送信中にエラーが発生しました。ネットワーク状態を確認してもう一度お試しください。</string>
     <string name="session_feedback_submit_failure">送信に失敗しました。</string>
     <string name="session_feedback_submit_success">送信しました。</string>
-    <string name="session_feedback_submitlink">フィードバックを送信</string>
+    <string name="session_feedback_submit_link">フィードバックを送信</string>
 
 </resources>

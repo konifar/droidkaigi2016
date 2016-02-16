@@ -27,8 +27,8 @@
   },
   {
     "id": 2,
-    "title": "明日から使えるRxjava頻出パターン",
-    "description": "cookpadは、RxJavaを導入している国内では数少ない企業の一つです。\n本セッションでは、実際のいくつかの社内アプリのソースコードからRxjavaが使われている箇所を調べあげ、\n頻出設計のパターンを幾つかご紹介しようと思っています。\n実際の利用シーンをご紹介することで、RxJava導入のイメージを明確にして頂けると幸いです。\n\n対象者:\n* RxJava入門者\n* RxJavaを業務に導入したいけどちょっと戸惑っている人\n\n話す内容(予定)\n\n* 自己紹介(2min)\n* Rxjavaについて(5min) \n  * Rxjava, Rxandroidについて\n  * 今回のスライドを理解するための基礎知識\n    * observable, subscriber, subject, subscriptionなどの紹介\n* 頻出パターンを4つの紹介(15min) [恐らく紹介するパターンは変更します]\n  * 利用するサンプルweb_apiの説明\n  * 非同期-直列処理(flatMap)\n  * 非同期-並列処理(combineLatist)\n  * combineLatistとsubjectの利用したパターン\n  * 少し複雑な非同期-直列処理(Pair, Tuple, Observable#just)\n* 気をつけたい点(5min)\n  * Observableをどこに置くのが正解か..\n  * trello/rxLifecycle と AndroidSuvscriptionの利用について\n  * unitテストどうしてるの\n  * 終わりに",
+    "title": "明日から使えるRxJava頻出パターン",
+    "description": "cookpadは、RxJavaを導入している国内では数少ない企業の一つです。\n本セッションでは、実際のいくつかの社内アプリのソースコードからRxjavaが使われている箇所を調べあげ、\n頻出設計のパターンを幾つかご紹介しようと思っています。\n実際の利用シーンをご紹介することで、RxJava導入のイメージを明確にして頂けると幸いです。\n\n対象者:\n* RxJava入門者\n* RxJavaを業務に導入したいけどちょっと戸惑っている人\n\n話す内容(予定)\n\n* 自己紹介(2min)\n* Rxjavaについて(5min) \n  * RxJava, RxAndroidについて\n  * 今回のスライドを理解するための基礎知識\n    * observable, subscriber, subject, subscriptionなどの紹介\n* 頻出パターンを4つの紹介(15min) [恐らく紹介するパターンは変更します]\n  * 利用するサンプルweb_apiの説明\n  * 非同期-直列処理(flatMap)\n  * 非同期-並列処理(combineLatist)\n  * combineLatistとsubjectの利用したパターン\n  * 少し複雑な非同期-直列処理(Pair, Tuple, Observable#just)\n* 気をつけたい点(5min)\n  * Observableをどこに置くのが正解か..\n  * trello/rxLifecycle と AndroidSubscriptionの利用について\n  * unitテストどうしてるの\n  * 終わりに",
     "speaker": {
       "id": 2,
       "name": "kazy",

@@ -6,4 +6,9 @@
         <attr name="searchHint" format="reference" />
     </declare-styleable>
 
+    <declare-styleable name="SettingSwitchRow">
+        <attr name="settingTitle" format="string" />
+        <attr name="settingDescription" format="string" />
+    </declare-styleable>
+
 </resources>

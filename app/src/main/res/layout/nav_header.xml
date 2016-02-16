@@ -10,7 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/drawer_header"
-        android:background="@drawable/img_default_cover"
+        android:background="@drawable/img_default_cover_auto_mirrored"
         android:orientation="vertical"
         android:theme="@style/ThemeOverlay.AppCompat.Dark">
 

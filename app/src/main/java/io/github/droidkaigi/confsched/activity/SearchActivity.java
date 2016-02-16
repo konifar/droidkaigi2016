@@ -1,7 +1,5 @@
 package io.github.droidkaigi.confsched.activity;
 
-import org.parceler.Parcels;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -28,6 +26,8 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
 
+import org.parceler.Parcels;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,16 +42,14 @@ import io.github.droidkaigi.confsched.databinding.ActivitySearchBinding;
 import io.github.droidkaigi.confsched.databinding.ItemSearchResultBinding;
 import io.github.droidkaigi.confsched.model.SearchResult;
 import io.github.droidkaigi.confsched.model.Session;
-import io.github.droidkaigi.confsched.util.LocaleUtil;
 import io.github.droidkaigi.confsched.util.AnalyticsTracker;
+import io.github.droidkaigi.confsched.util.LocaleUtil;
 import io.github.droidkaigi.confsched.widget.ArrayRecyclerAdapter;
 import io.github.droidkaigi.confsched.widget.BindingHolder;
 import io.github.droidkaigi.confsched.widget.itemdecoration.DividerItemDecoration;
 import rx.Observable;
 
 public class SearchActivity extends AppCompatActivity implements TextWatcher {
-
-    private static final String TAG = SearchActivity.class.getSimpleName();
 
     public static final String RESULT_STATUS_CHANGED_SESSIONS = "statusChangedSessions";
     private static final int REQ_DETAIL = 1;
@@ -108,10 +106,9 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
     private void initPlacesAndCategoriesView() {
         binding.searchPlacesAndCategoriesView.addPlaces(placeDao.findAll());
         binding.searchPlacesAndCategoriesView.addCategories(categoryDao.findAll());
-        binding.searchPlacesAndCategoriesView.setOnClickSearchGroup(searchGroup -> {
-            startActivityForResult(SearchedSessionsActivity.createIntent(SearchActivity.this, searchGroup),
-                    REQ_SEARCH_PLACES_AND_CATEGORIES_VIEW);
-        });
+        binding.searchPlacesAndCategoriesView.setOnClickSearchGroup(searchGroup ->
+                startActivityForResult(SearchedSessionsActivity.createIntent(SearchActivity.this, searchGroup),
+                        REQ_SEARCH_PLACES_AND_CATEGORIES_VIEW));
     }
 
     @Override
@@ -239,7 +236,6 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
         private TextAppearanceSpan textAppearanceSpan;
         private List<SearchResult> filteredList;
         private List<SearchResult> allList;
-        ;
 
         public SearchResultsAdapter(@NonNull Context context) {
             super(context);
@@ -265,7 +261,7 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
             Drawable icon = ContextCompat.getDrawable(getContext(), searchResult.iconRes);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
                 itemBinding.txtType.setCompoundDrawablesRelativeWithIntrinsicBounds(icon, null, null, null);
-            } else if (LocaleUtil.shouldRtl(getContext())) {
+            } else if (LocaleUtil.shouldRtl()) {
                 itemBinding.txtType.setCompoundDrawablesWithIntrinsicBounds(null, null, icon, null);
             } else {
                 itemBinding.txtType.setCompoundDrawablesWithIntrinsicBounds(icon, null, null, null);

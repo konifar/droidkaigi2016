@@ -3,22 +3,52 @@
     <style name="FeedbackTitle">
         <item name="android:textSize">@dimen/text</item>
         <item name="android:textColor">?android:textColorSecondary</item>
-        <item name="android:paddingBottom">@dimen/spacing_small</item>
-        <item name="android:paddingEnd" tools:targetApi="jelly_bean_mr1">@dimen/spacing</item>
-        <item name="android:paddingLeft">@dimen/spacing</item>
-        <item name="android:paddingRight">@dimen/spacing</item>
-        <item name="android:paddingStart" tools:targetApi="jelly_bean_mr1">@dimen/spacing</item>
-        <item name="android:paddingTop">@dimen/spacing_small</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
     </style>
 
     <style name="FeedbackQuestionGuideText">
         <item name="android:textSize">@dimen/text_small</item>
         <item name="android:textColor">@color/theme600</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/spacing_small</item>
+    </style>
+
+    <style name="FeedbackQuestionGuideText.Start">
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_alignParentStart" tools:targetApi="jelly_bean_mr1">true</item>
+    </style>
+
+    <style name="FeedbackQuestionGuideText.End">
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_alignParentEnd" tools:targetApi="jelly_bean_mr1">true</item>
     </style>
 
     <style name="FeedbackNumberRatingBar">
         <item name="android:progressDrawable">@drawable/number_ratingbar</item>
         <item name="android:indeterminateDrawable">@drawable/number_ratingbar</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:max">5</item>
     </style>
+
+    <style name="FeedbackCardItem">
+        <item name="android:layout_marginLeft">@dimen/spacing_small</item>
+        <item name="android:layout_marginStart" tools:targetApi="jelly_bean_mr1">
+            @dimen/spacing_small
+        </item>
+        <item name="android:layout_marginEnd" tools:targetApi="jelly_bean_mr1">
+            @dimen/spacing_small
+        </item>
+        <item name="android:layout_marginRight">@dimen/spacing_small</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_xsmall</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="cardUseCompatPadding">true</item>
+    </style>
+
 </resources>

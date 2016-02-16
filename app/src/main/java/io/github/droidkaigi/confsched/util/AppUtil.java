@@ -3,7 +3,6 @@ package io.github.droidkaigi.confsched.util;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
-import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.NonNull;
@@ -11,16 +10,12 @@ import android.support.customtabs.CustomTabsIntent;
 import android.support.v4.content.ContextCompat;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.TextView;
-
-import java.util.Arrays;
-import java.util.Locale;
 
 import io.github.droidkaigi.confsched.BuildConfig;
 import io.github.droidkaigi.confsched.R;
@@ -33,10 +28,7 @@ public class AppUtil {
     private static final String GITHUB_URL = "https://github.com/";
     private static final String FACEBOOK_URL = "https://www.facebook.com/";
 
-    private static final String LANG_STRING_RES_PREFIX = "lang_";
     private static final String STRING_RES_TYPE = "string";
-    private static final String LANG_EN_ID = "en";
-    public static final String[] SUPPORT_LANG = {LANG_EN_ID, "ja", "ar"};
 
     public static String getTwitterUrl(@NonNull String name) {
         return TWITTER_URL + name;
@@ -48,53 +40,6 @@ public class AppUtil {
 
     public static String getFacebookUrl(@NonNull String name) {
         return FACEBOOK_URL + name;
-    }
-
-    public static void initLocale(Context context) {
-        setLocale(context, getCurrentLanguageId(context));
-    }
-
-    public static void setLocale(Context context, @NonNull String languageId) {
-        Configuration config = new Configuration();
-        PrefUtil.put(context, PrefUtil.KEY_CURRENT_LANGUAGE_ID, languageId);
-        config.locale = new Locale(languageId);
-        context.getResources().updateConfiguration(config, context.getResources().getDisplayMetrics());
-    }
-
-    public static Locale getCurrentLocale(Context context) {
-        return new Locale(getCurrentLanguageId(context));
-    }
-
-    public static String getCurrentLanguageId(Context context) {
-        String languageId = null;
-        try {
-            languageId = PrefUtil.get(context, PrefUtil.KEY_CURRENT_LANGUAGE_ID, null);
-            if (languageId == null) {
-                languageId = Locale.getDefault().getLanguage().toLowerCase();
-            }
-            if (!Arrays.asList(SUPPORT_LANG).contains(languageId)) {
-                languageId = LANG_EN_ID;
-            }
-        } catch (Exception e) {
-            Log.e(TAG, e.toString());
-        } finally {
-            if (TextUtils.isEmpty(languageId)) {
-                languageId = LANG_EN_ID;
-            }
-        }
-        return languageId;
-    }
-
-    public static String getCurrentLanguage(Context context) {
-        return getLanguage(context, getCurrentLanguageId(context));
-    }
-
-    public static String getLanguage(Context context, String languageId) {
-        return getString(context, LANG_STRING_RES_PREFIX + languageId);
-    }
-
-    public static String getLanguage(Context context, String languageId, String in) {
-        return getString(context, LANG_STRING_RES_PREFIX + languageId + "_in_" + in);
     }
 
     public static String getString(@NonNull Context context, @NonNull String resName) {

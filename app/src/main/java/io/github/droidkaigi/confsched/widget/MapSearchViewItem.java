@@ -31,10 +31,8 @@ public class MapSearchViewItem extends FrameLayout {
 
     public void bindData(@NonNull PlaceMap placeMap, @NonNull OnClickListener listener) {
         binding.imgMarker.setImageResource(placeMap.markerRes);
-        binding.txtName.setText(LocaleUtil.getRtlConsideredText(
-                getContext().getString(placeMap.nameRes), getContext()));
-        binding.txtBuilding.setText(LocaleUtil.getRtlConsideredText(
-                getContext().getString(placeMap.buildingNameRes), getContext()));
+        binding.txtName.setText(LocaleUtil.getRtlConsideredText(getContext().getString(placeMap.nameRes)));
+        binding.txtBuilding.setText(LocaleUtil.getRtlConsideredText(getContext().getString(placeMap.buildingNameRes)));
         binding.rootView.setOnClickListener(listener);
     }
 
