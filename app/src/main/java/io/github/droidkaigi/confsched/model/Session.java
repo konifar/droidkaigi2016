@@ -118,7 +118,7 @@ public class Session {
     public boolean shouldNotify(long remindDuration) {
         Date now = new Date();
         long diff = stime.getTime() - now.getTime();
-        return (remindDuration < diff) ? true : false;
+        return remindDuration < diff;
     }
 
     @Override
