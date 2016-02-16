@@ -834,7 +834,7 @@
   {
     "id": 33,
     "title": "Advanced Kotlin for Android",
-    "description": "■概要\n\n今、世界中から注目を集めているプログラミング言語Kotlin(コトリン)によるAndroid開発について話します。\nKotlinは静的型付けオブジェクト指向言語で、JetBrains社により開発されており、Javaプログラマには馴染みやすい文法が特徴的です。\n前回のDroidKaigiでは簡単な紹介でしたが、今回は一歩進んだ内容で、Android Kotlinユーザのレベルアップに貢献します。\nver0.xが長らく続いていましたが、現在ver1.0-Beta、年内には1.0安定版がリリースされるとの噂で今が一番ホットです！\n\nAndroid specific:\nKotlinはAndroidだけでなくJava仮想マシンもターゲットに含みます。\nしかしいわゆるAndroid Javaが抱える問題をKotlinは華麗に解決してくれます。\n\nExpertise:\nKotlinはまだメジャーな技術とは言えず情報が少ない上に、進歩・変化が早いです。\n日本語でエバンジェリスト(自称)が発表します。\n\nInnovation:\n大きな革新性があると言うと大げさになってしまいそうです。\nKotlinで記述されたアプリだからどうこうという話はありませんが、\nJavaと比較し生産性、保守性、安全性の観点で有利なので、\n余った時間でUIや機能に注力したり、家族や友人と過ごすこともできます。\n\n■対象者\n・Android中級者〜\n・Kotlin初心者〜\n\n初歩的なKotlinの説明はほとんどしません（文末にセミコロンは不要です！など）。\nですが発表資料は公開し、ブログで解説するなど極力フォローしていく予定です。\n\n■目次案\n1. Kotlin概要\n・Kotlinとは\n・ざっと背景や文法などをおさらい\n\n2. Tips集\n・Android開発で直面しやすい問題をKotlinで解決する\n・併せて関連するKotlinの言語機能を紹介\n\n3. ライブラリなど\n・Dagger2やRealm、RxAndroidと言ったフレームワーク、ツールをKotlinからうまく使う方法\n・KotterKnife, AnkoなどのAndroid Kotlin専用のライブラリ\n\n■登壇者について\n・Kotlin歴3年半〜\n・Kotlinエバンジェリスト(自称)\n・日本Kotlinユーザグループ代表\n・講演実績多数(JJUG CCCやDroidKaigiなどなど)\n・執筆実績: 日経ソフトウエア読切、SoftwareDesign連載、同人誌など",
+    "description": "■概要\n今、世界中から注目を集めているプログラミング言語「Kotlin」によるAndroid開発について話します。\n\n■対象者\n・Kotlinを使い始めているエンジニア\n・Kotlinを使ってみたいエンジニア（後半はやや難しい）\n\n■アジェンダ\n1. Kotlinとは\n2. AndroidプロジェクトでKotlinを使う\n3. Real world Android Kotlin\n4. 攻めのKotlin\n\n■講演者について\n・Kotlinエバンジェリスト(非公式)\n・日本Kotlinユーザグループ代表",
     "speaker": {
       "id": 33,
       "name": "長澤 太郎",
