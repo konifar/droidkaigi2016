@@ -34,4 +34,8 @@ public class MyScheduleFragment extends SessionsFragment {
         });
     }
 
+    @Override
+    protected SessionsTabFragment createTabFragment(List<Session> sessions) {
+        return MyScheduleSessionsTabFragment.newInstance(sessions);
+    }
 }

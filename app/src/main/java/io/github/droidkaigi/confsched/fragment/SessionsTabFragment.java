@@ -36,7 +36,7 @@ import io.github.droidkaigi.confsched.widget.itemdecoration.SpaceItemDecoration;
 
 public class SessionsTabFragment extends Fragment {
 
-    private static final String ARG_SESSIONS = "sessions";
+    protected static final String ARG_SESSIONS = "sessions";
     private static final int REQ_DETAIL = 1;
 
     @Inject
@@ -84,13 +84,17 @@ public class SessionsTabFragment extends Fragment {
     }
 
     private void bindData() {
-        adapter = new SessionsAdapter(getActivity());
+        adapter = createAdapter();
 
         binding.recyclerView.setAdapter(adapter);
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         int spacing = getResources().getDimensionPixelSize(R.dimen.spacing_xsmall);
         binding.recyclerView.addItemDecoration(new SpaceItemDecoration(spacing));
         adapter.addAll(sessions);
+    }
+
+    protected SessionsAdapter createAdapter() {
+        return new SessionsAdapter(getActivity());
     }
 
     @Override
@@ -113,13 +117,13 @@ public class SessionsTabFragment extends Fragment {
         binding.recyclerView.smoothScrollToPosition(0);
     }
 
-    private class SessionsAdapter extends ArrayRecyclerAdapter<Session, BindingHolder<ItemSessionBinding>> {
+    protected class SessionsAdapter extends ArrayRecyclerAdapter<Session, BindingHolder<ItemSessionBinding>> {
 
         public SessionsAdapter(@NonNull Context context) {
             super(context);
         }
 
-        private void refresh(@NonNull Session session) {
+        protected void refresh(@NonNull Session session) {
             // TODO It may be heavy logic...
             for (int i = 0, count = adapter.getItemCount(); i < count; i++) {
                 Session s = adapter.getItem(i);
@@ -152,21 +156,19 @@ public class SessionsTabFragment extends Fragment {
                 binding.txtStime.setVisibility(View.VISIBLE);
             }
 
+            binding.txtConflict.setVisibility(View.GONE);
+
             binding.btnStar.setOnLikeListener(new OnLikeListener() {
                 @Override
                 public void liked(LikeButton likeButton) {
                     session.checked = true;
-                    dao.updateChecked(session);
-                    AlarmUtil.handleSessionAlarm(getContext(), session);
-                    onChangeSessionListener.onChangeSession(Collections.singletonList(session));
+                    onLikeChanged(session, position);
                 }
 
                 @Override
                 public void unLiked(LikeButton likeButton) {
                     session.checked = false;
-                    dao.updateChecked(session);
-                    AlarmUtil.handleSessionAlarm(getContext(), session);
-                    onChangeSessionListener.onChangeSession(Collections.singletonList(session));
+                    onLikeChanged(session, position);
                 }
             });
 
@@ -174,6 +176,11 @@ public class SessionsTabFragment extends Fragment {
                     activityNavigator.showSessionDetail(SessionsTabFragment.this, session, REQ_DETAIL));
         }
 
+        protected void onLikeChanged(@NonNull Session session, int position) {
+            dao.updateChecked(session);
+            AlarmUtil.handleSessionAlarm(getContext(), session);
+            onChangeSessionListener.onChangeSession(Collections.singletonList(session));
+        }
     }
 
 }

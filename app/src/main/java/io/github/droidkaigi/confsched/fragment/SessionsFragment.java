@@ -203,8 +203,12 @@ public class SessionsFragment extends Fragment implements StackedPageListener {
         }
     }
 
+    protected SessionsTabFragment createTabFragment(List<Session> sessions) {
+        return SessionsTabFragment.newInstance(sessions);
+    }
+
     private void addFragment(String title, List<Session> sessions) {
-        SessionsTabFragment fragment = SessionsTabFragment.newInstance(sessions);
+        SessionsTabFragment fragment = createTabFragment(sessions);
         adapter.add(title, fragment);
     }
 
