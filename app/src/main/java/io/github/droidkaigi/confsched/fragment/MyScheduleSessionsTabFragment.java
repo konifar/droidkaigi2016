@@ -10,7 +10,6 @@ import android.view.View;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
