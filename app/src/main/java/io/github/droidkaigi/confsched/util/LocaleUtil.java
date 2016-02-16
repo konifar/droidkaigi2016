@@ -33,6 +33,15 @@ public class LocaleUtil {
 
     private static final String RTL_MARK = "\u200F";
 
+    private static final DateFormat DATE_FORMAT_TOKYO = SimpleDateFormat.getDateTimeInstance();
+
+    private static final DateFormat DATE_FORMAT_LOCAL = SimpleDateFormat.getDateTimeInstance();
+
+    static {
+        DATE_FORMAT_TOKYO.setTimeZone(CONFERENCE_TIMEZONE);
+        DATE_FORMAT_LOCAL.setTimeZone(TimeZone.getDefault());
+    }
+
     public static boolean shouldRtl() {
         return TextUtilsCompat.getLayoutDirectionFromLocale(Locale.getDefault()) == ViewCompat.LAYOUT_DIRECTION_RTL;
     }
@@ -104,13 +113,9 @@ public class LocaleUtil {
     }
 
     public static Date getConfTimezoneCurrentDate() {
-        DateFormat formatTokyo = SimpleDateFormat.getDateTimeInstance();
-        formatTokyo.setTimeZone(CONFERENCE_TIMEZONE);
-        DateFormat formatLocal = SimpleDateFormat.getDateTimeInstance();
-        formatLocal.setTimeZone(TimeZone.getDefault());
         Date date = new Date();
         try {
-            return formatLocal.parse(formatTokyo.format(date));
+            return DATE_FORMAT_LOCAL.parse(DATE_FORMAT_TOKYO.format(date));
         } catch (ParseException e) {
             Log.e(TAG, "date: " + date + "can not parse." + e);
             return date;
