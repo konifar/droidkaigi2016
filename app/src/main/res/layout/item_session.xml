@@ -50,7 +50,6 @@
                     style="@style/TextTitle.OfList"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_small"
                     android:lineSpacingExtra="@dimen/line_spacing"
                     app:textRtlConsidered="@{session.title}" />
 
