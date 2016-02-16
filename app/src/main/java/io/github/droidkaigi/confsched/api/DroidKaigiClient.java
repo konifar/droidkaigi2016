@@ -115,7 +115,7 @@ public class DroidKaigiClient {
     }
 
     public interface GithubService {
-        @GET("/repos/{owner}/{repo}/contributors")
+        @GET("/repos/{owner}/{repo}/contributors?per_page=100")
         Observable<List<Contributor>> getContributors(@Path("owner") String owner, @Path("repo") String repo);
     }
 }
