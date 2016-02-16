@@ -103,6 +103,20 @@ public class LocaleUtil {
         }
     }
 
+    public static Date getConfTimezoneCurrentDate() {
+        DateFormat formatTokyo = SimpleDateFormat.getDateTimeInstance();
+        formatTokyo.setTimeZone(CONFERENCE_TIMEZONE);
+        DateFormat formatLocal = SimpleDateFormat.getDateTimeInstance();
+        formatLocal.setTimeZone(TimeZone.getDefault());
+        Date date = new Date();
+        try {
+            return formatLocal.parse(formatTokyo.format(date));
+        } catch (ParseException e) {
+            Log.e(TAG, "date: " + date + "can not parse." + e);
+            return date;
+        }
+    }
+
     public static TimeZone getDisplayTimeZone(Context context) {
         TimeZone defaultTimeZone = TimeZone.getDefault();
         boolean shouldShowLocalTime = PrefUtil.get(context, PrefUtil.KEY_SHOW_LOCAL_TIME, false);
