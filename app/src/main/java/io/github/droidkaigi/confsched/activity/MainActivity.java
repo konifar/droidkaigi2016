@@ -1,6 +1,7 @@
 package io.github.droidkaigi.confsched.activity;
 
 import android.app.Activity;
+import android.app.Notification;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Build;
@@ -23,6 +24,7 @@ import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.databinding.ActivityMainBinding;
 import io.github.droidkaigi.confsched.fragment.SessionsFragment;
+import io.github.droidkaigi.confsched.fragment.SettingsFragment;
 import io.github.droidkaigi.confsched.fragment.StackedPageListener;
 import io.github.droidkaigi.confsched.model.MainContentStateBrokerProvider;
 import io.github.droidkaigi.confsched.model.Page;
@@ -74,10 +76,15 @@ public class MainActivity extends AppCompatActivity
         }));
 
         initView();
-        AppUtil.setTaskDescription(this, getString(R.string.all_sessions), AppUtil.getThemeColorPrimary(this));
 
         if (savedInstanceState == null) {
-            replaceFragment(SessionsFragment.newInstance(shouldRefresh));
+            if (getIntent().hasCategory(Notification.INTENT_CATEGORY_NOTIFICATION_PREFERENCES)) {
+                AppUtil.setTaskDescription(this, getString(R.string.settings), AppUtil.getThemeColorPrimary(this));
+                replaceFragment(SettingsFragment.newInstance());
+            } else {
+                AppUtil.setTaskDescription(this, getString(R.string.all_sessions), AppUtil.getThemeColorPrimary(this));
+                replaceFragment(SessionsFragment.newInstance(shouldRefresh));
+            }
         } else {
             binding.toolbar.setTitle(savedInstanceState.getString(EXTRA_TITLE));
         }
