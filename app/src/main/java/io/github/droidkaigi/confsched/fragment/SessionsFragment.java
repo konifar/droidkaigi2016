@@ -10,7 +10,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -83,7 +82,6 @@ public class SessionsFragment extends Fragment implements StackedPageListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentSessionsBinding.inflate(inflater, container, false);
-        initTabLayout(binding.tabLayout);
         setHasOptionsMenu(true);
         initEmptyView();
         compositeSubscription.add(loadData());
@@ -108,16 +106,11 @@ public class SessionsFragment extends Fragment implements StackedPageListener {
         }
     }
 
-    protected void initTabLayout(TabLayout tabLayout) {
-        tabLayout.setBackgroundColor(ContextCompat.getColor(getContext(), Page.ALL_SESSIONS.getToolbarColor()));
-    }
-
     private void initEmptyView() {
         binding.emptyViewButton.setOnClickListener(v -> brokerProvider.get().set(Page.ALL_SESSIONS));
     }
 
     private Subscription fetchAndSave() {
-        showLoadingView();
         return client.getSessions(LocaleUtil.getCurrentLanguageId(getActivity()))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -148,8 +141,11 @@ public class SessionsFragment extends Fragment implements StackedPageListener {
 
     private void onLoadDataSuccess(List<Session> sessions) {
         Log.i(TAG, "Sessions Load succeeded.");
+        // TODO This is temporary bug fix. https://github.com/konifar/droidkaigi2016/issues/264
+        if (shouldRefresh) {
+            sessions = dao.findAll().toBlocking().single();
+        }
         groupByDateSessions(sessions);
-
     }
 
     private void onLoadDataFailure(Throwable throwable) {
@@ -204,8 +200,12 @@ public class SessionsFragment extends Fragment implements StackedPageListener {
         }
     }
 
+    protected SessionsTabFragment createTabFragment(List<Session> sessions) {
+        return SessionsTabFragment.newInstance(sessions);
+    }
+
     private void addFragment(String title, List<Session> sessions) {
-        SessionsTabFragment fragment = SessionsTabFragment.newInstance(sessions);
+        SessionsTabFragment fragment = createTabFragment(sessions);
         adapter.add(title, fragment);
     }
 

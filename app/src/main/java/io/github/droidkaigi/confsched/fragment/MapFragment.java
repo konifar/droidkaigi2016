@@ -79,9 +79,9 @@ public class MapFragment extends Fragment {
     public void onDestroyView() {
         FragmentManager fm = getChildFragmentManager();
         SupportMapFragment map = (SupportMapFragment) fm.findFragmentById(R.id.map);
-        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        FragmentTransaction ft = fm.beginTransaction();
         ft.remove(map);
-        ft.commit();
+        ft.commitAllowingStateLoss();
         super.onDestroyView();
     }
 

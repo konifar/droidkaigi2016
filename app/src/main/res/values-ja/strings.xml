@@ -88,6 +88,7 @@
 
     <string name="my_schedule_empty">まだセッションが追加されていません。全てのセッションから聞きたいセッションを選んでみましょう!</string>
     <string name="my_schedule_go_to_session_list">全てのセッションを見る</string>
+    <string name="my_schedule_conflicted">競合しています</string>
 
     <plurals name="schedule_notification_title">
         <item quantity="other">開始%1$d分前です</item>
