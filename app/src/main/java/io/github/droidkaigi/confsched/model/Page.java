@@ -16,37 +16,37 @@ import io.github.droidkaigi.confsched.fragment.SponsorsFragment;
  * @author KeishinYokomaku
  */
 public enum Page {
-    ALL_SESSIONS(R.id.nav_all_sessions, R.string.all_sessions, false, SessionsFragment.class.getSimpleName()) {
+    ALL_SESSIONS(R.id.nav_all_sessions, R.string.all_sessions, false) {
         @Override
         public Fragment createFragment() {
             return SessionsFragment.newInstance();
         }
     },
-    MY_SCHEDULE(R.id.nav_my_schedule, R.string.my_schedule, false, MyScheduleFragment.class.getSimpleName(), R.color.bluegrey500, R.color.bluegrey600) {
+    MY_SCHEDULE(R.id.nav_my_schedule, R.string.my_schedule, false, R.color.bluegrey500, R.color.bluegrey600) {
         @Override
         public Fragment createFragment() {
             return MyScheduleFragment.newInstance();
         }
     },
-    MAP(R.id.nav_map, R.string.map, true, MapFragment.class.getSimpleName()) {
+    MAP(R.id.nav_map, R.string.map, true) {
         @Override
         public Fragment createFragment() {
             return MapFragment.newInstance();
         }
     },
-    SETTINGS(R.id.nav_settings, R.string.settings, true, SettingsFragment.class.getSimpleName()) {
+    SETTINGS(R.id.nav_settings, R.string.settings, true) {
         @Override
         public Fragment createFragment() {
             return SettingsFragment.newInstance();
         }
     },
-    SPONSORS(R.id.nav_sponsors, R.string.sponsors, true, SponsorsFragment.class.getSimpleName()) {
+    SPONSORS(R.id.nav_sponsors, R.string.sponsors, true) {
         @Override
         public Fragment createFragment() {
             return SponsorsFragment.newInstance();
         }
     },
-    ABOUT(R.id.nav_about, R.string.about, true, AboutFragment.class.getSimpleName()) {
+    ABOUT(R.id.nav_about, R.string.about, true) {
         @Override
         public Fragment createFragment() {
             return AboutFragment.newInstance();
@@ -56,40 +56,28 @@ public enum Page {
     private final int menuId;
     private final int titleResId;
     private final boolean toggleToolbar;
-    private final String pageName;
     private final int toolbarColor;
     private final int statusBarColor;
 
     private static final int DEFAULT_TOOLBAR_COLOR = R.color.theme500;
     private static final int DEFAULT_STATUS_BAR_COLOR = R.color.theme600;
 
-    Page(int menuId, int titleResId, boolean toggleToolbar, String pageName) {
-        this(menuId, titleResId, toggleToolbar, pageName, DEFAULT_TOOLBAR_COLOR, DEFAULT_STATUS_BAR_COLOR);
+    Page(int menuId, int titleResId, boolean toggleToolbar) {
+        this(menuId, titleResId, toggleToolbar, DEFAULT_TOOLBAR_COLOR, DEFAULT_STATUS_BAR_COLOR);
     }
 
-    Page(int menuId, int titleResId, boolean toggleToolbar, String pageName, int toolbarColor, int statusBarColor) {
+    Page(int menuId, int titleResId, boolean toggleToolbar, int toolbarColor, int statusBarColor) {
         this.menuId = menuId;
         this.titleResId = titleResId;
         this.toggleToolbar = toggleToolbar;
         this.toolbarColor = toolbarColor;
         this.statusBarColor = statusBarColor;
-        this.pageName = pageName;
     }
 
     public static Page forMenuId(MenuItem item) {
         int id = item.getItemId();
         for (Page page : values()) {
             if (page.menuId == id) {
-                return page;
-            }
-        }
-        throw new AssertionError("no menu enum found for the id. you forgot to implement?");
-    }
-
-    public static Page forName(Fragment fragment) {
-        String name = fragment.getClass().getSimpleName();
-        for (Page page : values()) {
-            if (page.pageName.equals(name)) {
                 return page;
             }
         }
@@ -106,10 +94,6 @@ public enum Page {
 
     public int getTitleResId() {
         return titleResId;
-    }
-
-    public String getPageName() {
-        return pageName;
     }
 
     public abstract Fragment createFragment();

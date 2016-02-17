@@ -10,7 +10,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
@@ -24,7 +23,6 @@ import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.databinding.ActivityMainBinding;
 import io.github.droidkaigi.confsched.fragment.SessionsFragment;
-import io.github.droidkaigi.confsched.fragment.StackedPageListener;
 import io.github.droidkaigi.confsched.model.MainContentStateBrokerProvider;
 import io.github.droidkaigi.confsched.model.Page;
 import io.github.droidkaigi.confsched.util.AnalyticsTracker;
@@ -33,7 +31,7 @@ import io.github.droidkaigi.confsched.util.LocaleUtil;
 import rx.subscriptions.CompositeSubscription;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, FragmentManager.OnBackStackChangedListener {
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String EXTRA_SHOULD_REFRESH = "should_refresh";
     private static final String EXTRA_TITLE = "title";
@@ -82,7 +80,6 @@ public class MainActivity extends AppCompatActivity
         } else {
             binding.toolbar.setTitle(savedInstanceState.getString(EXTRA_TITLE));
         }
-        getSupportFragmentManager().addOnBackStackChangedListener(this);
     }
 
     @Override
@@ -94,7 +91,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        getSupportFragmentManager().removeOnBackStackChangedListener(this);
         subscription.unsubscribe();
     }
 
@@ -112,7 +108,6 @@ public class MainActivity extends AppCompatActivity
         final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.setCustomAnimations(R.anim.fragment_fade_enter, R.anim.fragment_fade_exit);
         ft.replace(R.id.content_view, fragment, fragment.getClass().getSimpleName());
-        ft.addToBackStack(null);
         ft.commit();
     }
 
@@ -126,11 +121,6 @@ public class MainActivity extends AppCompatActivity
     public void onBackPressed() {
         if (binding.drawer.isDrawerOpen(GravityCompat.START)) {
             binding.drawer.closeDrawer(GravityCompat.START);
-            return;
-        }
-        FragmentManager fm = getSupportFragmentManager();
-        if (fm.getBackStackEntryCount() > 0) {
-            fm.popBackStack();
             return;
         }
         super.onBackPressed();
@@ -180,24 +170,4 @@ public class MainActivity extends AppCompatActivity
         overridePendingTransition(R.anim.activity_fade_enter, R.anim.activity_fade_exit);
     }
 
-    @Override
-    public void onBackStackChanged() {
-        FragmentManager fm = getSupportFragmentManager();
-        Fragment current = fm.findFragmentById(R.id.content_view);
-        if (current == null) {
-            // no more fragments in the stack. finish.
-            finish();
-            return;
-        }
-        Page page = Page.forName(current);
-        binding.navView.setCheckedItem(page.getMenuId());
-        binding.toolbar.setTitle(page.getTitleResId());
-        changeToolbarColor(page.getToolbarColor());
-        changeStatusBarColor(page.getStatusBarColor());
-        toggleToolbarElevation(page.shouldToggleToolbar());
-        if (current instanceof StackedPageListener) {
-            StackedPageListener l = (StackedPageListener) current;
-            l.onTop();
-        }
-    }
 }
