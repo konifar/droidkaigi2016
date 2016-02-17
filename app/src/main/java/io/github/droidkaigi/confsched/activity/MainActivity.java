@@ -12,7 +12,6 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -142,21 +141,9 @@ public class MainActivity extends AppCompatActivity
 
         Page page = Page.forMenuId(item);
         toggleToolbarElevation(page.shouldToggleToolbar());
-        changeToolbarColor(page.getToolbarColor());
-        changeStatusBarColor(page.getStatusBarColor());
         changePage(page.getTitleResId(), page.createFragment());
 
         return true;
-    }
-
-    private void changeToolbarColor(int color) {
-        binding.toolbar.setBackground(ContextCompat.getDrawable(this, color));
-    }
-
-    private void changeStatusBarColor(int color) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            binding.drawer.setStatusBarBackground(color);
-        }
     }
 
     private void toggleToolbarElevation(boolean enable) {
@@ -192,8 +179,6 @@ public class MainActivity extends AppCompatActivity
         Page page = Page.forName(current);
         binding.navView.setCheckedItem(page.getMenuId());
         binding.toolbar.setTitle(page.getTitleResId());
-        changeToolbarColor(page.getToolbarColor());
-        changeStatusBarColor(page.getStatusBarColor());
         toggleToolbarElevation(page.shouldToggleToolbar());
         if (current instanceof StackedPageListener) {
             StackedPageListener l = (StackedPageListener) current;
