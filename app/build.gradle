@@ -3,12 +3,12 @@ import com.android.ddmlib.DdmPreferences
 apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 apply plugin: 'me.tatarka.retrolambda'
-apply plugin: 'android-apt'
+apply plugin: 'com.neenbedankt.android-apt'
 
 // Manifest version
 def versionMajor = 1
-def versionMinor = 0
-def versionPatch = 1
+def versionMinor = 1
+def versionPatch = 0
 
 // CI
 def isCi = "true".equals(System.getenv("CI"))
