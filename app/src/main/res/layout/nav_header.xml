@@ -44,7 +44,7 @@
             android:textColor="@color/white"
             android:textSize="@dimen/text"
             android:textStyle="bold"
-            app:textRtlConsidered="@{context.getString(R.string.app_name)}" />
+            app:textRtlConsidered="@{@string/app_name}" />
 
         <TextView
             android:layout_width="match_parent"
