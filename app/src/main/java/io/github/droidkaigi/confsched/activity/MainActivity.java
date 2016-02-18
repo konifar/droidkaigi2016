@@ -3,6 +3,7 @@ package io.github.droidkaigi.confsched.activity;
 import android.app.Activity;
 import android.app.Notification;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.databinding.DataBindingUtil;
 import android.os.Build;
 import android.os.Bundle;
@@ -55,6 +56,12 @@ public class MainActivity extends AppCompatActivity
         intent.putExtra(EXTRA_SHOULD_REFRESH, shouldRefresh);
         activity.startActivity(intent);
         activity.overridePendingTransition(R.anim.activity_fade_enter, R.anim.activity_fade_exit);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        LocaleUtil.initLocale(this);
     }
 
     @Override
