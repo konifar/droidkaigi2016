@@ -1124,7 +1124,7 @@
     "speaker": {
       "id": 43,
       "name": "DroidKaigi developers",
-      "image_url": "",
+      "image_url": "https://github.com/konifar/droidkaigi2016/blob/master/app/src/main/res/mipmap-xhdpi/ic_launcher.png",
       "twitter_name": "",
       "github_name": ""
     },
