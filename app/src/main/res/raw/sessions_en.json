@@ -1067,8 +1067,8 @@
   },
   {
     "id": 42,
-    "title": "Build your custom Rx Observable/Subscriber",
-    "description": "1. 概要\nこの1年で RxJava や RxAndroid の普及が進んでいるが、 提供される Observable や Operator を使うのに比べ、自分で Observable や Operator、Subscriber を作成するハードルは依然と高い。また、そもそも、自分の提供したい機能をどのように RxJava で表したら良いのか、についても考慮が必要となる。たとえば、処理の途中でダイアログを表示して、その選択によって処理を切り替えたい場合、どのようにしたら良いだろうか？ログイン画面のように Activity の遷移が行われるとしたら？カスタム Observable や Subscriber で unsubscribe はどのように扱えば良いだろうか？\n\nこのトークでは、筆者の作成した Nearby API 用 RxJava ライブラリ RxNearby （https://github.com/hkurokawa/RxNearby）を例に、どのように行いたい処理を RxJava に落とし込むのか、カスタム Observable やカスタム Subscriber を作成する際に何に注意すべきか、について解説する。特に、1) RxJava の中心は Subscriber であること、2) Observable が subscribe されたとき、および、observe されたときに、それぞれ、どのような順序で処理が伝わっていくか理解することはライブラリを作る上で重要であり、それらを含んだ内容を考えている。\n\n2. 対象者\n- RxJava 経験者\n- Rx の概念を理解しており、詳細に興味のある人\n\n3. 目次案\n- Nearby API の概説と RxJava でどのように扱うかのアイディア\n- RxNearby の使い方\n- Subscriber から見た Observable および Operator\n- MessageSubscribeOnSubscribe の説明と注意点\n- MessagePublishOperator の説明と注意点",
+    "title": "Build your custom Rx Observable/Operator",
+    "description": "1. 概要\nこの1年で RxJava や RxAndroid の普及が進んでいるが、 提供される Observable や Operator を使うのに比べ、自分でカスタム Observable やカスタム Operator を作成するハードルは依然と高い。また、そもそも、自分の提供したい機能をどのように RxJava で表したら良いのか、についても考慮が必要となる。\n\nこのトークでは、筆者の作成した Nearby API 用 RxJava ライブラリ RxNearby （https://github.com/hkurokawa/RxNearby）を例に、どのように行いたい処理を RxJava に落とし込むのか、カスタム Observable やカスタム Subscriber を作成する際に何に注意すべきか、について解説する。特に、1) RxJava の Observable や Operator の挙動は Subscriber を中心に捉えることで理解しやすくなり、2) subscribe や event emission 時にどのような順序で処理が伝わっていくか把握することはライブラリを作る上で重要である。\n\n2. 対象者\n- RxJava 経験者\n- Rx の概念を理解しており、詳細に興味のある人\n\n3. 目次\n- Observable と Operator の説明\n- Nearby API の説明と RxJava でどのように扱うかのアイディア\n- MessageSubscribeOnSubscribe の説明とそれを通したカスタム Observable を作る上での注意点\n- MessagePublishOperator の説明とそれを通したカスタム Operator を作る上での注意点",
     "speaker": {
       "id": 41,
       "name": "hydrakecat",
