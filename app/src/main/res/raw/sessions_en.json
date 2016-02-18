@@ -1119,14 +1119,14 @@
   },
   {
     "id": 44,
-    "title": "「通知オフ」にされない為に。ネイティブアプリの最適な通知について",
-    "description": "【概要】\nデバイスに直接お知らせを配信できるアプリの通知は、メルマガよりも開封率が高いと言われ、\n非アクティブなユーザーに対するリテンションを行う際にも非常に強力な機能です。\nしかし、過度な通知や通知の内容によってはそのアプリの通知をオフにされたり、\n最悪の場合アプリを削除されてしまう原因にもなります。\n\n本発表ではネイティブアプリの最適な通知手段について考察し、実際に通知の開封率を上げる為に効果的だった取り組みと、\nその実装方法について話したいと思います。\n\n【対象者】\n・Android開発 初心者〜中級者\n・業務でアプリを運用している方\n\n【キーワード】\n・GCM\n・Notidfication\n・Wear\n・ローカル通知\n・ポップアップ通知",
+    "title": "Fireside chat",
+    "description": "【概要】\n緊急企画! DroidKaigi official appの開発者達が一堂に会し、\n制作秘話に関して語ります。\n万策尽きかけた現場に起こった奇跡とは…乞うご期待!",
     "speaker": {
       "id": 43,
-      "name": "cooky_ch",
-      "image_url": "https://avatars0.githubusercontent.com/u/3312886?v=3&s=400.jpg",
+      "name": "DroidKaigi developers",
+      "image_url": "",
       "twitter_name": "",
-      "github_name": "cookych"
+      "github_name": ""
     },
     "stime": "2016-02-19 16:30:00",
     "etime": "2016-02-19 17:00:00",
