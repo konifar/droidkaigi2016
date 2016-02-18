@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity
     private static final String EXTRA_SHOULD_REFRESH = "should_refresh";
     private static final String EXTRA_TITLE = "title";
 
+    private static final long DRAWER_CLOSE_DELAY_MILLS = 300L;
+
     @Inject
     AnalyticsTracker analyticsTracker;
 
@@ -153,9 +155,15 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         binding.drawer.closeDrawer(GravityCompat.START);
 
-        Page page = Page.forMenuId(item);
-        toggleToolbarElevation(page.shouldToggleToolbar());
-        changePage(page.getTitleResId(), page.createFragment());
+        if (item.getItemId() == R.id.nav_questionnaire) {
+            new Handler().postDelayed(() -> {
+                AppUtil.showWebPage(this, getString(R.string.about_inquiry_url));
+            }, DRAWER_CLOSE_DELAY_MILLS);
+        } else {
+            Page page = Page.forMenuId(item);
+            toggleToolbarElevation(page.shouldToggleToolbar());
+            changePage(page.getTitleResId(), page.createFragment());
+        }
 
         return true;
     }
@@ -172,7 +180,7 @@ public class MainActivity extends AppCompatActivity
             binding.toolbar.setTitle(titleRes);
             AppUtil.setTaskDescription(this, getString(titleRes), AppUtil.getThemeColorPrimary(this));
             replaceFragment(fragment);
-        }, 300);
+        }, DRAWER_CLOSE_DELAY_MILLS);
     }
 
     @Override
