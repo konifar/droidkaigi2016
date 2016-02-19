@@ -17,7 +17,6 @@ import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.activity.MainActivity;
 import io.github.droidkaigi.confsched.activity.SessionDetailActivity;
 import io.github.droidkaigi.confsched.model.Session;
-import io.github.droidkaigi.confsched.util.LocaleUtil;
 import io.github.droidkaigi.confsched.util.PrefUtil;
 
 public class SessionScheduleReceiver extends BroadcastReceiver {
@@ -30,7 +29,7 @@ public class SessionScheduleReceiver extends BroadcastReceiver {
         if (!shouldNotify) {
             return;
         }
-        
+
         Session session = Parcels.unwrap(intent.getParcelableExtra(Session.class.getSimpleName()));
 
         // launch SessionDetailsActivity stacked with MainActivity
