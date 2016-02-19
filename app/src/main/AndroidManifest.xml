@@ -82,6 +82,10 @@
         <receiver
             android:name=".receiver.SessionScheduleReceiver"
             android:exported="false" />
+
+        <receiver
+            android:name=".receiver.SessionFinishReceiver"
+            android:exported="false" />
     </application>
 
 </manifest>

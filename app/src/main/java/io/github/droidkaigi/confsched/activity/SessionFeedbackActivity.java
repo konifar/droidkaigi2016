@@ -40,7 +40,7 @@ public class SessionFeedbackActivity extends AppCompatActivity {
     @Inject
     DroidKaigiClient client;
 
-    private static Intent createIntent(@NonNull Context context, @NonNull Session session) {
+    public static Intent createIntent(@NonNull Context context, @NonNull Session session) {
         Intent intent = new Intent(context, SessionFeedbackActivity.class);
         intent.putExtra(Session.class.getSimpleName(), Parcels.wrap(session));
         return intent;
