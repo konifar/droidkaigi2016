@@ -128,5 +128,5 @@
     <string name="session_feedback_submit_failure">Submit failed</string>
     <string name="session_feedback_submit_success">Submit succeeded</string>
     <string name="session_feedback_submit_link">Submit Feedback</string>
-    <string name="finish_notification_title">Please send your feedback for the session.</string>
+    <string name="session_feedback_notification_title">Please send your feedback for the session.</string>
 </resources>

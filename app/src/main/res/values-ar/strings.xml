@@ -123,5 +123,5 @@
     <string name="session_feedback_submit_failure">فشل إرسال</string>
     <string name="session_feedback_submit_success">إرسال نجحت</string>
     <string name="session_feedback_submit_link">إرسال ملاحظات</string>
-
+    <string name="session_feedback_notification_title">يرجى ارسال ملاحظاتك للدورة</string>
 </resources>
