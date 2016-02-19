@@ -30,10 +30,7 @@ public class SessionScheduleReceiver extends BroadcastReceiver {
         if (!shouldNotify) {
             return;
         }
-
-        // bug fix for issue#304
-        LocaleUtil.initLocale(context);
-
+        
         Session session = Parcels.unwrap(intent.getParcelableExtra(Session.class.getSimpleName()));
 
         // launch SessionDetailsActivity stacked with MainActivity

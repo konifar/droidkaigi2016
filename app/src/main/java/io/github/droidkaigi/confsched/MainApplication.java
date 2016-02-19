@@ -17,6 +17,7 @@ import io.github.droidkaigi.confsched.di.AppModule;
 import io.github.droidkaigi.confsched.di.DaggerAppComponent;
 import io.github.droidkaigi.confsched.di.FragmentComponent;
 import io.github.droidkaigi.confsched.di.FragmentModule;
+import io.github.droidkaigi.confsched.util.LocaleUtil;
 
 public class MainApplication extends Application {
 
@@ -47,6 +48,8 @@ public class MainApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        LocaleUtil.initLocale(this);
 
         appComponent = DaggerAppComponent.builder()
                 .appModule(new AppModule(this))

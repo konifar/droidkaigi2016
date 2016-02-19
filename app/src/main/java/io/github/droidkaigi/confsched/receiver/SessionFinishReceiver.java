@@ -30,9 +30,6 @@ public class SessionFinishReceiver extends BroadcastReceiver {
             return;
         }
 
-        // bug fix for issue#304
-        LocaleUtil.initLocale(context);
-
         Session session = Parcels.unwrap(intent.getParcelableExtra(Session.class.getSimpleName()));
 
         // launch SessionFeedbackActivity stacked with MainActivity
