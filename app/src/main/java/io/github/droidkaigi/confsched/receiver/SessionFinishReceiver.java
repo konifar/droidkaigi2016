@@ -18,6 +18,7 @@ import io.github.droidkaigi.confsched.activity.MainActivity;
 import io.github.droidkaigi.confsched.activity.SessionDetailActivity;
 import io.github.droidkaigi.confsched.activity.SessionFeedbackActivity;
 import io.github.droidkaigi.confsched.model.Session;
+import io.github.droidkaigi.confsched.util.LocaleUtil;
 import io.github.droidkaigi.confsched.util.PrefUtil;
 
 public class SessionFinishReceiver extends BroadcastReceiver {
@@ -28,6 +29,9 @@ public class SessionFinishReceiver extends BroadcastReceiver {
         if (!shouldNotify) {
             return;
         }
+
+        // bug fix for issue#304
+        LocaleUtil.initLocale(context);
 
         Session session = Parcels.unwrap(intent.getParcelableExtra(Session.class.getSimpleName()));
 
