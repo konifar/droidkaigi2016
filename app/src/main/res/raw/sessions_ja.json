@@ -1120,11 +1120,11 @@
   {
     "id": 44,
     "title": "Fireside chat",
-    "description": "【概要】\n緊急企画! DroidKaigi official appの開発者達が一堂に会し、\n制作秘話に関して語ります。\n万策尽きかけた現場に起こった奇跡とは…乞うご期待!",
+    "description": "【概要】\n緊急企画！DroidKaigi official appの開発者達が一堂に会し、制作秘話に関して語ります。\n万策尽きかけた現場に起こった奇跡とは…乞うご期待！",
     "speaker": {
       "id": 43,
       "name": "DroidKaigi developers",
-      "image_url": "https://raw.githubusercontent.com/konifar/droidkaigi2016/master/app/src/main/res/mipmap-mdpi/ic_launcher.png",
+      "image_url": "https://raw.githubusercontent.com/konifar/droidkaigi2016/master/app/src/main/res/mipmap-xdpi/ic_launcher.png",
       "twitter_name": "",
       "github_name": ""
     },
