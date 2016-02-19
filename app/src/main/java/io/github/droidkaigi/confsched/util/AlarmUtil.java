@@ -16,7 +16,7 @@ import io.github.droidkaigi.confsched.receiver.SessionScheduleReceiver;
 public class AlarmUtil {
 
     private static final long REMIND_DURATION_MINUTES_FOR_START = TimeUnit.MINUTES.toMillis(5);
-    private static final long REMIND_DURATION_MINUTES_FOR_FEEDBACK = TimeUnit.MINUTES.toMillis(5);
+    private static final long REMIND_DURATION_MINUTES_FOR_FINISH = TimeUnit.MINUTES.toMillis(5);
 
     public static void handleSessionAlarm(Context context, Session session) {
         if (session.checked) {
@@ -31,15 +31,17 @@ public class AlarmUtil {
 
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
-        if (session.shouldNotify(REMIND_DURATION_MINUTES_FOR_START)) {
+        if (session.shouldRegisterNotifyStart(REMIND_DURATION_MINUTES_FOR_START)) {
             long triggerAtMillisForStart = calculateStartNotifyTime(session, context);
             PendingIntent senderForStart = buildSessionStartAlarmSender(context, session);
             alarmManager.set(AlarmManager.RTC, triggerAtMillisForStart, senderForStart);
-        
+        }
 
-        long triggerAtMillisForFeedback = calculateEndNotifyTime(session, context);
-        PendingIntent senderForFinish = buildSessionFinishAlarmSender(context, session);
-        alarmManager.set(AlarmManager.RTC, triggerAtMillisForFeedback, senderForFinish);
+        if (session.shouldRegisterNotifyFinish(REMIND_DURATION_MINUTES_FOR_FINISH)) {
+            long triggerAtMillisForFinish = calculateEndNotifyTime(session, context);
+            PendingIntent senderForFinish = buildSessionFinishAlarmSender(context, session);
+            alarmManager.set(AlarmManager.RTC, triggerAtMillisForFinish, senderForFinish);
+        }
     }
 
     private static void unregisterSessionAlarm(Context context, Session session) {
@@ -70,6 +72,6 @@ public class AlarmUtil {
     }
 
     private static long calculateEndNotifyTime(Session session, Context context) {
-        return session.getDisplayETime(context).getTime() + REMIND_DURATION_MINUTES_FOR_FEEDBACK;
+        return session.getDisplayETime(context).getTime() + REMIND_DURATION_MINUTES_FOR_FINISH;
     }
 }

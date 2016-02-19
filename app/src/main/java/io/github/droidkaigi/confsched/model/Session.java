@@ -115,9 +115,15 @@ public class Session {
         }
     }
 
-    public boolean shouldNotify(long remindDuration) {
+    public boolean shouldRegisterNotifyStart(long remindDuration) {
         Date now = LocaleUtil.getConfTimezoneCurrentDate();
         long diff = stime.getTime() - now.getTime();
+        return remindDuration < diff;
+    }
+
+    public boolean shouldRegisterNotifyFinish(long remindDuration) {
+        Date now = LocaleUtil.getConfTimezoneCurrentDate();
+        long diff = etime.getTime() - now.getTime();
         return remindDuration < diff;
     }
 
