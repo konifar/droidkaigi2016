@@ -14,6 +14,7 @@
 
     <string name="title">タイトル</string>
     <string name="description">詳細</string>
+    <string name="slide">スライド</string>
 
     <string name="search_by_category">カテゴリから探す</string>
     <string name="search_by_place">場所から探す</string>

@@ -14,6 +14,7 @@
 
     <string name="title">لقب</string>
     <string name="description">التفاصيل</string>
+    <string name="slide">الانزلاق</string>
 
     <string name="search_by_category">البحث حسب الفئة</string>
     <string name="search_by_place">البحث حسب الموقع</string>

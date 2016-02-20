@@ -6,6 +6,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <import type="io.github.droidkaigi.confsched.util.DateUtil" />
 
         <variable
@@ -206,6 +208,29 @@
                         app:speakerSnsIcons="@{session.speaker}" />
 
                 </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/txt_slide_title"
+                    style="@style/SessionDetailTitle"
+                    android:layout_marginTop="@dimen/spacing"
+                    android:paddingEnd="@dimen/spacing"
+                    android:paddingLeft="@dimen/spacing"
+                    android:paddingRight="@dimen/spacing"
+                    android:paddingStart="@dimen/spacing"
+                    android:text="@string/slide"
+                    android:visibility="@{session.hasSlide() ? View.VISIBLE : View.GONE}"
+                    app:categoryVividColor="@{session.category}" />
+
+                <TextView
+                    android:id="@+id/txt_slide_url"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoLink="web"
+                    android:padding="@dimen/spacing"
+                    android:text="@{session.slideUrl}"
+                    android:textIsSelectable="true"
+                    android:textSize="@dimen/text"
+                    android:visibility="@{session.hasSlide() ? View.VISIBLE : View.GONE}" />
 
                 <TextView
                     android:id="@+id/txt_description_title"

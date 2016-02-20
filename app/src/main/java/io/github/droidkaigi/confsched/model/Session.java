@@ -2,6 +2,7 @@ package io.github.droidkaigi.confsched.model;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.Table;
@@ -119,6 +120,10 @@ public class Session {
         Date now = LocaleUtil.getConfTimezoneCurrentDate();
         long diff = stime.getTime() - now.getTime();
         return remindDuration < diff;
+    }
+
+    public boolean hasSlide() {
+        return !TextUtils.isEmpty(slideUrl);
     }
 
     @Override
