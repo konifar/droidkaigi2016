@@ -6,7 +6,7 @@ import com.rejasupotaro.android.kvs.annotations.Key;
 import com.rejasupotaro.android.kvs.annotations.Table;
 
 @Table("io.github.droidkaigi.confsched_preferences")
-public class DefaultPrefsSchema {
+public abstract class DefaultPrefsSchema {
     @Key("current_language_id")
     String languageId;
     @Key("notification_setting")
