@@ -2,8 +2,6 @@ package io.github.droidkaigi.confsched.dao;
 
 import com.github.gfx.android.orma.TransactionTask;
 
-import android.support.annotation.NonNull;
-
 import java.util.List;
 
 import javax.inject.Inject;
@@ -16,7 +14,6 @@ import io.github.droidkaigi.confsched.model.Place;
 import io.github.droidkaigi.confsched.model.Place_Relation;
 import io.github.droidkaigi.confsched.model.Session;
 import io.github.droidkaigi.confsched.model.Session_Relation;
-import io.github.droidkaigi.confsched.model.Session_Updater;
 import io.github.droidkaigi.confsched.model.Speaker;
 import io.github.droidkaigi.confsched.model.Speaker_Relation;
 import rx.Observable;
@@ -45,21 +42,6 @@ public class SessionDao {
 
     private Category_Relation categoryRelation() {
         return orma.relationOfCategory();
-    }
-
-    public void insertAll(@NonNull List<Session> sessions) {
-        orma.transactionAsync(new TransactionTask() {
-            @Override
-            public void execute() throws Exception {
-                for (Session session : sessions) {
-                    insertSpeaker(session.speaker);
-                    insertCategory(session.category);
-                    insertPlace(session.place);
-                }
-
-                sessionRelation().inserter().executeAll(sessions);
-            }
-        });
     }
 
     private void insertSpeaker(Speaker speaker) {
@@ -116,11 +98,7 @@ public class SessionDao {
             insertSpeaker(session.speaker);
             insertCategory(session.category);
             insertPlace(session.place);
-            if (sessionRelation().idEq(session.id).isEmpty()) {
-                sessionRelation().inserter().execute(session);
-            } else {
-                update(session);
-            }
+            sessionRelation().upserter().execute(session);
         }
     }
 
@@ -132,27 +110,6 @@ public class SessionDao {
                 updateAllSync(sessions);
             }
         });
-    }
-
-    private void update(Session session) {
-        Session_Updater updater = sessionRelation().updater()
-                .idEq(session.id)
-                .title(session.title)
-                .description(session.description)
-                .speaker(session.speaker)
-                .stime(session.stime)
-                .etime(session.etime)
-                .place(session.place)
-                .languageId(session.languageId)
-                .slideUrl(session.slideUrl)
-                .movieUrl(session.movieUrl)
-                .shareUrl(session.shareUrl);
-
-        if (session.category != null) {
-            updater.category(session.category);
-        }
-
-        updater.execute();
     }
 
     public void updateChecked(Session session) {

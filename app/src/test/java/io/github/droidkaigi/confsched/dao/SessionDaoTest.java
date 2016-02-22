@@ -104,6 +104,16 @@ public class SessionDaoTest {
     }
 
     @Test
+    public void testInsertAllWithUpdate() throws Exception {
+        sessionDao.updateAllSync(SESSIONS);
+        SESSIONS.get(0).title = "updated title";
+        sessionDao.updateAllSync(SESSIONS);
+
+        assertThat(orma.selectFromSession().idEq(SESSION_ID1).value().title)
+                .isEqualTo("updated title");
+    }
+
+    @Test
     public void testLoadingSessions() throws Exception {
         sessionDao.updateAllSync(loadSessions());
 
