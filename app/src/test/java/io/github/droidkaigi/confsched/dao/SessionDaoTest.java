@@ -1,17 +1,29 @@
 package io.github.droidkaigi.confsched.dao;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
-import java.util.Date;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
+import io.github.droidkaigi.confsched.R;
+import io.github.droidkaigi.confsched.api.DroidKaigiClient;
 import io.github.droidkaigi.confsched.model.Category;
 import io.github.droidkaigi.confsched.model.OrmaDatabase;
 import io.github.droidkaigi.confsched.model.Place;
@@ -24,6 +36,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Unit tests for {@link SessionDao}.
  */
 @RunWith(AndroidJUnit4.class)
+@TargetApi(Build.VERSION_CODES.KITKAT) // to use Java7 try-with-resource syntax
 public class SessionDaoTest {
 
     private static final int SESSION_ID1 = 11;
@@ -59,6 +72,17 @@ public class SessionDaoTest {
 
     private SessionDao sessionDao;
 
+    List<Session> loadSessions() {
+        try (InputStream is = getContext().getResources().openRawResource(R.raw.sessions_ja)) {
+            Gson gson = DroidKaigiClient.createGson();
+            Type t = new TypeToken<Collection<Session>>() {
+            }.getType();
+            return gson.fromJson(new InputStreamReader(is), t);
+        } catch (IOException e) {
+            throw new AssertionError(e);
+        }
+    }
+
     private Context getContext() {
         return InstrumentationRegistry.getTargetContext();
     }
@@ -77,5 +101,17 @@ public class SessionDaoTest {
         assertThat(orma.selectFromPlace().idEq(PLACE_ID1)).hasSize(1);
         assertThat(orma.selectFromCategory().idEq(CATEGORY_ID1)).hasSize(1);
         assertThat(orma.selectFromSession().idEq(SESSION_ID1)).hasSize(1);
+    }
+
+    @Test
+    public void testLoadingSessions() throws Exception {
+        sessionDao.updateAllSync(loadSessions());
+
+        assertThat(sessionDao.sessionRelation().selector().toList()).isNotEmpty();
+
+        Session session = sessionDao.findAll().toBlocking().first().get(0);
+        assertThat(session.category).isNotNull();
+        assertThat(session.speaker).isNotNull();
+        assertThat(session.place).isNotNull();
     }
 }
