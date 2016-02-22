@@ -14,6 +14,7 @@
 
     <string name="title">Title</string>
     <string name="description">Description</string>
+    <string name="slide">Slide</string>
 
     <string name="search_by_category">Search by category</string>
     <string name="search_by_place">Search by place</string>
@@ -65,8 +66,13 @@
 
     <string name="settings_language">Change language</string>
     <string name="settings_language_description">Choose language in this app. After changed, app will restart.</string>
+    <string name="settings_notification_group">Notification</string>
     <string name="settings_notification">Notification</string>
     <string name="settings_notification_description">Choose whether to receive notification in this app.</string>
+    <string name="settings_heads_up_notification">Heads-up Notification</string>
+    <string name="settings_heads_up_notification_description">Choose whether to use Heads-up Notification.</string>
+    <string name="settings_local_time">Show local times</string>
+    <string name="settings_local_time_description">Use your local time instead of the conference\’s local time.</string>
 
     <string name="sponsor_category_platinum">Platinum Sponsors</string>
     <string name="sponsor_category_video">Video Sponsors</string>
@@ -79,6 +85,7 @@
     <string name="about_social">Social</string>
     <string name="about_terms">Terms of Use</string>
     <string name="about_license">License</string>
+    <string name="about_youtube">YouTube Channel</string>
     <string name="about_github_repository">GitHub Repository</string>
     <string name="about_contributors">Contributors</string>
     <string name="about_questionnaire">Questionnaire</string>
@@ -95,6 +102,7 @@
 
     <string name="my_schedule_empty">No items here. Let\'s check out all sessions and put your favourite!</string>
     <string name="my_schedule_go_to_session_list">Go to All Sessions</string>
+    <string name="my_schedule_conflicted">Conflicted with another session</string>
 
     <plurals name="schedule_notification_title">
         <item quantity="one">%1$d minute before session</item>
@@ -120,5 +128,5 @@
     <string name="session_feedback_submit_error">An error occurred while submitting. Make sure the network is available.</string>
     <string name="session_feedback_submit_failure">Submit failed</string>
     <string name="session_feedback_submit_success">Submit succeeded</string>
-    <string name="session_feedback_submitlink">Submit Feedback</string>
+    <string name="session_feedback_submit_link">Submit Feedback</string>
 </resources>

@@ -17,7 +17,7 @@ import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.activity.MainActivity;
 import io.github.droidkaigi.confsched.activity.SessionDetailActivity;
 import io.github.droidkaigi.confsched.model.Session;
-import io.github.droidkaigi.confsched.util.PrefUtil;
+import io.github.droidkaigi.confsched.prefs.DefaultPrefsSchema;
 
 public class SessionScheduleReceiver extends BroadcastReceiver {
 
@@ -25,7 +25,7 @@ public class SessionScheduleReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        boolean shouldNotify = PrefUtil.get(context, PrefUtil.KEY_NOTIFICATION_SETTING, true);
+        boolean shouldNotify = DefaultPrefsSchema.get(context).getNotificationFlag(true);
         if (!shouldNotify) {
             return;
         }
@@ -45,14 +45,19 @@ public class SessionScheduleReceiver extends BroadcastReceiver {
         String title = context.getResources().getQuantityString(
                 R.plurals.schedule_notification_title, REMIND_MINUTES, REMIND_MINUTES);
 
+        boolean headsUp = DefaultPrefsSchema.get(context).getHeadsUpFlag(true);
+
         Notification notification = new NotificationCompat.Builder(context)
                 .setContentIntent(pendingIntent)
-                .setSmallIcon(R.drawable.ic_access_time_grey_600_24dp)
+                .setSmallIcon(R.drawable.ic_stat_notification)
                 .setLargeIcon(appIcon)
                 .setContentTitle(title)
                 .setContentText(session.title)
                 .setDefaults(Notification.DEFAULT_ALL)
                 .setAutoCancel(true)
+                .setPriority(headsUp ? NotificationCompat.PRIORITY_HIGH : NotificationCompat.PRIORITY_DEFAULT)
+                .setCategory(NotificationCompat.CATEGORY_EVENT)
+                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                 .build();
 
         NotificationManager manager = (NotificationManager) context.getSystemService(Service.NOTIFICATION_SERVICE);

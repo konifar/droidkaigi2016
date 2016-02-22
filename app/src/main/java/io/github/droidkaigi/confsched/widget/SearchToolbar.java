@@ -89,7 +89,7 @@ public class SearchToolbar extends FrameLayout {
         binding.editSearch.setOnTouchListener((v, event) -> {
             if (event.getAction() == MotionEvent.ACTION_UP) {
                 boolean shouldClear = false;
-                if (LocaleUtil.shouldRtl(getContext())) {
+                if (LocaleUtil.shouldRtl()) {
                     int rightEdgeOfRightDrawable = binding.editSearch.getLeft() + getCloseDrawable().getBounds().width();
                     shouldClear = event.getRawX() <= rightEdgeOfRightDrawable;
                 } else {

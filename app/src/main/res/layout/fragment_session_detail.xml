@@ -6,6 +6,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <import type="io.github.droidkaigi.confsched.util.DateUtil" />
 
         <variable
@@ -50,7 +52,7 @@
                         android:contentDescription="@string/session_detail"
                         android:fitsSystemWindows="true"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/img_default_cover" />
+                        android:src="@drawable/img_default_cover_auto_mirrored" />
 
                     <View
                         android:id="@+id/fade_cover"
@@ -71,6 +73,7 @@
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
+                    android:background="?attr/selectableItemBackground"
                     app:layout_collapseMode="pin" />
 
             </net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout>
@@ -96,6 +99,8 @@
                     android:drawablePadding="@dimen/icon_spacing"
                     android:drawableStart="@drawable/ic_access_time_grey_500_18dp"
                     android:ellipsize="end"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
                     android:lines="1"
                     android:padding="@dimen/spacing"
                     android:textColor="@color/grey500"
@@ -133,6 +138,8 @@
                     <TextView
                         android:id="@+id/txt_language"
                         style="@style/Tag"
+                        android:layout_marginEnd="@dimen/spacing_small"
+                        android:layout_marginRight="@dimen/spacing_small"
                         android:layout_marginTop="@dimen/spacing_xsmall"
                         android:background="@drawable/tag_language"
                         android:text="@{session.getLanguageResId()}"
@@ -203,6 +210,29 @@
                 </RelativeLayout>
 
                 <TextView
+                    android:id="@+id/txt_slide_title"
+                    style="@style/SessionDetailTitle"
+                    android:layout_marginTop="@dimen/spacing"
+                    android:paddingEnd="@dimen/spacing"
+                    android:paddingLeft="@dimen/spacing"
+                    android:paddingRight="@dimen/spacing"
+                    android:paddingStart="@dimen/spacing"
+                    android:text="@string/slide"
+                    android:visibility="@{session.hasSlide() ? View.VISIBLE : View.GONE}"
+                    app:categoryVividColor="@{session.category}" />
+
+                <TextView
+                    android:id="@+id/txt_slide_url"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoLink="web"
+                    android:padding="@dimen/spacing"
+                    android:text="@{session.slideUrl}"
+                    android:textIsSelectable="true"
+                    android:textSize="@dimen/text"
+                    android:visibility="@{session.hasSlide() ? View.VISIBLE : View.GONE}" />
+
+                <TextView
                     android:id="@+id/txt_description_title"
                     style="@style/SessionDetailTitle"
                     android:layout_marginTop="@dimen/spacing"
@@ -220,9 +250,9 @@
                     android:lineSpacingExtra="@dimen/line_spacing_large"
                     android:padding="@dimen/spacing"
                     android:textColor="@color/grey600"
+                    android:textIsSelectable="true"
                     android:textSize="@dimen/text"
-                    app:sessionDescription="@{session}"
-                    android:textIsSelectable="true" />
+                    app:sessionDescription="@{session}" />
 
                 <View
                     style="@style/Border"

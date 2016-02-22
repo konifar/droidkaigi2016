@@ -23,6 +23,10 @@
             android:icon="@drawable/ic_people_grey_600_24dp"
             android:title="@string/sponsors" />
         <item
+            android:id="@+id/nav_questionnaire"
+            android:icon="@drawable/ic_content_paste_grey_600_24dp"
+            android:title="@string/about_questionnaire" />
+        <item
             android:id="@+id/nav_about"
             android:icon="@drawable/ic_info_outline_grey_600_24dp"
             android:title="@string/about" />

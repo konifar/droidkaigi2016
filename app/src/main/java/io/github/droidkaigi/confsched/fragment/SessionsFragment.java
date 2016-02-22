@@ -1,14 +1,18 @@
 package io.github.droidkaigi.confsched.fragment;
 
+import org.parceler.Parcels;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,8 +20,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
-import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,15 +38,15 @@ import io.github.droidkaigi.confsched.databinding.FragmentSessionsBinding;
 import io.github.droidkaigi.confsched.model.MainContentStateBrokerProvider;
 import io.github.droidkaigi.confsched.model.Page;
 import io.github.droidkaigi.confsched.model.Session;
-import io.github.droidkaigi.confsched.util.AppUtil;
 import io.github.droidkaigi.confsched.util.DateUtil;
+import io.github.droidkaigi.confsched.util.LocaleUtil;
 import rx.Observable;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 
-public class SessionsFragment extends Fragment {
+public class SessionsFragment extends Fragment implements StackedPageListener {
 
     public static final String TAG = SessionsFragment.class.getSimpleName();
     private static final String ARG_SHOULD_REFRESH = "should_refresh";
@@ -105,13 +107,11 @@ public class SessionsFragment extends Fragment {
     }
 
     private void initEmptyView() {
-        binding.emptyViewButton.setOnClickListener(v -> {
-            brokerProvider.get().set(Page.ALL_SESSIONS);
-        });
+        binding.emptyViewButton.setOnClickListener(v -> brokerProvider.get().set(Page.ALL_SESSIONS));
     }
 
     private Subscription fetchAndSave() {
-        return client.getSessions(AppUtil.getCurrentLanguageId(getActivity()))
+        return client.getSessions(LocaleUtil.getCurrentLanguageId(getActivity()))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
@@ -121,10 +121,11 @@ public class SessionsFragment extends Fragment {
     }
 
     protected Subscription loadData() {
+        showLoadingView();
         Observable<List<Session>> cachedSessions = dao.findAll();
         return cachedSessions.flatMap(sessions -> {
             if (shouldRefresh || sessions.isEmpty()) {
-                return client.getSessions(AppUtil.getCurrentLanguageId(getActivity()))
+                return client.getSessions(LocaleUtil.getCurrentLanguageId(getActivity()))
                         .doOnNext(dao::updateAllAsync);
             } else {
                 return Observable.just(sessions);
@@ -140,6 +141,10 @@ public class SessionsFragment extends Fragment {
 
     private void onLoadDataSuccess(List<Session> sessions) {
         Log.i(TAG, "Sessions Load succeeded.");
+        // TODO This is temporary bug fix. https://github.com/konifar/droidkaigi2016/issues/264
+        if (shouldRefresh) {
+            sessions = dao.findAll().toBlocking().single();
+        }
         groupByDateSessions(sessions);
     }
 
@@ -154,6 +159,14 @@ public class SessionsFragment extends Fragment {
 
     protected void hideEmptyView() {
         binding.emptyView.setVisibility(View.GONE);
+    }
+
+    protected void showLoadingView() {
+        binding.progressBarContainer.setVisibility(View.VISIBLE);
+    }
+
+    protected void hideLoadingView() {
+        binding.progressBarContainer.setVisibility(View.GONE);
     }
 
     protected void groupByDateSessions(List<Session> sessions) {
@@ -177,7 +190,9 @@ public class SessionsFragment extends Fragment {
 
         binding.viewPager.setAdapter(adapter);
         binding.tabLayout.setupWithViewPager(binding.viewPager);
+        binding.tabLayout.setOnTabSelectedListener(new CustomViewPagerOnTabSelectedListener(binding.viewPager));
 
+        hideLoadingView();
         if (sessions.isEmpty()) {
             showEmptyView();
         } else {
@@ -185,8 +200,12 @@ public class SessionsFragment extends Fragment {
         }
     }
 
+    protected SessionsTabFragment createTabFragment(List<Session> sessions) {
+        return SessionsTabFragment.newInstance(sessions);
+    }
+
     private void addFragment(String title, List<Session> sessions) {
-        SessionsTabFragment fragment = SessionsTabFragment.newInstance(sessions);
+        SessionsTabFragment fragment = createTabFragment(sessions);
         adapter.add(title, fragment);
     }
 
@@ -220,6 +239,11 @@ public class SessionsFragment extends Fragment {
             return;
         }
         onChangeSessionListener.onChangeSession(statusChangedSession);
+        compositeSubscription.add(loadData());
+    }
+
+    @Override
+    public void onTop() {
         compositeSubscription.add(loadData());
     }
 
@@ -259,6 +283,23 @@ public class SessionsFragment extends Fragment {
             fragments.add(fragment);
             titles.add(title);
             notifyDataSetChanged();
+        }
+
+    }
+
+    private class CustomViewPagerOnTabSelectedListener extends TabLayout.ViewPagerOnTabSelectedListener {
+
+        public CustomViewPagerOnTabSelectedListener(ViewPager viewPager) {
+            super(viewPager);
+        }
+
+        @Override
+        public void onTabReselected(TabLayout.Tab tab) {
+            super.onTabReselected(tab);
+            SessionsTabFragment fragment = (SessionsTabFragment) adapter.getItem(tab.getPosition());
+            if (fragment != null) {
+                fragment.scrollUpToTop();
+            }
         }
 
     }

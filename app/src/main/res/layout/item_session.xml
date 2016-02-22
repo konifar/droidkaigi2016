@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_xsmall"
-            android:text="@{DateUtil.getHourMinute(session.stime, context)}" />
+            android:text="@{DateUtil.getHourMinute(session.getDisplaySTime(context))}" />
 
         <android.support.v7.widget.CardView
             android:id="@+id/card_view"
@@ -105,15 +105,29 @@
 
                 </org.apmem.tools.layouts.FlowLayout>
 
+                <TextView
+                    android:id="@+id/txt_conflict"
+                    style="@style/Tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tag_container"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:background="@drawable/tag_conflict"
+                    android:lines="1"
+                    android:text="@string/my_schedule_conflicted"
+                    android:textColor="@color/red500"
+                    android:textSize="@dimen/text_small"
+                    android:visibility="gone" />
+
                 <ImageView
                     android:id="@+id/img_speaker"
                     android:layout_width="@dimen/user_image_small"
                     android:layout_height="@dimen/user_image_small"
-                    android:layout_below="@id/tag_container"
+                    android:layout_below="@id/txt_conflict"
                     android:layout_marginTop="@dimen/spacing_small"
                     android:contentDescription="@string/speaker"
-                    app:speakerImageUrl="@{session.speaker.imageUrl}"
-                    app:speakerImageSize="@{@dimen/user_image_small}" />
+                    app:speakerImageSize="@{@dimen/user_image_small}"
+                    app:speakerImageUrl="@{session.speaker.imageUrl}" />
 
                 <TextView
                     android:id="@+id/txt_speaker_name"
@@ -134,7 +148,7 @@
                     android:lines="1"
                     app:textRtlConsidered="@{session.speaker.name}" />
 
-                <com.like.LikeButton
+                <io.github.droidkaigi.confsched.widget.CustomLikeButton
                     android:id="@+id/btn_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

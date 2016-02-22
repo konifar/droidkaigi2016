@@ -76,6 +76,7 @@ public class ContributorsActivity extends AppCompatActivity {
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe(() -> binding.progressBar.setVisibility(View.VISIBLE))
                 .doOnCompleted(() -> binding.progressBar.setVisibility(View.GONE))
+                .doOnError((throwable) -> binding.progressBar.setVisibility(View.GONE))
                 .subscribe(
                         this::renderContributors,
                         this::renderSavedContributors

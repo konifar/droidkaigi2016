@@ -21,14 +21,14 @@
       "name": "基調講演会場"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/b2127cb508e94238b114512447997aeb",
     "movie_url": "",
     "share_url": ""
   },
   {
     "id": 2,
-    "title": "明日から使えるRxjava頻出パターン",
-    "description": "cookpadは、RxJavaを導入している国内では数少ない企業の一つです。\n本セッションでは、実際のいくつかの社内アプリのソースコードからRxjavaが使われている箇所を調べあげ、\n頻出設計のパターンを幾つかご紹介しようと思っています。\n実際の利用シーンをご紹介することで、RxJava導入のイメージを明確にして頂けると幸いです。\n\n対象者:\n* RxJava入門者\n* RxJavaを業務に導入したいけどちょっと戸惑っている人\n\n話す内容(予定)\n\n* 自己紹介(2min)\n* Rxjavaについて(5min) \n  * Rxjava, Rxandroidについて\n  * 今回のスライドを理解するための基礎知識\n    * observable, subscriber, subject, subscriptionなどの紹介\n* 頻出パターンを4つの紹介(15min) [恐らく紹介するパターンは変更します]\n  * 利用するサンプルweb_apiの説明\n  * 非同期-直列処理(flatMap)\n  * 非同期-並列処理(combineLatist)\n  * combineLatistとsubjectの利用したパターン\n  * 少し複雑な非同期-直列処理(Pair, Tuple, Observable#just)\n* 気をつけたい点(5min)\n  * Observableをどこに置くのが正解か..\n  * trello/rxLifecycle と AndroidSuvscriptionの利用について\n  * unitテストどうしてるの\n  * 終わりに",
+    "title": "明日から使えるRxJava頻出パターン",
+    "description": "cookpadは、RxJavaを導入している国内では数少ない企業の一つです。\n本セッションでは、実際のいくつかの社内アプリのソースコードからRxjavaが使われている箇所を調べあげ、\n頻出設計のパターンを幾つかご紹介しようと思っています。\n実際の利用シーンをご紹介することで、RxJava導入のイメージを明確にして頂けると幸いです。\n\n対象者:\n* RxJava入門者\n* RxJavaを業務に導入したいけどちょっと戸惑っている人\n\n話す内容(予定)\n\n* 自己紹介(2min)\n* Rxjavaについて(5min) \n  * RxJava, RxAndroidについて\n  * 今回のスライドを理解するための基礎知識\n    * observable, subscriber, subject, subscriptionなどの紹介\n* 頻出パターンを4つの紹介(15min) [恐らく紹介するパターンは変更します]\n  * 利用するサンプルweb_apiの説明\n  * 非同期-直列処理(flatMap)\n  * 非同期-並列処理(combineLatist)\n  * combineLatistとsubjectの利用したパターン\n  * 少し複雑な非同期-直列処理(Pair, Tuple, Observable#just)\n* 気をつけたい点(5min)\n  * Observableをどこに置くのが正解か..\n  * trello/rxLifecycle と AndroidSubscriptionの利用について\n  * unitテストどうしてるの\n  * 終わりに",
     "speaker": {
       "id": 2,
       "name": "kazy",
@@ -47,7 +47,7 @@
       "name": "ルームA"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/Ahb0jhlbUJ8lXU",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-11-30-12-00-a"
   },
@@ -73,7 +73,7 @@
       "name": "ルームB"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/ugJ3ZL8tILVQiu",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-11-30-12-00-b"
   },
@@ -125,7 +125,7 @@
       "name": "ルームD"
     },
     "language_id": "en",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/a98be0657c764ca592db89a94a81649d",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-11-30-12-00-d"
   },
@@ -151,7 +151,7 @@
       "name": "ルームA"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/7j1eC1iFXp5VFO",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-13-00-13-50-a"
   },
@@ -177,7 +177,7 @@
       "name": "ルームB"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/hG84lSXDVf0BC",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-13-00-13-50-b"
   },
@@ -203,7 +203,7 @@
       "name": "ルームC"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/avaxsZrDKhAmax",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-13-00-13-50-c"
   },
@@ -229,7 +229,7 @@
       "name": "ルームD"
     },
     "language_id": "en",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/732d71403b174583b831a7615d65eaea",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-13-00-13-50-d"
   },
@@ -255,7 +255,7 @@
       "name": "ルームA"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/2f64526f0b364719b73c37513aaacecc",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-14-00-14-50-a"
   },
@@ -281,7 +281,7 @@
       "name": "ルームB"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/Iave17dGTLRBk9",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-14-00-14-50-b"
   },
@@ -307,7 +307,7 @@
       "name": "ルームD"
     },
     "language_id": "en",
-    "slide_url": "",
+    "slide_url": "http://chiuki.github.io/advanced-android-espresso/#/",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-14-00-14-50-d"
   },
@@ -333,7 +333,7 @@
       "name": "ルームA"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/tdrJqeaLBcw5YA",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-10-15-40-a"
   },
@@ -359,7 +359,7 @@
       "name": "ルームB"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/2611fd17c59f428eb491335e34a27cab",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-10-15-40-b"
   },
@@ -385,7 +385,7 @@
       "name": "ルームC"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/8n9D5g4J5Z32TJ",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-10-15-40-c"
   },
@@ -411,7 +411,7 @@
       "name": "ルームD"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/a1a8aa45f862421d931bb766f5858dec",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-10-15-40-d"
   },
@@ -437,7 +437,7 @@
       "name": "ルームA"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/lV25KCMJfyOX9m",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-50-16-20-a"
   },
@@ -463,7 +463,7 @@
       "name": "ルームB"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/c58b6a6646054b3d9b8ef814e437659a",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-50-16-20-b"
   },
@@ -489,7 +489,7 @@
       "name": "ルームD"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/echzTfR6rDwePU",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-50-16-20-d"
   },
@@ -515,7 +515,7 @@
       "name": "ルームA"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/2Sq95Uh3Ig3xmW",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-16-30-17-00-a"
   },
@@ -567,14 +567,14 @@
       "name": "ルームD"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/LMpcZGdip7KC5u",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-16-30-17-00-d"
   },
   {
     "id": 23,
     "title": "Support Libraryノススメ | Support Library Internal",
-    "description": "",
+    "description": "Android アプリを開発している方であればいずれかのサポート ライブラリを使ったことがあるでしょう。各サポート ライブラリをざっと紹介した上で、よく聞かれる質問にお答えしつつ、Design ライブラリの新機能や開発の裏側などもお伝えしたいと思います。",
     "speaker": {
       "id": 23,
       "name": "Yuichi Araki",
@@ -593,7 +593,7 @@
       "name": "基調講演会場"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "http://yaraki.github.io/slides/droidkaigi2016/",
     "movie_url": "",
     "share_url": ""
   },
@@ -619,7 +619,7 @@
       "name": "ルームA"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/bcf1ec63bc54422ea4795d6cd4ff93de",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-11-30-12-00-a"
   },
@@ -645,7 +645,7 @@
       "name": "ルームB"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/a0bbeb39b9074cb4a678efdffdfa872c",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-11-30-12-00-b"
   },
@@ -697,7 +697,7 @@
       "name": "ルームD"
     },
     "language_id": "en",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/A7pzaPn7U0rgOR",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-11-30-12-00-d"
   },
@@ -723,7 +723,7 @@
       "name": "ルームA"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/pfRLx8bQCqPPxx",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-13-00-13-50-a"
   },
@@ -749,7 +749,7 @@
       "name": "ルームB"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/b6d9c2bb763f4726b44fd5c85279a5ab",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-13-00-13-50-b"
   },
@@ -775,7 +775,7 @@
       "name": "ルームC"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/128612dc41bd48798330d6053fbde247",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-13-00-13-50-c"
   },
@@ -801,7 +801,7 @@
       "name": "ルームD"
     },
     "language_id": "en",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/63a22ceda2264f728fc74500ae431ec3",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-13-00-13-50-d"
   },
@@ -827,14 +827,14 @@
       "name": "ルームA"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/c4201091a99549ee81aff6025596fbca",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-14-00-14-50-a"
   },
   {
     "id": 33,
     "title": "Advanced Kotlin for Android",
-    "description": "■概要\n\n今、世界中から注目を集めているプログラミング言語Kotlin(コトリン)によるAndroid開発について話します。\nKotlinは静的型付けオブジェクト指向言語で、JetBrains社により開発されており、Javaプログラマには馴染みやすい文法が特徴的です。\n前回のDroidKaigiでは簡単な紹介でしたが、今回は一歩進んだ内容で、Android Kotlinユーザのレベルアップに貢献します。\nver0.xが長らく続いていましたが、現在ver1.0-Beta、年内には1.0安定版がリリースされるとの噂で今が一番ホットです！\n\nAndroid specific:\nKotlinはAndroidだけでなくJava仮想マシンもターゲットに含みます。\nしかしいわゆるAndroid Javaが抱える問題をKotlinは華麗に解決してくれます。\n\nExpertise:\nKotlinはまだメジャーな技術とは言えず情報が少ない上に、進歩・変化が早いです。\n日本語でエバンジェリスト(自称)が発表します。\n\nInnovation:\n大きな革新性があると言うと大げさになってしまいそうです。\nKotlinで記述されたアプリだからどうこうという話はありませんが、\nJavaと比較し生産性、保守性、安全性の観点で有利なので、\n余った時間でUIや機能に注力したり、家族や友人と過ごすこともできます。\n\n■対象者\n・Android中級者〜\n・Kotlin初心者〜\n\n初歩的なKotlinの説明はほとんどしません（文末にセミコロンは不要です！など）。\nですが発表資料は公開し、ブログで解説するなど極力フォローしていく予定です。\n\n■目次案\n1. Kotlin概要\n・Kotlinとは\n・ざっと背景や文法などをおさらい\n\n2. Tips集\n・Android開発で直面しやすい問題をKotlinで解決する\n・併せて関連するKotlinの言語機能を紹介\n\n3. ライブラリなど\n・Dagger2やRealm、RxAndroidと言ったフレームワーク、ツールをKotlinからうまく使う方法\n・KotterKnife, AnkoなどのAndroid Kotlin専用のライブラリ\n\n■登壇者について\n・Kotlin歴3年半〜\n・Kotlinエバンジェリスト(自称)\n・日本Kotlinユーザグループ代表\n・講演実績多数(JJUG CCCやDroidKaigiなどなど)\n・執筆実績: 日経ソフトウエア読切、SoftwareDesign連載、同人誌など",
+    "description": "■概要\n今、世界中から注目を集めているプログラミング言語「Kotlin」によるAndroid開発について話します。\n\n■対象者\n・Kotlinを使い始めているエンジニア\n・Kotlinを使ってみたいエンジニア（後半はやや難しい）\n\n■アジェンダ\n1. Kotlinとは\n2. AndroidプロジェクトでKotlinを使う\n3. Real world Android Kotlin\n4. 攻めのKotlin\n\n■講演者について\n・Kotlinエバンジェリスト(非公式)\n・日本Kotlinユーザグループ代表",
     "speaker": {
       "id": 33,
       "name": "長澤 太郎",
@@ -853,7 +853,7 @@
       "name": "ルームB"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/0f3f017ef45847a18a8ed2ae2c06d306",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-14-00-14-50-b"
   },
@@ -879,7 +879,7 @@
       "name": "ルームC"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/b734d74df6d44ae889650f5873c6d03a",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-14-00-14-50-c"
   },
@@ -905,7 +905,7 @@
       "name": "ルームD"
     },
     "language_id": "en",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/r5Ma9ancrDT62k",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-14-00-14-50-d"
   },
@@ -931,7 +931,7 @@
       "name": "ルームA"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/N5KMx4rno59FnB",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-10-15-40-a"
   },
@@ -957,7 +957,7 @@
       "name": "ルームB"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/690a62854be343358f5af0df4f7e054f",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-10-15-40-b"
   },
@@ -983,7 +983,7 @@
       "name": "ルームC"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/45c463463fbe47518576240a53622cdc",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-10-15-40-c"
   },
@@ -1009,7 +1009,7 @@
       "name": "ルームD"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/yaq1d2WI0gmJso",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-10-15-40-d"
   },
@@ -1035,7 +1035,7 @@
       "name": "ルームA"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/6e57ee81c3e249578556a89c0fe11005",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-50-16-20-a"
   },
@@ -1061,14 +1061,14 @@
       "name": "ルームB"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/bd0d9434f0e14e27b3fb7c669c548039",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-50-16-20-b"
   },
   {
     "id": 42,
-    "title": "Build your custom Rx Observable/Subscriber",
-    "description": "1. 概要\nこの1年で RxJava や RxAndroid の普及が進んでいるが、 提供される Observable や Operator を使うのに比べ、自分で Observable や Operator、Subscriber を作成するハードルは依然と高い。また、そもそも、自分の提供したい機能をどのように RxJava で表したら良いのか、についても考慮が必要となる。たとえば、処理の途中でダイアログを表示して、その選択によって処理を切り替えたい場合、どのようにしたら良いだろうか？ログイン画面のように Activity の遷移が行われるとしたら？カスタム Observable や Subscriber で unsubscribe はどのように扱えば良いだろうか？\n\nこのトークでは、筆者の作成した Nearby API 用 RxJava ライブラリ RxNearby （https://github.com/hkurokawa/RxNearby）を例に、どのように行いたい処理を RxJava に落とし込むのか、カスタム Observable やカスタム Subscriber を作成する際に何に注意すべきか、について解説する。特に、1) RxJava の中心は Subscriber であること、2) Observable が subscribe されたとき、および、observe されたときに、それぞれ、どのような順序で処理が伝わっていくか理解することはライブラリを作る上で重要であり、それらを含んだ内容を考えている。\n\n2. 対象者\n- RxJava 経験者\n- Rx の概念を理解しており、詳細に興味のある人\n\n3. 目次案\n- Nearby API の概説と RxJava でどのように扱うかのアイディア\n- RxNearby の使い方\n- Subscriber から見た Observable および Operator\n- MessageSubscribeOnSubscribe の説明と注意点\n- MessagePublishOperator の説明と注意点",
+    "title": "Build your custom Rx Observable/Operator",
+    "description": "1. 概要\nこの1年で RxJava や RxAndroid の普及が進んでいるが、 提供される Observable や Operator を使うのに比べ、自分でカスタム Observable やカスタム Operator を作成するハードルは依然と高い。また、そもそも、自分の提供したい機能をどのように RxJava で表したら良いのか、についても考慮が必要となる。\n\nこのトークでは、筆者の作成した Nearby API 用 RxJava ライブラリ RxNearby （https://github.com/hkurokawa/RxNearby）を例に、どのように行いたい処理を RxJava に落とし込むのか、カスタム Observable やカスタム Subscriber を作成する際に何に注意すべきか、について解説する。特に、1) RxJava の Observable や Operator の挙動は Subscriber を中心に捉えることで理解しやすくなり、2) subscribe や event emission 時にどのような順序で処理が伝わっていくか把握することはライブラリを作る上で重要である。\n\n2. 対象者\n- RxJava 経験者\n- Rx の概念を理解しており、詳細に興味のある人\n\n3. 目次\n- Observable と Operator の説明\n- Nearby API の説明と RxJava でどのように扱うかのアイディア\n- MessageSubscribeOnSubscribe の説明とそれを通したカスタム Observable を作る上での注意点\n- MessagePublishOperator の説明とそれを通したカスタム Operator を作る上での注意点",
     "speaker": {
       "id": 41,
       "name": "hydrakecat",
@@ -1087,7 +1087,7 @@
       "name": "ルームD"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/4d8020596e924f6a9b0afbfc3ec45ded",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-50-16-20-d"
   },
@@ -1113,20 +1113,20 @@
       "name": "ルームA"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/1PvaMNasau7wtm",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-16-30-17-00-a"
   },
   {
     "id": 44,
-    "title": "「通知オフ」にされない為に。ネイティブアプリの最適な通知について",
-    "description": "【概要】\nデバイスに直接お知らせを配信できるアプリの通知は、メルマガよりも開封率が高いと言われ、\n非アクティブなユーザーに対するリテンションを行う際にも非常に強力な機能です。\nしかし、過度な通知や通知の内容によってはそのアプリの通知をオフにされたり、\n最悪の場合アプリを削除されてしまう原因にもなります。\n\n本発表ではネイティブアプリの最適な通知手段について考察し、実際に通知の開封率を上げる為に効果的だった取り組みと、\nその実装方法について話したいと思います。\n\n【対象者】\n・Android開発 初心者〜中級者\n・業務でアプリを運用している方\n\n【キーワード】\n・GCM\n・Notidfication\n・Wear\n・ローカル通知\n・ポップアップ通知",
+    "title": "Fireside chat",
+    "description": "【概要】\n緊急企画！DroidKaigi official appの開発者達が一堂に会し、制作秘話に関して語ります。\n万策尽きかけた現場に起こった奇跡とは…乞うご期待！",
     "speaker": {
       "id": 43,
-      "name": "cooky_ch",
-      "image_url": "https://avatars0.githubusercontent.com/u/3312886?v=3&s=400.jpg",
+      "name": "DroidKaigi developers",
+      "image_url": "https://raw.githubusercontent.com/konifar/droidkaigi2016/master/app/src/main/res/mipmap-xxhdpi/ic_launcher.png",
       "twitter_name": "",
-      "github_name": "cookych"
+      "github_name": ""
     },
     "stime": "2016-02-19 16:30:00",
     "etime": "2016-02-19 17:00:00",
@@ -1139,7 +1139,7 @@
       "name": "ルームB"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "http://blog.nkzn.info/entry/2016/02/19/170321",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-16-30-17-00-b"
   },
@@ -1165,7 +1165,7 @@
       "name": "ルームD"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/e1rpJBrnbN9Sg",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-16-30-17-00-d"
   }

@@ -13,6 +13,7 @@ import javax.inject.Singleton;
 import io.github.droidkaigi.confsched.model.Contributor;
 import io.github.droidkaigi.confsched.model.Session;
 import io.github.droidkaigi.confsched.model.SessionFeedback;
+import io.github.droidkaigi.confsched.util.LocaleUtil;
 import okhttp3.OkHttpClient;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -33,10 +34,6 @@ public class DroidKaigiClient {
     private final DroidKaigiService service;
     private final GoogleFormService googleFormService;
     private final GithubService githubService;
-
-    public static Gson createGson() {
-        return new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
-    }
 
     @Inject
     public DroidKaigiClient(OkHttpClient client) {
@@ -65,13 +62,17 @@ public class DroidKaigiClient {
         githubService = githubRetrofit.create(GithubService.class);
     }
 
+    public static Gson createGson() {
+        return new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
+    }
+
     public Observable<List<Session>> getSessions(@NonNull String languageId) {
         switch (languageId) {
-            case "ja":
+            case LocaleUtil.LANG_JA_ID:
                 return service.getSessionsJa();
-            case "ar":
+            case LocaleUtil.LANG_AR_ID:
                 return service.getSessionsAr();
-            case "en":
+            case LocaleUtil.LANG_EN_ID:
                 return service.getSessionsEn();
             default:
                 return service.getSessionsEn();
@@ -114,7 +115,7 @@ public class DroidKaigiClient {
     }
 
     public interface GithubService {
-        @GET("/repos/{owner}/{repo}/contributors")
+        @GET("/repos/{owner}/{repo}/contributors?per_page=100")
         Observable<List<Contributor>> getContributors(@Path("owner") String owner, @Path("repo") String repo);
     }
 }

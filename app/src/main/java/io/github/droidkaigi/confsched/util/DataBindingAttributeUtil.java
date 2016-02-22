@@ -1,7 +1,6 @@
 package io.github.droidkaigi.confsched.util;
 
 import android.databinding.BindingAdapter;
-import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -20,6 +19,8 @@ import com.squareup.picasso.Picasso;
 import net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout;
 
 import org.apmem.tools.layouts.FlowLayout;
+
+import java.util.Date;
 
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.model.Category;
@@ -72,19 +73,25 @@ public class DataBindingAttributeUtil {
 
     @BindingAdapter("sessionTimeRange")
     public static void setSessionTimeRange(TextView textView, @NonNull Session session) {
+        Date displaySTime = session.getDisplaySTime(textView.getContext());
+        Date displayETime = session.getDisplayETime(textView.getContext());
+
         String timeRange = textView.getContext().getString(R.string.session_time_range,
-                DateUtil.getHourMinute(session.stime, textView.getContext()),
-                DateUtil.getHourMinute(session.etime, textView.getContext()),
-                DateUtil.getMinutes(session.stime, session.etime));
+                DateUtil.getHourMinute(displaySTime),
+                DateUtil.getHourMinute(displayETime),
+                DateUtil.getMinutes(displaySTime, displayETime));
         textView.setText(timeRange);
     }
 
     @BindingAdapter("sessionDetailTimeRange")
     public static void setSessionDetailTimeRange(TextView textView, @NonNull Session session) {
+        Date displaySTime = session.getDisplaySTime(textView.getContext());
+        Date displayETime = session.getDisplayETime(textView.getContext());
+
         String timeRange = textView.getContext().getString(R.string.session_time_range,
-                DateUtil.getLongFormatDate(session.stime, textView.getContext()),
-                DateUtil.getHourMinute(session.etime, textView.getContext()),
-                DateUtil.getMinutes(session.stime, session.etime));
+                DateUtil.getLongFormatDate(displaySTime, textView.getContext()),
+                DateUtil.getHourMinute(displayETime),
+                DateUtil.getMinutes(displaySTime, displayETime));
         textView.setText(timeRange);
     }
 
@@ -102,7 +109,7 @@ public class DataBindingAttributeUtil {
 
     @BindingAdapter("forceRtlDirection")
     public static void setForceRtlDirection(FlowLayout flowLayout, boolean isCenterVertical) {
-        if (LocaleUtil.shouldRtl(flowLayout.getContext())) {
+        if (LocaleUtil.shouldRtl()) {
             ViewCompat.setLayoutDirection(flowLayout, ViewCompat.LAYOUT_DIRECTION_RTL);
 
             int gravity = isCenterVertical ? GravityCompat.START | Gravity.CENTER_VERTICAL : GravityCompat.START;
@@ -112,7 +119,7 @@ public class DataBindingAttributeUtil {
 
     @BindingAdapter("textRtlConsidered")
     public static void setTextRtlConsidered(TextView textView, String text) {
-        textView.setText(LocaleUtil.getRtlConsideredText(text, textView.getContext()));
+        textView.setText(LocaleUtil.getRtlConsideredText(text));
     }
 
 }

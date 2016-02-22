@@ -19,18 +19,21 @@ public class AlarmUtil {
     public static void handleSessionAlarm(Context context, Session session) {
         if (session.checked) {
             registerSessionAlarm(context, session);
-        }
-        else {
+        } else {
             unregisterSessionAlarm(context, session);
         }
     }
 
-    public static void registerSessionAlarm(Context context, Session session){
+    public static void registerSessionAlarm(Context context, Session session) {
+        if (!session.shouldNotify(REMIND_DURATION_MINUTES_FOR_START)) {
+            return;
+        }
+
         PendingIntent sender = buildSessionAlarmSender(context, session);
 
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
-        long triggerAtMillis = calculateStartNotifyTime(session);
+        long triggerAtMillis = calculateStartNotifyTime(session, context);
         alarmManager.set(AlarmManager.RTC, triggerAtMillis, sender);
     }
 
@@ -47,7 +50,7 @@ public class AlarmUtil {
 
     }
 
-    private static long calculateStartNotifyTime(Session session) {
-        return session.stime.getTime() - REMIND_DURATION_MINUTES_FOR_START;
+    private static long calculateStartNotifyTime(Session session, Context context) {
+        return session.getDisplaySTime(context).getTime() - REMIND_DURATION_MINUTES_FOR_START;
     }
 }

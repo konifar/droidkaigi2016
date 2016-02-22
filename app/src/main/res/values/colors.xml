@@ -54,4 +54,7 @@
     <color name="red600">#E53935</color>
     <color name="red500_alpha_54">#8AF44336</color>
 
+    <color name="bluegrey500">#607D8B</color>
+    <color name="bluegrey600">#546E7A</color>
+
 </resources>

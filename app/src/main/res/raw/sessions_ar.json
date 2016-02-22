@@ -21,14 +21,14 @@
       "name": "المكان الرئيسي"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/b2127cb508e94238b114512447997aeb",
     "movie_url": "",
     "share_url": ""
   },
   {
     "id": 2,
-    "title": "Rxjava نمط متكرر التي يمكن استخدامها اعتبارا من يوم غد",
-    "description": "cookpad هي واحدة من عدد قليل من الشركات في اليابان التي أدخلت على RxJava.\n في هذه الدورة، وأعتقد أن من شفرة المصدر من العدد الفعلي للداخلية التطبيق Rxjava إعطاء دراسة المكان الذي يتم استخدامه، في محاولة لإدخال بعض أنماط ن تصميم المتكرر.\n بواسطة إدخال المشهد الاستخدام الفعلي، وأنا أتمنى أن تكون قادرا على توضيح صورة مقدمة RxJava.\n ن موضوع: ن * RxJava مبتدئين ن * RxJava قليلا في حيرة من قبل هذا الشخص ن ن التحدث المحتوى (المخطط) أريد أن أعرض على أعمال ن ن * مقدمة الذاتي (2min) ن * لRxjava (5min) ن * Rxjava، ن * المعارف الأساسية لفهم الحالي الشرائح ن * ملحوظة لRxandroid، المشترك، الموضوع، 4 واحد من مقدمة لإدخال ن نمط * متكررة، مثل الاشتراك (15min) [ربما نمط لإدخال تعديلات] ن * استخدام لعينة web_api وصف ن * غير المتزامن - معالجة التسلسلي (flatMap) ن * غير المتزامن - كان نمط استخدام المعالجة المتوازية (combineLatist) ن * combineLatist وتخضع ن * وغير المتزامن معقد قليلا - معالجة التسلسلي (زوج، الصفوف (tuple)، يمكن ملاحظتها # فقط) ن * النقطة التي تريد أن تكون حذرا (5min) ن * أين يضع هل تصحيح هذه الظاهره .. ن * trello / rxLifecycle وAndroidSuvscription ن * في نهاية الامر هو ما ن * وحدة اختبار لاستخدام",
+    "title": "RxJava نمط متكرر التي يمكن استخدامها اعتبارا من يوم غد",
+    "description": "cookpad هي واحدة من عدد قليل من الشركات في اليابان التي أدخلت على RxJava.\n في هذه الدورة، وأعتقد أن من شفرة المصدر من العدد الفعلي للداخلية التطبيق RxJava إعطاء دراسة المكان الذي يتم استخدامه، في محاولة لإدخال بعض أنماط ن تصميم المتكرر.\n بواسطة إدخال المشهد الاستخدام الفعلي، وأنا أتمنى أن تكون قادرا على توضيح صورة مقدمة RxJava.\n ن موضوع: ن * RxJava مبتدئين ن * RxJava قليلا في حيرة من قبل هذا الشخص ن ن التحدث المحتوى (المخطط) أريد أن أعرض على أعمال ن ن * مقدمة الذاتي (2min) ن * لRxJava (5min) ن * RxJava، ن * المعارف الأساسية لفهم الحالي الشرائح ن * ملحوظة لRxAndroid، المشترك، الموضوع، 4 واحد من مقدمة لإدخال ن نمط * متكررة، مثل الاشتراك (15min) [ربما نمط لإدخال تعديلات] ن * استخدام لعينة web_api وصف ن * غير المتزامن - معالجة التسلسلي (flatMap) ن * غير المتزامن - كان نمط استخدام المعالجة المتوازية (combineLatist) ن * combineLatist وتخضع ن * وغير المتزامن معقد قليلا - معالجة التسلسلي (زوج، الصفوف (tuple)، يمكن ملاحظتها # فقط) ن * النقطة التي تريد أن تكون حذرا (5min) ن * أين يضع هل تصحيح هذه الظاهره .. ن * trello / rxLifecycle وAndroidSubscription ن * في نهاية الامر هو ما ن * وحدة اختبار لاستخدام",
     "speaker": {
       "id": 2,
       "name": "kazy",
@@ -47,7 +47,7 @@
       "name": "القاعة A"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/Ahb0jhlbUJ8lXU",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-11-30-12-00-a"
   },
@@ -73,7 +73,7 @@
       "name": "غرفة B"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/ugJ3ZL8tILVQiu",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-11-30-12-00-b"
   },
@@ -125,7 +125,7 @@
       "name": "غرفة D"
     },
     "language_id": "en",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/a98be0657c764ca592db89a94a81649d",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-11-30-12-00-d"
   },
@@ -151,7 +151,7 @@
       "name": "القاعة A"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/7j1eC1iFXp5VFO",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-13-00-13-50-a"
   },
@@ -177,7 +177,7 @@
       "name": "غرفة B"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/hG84lSXDVf0BC",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-13-00-13-50-b"
   },
@@ -203,7 +203,7 @@
       "name": "غرفة C"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/avaxsZrDKhAmax",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-13-00-13-50-c"
   },
@@ -229,7 +229,7 @@
       "name": "غرفة D"
     },
     "language_id": "en",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/732d71403b174583b831a7615d65eaea",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-13-00-13-50-d"
   },
@@ -255,7 +255,7 @@
       "name": "القاعة A"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/2f64526f0b364719b73c37513aaacecc",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-14-00-14-50-a"
   },
@@ -281,7 +281,7 @@
       "name": "غرفة B"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/Iave17dGTLRBk9",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-14-00-14-50-b"
   },
@@ -307,7 +307,7 @@
       "name": "غرفة D"
     },
     "language_id": "en",
-    "slide_url": "",
+    "slide_url": "http://chiuki.github.io/advanced-android-espresso/#/",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-14-00-14-50-d"
   },
@@ -333,7 +333,7 @@
       "name": "القاعة A"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/tdrJqeaLBcw5YA",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-10-15-40-a"
   },
@@ -359,7 +359,7 @@
       "name": "غرفة B"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/2611fd17c59f428eb491335e34a27cab",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-10-15-40-b"
   },
@@ -385,7 +385,7 @@
       "name": "غرفة C"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/8n9D5g4J5Z32TJ",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-10-15-40-c"
   },
@@ -411,7 +411,7 @@
       "name": "غرفة D"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/a1a8aa45f862421d931bb766f5858dec",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-10-15-40-d"
   },
@@ -437,7 +437,7 @@
       "name": "القاعة A"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/lV25KCMJfyOX9m",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-50-16-20-a"
   },
@@ -463,7 +463,7 @@
       "name": "غرفة B"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/c58b6a6646054b3d9b8ef814e437659a",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-50-16-20-b"
   },
@@ -489,7 +489,7 @@
       "name": "غرفة D"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/echzTfR6rDwePU",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-50-16-20-d"
   },
@@ -515,7 +515,7 @@
       "name": "القاعة A"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/2Sq95Uh3Ig3xmW",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-16-30-17-00-a"
   },
@@ -567,14 +567,14 @@
       "name": "غرفة D"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/LMpcZGdip7KC5u",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-16-30-17-00-d"
   },
   {
     "id": 23,
     "title": "دعم دليل المكتبة | دعم مكتبة الداخلية",
-    "description": "",
+    "description": "إذا كان هؤلاء الذين طوروا التطبيق الروبوت التي سوف تستخدم واحدة من مكتبة معتمد. على التي تم تقديمها تقريبا كل دعم المكتبة ، بينما الأجوبة على الأسئلة المتداولة ، وأعتقد أنني أريد أن أقول أيضا ، مثل الجزء الخلفي من الميزات الجديدة و تطوير مكتبة التصميم .",
     "speaker": {
       "id": 23,
       "name": "Yuichi Araki",
@@ -593,7 +593,7 @@
       "name": "المكان الرئيسي"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "http://yaraki.github.io/slides/droidkaigi2016/",
     "movie_url": "",
     "share_url": ""
   },
@@ -619,7 +619,7 @@
       "name": "القاعة A"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/bcf1ec63bc54422ea4795d6cd4ff93de",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-11-30-12-00-a"
   },
@@ -645,7 +645,7 @@
       "name": "غرفة B"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/a0bbeb39b9074cb4a678efdffdfa872c",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-11-30-12-00-b"
   },
@@ -697,7 +697,7 @@
       "name": "غرفة D"
     },
     "language_id": "en",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/A7pzaPn7U0rgOR",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-11-30-12-00-d"
   },
@@ -723,7 +723,7 @@
       "name": "القاعة A"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/pfRLx8bQCqPPxx",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-13-00-13-50-a"
   },
@@ -749,7 +749,7 @@
       "name": "غرفة B"
     },
     "language_id": "",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/b6d9c2bb763f4726b44fd5c85279a5ab",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-13-00-13-50-b"
   },
@@ -775,7 +775,7 @@
       "name": "غرفة C"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/128612dc41bd48798330d6053fbde247",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-13-00-13-50-c"
   },
@@ -801,7 +801,7 @@
       "name": "غرفة D"
     },
     "language_id": "en",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/63a22ceda2264f728fc74500ae431ec3",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-13-00-13-50-d"
   },
@@ -827,7 +827,7 @@
       "name": "القاعة A"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/c4201091a99549ee81aff6025596fbca",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-14-00-14-50-a"
   },
@@ -853,7 +853,7 @@
       "name": "غرفة B"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/0f3f017ef45847a18a8ed2ae2c06d306",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-14-00-14-50-b"
   },
@@ -879,7 +879,7 @@
       "name": "غرفة C"
     },
     "language_id": "",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/b734d74df6d44ae889650f5873c6d03a",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-14-00-14-50-c"
   },
@@ -905,7 +905,7 @@
       "name": "غرفة D"
     },
     "language_id": "en",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/r5Ma9ancrDT62k",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-14-00-14-50-d"
   },
@@ -931,7 +931,7 @@
       "name": "القاعة A"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/N5KMx4rno59FnB",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-10-15-40-a"
   },
@@ -957,7 +957,7 @@
       "name": "غرفة B"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/690a62854be343358f5af0df4f7e054f",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-10-15-40-b"
   },
@@ -983,7 +983,7 @@
       "name": "غرفة C"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/45c463463fbe47518576240a53622cdc",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-10-15-40-c"
   },
@@ -1009,7 +1009,7 @@
       "name": "غرفة D"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/yaq1d2WI0gmJso",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-10-15-40-d"
   },
@@ -1035,7 +1035,7 @@
       "name": "القاعة A"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/6e57ee81c3e249578556a89c0fe11005",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-50-16-20-a"
   },
@@ -1061,7 +1061,7 @@
       "name": "غرفة B"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/bd0d9434f0e14e27b3fb7c669c548039",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-50-16-20-b"
   },
@@ -1087,7 +1087,7 @@
       "name": "غرفة D"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://speakerdeck.com/player/4d8020596e924f6a9b0afbfc3ec45ded",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-50-16-20-d"
   },
@@ -1113,20 +1113,20 @@
       "name": "القاعة A"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/1PvaMNasau7wtm",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-16-30-17-00-a"
   },
   {
     "id": 44,
-    "title": "لكي لا تكون في 'إعلام قبالة'. للإبلاغ الأمثل للتطبيقات الوطنية",
-    "description": "[نظرة عامة] وقال التطبيقات التي يمكن أن يتم تسليم إبلاغ مباشرة على الإعلام الجهاز ن لمعدلات أعلى مفتوحة من مجلة البريد الإلكتروني، هي ميزة قوية جدا حتى عند إجراء الاحتفاظ للن المستخدمين غير نشط.\n ومع ذلك، اعتمادا على محتويات الإخطار المفرط أو إخطار أو متوقف إخطار التطبيق، فإنه سوف يكون أيضا السبب الذي يمكن أن يكون لحذف ن أسوأ التطبيق القضية. مناقشة إخطار الأمثل يعني من التطبيق الأصلي في ن ن هذا الإعلان، وكان في الواقع الفعلي من أجل زيادة إخطار جهود معدلات مفتوحة، ن وأود أن نتحدث عن كيفية تنفيذ ذلك.\n ن [موضوع] الذين يقومون بتشغيل التطبيق في ن · مبتدئين تطوير الروبوت إلى وسيط المستخدم ن · الأعمال ن ن [الكلمة] ن · GCM ن · Notidfication ن · ملابس ن محلي إخطار ن · إخطار المنبثقة",
+    "title": "Fireside chat",
+    "description": "المطورين ملخص من  ن التخطيط لحالات الطوارئ! DroidKaigi التطبيق لرسمي ويجمع، وأنا أقول فيما يتعلق  إنتاج ن قصة سرية.  هل معجزة ما حدث إلى n بكل الوسائل استنفدت تقريبا كان المشهد ... لا تفوت!",
     "speaker": {
       "id": 43,
-      "name": "cooky_ch",
-      "image_url": "https://avatars0.githubusercontent.com/u/3312886?v=3&s=400.jpg",
+      "name": "DroidKaigi developers",
+      "image_url": "https://raw.githubusercontent.com/konifar/droidkaigi2016/master/app/src/main/res/mipmap-xxhdpi/ic_launcher.png",
       "twitter_name": "",
-      "github_name": "cookych"
+      "github_name": ""
     },
     "stime": "2016-02-19 16:30:00",
     "etime": "2016-02-19 17:00:00",
@@ -1139,7 +1139,7 @@
       "name": "غرفة B"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "http://blog.nkzn.info/entry/2016/02/19/170321",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-16-30-17-00-b"
   },
@@ -1165,7 +1165,7 @@
       "name": "غرفة D"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/e1rpJBrnbN9Sg",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-16-30-17-00-d"
   }

@@ -14,8 +14,10 @@ public class MyScheduleFragment extends SessionsFragment {
 
     @Override
     protected Subscription loadData() {
+        showLoadingView();
         Observable<List<Session>> cachedSessions = dao.findByChecked();
         return cachedSessions.subscribe(sessions -> {
+            hideLoadingView();
             if (sessions.isEmpty()) {
                 showEmptyView();
             } else {
@@ -24,4 +26,8 @@ public class MyScheduleFragment extends SessionsFragment {
         });
     }
 
+    @Override
+    protected SessionsTabFragment createTabFragment(List<Session> sessions) {
+        return MyScheduleSessionsTabFragment.newInstance(sessions);
+    }
 }

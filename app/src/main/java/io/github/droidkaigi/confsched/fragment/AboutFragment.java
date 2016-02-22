@@ -55,7 +55,7 @@ public class AboutFragment extends Fragment {
         AppUtil.linkify(getActivity(), binding.txtRep, REP_TWITTER_NAME, AppUtil.getTwitterUrl(REP_TWITTER_NAME));
 
         String siteUrl = getString(R.string.about_site_url);
-        binding.txtSiteUrl.setText(LocaleUtil.getRtlConsideredText(siteUrl, getContext()));
+        binding.txtSiteUrl.setText(LocaleUtil.getRtlConsideredText(siteUrl));
         AppUtil.linkify(getActivity(), binding.txtSiteUrl, siteUrl, siteUrl);
 
         binding.imgFacebookClicker.setOnClickListener(v ->
@@ -63,9 +63,6 @@ public class AboutFragment extends Fragment {
         binding.imgTwitterClicker.setOnClickListener(v ->
                 AppUtil.showWebPage(getActivity(), AppUtil.getTwitterUrl(CONF_TWITTER_NAME)));
 
-        binding.txtQuestionnaire.setOnClickListener(v -> {
-            AppUtil.showWebPage(getActivity(), getString(R.string.about_inquiry_url));
-        });
         binding.txtLicense.setOnClickListener(v ->
                 activityNavigator.showWebView(getContext(), LICENSE_URL, getString(R.string.about_license)));
 
@@ -75,6 +72,9 @@ public class AboutFragment extends Fragment {
         binding.txtContributors.setOnClickListener(v ->
                         startActivity(ContributorsActivity.createIntent(getContext()))
         );
+        binding.txtYoutube.setOnClickListener(v -> {
+            AppUtil.showWebPage(getActivity(), "https://www.youtube.com/channel/UCgK6L-PKx2OZBuhrQ6mmQZw");
+        });
         binding.txtVersion.setText(AppUtil.getVersionName(getContext()));
     }
 

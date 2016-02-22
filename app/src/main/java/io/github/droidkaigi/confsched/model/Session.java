@@ -1,21 +1,27 @@
 package io.github.droidkaigi.confsched.model;
 
-import android.support.annotation.Nullable;
-
-import com.github.gfx.android.orma.annotation.Column;
-import com.github.gfx.android.orma.annotation.Table;
 import com.google.gson.annotations.SerializedName;
 
+import com.github.gfx.android.orma.annotation.Column;
+import com.github.gfx.android.orma.annotation.PrimaryKey;
+import com.github.gfx.android.orma.annotation.Table;
+
 import org.parceler.Parcel;
+
+import android.content.Context;
+import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import java.util.Date;
 
 import io.github.droidkaigi.confsched.R;
+import io.github.droidkaigi.confsched.util.LocaleUtil;
 
 @Parcel
 @Table
 public class Session {
 
+    @PrimaryKey(auto = false)
     @Column(indexed = true)
     @SerializedName("id")
     public int id;
@@ -28,9 +34,7 @@ public class Session {
     @SerializedName("description")
     public String description;
 
-    @Column
-    public int speakerId;
-
+    @Column(value = "speakerId", indexed = true)
     @SerializedName("speaker")
     public Speaker speaker;
 
@@ -42,16 +46,12 @@ public class Session {
     @SerializedName("etime")
     public Date etime;
 
-    @Column(indexed = true)
-    public int categoryId;
-
+    @Column(value = "categoryId", indexed = true)
     @Nullable
     @SerializedName("category")
     public Category category;
 
-    @Column(indexed = true)
-    public int placeId;
-
+    @Column(value = "placeId", indexed = true)
     @SerializedName("place")
     public Place place;
 
@@ -80,29 +80,33 @@ public class Session {
     public Session() {
     }
 
-    public void prepareSave() {
-        speakerId = speaker.id;
-        if (category != null) categoryId = category.id;
-        placeId = place.id;
+    public Date getDisplaySTime(Context context) {
+        return LocaleUtil.getDisplayDate(stime, context);
     }
 
-    public Session initAssociations(OrmaDatabase orma) {
-        if (category == null) category = orma.selectFromCategory().idEq(categoryId).value();
-        if (place == null) place = orma.selectFromPlace().idEq(placeId).value();
-        if (speaker == null) speaker = orma.selectFromSpeaker().idEq(speakerId).value();
-
-        return this;
+    public Date getDisplayETime(Context context) {
+        return LocaleUtil.getDisplayDate(etime, context);
     }
 
     public int getLanguageResId() {
         switch (languageId) {
-            case "en":
+            case LocaleUtil.LANG_EN_ID:
                 return R.string.lang_en;
-            case "ja":
+            case LocaleUtil.LANG_JA_ID:
                 return R.string.lang_ja;
             default:
                 return R.string.lang_en;
         }
+    }
+
+    public boolean shouldNotify(long remindDuration) {
+        Date now = LocaleUtil.getConfTimezoneCurrentDate();
+        long diff = stime.getTime() - now.getTime();
+        return remindDuration < diff;
+    }
+
+    public boolean hasSlide() {
+        return !TextUtils.isEmpty(slideUrl);
     }
 
     @Override

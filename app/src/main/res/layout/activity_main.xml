@@ -40,7 +40,8 @@
             android:fitsSystemWindows="true"
             app:headerLayout="@layout/nav_header"
             app:itemTextColor="@color/nav_view_colors"
-            app:menu="@menu/drawer_menu" />
+            app:menu="@menu/drawer_menu"
+            app:insetForeground="#4000"/>
 
     </android.support.v4.widget.DrawerLayout>
 

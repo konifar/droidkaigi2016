@@ -3,6 +3,7 @@ package io.github.droidkaigi.confsched.fragment;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -21,8 +22,8 @@ import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.activity.ActivityNavigator;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSettingsBinding;
-import io.github.droidkaigi.confsched.util.AppUtil;
-import io.github.droidkaigi.confsched.util.PrefUtil;
+import io.github.droidkaigi.confsched.prefs.DefaultPrefsSchema;
+import io.github.droidkaigi.confsched.util.LocaleUtil;
 import rx.Observable;
 
 public class SettingsFragment extends Fragment {
@@ -55,24 +56,40 @@ public class SettingsFragment extends Fragment {
     }
 
     private void initView() {
-        binding.txtLanguage.setText(AppUtil.getCurrentLanguage(getActivity()));
+        binding.txtLanguage.setText(LocaleUtil.getCurrentLanguage(getActivity()));
         binding.languageSettingsContainer.setOnClickListener(v -> showLanguagesDialog());
 
-        binding.notificationSettingContainer.setOnClickListener(v -> switchNotificationSetting());
-        boolean notificationSetting = PrefUtil.get(getContext(), PrefUtil.KEY_NOTIFICATION_SETTING, true);
-        binding.notificationSettingSwitch.setChecked(notificationSetting);
-        binding.notificationSettingSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> setNotificationSetting(isChecked));
+        boolean shouldNotify = DefaultPrefsSchema.get(getContext()).getNotificationFlag(true);
+        binding.notificationSwitchRow.init(shouldNotify, ((v, isChecked) -> {
+            DefaultPrefsSchema.get(getContext()).putNotificationFlag(isChecked);
+            binding.headsUpSwitchRow.setEnabled(isChecked);
+        }));
+        binding.headsUpSwitchRow.setEnabled(shouldNotify);
+
+        boolean shouldShowLocalTime = DefaultPrefsSchema.get(getContext()).getShowLocalTimeFlag(false);
+        binding.localTimeSwitchRow.init(shouldShowLocalTime, ((buttonView, isChecked) -> {
+            DefaultPrefsSchema.get(getContext()).putShowLocalTimeFlag(isChecked);
+        }));
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            boolean headsUp = DefaultPrefsSchema.get(getContext()).getHeadsUpFlag(true);
+            binding.headsUpSwitchRow.init(headsUp, (v, isChecked) -> {
+                DefaultPrefsSchema.get(getContext()).putHeadsUpFlag(isChecked);
+            });
+            binding.headsUpSwitchRow.setVisibility(View.VISIBLE);
+            binding.headsUpBorder.setVisibility(View.VISIBLE);
+        }
     }
 
     private void showLanguagesDialog() {
-        List<String> languageIds = Arrays.asList(AppUtil.SUPPORT_LANG);
+        List<String> languageIds = Arrays.asList(LocaleUtil.SUPPORT_LANG);
         List<String> languages = Observable.from(languageIds)
-                .map(languageId -> AppUtil.getLanguage(getActivity(), languageId, languageId))
+                .map(languageId -> LocaleUtil.getLanguage(getActivity(), languageId, languageId))
                 .toList()
                 .toBlocking()
                 .single();
 
-        String currentLanguageId = AppUtil.getCurrentLanguageId(getActivity());
+        String currentLanguageId = LocaleUtil.getCurrentLanguageId(getActivity());
         int defaultItem = languageIds.indexOf(currentLanguageId);
         String[] items = languages.toArray(new String[languages.size()]);
         new AlertDialog.Builder(getActivity())
@@ -81,7 +98,7 @@ public class SettingsFragment extends Fragment {
                     String selectedLanguageId = languageIds.get(which);
                     if (!currentLanguageId.equals(selectedLanguageId)) {
                         Log.d(TAG, "Selected language_id: " + selectedLanguageId);
-                        AppUtil.setLocale(getActivity(), selectedLanguageId);
+                        LocaleUtil.setLocale(getActivity(), selectedLanguageId);
                         dialog.dismiss();
                         restart();
                     }
@@ -96,13 +113,4 @@ public class SettingsFragment extends Fragment {
         activity.finish();
     }
 
-    private void setNotificationSetting(boolean isChecked) {
-        PrefUtil.put(getContext(), PrefUtil.KEY_NOTIFICATION_SETTING, isChecked);
-    }
-
-    private void switchNotificationSetting() {
-        boolean newValule = !PrefUtil.get(getContext(), PrefUtil.KEY_NOTIFICATION_SETTING, true);
-        setNotificationSetting(newValule);
-        binding.notificationSettingSwitch.setChecked(newValule);
-    }
 }
