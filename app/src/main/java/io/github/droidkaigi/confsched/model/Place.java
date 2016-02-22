@@ -1,8 +1,10 @@
 package io.github.droidkaigi.confsched.model;
 
-import com.github.gfx.android.orma.annotation.Column;
-import com.github.gfx.android.orma.annotation.Table;
 import com.google.gson.annotations.SerializedName;
+
+import com.github.gfx.android.orma.annotation.Column;
+import com.github.gfx.android.orma.annotation.PrimaryKey;
+import com.github.gfx.android.orma.annotation.Table;
 
 import org.parceler.Parcel;
 
@@ -10,6 +12,7 @@ import org.parceler.Parcel;
 @Table
 public class Place implements SearchGroup {
 
+    @PrimaryKey(auto = false)
     @Column(indexed = true)
     @SerializedName("id")
     public int id;

@@ -1,17 +1,20 @@
 package io.github.droidkaigi.confsched.model;
 
-import android.support.annotation.Nullable;
-
-import com.github.gfx.android.orma.annotation.Column;
-import com.github.gfx.android.orma.annotation.Table;
 import com.google.gson.annotations.SerializedName;
 
+import com.github.gfx.android.orma.annotation.Column;
+import com.github.gfx.android.orma.annotation.PrimaryKey;
+import com.github.gfx.android.orma.annotation.Table;
+
 import org.parceler.Parcel;
+
+import android.support.annotation.Nullable;
 
 @Parcel
 @Table
 public class Speaker {
 
+    @PrimaryKey(auto = false)
     @Column(indexed = true)
     @SerializedName("id")
     public int id;

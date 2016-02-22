@@ -1,5 +1,7 @@
 package io.github.droidkaigi.confsched.activity;
 
+import org.parceler.Parcels;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -25,8 +27,6 @@ import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
-
-import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.List;
