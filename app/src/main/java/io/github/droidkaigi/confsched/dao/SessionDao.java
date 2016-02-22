@@ -1,8 +1,8 @@
 package io.github.droidkaigi.confsched.dao;
 
-import android.support.annotation.NonNull;
-
 import com.github.gfx.android.orma.TransactionTask;
+
+import android.support.annotation.NonNull;
 
 import java.util.List;
 
@@ -52,7 +52,6 @@ public class SessionDao {
             @Override
             public void execute() throws Exception {
                 for (Session session : sessions) {
-                    session.prepareSave();
                     insertSpeaker(session.speaker);
                     insertCategory(session.category);
                     insertPlace(session.place);
@@ -64,44 +63,40 @@ public class SessionDao {
     }
 
     private void insertSpeaker(Speaker speaker) {
-        if (speaker != null && speakerRelation().selector().idEq(speaker.id).count() == 0) {
+        if (speaker != null && speakerRelation().selector().idEq(speaker.id).isEmpty()) {
             speakerRelation().inserter().execute(speaker);
         }
     }
 
     private void insertPlace(Place place) {
-        if (place != null && placeRelation().selector().idEq(place.id).count() == 0) {
+        if (place != null && placeRelation().selector().idEq(place.id).isEmpty()) {
             placeRelation().inserter().execute(place);
         }
     }
 
     private void insertCategory(Category category) {
-        if (category != null && categoryRelation().selector().idEq(category.id).count() == 0) {
+        if (category != null && categoryRelation().selector().idEq(category.id).isEmpty()) {
             categoryRelation().inserter().execute(category);
         }
     }
 
     public Observable<List<Session>> findAll() {
         return sessionRelation().selector().executeAsObservable()
-                .map(session -> session.initAssociations(orma))
                 .toList();
     }
 
     public Observable<List<Session>> findByChecked() {
         return sessionRelation().selector().checkedEq(true).executeAsObservable()
-                .map(session -> session.initAssociations(orma))
                 .toList();
     }
 
     public Observable<List<Session>> findByPlace(int placeId) {
-        return sessionRelation().selector().placeIdEq(placeId).executeAsObservable()
-                .map(session -> session.initAssociations(orma))
+        return sessionRelation().selector().placeEq(placeId).executeAsObservable()
                 .toList();
     }
 
     public Observable<List<Session>> findByCategory(int categoryId) {
-        return sessionRelation().selector().categoryIdEq(categoryId).executeAsObservable()
-                .map(session -> session.initAssociations(orma))
+        return sessionRelation().selector().categoryEq(categoryId).executeAsObservable()
                 .toList();
     }
 
@@ -118,11 +113,10 @@ public class SessionDao {
         placeRelation().deleter().execute();
 
         for (Session session : sessions) {
-            session.prepareSave();
             insertSpeaker(session.speaker);
             insertCategory(session.category);
             insertPlace(session.place);
-            if (sessionRelation().idEq(session.id).count() == 0) {
+            if (sessionRelation().idEq(session.id).isEmpty()) {
                 sessionRelation().inserter().execute(session);
             } else {
                 update(session);
@@ -145,17 +139,17 @@ public class SessionDao {
                 .idEq(session.id)
                 .title(session.title)
                 .description(session.description)
-                .speakerId(session.speaker.id)
+                .speaker(session.speaker)
                 .stime(session.stime)
                 .etime(session.etime)
-                .placeId(session.place.id)
+                .place(session.place)
                 .languageId(session.languageId)
                 .slideUrl(session.slideUrl)
                 .movieUrl(session.movieUrl)
                 .shareUrl(session.shareUrl);
 
         if (session.category != null) {
-            updater.categoryId(session.category.id);
+            updater.category(session.category);
         }
 
         updater.execute();

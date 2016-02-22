@@ -1,5 +1,7 @@
 package io.github.droidkaigi.confsched.fragment;
 
+import org.parceler.Parcels;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -18,8 +20,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
-import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.List;
