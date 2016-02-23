@@ -1,7 +1,5 @@
 package io.github.droidkaigi.confsched.fragment;
 
-import org.parceler.Parcels;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -21,6 +19,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.parceler.Parcels;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -28,7 +28,6 @@ import java.util.TreeMap;
 
 import javax.inject.Inject;
 
-import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.activity.ActivityNavigator;
 import io.github.droidkaigi.confsched.activity.SearchActivity;
@@ -46,7 +45,7 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 
-public class SessionsFragment extends Fragment implements StackedPageListener {
+public class SessionsFragment extends BaseFragment implements StackedPageListener {
 
     public static final String TAG = SessionsFragment.class.getSimpleName();
     private static final String ARG_SHOULD_REFRESH = "should_refresh";
@@ -100,7 +99,7 @@ public class SessionsFragment extends Fragment implements StackedPageListener {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        MainApplication.getComponent(this).inject(this);
+        getComponent().inject(this);
         if (context instanceof OnChangeSessionListener) {
             onChangeSessionListener = (OnChangeSessionListener) context;
         }

@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.MenuItem;
@@ -20,7 +19,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.api.DroidKaigiClient;
 import io.github.droidkaigi.confsched.dao.ContributorDao;
@@ -37,7 +35,7 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 
-public class ContributorsActivity extends AppCompatActivity {
+public class ContributorsActivity extends BaseActivity {
 
     public static final String TAG = ContributorsActivity.class.getSimpleName();
 
@@ -63,7 +61,7 @@ public class ContributorsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_contributors);
-        MainApplication.getComponent(this).inject(this);
+        getComponent().inject(this);
         initToolbar();
         binding.recyclerView.addItemDecoration(new DividerItemDecoration(getApplicationContext(), R.drawable.border_small));
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));

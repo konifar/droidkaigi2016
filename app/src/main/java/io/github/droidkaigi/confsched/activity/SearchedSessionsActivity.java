@@ -9,7 +9,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import org.parceler.Parcels;
@@ -19,7 +18,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.ActivitySearchedSessionsBinding;
@@ -30,7 +28,7 @@ import io.github.droidkaigi.confsched.model.Session;
 import io.github.droidkaigi.confsched.util.AnalyticsTracker;
 import io.github.droidkaigi.confsched.util.AppUtil;
 
-public class SearchedSessionsActivity extends AppCompatActivity implements SessionsFragment.OnChangeSessionListener {
+public class SearchedSessionsActivity extends BaseActivity implements SessionsFragment.OnChangeSessionListener {
 
     @Inject
     AnalyticsTracker analyticsTracker;
@@ -51,7 +49,7 @@ public class SearchedSessionsActivity extends AppCompatActivity implements Sessi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_searched_sessions);
-        MainApplication.getComponent(this).inject(this);
+        getComponent().inject(this);
 
         SearchGroup searchGroup = Parcels.unwrap(getIntent().getParcelableExtra(SearchGroup.class.getSimpleName()));
 
