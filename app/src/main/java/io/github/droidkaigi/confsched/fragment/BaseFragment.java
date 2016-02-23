@@ -8,7 +8,7 @@ import io.github.droidkaigi.confsched.activity.BaseActivity;
 import io.github.droidkaigi.confsched.di.FragmentComponent;
 import io.github.droidkaigi.confsched.di.FragmentModule;
 
-public class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment {
 
     private FragmentComponent fragmentComponent;
 

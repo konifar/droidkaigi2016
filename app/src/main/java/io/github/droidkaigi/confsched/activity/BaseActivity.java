@@ -7,7 +7,7 @@ import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.di.ActivityComponent;
 import io.github.droidkaigi.confsched.di.ActivityModule;
 
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     private ActivityComponent activityComponent;
 
