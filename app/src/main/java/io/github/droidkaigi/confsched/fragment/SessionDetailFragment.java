@@ -7,7 +7,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -23,7 +22,6 @@ import org.parceler.Parcels;
 
 import javax.inject.Inject;
 
-import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.activity.ActivityNavigator;
 import io.github.droidkaigi.confsched.dao.SessionDao;
@@ -33,7 +31,7 @@ import io.github.droidkaigi.confsched.util.AlarmUtil;
 import io.github.droidkaigi.confsched.util.AppUtil;
 import io.github.droidkaigi.confsched.util.IntentUtil;
 
-public class SessionDetailFragment extends Fragment {
+public class SessionDetailFragment extends BaseFragment {
 
     @Inject
     SessionDao dao;
@@ -107,7 +105,7 @@ public class SessionDetailFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        MainApplication.getComponent(this).inject(this);
+        getComponent().inject(this);
     }
 
     @Override

@@ -16,12 +16,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import javax.inject.Inject;
 
-import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.databinding.ActivityMainBinding;
 import io.github.droidkaigi.confsched.fragment.SessionsFragment;
@@ -34,7 +32,7 @@ import io.github.droidkaigi.confsched.util.AppUtil;
 import io.github.droidkaigi.confsched.util.LocaleUtil;
 import rx.subscriptions.CompositeSubscription;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener, FragmentManager.OnBackStackChangedListener {
 
     private static final String EXTRA_SHOULD_REFRESH = "should_refresh";
@@ -76,7 +74,7 @@ public class MainActivity extends AppCompatActivity
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         DataBindingUtil.bind(binding.navView.getHeaderView(0));
 
-        MainApplication.getComponent(this).inject(this);
+        getComponent().inject(this);
 
         subscription.add(brokerProvider.get().observe().subscribe(page -> {
             toggleToolbarElevation(page.shouldToggleToolbar());

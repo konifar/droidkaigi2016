@@ -1,7 +1,5 @@
 package io.github.droidkaigi.confsched.activity;
 
-import org.parceler.Parcels;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -13,7 +11,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.Editable;
 import android.text.Spannable;
@@ -28,12 +25,13 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
 
+import org.parceler.Parcels;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
-import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.dao.CategoryDao;
 import io.github.droidkaigi.confsched.dao.PlaceDao;
@@ -49,7 +47,7 @@ import io.github.droidkaigi.confsched.widget.BindingHolder;
 import io.github.droidkaigi.confsched.widget.itemdecoration.DividerItemDecoration;
 import rx.Observable;
 
-public class SearchActivity extends AppCompatActivity implements TextWatcher {
+public class SearchActivity extends BaseActivity implements TextWatcher {
 
     public static final String RESULT_STATUS_CHANGED_SESSIONS = "statusChangedSessions";
     private static final int REQ_DETAIL = 1;
@@ -82,7 +80,7 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_search);
-        MainApplication.getComponent(this).inject(this);
+        getComponent().inject(this);
 
         initToolbar();
         initRecyclerView();

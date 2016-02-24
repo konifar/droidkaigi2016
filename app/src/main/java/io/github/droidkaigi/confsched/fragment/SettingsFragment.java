@@ -6,7 +6,6 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +16,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.activity.ActivityNavigator;
 import io.github.droidkaigi.confsched.dao.SessionDao;
@@ -26,7 +24,7 @@ import io.github.droidkaigi.confsched.prefs.DefaultPrefsSchema;
 import io.github.droidkaigi.confsched.util.LocaleUtil;
 import rx.Observable;
 
-public class SettingsFragment extends Fragment {
+public class SettingsFragment extends BaseFragment {
 
     public static final String TAG = SettingsFragment.class.getSimpleName();
 
@@ -52,7 +50,7 @@ public class SettingsFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        MainApplication.getComponent(this).inject(this);
+        getComponent().inject(this);
     }
 
     private void initView() {

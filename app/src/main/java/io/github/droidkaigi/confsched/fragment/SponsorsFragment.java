@@ -3,7 +3,6 @@ package io.github.droidkaigi.confsched.fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +12,6 @@ import org.apmem.tools.layouts.FlowLayout;
 
 import javax.inject.Inject;
 
-import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.databinding.FragmentSponsorsBinding;
 import io.github.droidkaigi.confsched.model.Sponsor;
@@ -22,7 +20,7 @@ import io.github.droidkaigi.confsched.util.AppUtil;
 import io.github.droidkaigi.confsched.widget.SponsorImageView;
 import rx.Observable;
 
-public class SponsorsFragment extends Fragment {
+public class SponsorsFragment extends BaseFragment {
 
     private FragmentSponsorsBinding binding;
 
@@ -44,7 +42,7 @@ public class SponsorsFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        MainApplication.getComponent(this).inject(this);
+        getComponent().inject(this);
     }
 
     private void initView() {
