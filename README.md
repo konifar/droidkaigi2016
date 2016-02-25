@@ -153,6 +153,8 @@ This project uses some modern Android libraries.
 * [RxAndroid](https://github.com/ReactiveX/RxAndroid) - ReactiveX
 * [ThreeTenABP](https://github.com/JakeWharton/ThreeTenABP) - JakeWharton
 * [Stetho](http://facebook.github.io/stetho/) - Facebook
+* [PermissionsDispatcher](https://github.com/hotchemi/PermissionsDispatcher) - hotchemi
+* [kvs-schema](https://github.com/rejasupotaro/kvs-schema) - rejasupotaro
 
 
 ## License
