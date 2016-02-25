@@ -10,7 +10,7 @@ machine:
 
 dependencies:
   pre:
-    - echo y | android update sdk --no-ui --all --filter "platform-tools,android-23,build-tools-23.0.1,extra-android-support,extra-google-m2repository,extra-google-google_play_services"
+    - echo y | android update sdk --no-ui --all --filter "platform-tools,android-23,build-tools-23.0.1,extra-android-support,extra-android-m2repository,extra-google-m2repository,extra-google-google_play_services"
   cache_directories:
     - ~/.android
   override:
