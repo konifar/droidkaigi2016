@@ -48,10 +48,10 @@
     <string name="map_button_allow">허가</string>
     <string name="map_button_deny">거부</string>
 
-    <string name="lang_ar">@string/lang_ar_in_ja</string>
-    <string name="lang_en">@string/lang_en_in_ja</string>
-    <string name="lang_ja">@string/lang_ja_in_ja</string>
-    <string name="lang_ko">@string/lang_ko_in_ja</string>
+    <string name="lang_ar">@string/lang_ar_in_ko</string>
+    <string name="lang_en">@string/lang_en_in_ko</string>
+    <string name="lang_ja">@string/lang_ja_in_ko</string>
+    <string name="lang_ko">@string/lang_ko_in_ko</string>
 
     <string name="settings_language">언어 설정</string>
     <string name="settings_language_description">표시 언어를 변경할 수 있습니다. 변경 후에는 응용 프로그램이 다시 시작됩니다.</string>
