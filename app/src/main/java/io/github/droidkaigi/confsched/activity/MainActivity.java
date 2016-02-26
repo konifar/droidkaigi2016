@@ -36,7 +36,7 @@ public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener, FragmentManager.OnBackStackChangedListener {
 
     private static final String EXTRA_SHOULD_REFRESH = "should_refresh";
-    private static final String EXTRA_TITLE = "title";
+    private static final String EXTRA_MENU = "menu";
 
     private static final long DRAWER_CLOSE_DELAY_MILLS = 300L;
 
@@ -92,8 +92,10 @@ public class MainActivity extends BaseActivity
                 AppUtil.setTaskDescription(this, getString(R.string.all_sessions), AppUtil.getThemeColorPrimary(this));
                 replaceFragment(SessionsFragment.newInstance(shouldRefresh));
             }
-        } else {
-            binding.toolbar.setTitle(savedInstanceState.getString(EXTRA_TITLE));
+        } else if (savedInstanceState.getInt(EXTRA_MENU) != 0) {
+            Page page = Page.forMenuId(savedInstanceState.getInt(EXTRA_MENU));
+            binding.toolbar.setTitle(page.getTitleResId());
+            toggleToolbarElevation(page.shouldToggleToolbar());
         }
         getSupportFragmentManager().addOnBackStackChangedListener(this);
     }
@@ -101,7 +103,10 @@ public class MainActivity extends BaseActivity
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString(EXTRA_TITLE, binding.toolbar.getTitle().toString());
+        Fragment current = getSupportFragmentManager().findFragmentById(R.id.content_view);
+        if (current != null) {
+            outState.putInt(EXTRA_MENU, Page.forName(current).getMenuId());
+        }
     }
 
     @Override
