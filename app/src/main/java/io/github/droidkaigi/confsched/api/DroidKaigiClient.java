@@ -72,6 +72,8 @@ public class DroidKaigiClient {
                 return service.getSessionsJa();
             case LocaleUtil.LANG_AR_ID:
                 return service.getSessionsAr();
+            case LocaleUtil.LANG_KO_ID:
+                return service.getSessionsEn();
             case LocaleUtil.LANG_EN_ID:
                 return service.getSessionsEn();
             default:
