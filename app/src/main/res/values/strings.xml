@@ -71,6 +71,7 @@
     <string name="lang_ar">@string/lang_ar_in_en</string>
     <string name="lang_en">@string/lang_en_in_en</string>
     <string name="lang_ja">@string/lang_ja_in_en</string>
+    <string name="lang_ko">@string/lang_ko_in_en</string>
 
     <string name="settings_language">Change language</string>
     <string name="settings_language_description">Choose language in this app. After changed, app will restart.</string>
