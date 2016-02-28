@@ -51,18 +51,27 @@
     <string name="lang_ar_in_ar" translatable="false">العربية</string>
     <string name="lang_en_in_ar" translatable="false">الإنجليزية</string>
     <string name="lang_ja_in_ar" translatable="false">اليابانية</string>
+    <string name="lang_ko_in_ar" translatable="false">الكورية</string>
 
     <string name="lang_ar_in_en" translatable="false">Arabic</string>
     <string name="lang_en_in_en" translatable="false">English</string>
     <string name="lang_ja_in_en" translatable="false">Japanese</string>
+    <string name="lang_ko_in_en" translatable="false">Korean</string>
 
     <string name="lang_ar_in_ja" translatable="false">アラビア語</string>
     <string name="lang_en_in_ja" translatable="false">英語</string>
     <string name="lang_ja_in_ja" translatable="false">日本語</string>
+    <string name="lang_ko_in_ja" translatable="false">韓国語</string>
+
+    <string name="lang_ar_in_ko" translatable="false">아라비아어</string>
+    <string name="lang_en_in_ko" translatable="false">영어</string>
+    <string name="lang_ja_in_ko" translatable="false">일본어</string>
+    <string name="lang_ko_in_ko" translatable="false">한국</string>
 
     <string name="lang_ar">@string/lang_ar_in_en</string>
     <string name="lang_en">@string/lang_en_in_en</string>
     <string name="lang_ja">@string/lang_ja_in_en</string>
+    <string name="lang_ko">@string/lang_ko_in_en</string>
 
     <string name="settings_language">Change language</string>
     <string name="settings_language_description">Choose language in this app. After changed, app will restart.</string>
