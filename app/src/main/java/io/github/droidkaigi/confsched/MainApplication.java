@@ -11,6 +11,7 @@ import io.github.droidkaigi.StethoWrapper;
 import io.github.droidkaigi.confsched.di.AppComponent;
 import io.github.droidkaigi.confsched.di.AppModule;
 import io.github.droidkaigi.confsched.di.DaggerAppComponent;
+import io.github.droidkaigi.confsched.util.LocaleUtil;
 
 public class MainApplication extends Application {
 
@@ -34,6 +35,8 @@ public class MainApplication extends Application {
         new StethoWrapper(this).setup();
 
         AndroidThreeTen.init(this);
+
+        LocaleUtil.initLocale(this);
     }
 
 }

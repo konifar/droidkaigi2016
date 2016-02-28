@@ -17,7 +17,6 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 import io.github.droidkaigi.confsched.BuildConfig;
-import io.github.droidkaigi.confsched.prefs.DefaultPrefs;
 import io.github.droidkaigi.confsched.prefs.DefaultPrefsSchema;
 
 public class LocaleUtil {
@@ -25,7 +24,8 @@ public class LocaleUtil {
     public static final String LANG_EN_ID = "en";
     public static final String LANG_JA_ID = "ja";
     public static final String LANG_AR_ID = "ar";
-    public static final String[] SUPPORT_LANG = {LANG_EN_ID, LANG_JA_ID, LANG_AR_ID};
+    public static final String LANG_KO_ID = "ko";
+    public static final String[] SUPPORT_LANG = {LANG_EN_ID, LANG_JA_ID, LANG_AR_ID, LANG_KO_ID};
 
     private static final String TAG = LocaleUtil.class.getSimpleName();
 
