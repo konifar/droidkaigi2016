@@ -51,6 +51,7 @@
     <string name="lang_ar">@string/lang_ar_in_ar</string>
     <string name="lang_en">@string/lang_en_in_ar</string>
     <string name="lang_ja">@string/lang_ja_in_ar</string>
+    <string name="lang_ko">@string/lang_ko_in_ar</string>
 
     <string name="settings_language">تعيين لغة</string>
     <string name="settings_language_description">يمكنك تغيير لغة العرض. بعد التغيير سيتم إعادة تشغيل التطبيق.</string>
