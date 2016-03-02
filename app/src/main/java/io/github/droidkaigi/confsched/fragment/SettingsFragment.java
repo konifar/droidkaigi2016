@@ -20,7 +20,7 @@ import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.activity.ActivityNavigator;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSettingsBinding;
-import io.github.droidkaigi.confsched.prefs.DefaultPrefsSchema;
+import io.github.droidkaigi.confsched.prefs.DefaultPrefs;
 import io.github.droidkaigi.confsched.util.LocaleUtil;
 import rx.Observable;
 
@@ -57,22 +57,22 @@ public class SettingsFragment extends BaseFragment {
         binding.txtLanguage.setText(LocaleUtil.getCurrentLanguage(getActivity()));
         binding.languageSettingsContainer.setOnClickListener(v -> showLanguagesDialog());
 
-        boolean shouldNotify = DefaultPrefsSchema.get(getContext()).getNotificationFlag(true);
+        boolean shouldNotify = DefaultPrefs.get(getContext()).getNotificationFlag(true);
         binding.notificationSwitchRow.init(shouldNotify, ((v, isChecked) -> {
-            DefaultPrefsSchema.get(getContext()).putNotificationFlag(isChecked);
+            DefaultPrefs.get(getContext()).putNotificationFlag(isChecked);
             binding.headsUpSwitchRow.setEnabled(isChecked);
         }));
         binding.headsUpSwitchRow.setEnabled(shouldNotify);
 
-        boolean shouldShowLocalTime = DefaultPrefsSchema.get(getContext()).getShowLocalTimeFlag(false);
+        boolean shouldShowLocalTime = DefaultPrefs.get(getContext()).getShowLocalTimeFlag(false);
         binding.localTimeSwitchRow.init(shouldShowLocalTime, ((buttonView, isChecked) -> {
-            DefaultPrefsSchema.get(getContext()).putShowLocalTimeFlag(isChecked);
+            DefaultPrefs.get(getContext()).putShowLocalTimeFlag(isChecked);
         }));
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            boolean headsUp = DefaultPrefsSchema.get(getContext()).getHeadsUpFlag(true);
+            boolean headsUp = DefaultPrefs.get(getContext()).getHeadsUpFlag(true);
             binding.headsUpSwitchRow.init(headsUp, (v, isChecked) -> {
-                DefaultPrefsSchema.get(getContext()).putHeadsUpFlag(isChecked);
+                DefaultPrefs.get(getContext()).putHeadsUpFlag(isChecked);
             });
             binding.headsUpSwitchRow.setVisibility(View.VISIBLE);
             binding.headsUpBorder.setVisibility(View.VISIBLE);
