@@ -17,7 +17,7 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 import io.github.droidkaigi.confsched.BuildConfig;
-import io.github.droidkaigi.confsched.prefs.DefaultPrefsSchema;
+import io.github.droidkaigi.confsched.prefs.DefaultPrefs;
 
 public class LocaleUtil {
 
@@ -62,7 +62,7 @@ public class LocaleUtil {
 
     public static void setLocale(Context context, @NonNull String languageId) {
         Configuration config = new Configuration();
-        DefaultPrefsSchema.get(context).putLanguageId(languageId);
+        DefaultPrefs.get(context).putLanguageId(languageId);
         Locale locale = new Locale(languageId);
         Locale.setDefault(locale);
         config.locale = locale;
@@ -70,7 +70,7 @@ public class LocaleUtil {
     }
 
     public static String getCurrentLanguageId(Context context) {
-        String languageId = DefaultPrefsSchema.get(context).getLanguageId();
+        String languageId = DefaultPrefs.get(context).getLanguageId();
         try {
             if (TextUtils.isEmpty(languageId)) {
                 languageId = Locale.getDefault().getLanguage().toLowerCase();
@@ -125,7 +125,7 @@ public class LocaleUtil {
 
     public static TimeZone getDisplayTimeZone(Context context) {
         TimeZone defaultTimeZone = TimeZone.getDefault();
-        boolean shouldShowLocalTime = DefaultPrefsSchema.get(context).getShowLocalTimeFlag(false);
+        boolean shouldShowLocalTime = DefaultPrefs.get(context).getShowLocalTimeFlag(false);
         return (shouldShowLocalTime && defaultTimeZone != null) ? defaultTimeZone : CONFERENCE_TIMEZONE;
     }
 
