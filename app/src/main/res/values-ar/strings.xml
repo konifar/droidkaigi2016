@@ -6,7 +6,6 @@
     <string name="close">قريب</string>
     <string name="ok">حسنا</string>
     <string name="cancel">إلغاء</string>
-    <string name="yes">نعم</string>
     <string name="share">شارك</string>
 
     <string name="speaker">المتحدث</string>
@@ -72,7 +71,6 @@
     <string name="about_conference_descriptions">المهندسين DroidKaigi هو مؤتمر الروبوت دورا قياديا. 2 أيام المعرض هذا الوقت، ونحن نخطط لالمحاضرات بدعوة من المهندسين البارزين (المحلية والأجنبية). المحتوى بمجرد الانتهاء، سوف تستمر في نشر. يرجى مراجعة الجدول الزمني لمزيد من التفاصيل. في ن ن افتتاح الدورة، بالإضافة إلى الدورة (غرفة متعددة) نحن ننظر التدريب العملي على، أيضا، مثل ساعات العمل. استخدام مسرح\nAndroid هو واسعة النطاق، في شخص واحد لا أستطيع تغطية جدا. لتبادل المعرفة عبر هذه الصناعة من خلال المؤتمر، دعونا تؤدي إلى تطوير البرمجيات أفضل.</string>
     <string name="about_rep">الممثل: %1$s</string>
     <string name="about_social">اجتماعي</string>
-    <string name="about_terms">شروط الاستخدام</string>
     <string name="about_license">رخصة</string>
     <string name="about_youtube">&#8207;YouTube قناة</string>
     <string name="about_github_repository">GitHub مستودع</string>
