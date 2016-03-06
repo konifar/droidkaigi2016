@@ -9,7 +9,7 @@ apply plugin: 'com.vanniktech.android.apk.size'
 // Manifest version
 def versionMajor = 1
 def versionMinor = 1
-def versionPatch = 4
+def versionPatch = 5
 
 // CI
 def isCi = "true".equals(System.getenv("CI"))
@@ -147,8 +147,8 @@ dependencies {
     compile "org.parceler:parceler-api:1.0.4"
     apt "org.parceler:parceler:1.0.4"
 
-    apt 'com.github.gfx.android.orma:orma-processor:2.0.6'
-    compile 'com.github.gfx.android.orma:orma:2.0.6'
+    apt 'com.github.gfx.android.orma:orma-processor:2.2.0'
+    compile 'com.github.gfx.android.orma:orma:2.2.0'
     compile 'com.github.hotchemi:permissionsdispatcher:2.0.7'
     apt 'com.github.hotchemi:permissionsdispatcher-processor:2.0.7'
 
