@@ -42,6 +42,8 @@ android {
         // Referred to https://github.com/circleci/EspressoSample to make the Espresso tests
         // work on CircleCI.
         DdmPreferences.setTimeOut(60000)
+
+        vectorDrawables.useSupportLibrary = true
     }
 
     packagingOptions {
@@ -50,6 +52,7 @@ android {
         exclude 'META-INF/DEPENDENCIES'
         exclude 'META-INF/NOTICE'
         exclude 'META-INF/LICENSE'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
     }
 
     signingConfigs {
@@ -132,6 +135,8 @@ dependencies {
     compile "com.android.support:cardview-v7:${support_lib_version}"
     compile "com.android.support:recyclerview-v7:${support_lib_version}"
     compile "com.android.support:customtabs:${support_lib_version}"
+    compile "com.android.support:support-vector-drawable:${support_lib_version}"
+    compile "com.android.support:animated-vector-drawable:${support_lib_version}"
 
     compile "com.google.android.gms:play-services-analytics:${play_services_lib_version}"
     compile "com.google.android.gms:play-services-maps:${play_services_lib_version}"
