@@ -6,7 +6,6 @@
     <string name="close">Close</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
-    <string name="yes">Yes</string>
     <string name="share">Share</string>
 
     <string name="speaker">Speaker</string>
@@ -92,7 +91,6 @@
     <string name="about_conference_descriptions">For its 2016 edition, DroidKaigi will be held in two days and expects to see famous engineers from Japan and overseas giving talks.\n\nThere will be corporate exhibitions as well other than conference sessions.\n\nAndroid is being used in various situations and in many ways. Why don\'t you come and join us to share your knowledge and create better software?</string>
     <string name="about_rep">REP: %1$s</string>
     <string name="about_social">Social</string>
-    <string name="about_terms">Terms of Use</string>
     <string name="about_license">License</string>
     <string name="about_youtube">YouTube Channel</string>
     <string name="about_github_repository">GitHub Repository</string>
