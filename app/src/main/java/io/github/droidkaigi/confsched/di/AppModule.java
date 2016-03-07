@@ -1,12 +1,15 @@
 package io.github.droidkaigi.confsched.di;
 
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.Tracker;
+
+import com.github.gfx.android.orma.migration.ManualStepMigration;
+
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
-
-import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.android.gms.analytics.Tracker;
+import android.support.annotation.NonNull;
 
 import java.io.File;
 
@@ -87,7 +90,16 @@ public class AppModule {
     @Singleton
     @Provides
     public OrmaDatabase provideOrmaDatabase(Context context) {
-        return OrmaDatabase.builder(context).build();
+        return OrmaDatabase.builder(context)
+                .migrationStep(115, new ManualStepMigration.ChangeStep() {
+                    @Override
+                    public void change(@NonNull ManualStepMigration.Helper helper) {
+                        helper.renameColumn("Session", "placeId", "place");
+                        helper.renameColumn("Session", "speakerId", "speaker");
+                        helper.renameColumn("Session", "categoryId", "category");
+                    }
+                })
+                .build();
     }
 
     @Singleton

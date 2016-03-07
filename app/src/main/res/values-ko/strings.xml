@@ -6,7 +6,6 @@
     <string name="close">닫기</string>
     <string name="ok">좋아요</string>
     <string name="cancel">좋아요</string>
-    <string name="yes">예</string>
     <string name="share">공유</string>
 
     <string name="speaker">스피커</string>
@@ -72,7 +71,6 @@
     <string name="about_conference_descriptions">DroidKaigi는 엔지니어가 주역의 Android 컨퍼런스입니다. 이번 회기를 이틀 동안 국내외 엔지니어의 세션을 예정하고 있습니다.\n\n회기 중 세션 (여러 룸) 이외에도 협찬 기업의 각종 출전 수 있습니다.\n\nAndroid의 활용도는 다양 혼자는 너무 커버 다 할 수 없습니다. 컨퍼런스를 통해 업계 전반에 걸쳐 지식을 공유하고 더 나은 소프트웨어 개발에 연결해 보겠습니다.</string>
     <string name="about_rep">대표자：%1$s</string>
     <string name="about_social">소셜</string>
-    <string name="about_terms">이용 약관</string>
     <string name="about_license">라이센스</string>
     <string name="about_youtube">YouTube 공식 채널</string>
     <string name="about_github_repository">GitHub 저장소</string>

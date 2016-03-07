@@ -34,7 +34,7 @@ public class Session {
     @SerializedName("description")
     public String description;
 
-    @Column(value = "speakerId", indexed = true)
+    @Column(indexed = true)
     @SerializedName("speaker")
     public Speaker speaker;
 
@@ -46,12 +46,12 @@ public class Session {
     @SerializedName("etime")
     public Date etime;
 
-    @Column(value = "categoryId", indexed = true)
+    @Column(indexed = true)
     @Nullable
     @SerializedName("category")
     public Category category;
 
-    @Column(value = "placeId", indexed = true)
+    @Column(indexed = true)
     @SerializedName("place")
     public Place place;
 
@@ -64,12 +64,12 @@ public class Session {
     @SerializedName("slide_url")
     public String slideUrl;
 
-    @Column(defaultExpr = "''")
+    @Column
     @Nullable
     @SerializedName("movie_url")
     public String movieUrl;
 
-    @Column(defaultExpr = "''")
+    @Column
     @Nullable
     @SerializedName("share_url")
     public String shareUrl;
