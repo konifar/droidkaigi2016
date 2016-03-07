@@ -67,8 +67,8 @@
         <item name="colorControlNormal">@color/white_alpha_95</item>
         <item name="colorControlActivated">@color/white</item>
         <item name="android:textSize">@dimen/text_large</item>
-        <item name="android:drawableLeft">@drawable/ic_search_white_24dp_auto_mirrored</item>
-        <item name="android:drawableStart">@drawable/ic_search_white_24dp_auto_mirrored</item>
+        <item name="android:drawableLeft">@drawable/ic_search_white_24dp_vector</item>
+        <item name="android:drawableStart">@drawable/ic_search_white_24dp_vector</item>
         <item name="android:drawablePadding">@dimen/spacing_small</item>
         <item name="android:drawableRight">@drawable/ic_close_white_18dp</item>
         <item name="android:drawableEnd">@drawable/ic_close_white_18dp</item>
