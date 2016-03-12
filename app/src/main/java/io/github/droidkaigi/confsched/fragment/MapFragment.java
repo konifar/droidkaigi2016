@@ -89,9 +89,9 @@ public class MapFragment extends BaseFragment {
         menuInflater.inflate(R.menu.menu_map, menu);
 
         if (binding.mapSearchView.isVisible()) {
-            menu.findItem(R.id.item_search).setIcon(R.drawable.ic_place_white_24dp);
+            menu.findItem(R.id.item_search).setIcon(R.drawable.ic_place_white_24dp_vector);
         } else {
-            menu.findItem(R.id.item_search).setIcon(R.drawable.ic_view_list_white_24dp);
+            menu.findItem(R.id.item_search).setIcon(R.drawable.ic_view_list_white_24dp_vector);
         }
     }
 
