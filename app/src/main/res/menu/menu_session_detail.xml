@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/item_share"
-        android:icon="@drawable/ic_share_white_24dp"
+        android:icon="@drawable/ic_share_white_24dp_vector"
         android:orderInCategory="100"
         android:title="@string/share"
         app:showAsAction="always" />
