@@ -35,13 +35,13 @@ public class PlaceMap {
         List<PlaceMap> list = new ArrayList<>(4);
 
         list.add(new PlaceMap(R.string.map_main_name, R.string.map_main_building,
-                R.drawable.ic_place_red_500_36dp, 35.605899, 139.683541));
+                R.drawable.ic_place_red_500_36dp_vector, 35.605899, 139.683541));
         list.add(new PlaceMap(R.string.map_ab_name, R.string.map_ab_building,
-                R.drawable.ic_place_green_500_36dp, 35.603012, 139.684206));
+                R.drawable.ic_place_green_500_36dp_vector, 35.603012, 139.684206));
         list.add(new PlaceMap(R.string.map_cd_name, R.string.map_cd_building,
-                R.drawable.ic_place_blue_500_36dp, 35.603352, 139.684249));
+                R.drawable.ic_place_blue_500_36dp_vector, 35.603352, 139.684249));
         list.add(new PlaceMap(R.string.map_party_name, R.string.map_party_building,
-                R.drawable.ic_place_purple_500_36dp, 35.607513, 139.684689));
+                R.drawable.ic_place_purple_500_36dp_vector, 35.607513, 139.684689));
 
         return list;
     }

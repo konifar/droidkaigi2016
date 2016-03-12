@@ -33,6 +33,7 @@ import java.util.Map;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.databinding.FragmentMapBinding;
 import io.github.droidkaigi.confsched.model.PlaceMap;
+import io.github.droidkaigi.confsched.util.ResourceUtil;
 import permissions.dispatcher.NeedsPermission;
 import permissions.dispatcher.OnNeverAskAgain;
 import permissions.dispatcher.OnPermissionDenied;
@@ -170,7 +171,7 @@ public class MapFragment extends BaseFragment {
             MarkerOptions options = new MarkerOptions()
                     .position(new LatLng(placeMap.latitude, placeMap.longitude))
                     .title(getString(placeMap.nameRes))
-                    .icon(BitmapDescriptorFactory.fromResource(placeMap.markerRes))
+                    .icon(BitmapDescriptorFactory.fromBitmap(ResourceUtil.getBitmap(getContext(), placeMap.markerRes)))
                     .snippet(getString(placeMap.buildingNameRes));
             Marker marker = googleMap.addMarker(options);
             markers.put(placeMap.nameRes, marker);
