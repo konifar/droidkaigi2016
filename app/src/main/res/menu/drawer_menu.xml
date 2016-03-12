@@ -4,15 +4,15 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_all_sessions"
-            android:icon="@drawable/ic_event_note_grey_600_24dp"
+            android:icon="@drawable/ic_event_note_grey_600_24dp_vector"
             android:title="@string/all_sessions" />
         <item
             android:id="@+id/nav_my_schedule"
-            android:icon="@drawable/ic_access_time_grey_600_24dp"
+            android:icon="@drawable/ic_access_time_grey_600_24dp_vector"
             android:title="@string/my_schedule" />
         <item
             android:id="@+id/nav_map"
-            android:icon="@drawable/ic_place_grey_600_24dp"
+            android:icon="@drawable/ic_place_grey_600_24dp_vector"
             android:title="@string/map" />
         <item
             android:id="@+id/nav_settings"
@@ -20,15 +20,15 @@
             android:title="@string/settings" />
         <item
             android:id="@+id/nav_sponsors"
-            android:icon="@drawable/ic_people_grey_600_24dp"
+            android:icon="@drawable/ic_people_grey_600_24dp_vector"
             android:title="@string/sponsors" />
         <item
             android:id="@+id/nav_questionnaire"
-            android:icon="@drawable/ic_content_paste_grey_600_24dp"
+            android:icon="@drawable/ic_content_paste_grey_600_24dp_vector"
             android:title="@string/about_questionnaire" />
         <item
             android:id="@+id/nav_about"
-            android:icon="@drawable/ic_info_outline_grey_600_24dp"
+            android:icon="@drawable/ic_info_outline_grey_600_24dp_vector"
             android:title="@string/about" />
     </group>
 
