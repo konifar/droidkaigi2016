@@ -50,7 +50,7 @@ public class SessionScheduleReceiver extends BroadcastReceiver {
 
         Notification notification = new NotificationCompat.Builder(context)
                 .setContentIntent(pendingIntent)
-                .setSmallIcon(R.drawable.ic_stat_notification)
+                .setSmallIcon(R.drawable.ic_stat_notification_vector)
                 .setLargeIcon(appIcon)
                 .setContentTitle(title)
                 .setContentText(session.title)
