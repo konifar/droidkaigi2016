@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(AndroidJUnit4.class)
-public class AppUtilsTest {
+public class AppUtilTest {
 
     @Test
     public void testTwitterUrl() throws Exception {
