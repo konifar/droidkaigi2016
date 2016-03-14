@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 import java.util.Arrays;
 import java.util.Locale;
 
-import io.github.droidkaigi.confsched.prefs.DefaultPrefsSchema;
+import io.github.droidkaigi.confsched.prefs.DefaultPrefs;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -23,11 +23,11 @@ public class LocaleUtilsTest {
         // is not null value.
         assertThat(LocaleUtil.getCurrentLanguageId(context)).isNotNull();
 
-        DefaultPrefsSchema.get(context).putLanguageId("ja");
+        DefaultPrefs.get(context).putLanguageId("ja");
         // eq to languageID is put in SharedPreferences.
         assertThat(LocaleUtil.getCurrentLanguageId(context)).isEqualTo("ja");
 
-        DefaultPrefsSchema.get(context).removeLanguageId();
+        DefaultPrefs.get(context).removeLanguageId();
         String defaultLanguage = Locale.getDefault().getLanguage().toLowerCase();
         if (Arrays.asList(LocaleUtil.SUPPORT_LANG).contains(defaultLanguage)) {
             // eq to Locale.getDefault().getLanguage() when it is supported
