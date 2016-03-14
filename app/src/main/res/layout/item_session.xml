@@ -162,9 +162,9 @@
                     android:layout_marginStart="@dimen/spacing_small"
                     app:icon_size="@dimen/user_image_small"
                     app:icon_type="star"
-                    app:like_drawable="@drawable/ic_star_yellow_600_24dp"
+                    app:like_drawable="@drawable/ic_star_yellow_600_24dp_vector"
                     app:liked="@{session.checked}"
-                    app:unlike_drawable="@drawable/ic_star_grey_300_24dp" />
+                    app:unlike_drawable="@drawable/ic_star_grey_300_24dp_vector" />
 
             </RelativeLayout>
 
