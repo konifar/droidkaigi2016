@@ -15,7 +15,7 @@ import io.github.droidkaigi.confsched.prefs.DefaultPrefs;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(AndroidJUnit4.class)
-public class LocaleUtilsTest {
+public class LocaleUtilTest {
 
     @Test
     public void testCurrentLanguageId() throws Exception {
