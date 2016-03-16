@@ -32,11 +32,11 @@ import rx.schedulers.Schedulers;
 
 public class SessionFeedbackActivity extends BaseActivity {
     private static final String TAG = SessionFeedbackActivity.class.getName();
+    @Inject
+    DroidKaigiClient client;
     private ActivitySessionFeedbackBinding binding;
     private Session session;
     private Subscription subscription;
-    @Inject
-    DroidKaigiClient client;
 
     private static Intent createIntent(@NonNull Context context, @NonNull Session session) {
         Intent intent = new Intent(context, SessionFeedbackActivity.class);
@@ -79,7 +79,7 @@ public class SessionFeedbackActivity extends BaseActivity {
     }
 
     private void onSubmitFeedbackSuccess(Response<Void> response) {
-        if (response.isSuccess()) {
+        if (response.isSuccessful()) {
             final List<String> pathSegments = response.raw().request().url().pathSegments();
             if (!pathSegments.isEmpty() && "closedform".equals(pathSegments.get(pathSegments.size() - 1))) {
                 showDialog(R.string.session_feedback_submit_failure, R.string.session_feedback_not_accepting, (dialog, which) -> dialog.dismiss());

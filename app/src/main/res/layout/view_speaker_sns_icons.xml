@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -29,7 +30,7 @@
                 android:layout_height="@dimen/sns_icon"
                 android:contentDescription="@string/icon"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_twitter_24dp" />
+                app:srcCompat="@drawable/ic_twitter_24dp_vector" />
 
         </RelativeLayout>
 
@@ -50,7 +51,7 @@
                 android:contentDescription="@string/icon"
                 android:padding="1dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_github_24dp" />
+                app:srcCompat="@drawable/ic_github_24dp_vector" />
 
         </RelativeLayout>
 

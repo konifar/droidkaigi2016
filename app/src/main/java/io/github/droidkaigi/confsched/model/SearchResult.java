@@ -29,17 +29,17 @@ public class SearchResult {
     }
 
     public static SearchResult createTitleType(@NonNull Session session) {
-        return new SearchResult(session.title, R.drawable.ic_event_note_grey_600_12dp,
+        return new SearchResult(session.title, R.drawable.ic_event_note_grey_600_12dp_vector,
                 R.string.title, session.speaker.imageUrl, session);
     }
 
     public static SearchResult createDescriptionType(@NonNull Session session) {
-        return new SearchResult(session.description, R.drawable.ic_description_grey_600_12dp,
+        return new SearchResult(session.description, R.drawable.ic_description_grey_600_12dp_vector,
                 R.string.description, session.speaker.imageUrl, session);
     }
 
     public static SearchResult createSpeakerType(@NonNull Session session) {
-        return new SearchResult(session.speaker.name, R.drawable.ic_person_grey_600_12dp,
+        return new SearchResult(session.speaker.name, R.drawable.ic_person_grey_600_12dp_vector,
                 R.string.speaker, session.speaker.imageUrl, session);
     }
 

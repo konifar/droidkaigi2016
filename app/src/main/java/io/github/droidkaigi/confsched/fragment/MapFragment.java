@@ -33,6 +33,7 @@ import java.util.Map;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.databinding.FragmentMapBinding;
 import io.github.droidkaigi.confsched.model.PlaceMap;
+import io.github.droidkaigi.confsched.util.ResourceUtil;
 import permissions.dispatcher.NeedsPermission;
 import permissions.dispatcher.OnNeverAskAgain;
 import permissions.dispatcher.OnPermissionDenied;
@@ -89,9 +90,9 @@ public class MapFragment extends BaseFragment {
         menuInflater.inflate(R.menu.menu_map, menu);
 
         if (binding.mapSearchView.isVisible()) {
-            menu.findItem(R.id.item_search).setIcon(R.drawable.ic_place_white_24dp);
+            menu.findItem(R.id.item_search).setIcon(R.drawable.ic_place_white_24dp_vector);
         } else {
-            menu.findItem(R.id.item_search).setIcon(R.drawable.ic_view_list_white_24dp);
+            menu.findItem(R.id.item_search).setIcon(R.drawable.ic_view_list_white_24dp_vector);
         }
     }
 
@@ -170,7 +171,7 @@ public class MapFragment extends BaseFragment {
             MarkerOptions options = new MarkerOptions()
                     .position(new LatLng(placeMap.latitude, placeMap.longitude))
                     .title(getString(placeMap.nameRes))
-                    .icon(BitmapDescriptorFactory.fromResource(placeMap.markerRes))
+                    .icon(BitmapDescriptorFactory.fromBitmap(ResourceUtil.getBitmap(getContext(), placeMap.markerRes)))
                     .snippet(getString(placeMap.buildingNameRes));
             Marker marker = googleMap.addMarker(options);
             markers.put(placeMap.nameRes, marker);

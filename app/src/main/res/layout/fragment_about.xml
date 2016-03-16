@@ -86,7 +86,7 @@
                             android:layout_height="@dimen/sns_icon_large"
                             android:contentDescription="@string/icon"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/ic_twitter_40dp" />
+                            app:srcCompat="@drawable/ic_twitter_36dp_vector" />
 
                     </FrameLayout>
 
@@ -107,7 +107,7 @@
                             android:layout_height="@dimen/sns_icon_large"
                             android:contentDescription="@string/icon"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/ic_facebook_40dp" />
+                            app:srcCompat="@drawable/ic_facebook_36dp_vector" />
 
                     </FrameLayout>
 
