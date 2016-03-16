@@ -59,9 +59,9 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/txt_title"
                     android:layout_marginTop="@dimen/spacing_small"
-                    android:drawableLeft="@drawable/ic_access_time_grey_500_12dp"
+                    android:drawableLeft="@drawable/ic_access_time_grey_500_12dp_vector_state"
                     android:drawablePadding="@dimen/icon_spacing_small"
-                    android:drawableStart="@drawable/ic_access_time_grey_500_12dp"
+                    android:drawableStart="@drawable/ic_access_time_grey_500_12dp_vector_state"
                     android:ellipsize="end"
                     android:lines="1"
                     android:textColor="@color/grey500"
@@ -162,9 +162,9 @@
                     android:layout_marginStart="@dimen/spacing_small"
                     app:icon_size="@dimen/user_image_small"
                     app:icon_type="star"
-                    app:like_drawable="@drawable/ic_star_yellow_600_24dp"
+                    app:like_drawable="@drawable/ic_star_yellow_600_24dp_vector"
                     app:liked="@{session.checked}"
-                    app:unlike_drawable="@drawable/ic_star_grey_300_24dp" />
+                    app:unlike_drawable="@drawable/ic_star_grey_300_24dp_vector" />
 
             </RelativeLayout>
 
