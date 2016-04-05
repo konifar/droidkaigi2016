@@ -66,12 +66,7 @@ public enum Page {
 
     public static Page forMenuId(MenuItem item) {
         int id = item.getItemId();
-        for (Page page : values()) {
-            if (page.menuId == id) {
-                return page;
-            }
-        }
-        throw new AssertionError("no menu enum found for the id. you forgot to implement?");
+        return forMenuId(id);
     }
 
     public static Page forMenuId(int id) {
