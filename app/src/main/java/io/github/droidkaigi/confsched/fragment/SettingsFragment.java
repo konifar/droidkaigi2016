@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -81,7 +80,7 @@ public class SettingsFragment extends BaseFragment {
     }
 
     private void showLanguagesDialog() {
-        List<String> languageIds = Arrays.asList(LocaleUtil.SUPPORT_LANG);
+        List<String> languageIds = LocaleUtil.SUPPORT_LANG;
         List<String> languages = Observable.from(languageIds)
                 .map(languageId -> LocaleUtil.getLanguage(getActivity(), languageId, languageId))
                 .toList()

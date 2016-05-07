@@ -6,7 +6,7 @@ import com.rejasupotaro.android.kvs.annotations.Table;
 @Table(name = "io.github.droidkaigi.confsched_preferences")
 public abstract class DefaultPrefsSchema {
     @Key(name = "current_language_id")
-    String languageId;
+    final String languageId = "";
     @Key(name = "notification_setting")
     final boolean notificationFlag = true;
     @Key(name = "heads_up_setting")
