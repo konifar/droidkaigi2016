@@ -8,9 +8,9 @@ public abstract class DefaultPrefsSchema {
     @Key(name = "current_language_id")
     String languageId;
     @Key(name = "notification_setting")
-    boolean notificationFlag;
+    final boolean notificationFlag = true;
     @Key(name = "heads_up_setting")
-    boolean headsUpFlag;
+    final boolean headsUpFlag = true;
     @Key(name = "show_local_time")
-    boolean showLocalTimeFlag;
+    final boolean showLocalTimeFlag = false;
 }

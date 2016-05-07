@@ -125,7 +125,7 @@ public class LocaleUtil {
 
     public static TimeZone getDisplayTimeZone(Context context) {
         TimeZone defaultTimeZone = TimeZone.getDefault();
-        boolean shouldShowLocalTime = DefaultPrefs.get(context).getShowLocalTimeFlag(false);
+        boolean shouldShowLocalTime = DefaultPrefs.get(context).getShowLocalTimeFlag();
         return (shouldShowLocalTime && defaultTimeZone != null) ? defaultTimeZone : CONFERENCE_TIMEZONE;
     }
 
