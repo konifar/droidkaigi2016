@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -57,22 +56,23 @@ public class SettingsFragment extends BaseFragment {
         binding.txtLanguage.setText(LocaleUtil.getCurrentLanguage(getActivity()));
         binding.languageSettingsContainer.setOnClickListener(v -> showLanguagesDialog());
 
-        boolean shouldNotify = DefaultPrefs.get(getContext()).getNotificationFlag(true);
+        DefaultPrefs prefs = DefaultPrefs.get(getContext());
+
+        boolean shouldNotify = prefs.getNotificationFlag();
         binding.notificationSwitchRow.init(shouldNotify, ((v, isChecked) -> {
-            DefaultPrefs.get(getContext()).putNotificationFlag(isChecked);
+            prefs.putNotificationFlag(isChecked);
             binding.headsUpSwitchRow.setEnabled(isChecked);
         }));
         binding.headsUpSwitchRow.setEnabled(shouldNotify);
 
-        boolean shouldShowLocalTime = DefaultPrefs.get(getContext()).getShowLocalTimeFlag(false);
-        binding.localTimeSwitchRow.init(shouldShowLocalTime, ((buttonView, isChecked) -> {
-            DefaultPrefs.get(getContext()).putShowLocalTimeFlag(isChecked);
+        binding.localTimeSwitchRow.init(prefs.getShowLocalTimeFlag(), ((buttonView, isChecked) -> {
+            prefs.putShowLocalTimeFlag(isChecked);
         }));
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            boolean headsUp = DefaultPrefs.get(getContext()).getHeadsUpFlag(true);
+            boolean headsUp = prefs.getHeadsUpFlag();
             binding.headsUpSwitchRow.init(headsUp, (v, isChecked) -> {
-                DefaultPrefs.get(getContext()).putHeadsUpFlag(isChecked);
+                prefs.putHeadsUpFlag(isChecked);
             });
             binding.headsUpSwitchRow.setVisibility(View.VISIBLE);
             binding.headsUpBorder.setVisibility(View.VISIBLE);
@@ -80,7 +80,7 @@ public class SettingsFragment extends BaseFragment {
     }
 
     private void showLanguagesDialog() {
-        List<String> languageIds = Arrays.asList(LocaleUtil.SUPPORT_LANG);
+        List<String> languageIds = LocaleUtil.SUPPORT_LANG;
         List<String> languages = Observable.from(languageIds)
                 .map(languageId -> LocaleUtil.getLanguage(getActivity(), languageId, languageId))
                 .toList()

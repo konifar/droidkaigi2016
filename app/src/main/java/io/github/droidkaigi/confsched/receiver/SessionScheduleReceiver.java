@@ -26,7 +26,7 @@ public class SessionScheduleReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        boolean shouldNotify = DefaultPrefs.get(context).getNotificationFlag(true);
+        boolean shouldNotify = DefaultPrefs.get(context).getNotificationFlag();
         if (!shouldNotify) {
             return;
         }
@@ -46,7 +46,7 @@ public class SessionScheduleReceiver extends BroadcastReceiver {
         String title = context.getResources().getQuantityString(
                 R.plurals.schedule_notification_title, REMIND_MINUTES, REMIND_MINUTES);
 
-        boolean headsUp = DefaultPrefs.get(context).getHeadsUpFlag(true);
+        boolean headsUp = DefaultPrefs.get(context).getHeadsUpFlag();
 
         Notification notification = new NotificationCompat.Builder(context)
                 .setContentIntent(pendingIntent)

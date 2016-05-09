@@ -5,7 +5,6 @@ import android.content.res.Configuration;
 import android.support.annotation.NonNull;
 import android.support.v4.text.TextUtilsCompat;
 import android.support.v4.view.ViewCompat;
-import android.text.TextUtils;
 import android.util.Log;
 
 import java.text.DateFormat;
@@ -13,6 +12,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
@@ -25,7 +25,7 @@ public class LocaleUtil {
     public static final String LANG_JA_ID = "ja";
     public static final String LANG_AR_ID = "ar";
     public static final String LANG_KO_ID = "ko";
-    public static final String[] SUPPORT_LANG = {LANG_EN_ID, LANG_JA_ID, LANG_AR_ID, LANG_KO_ID};
+    public static final List<String> SUPPORT_LANG = Arrays.asList(LANG_EN_ID, LANG_JA_ID, LANG_AR_ID, LANG_KO_ID);
 
     private static final String TAG = LocaleUtil.class.getSimpleName();
 
@@ -70,22 +70,14 @@ public class LocaleUtil {
     }
 
     public static String getCurrentLanguageId(Context context) {
+        // This value would be stored language id or empty.
         String languageId = DefaultPrefs.get(context).getLanguageId();
-        try {
-            if (TextUtils.isEmpty(languageId)) {
-                languageId = Locale.getDefault().getLanguage().toLowerCase();
-            }
-            if (!Arrays.asList(SUPPORT_LANG).contains(languageId)) {
-                languageId = LANG_EN_ID;
-            }
-        } catch (Exception e) {
-            Log.e(TAG, e.toString());
-        } finally {
-            if (TextUtils.isEmpty(languageId)) {
-                languageId = LANG_EN_ID;
-            }
+        if (languageId.isEmpty()) {
+            languageId = Locale.getDefault().getLanguage().toLowerCase();
         }
-        return languageId;
+
+        // If retrieved language id is not supported, fallback to the default value (English).
+        return SUPPORT_LANG.contains(languageId) ? languageId : LANG_EN_ID;
     }
 
     public static String getCurrentLanguage(Context context) {
@@ -125,7 +117,7 @@ public class LocaleUtil {
 
     public static TimeZone getDisplayTimeZone(Context context) {
         TimeZone defaultTimeZone = TimeZone.getDefault();
-        boolean shouldShowLocalTime = DefaultPrefs.get(context).getShowLocalTimeFlag(false);
+        boolean shouldShowLocalTime = DefaultPrefs.get(context).getShowLocalTimeFlag();
         return (shouldShowLocalTime && defaultTimeZone != null) ? defaultTimeZone : CONFERENCE_TIMEZONE;
     }
 
