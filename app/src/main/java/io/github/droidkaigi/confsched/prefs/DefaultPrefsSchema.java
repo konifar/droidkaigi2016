@@ -4,13 +4,13 @@ import com.rejasupotaro.android.kvs.annotations.Key;
 import com.rejasupotaro.android.kvs.annotations.Table;
 
 @Table(name = "io.github.droidkaigi.confsched_preferences")
-public abstract class DefaultPrefsSchema {
+public interface DefaultPrefsSchema {
     @Key(name = "current_language_id")
-    final String languageId = "";
+    String languageId = "";
     @Key(name = "notification_setting")
-    final boolean notificationFlag = true;
+    boolean notificationFlag = true;
     @Key(name = "heads_up_setting")
-    final boolean headsUpFlag = true;
+    boolean headsUpFlag = true;
     @Key(name = "show_local_time")
-    final boolean showLocalTimeFlag = false;
+    boolean showLocalTimeFlag = false;
 }
