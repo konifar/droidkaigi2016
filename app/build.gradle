@@ -5,6 +5,7 @@ apply plugin: 'io.fabric'
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'com.vanniktech.android.apk.size'
+apply plugin: 'com.github.ben-manes.versions'
 
 // Manifest version
 def versionMajor = 1
