@@ -121,11 +121,18 @@ public class SessionDetailFragment extends BaseFragment {
         });
         binding.txtFeedback.setOnClickListener(v -> activityNavigator.showFeedback(getActivity(), session));
         binding.iconSlide.setOnClickListener(this::onClickIconSlide);
+        binding.iconMovie.setOnClickListener(this::onClickIconMovie);
     }
 
     private void onClickIconSlide(View view) {
         if (session.hasSlide()) {
             IntentUtil.toBrowser(getContext(), session.slideUrl);
+        }
+    }
+
+    private void onClickIconMovie(View view) {
+        if (session.hasDashVideo()) {
+            // launch movie screen.
         }
     }
 
