@@ -24,7 +24,7 @@ public final class IntentUtil {
 
     public static void toBrowser(Context context, @NonNull String url) {
         Uri uri = Uri.parse(url);
-        Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         context.startActivity(intent);
     }
 
