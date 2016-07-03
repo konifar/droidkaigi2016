@@ -13,7 +13,7 @@
 
     <string name="title">Title</string>
     <string name="description">Description</string>
-    <string name="slide">Slide</string>
+    <string name="slide_and_video">Slide＆Video</string>
 
     <string name="search_by_category">Search by category</string>
     <string name="search_by_place">Search by place</string>

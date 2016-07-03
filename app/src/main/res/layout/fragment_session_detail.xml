@@ -217,20 +217,35 @@
                     android:paddingLeft="@dimen/spacing"
                     android:paddingRight="@dimen/spacing"
                     android:paddingStart="@dimen/spacing"
-                    android:text="@string/slide"
+                    android:text="@string/slide_and_video"
                     android:visibility="@{session.hasSlide() ? View.VISIBLE : View.GONE}"
                     app:categoryVividColor="@{session.category}" />
 
-                <TextView
-                    android:id="@+id/txt_slide_url"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:autoLink="web"
-                    android:padding="@dimen/spacing"
-                    android:text="@{session.slideUrl}"
-                    android:textIsSelectable="true"
-                    android:textSize="@dimen/text"
-                    android:visibility="@{session.hasSlide() ? View.VISIBLE : View.GONE}" />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/icon_slide"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/slide_and_video"
+                        android:padding="@dimen/spacing"
+                        android:visibility="@{session.hasSlide() ? View.VISIBLE : View.GONE}"
+                        app:srcCompat="@drawable/ic_note_black_24dp_vector" />
+
+                    <ImageView
+                        android:id="@+id/icon_movie"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/icon_slide"
+                        android:layout_toRightOf="@id/icon_slide"
+                        android:contentDescription="@string/slide_and_video"
+                        android:padding="@dimen/spacing"
+                        android:visibility="@{session.hasDashVideo() ? View.VISIBLE : View.GONE}"
+                        app:srcCompat="@drawable/ic_theaters_black_24dp_vector" />
+
+                </RelativeLayout>
 
                 <TextView
                     android:id="@+id/txt_description_title"

@@ -13,7 +13,7 @@
 
     <string name="title">제목</string>
     <string name="description">자세한</string>
-    <string name="slide">슬라이드</string>
+    <string name="slide_and_video">슬라이드</string>
 
     <string name="search_by_category">카테고리에서 찾기</string>
     <string name="search_by_place">위치에서 검색</string>

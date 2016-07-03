@@ -114,6 +114,10 @@ public class Session {
         return !TextUtils.isEmpty(slideUrl);
     }
 
+    public boolean hasDashVideo() {
+        return !TextUtils.isEmpty(movieDashUrl);
+    }
+
     @Override
     public boolean equals(Object o) {
         return o instanceof Session && ((Session) o).id == id || super.equals(o);
