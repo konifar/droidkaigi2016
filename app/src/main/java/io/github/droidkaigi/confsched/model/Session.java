@@ -71,6 +71,11 @@ public class Session {
 
     @Column
     @Nullable
+    @SerializedName("movie_dash_url")
+    public String movieDashUrl;
+
+    @Column
+    @Nullable
     @SerializedName("share_url")
     public String shareUrl;
 
