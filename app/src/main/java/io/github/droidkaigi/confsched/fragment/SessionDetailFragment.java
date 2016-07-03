@@ -62,44 +62,14 @@ public class SessionDetailFragment extends BaseFragment {
         AppUtil.setTaskDescription(activity, session.title, ContextCompat.getColor(activity, session.category.getVividColorResId()));
     }
 
-    private void initToolbar() {
-        AppCompatActivity activity = ((AppCompatActivity) getActivity());
-        activity.setSupportActionBar(binding.toolbar);
-        ActionBar bar = activity.getSupportActionBar();
-        if (bar != null) {
-            bar.setDisplayHomeAsUpEnabled(true);
-            bar.setDisplayShowHomeEnabled(true);
-            bar.setDisplayShowTitleEnabled(false);
-            bar.setHomeButtonEnabled(true);
-        }
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentSessionDetailBinding.inflate(inflater, container, false);
         setHasOptionsMenu(true);
         initToolbar();
-        binding.setSession(session);
-
-        binding.fab.setOnClickListener(v -> {
-            boolean checked = !binding.fab.isSelected();
-            binding.fab.setSelected(checked);
-            session.checked = checked;
-            dao.updateChecked(session);
-            setResult();
-            AlarmUtil.handleSessionAlarm(getActivity(), session);
-        });
-
-        binding.txtFeedback.setOnClickListener(v -> activityNavigator.showFeedback(getActivity(), session));
-
+        initLayout();
         return binding.getRoot();
-    }
-
-    private void setResult() {
-        Intent intent = new Intent();
-        intent.putExtra(Session.class.getSimpleName(), Parcels.wrap(session));
-        getActivity().setResult(Activity.RESULT_OK, intent);
     }
 
     @Override
@@ -125,6 +95,44 @@ public class SessionDetailFragment extends BaseFragment {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void initToolbar() {
+        AppCompatActivity activity = ((AppCompatActivity) getActivity());
+        activity.setSupportActionBar(binding.toolbar);
+        ActionBar bar = activity.getSupportActionBar();
+        if (bar != null) {
+            bar.setDisplayHomeAsUpEnabled(true);
+            bar.setDisplayShowHomeEnabled(true);
+            bar.setDisplayShowTitleEnabled(false);
+            bar.setHomeButtonEnabled(true);
+        }
+    }
+
+    private void initLayout() {
+        binding.setSession(session);
+        binding.fab.setOnClickListener(v -> {
+            boolean checked = !binding.fab.isSelected();
+            binding.fab.setSelected(checked);
+            session.checked = checked;
+            dao.updateChecked(session);
+            setResult();
+            AlarmUtil.handleSessionAlarm(getActivity(), session);
+        });
+        binding.txtFeedback.setOnClickListener(v -> activityNavigator.showFeedback(getActivity(), session));
+        binding.iconSlide.setOnClickListener(this::onClickIconSlide);
+    }
+
+    private void onClickIconSlide(View view) {
+        if (session.hasSlide()) {
+            IntentUtil.toBrowser(getContext(), session.slideUrl);
+        }
+    }
+
+    private void setResult() {
+        Intent intent = new Intent();
+        intent.putExtra(Session.class.getSimpleName(), Parcels.wrap(session));
+        getActivity().setResult(Activity.RESULT_OK, intent);
     }
 
 }
