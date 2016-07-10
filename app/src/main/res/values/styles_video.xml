@@ -6,4 +6,8 @@
         <item name="android:minWidth">40dp</item>
     </style>
 
+    <style name="PlayerTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
 </resources>

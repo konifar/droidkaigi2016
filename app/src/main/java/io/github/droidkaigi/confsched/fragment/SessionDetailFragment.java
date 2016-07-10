@@ -24,6 +24,7 @@ import javax.inject.Inject;
 
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.activity.ActivityNavigator;
+import io.github.droidkaigi.confsched.activity.VideoPlayerActivity;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSessionDetailBinding;
 import io.github.droidkaigi.confsched.model.Session;
@@ -132,7 +133,8 @@ public class SessionDetailFragment extends BaseFragment {
 
     private void onClickIconMovie(View view) {
         if (session.hasDashVideo()) {
-            // launch movie screen.
+            Intent intent = VideoPlayerActivity.createIntent(getContext(), session.movieDashUrl);
+            startActivity(intent);
         }
     }
 
