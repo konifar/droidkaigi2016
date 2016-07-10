@@ -67,9 +67,7 @@ public class VideoPlayerActivity extends Activity implements SurfaceHolder.Callb
         DemoPlayer.Listener, DemoPlayer.CaptionListener, DemoPlayer.Id3MetadataListener,
         AudioCapabilitiesReceiver.Listener {
 
-    // For use within demo app code.
     private static final String CONTENT_TYPE_EXTRA = "content_type";
-    // For use when launching the demo app using adb.
     private static final String CONTENT_EXT_EXTRA = "type";
 
     private static final String TAG = "PlayerActivity";
@@ -685,5 +683,4 @@ public class VideoPlayerActivity extends Activity implements SurfaceHolder.Callb
             return super.dispatchKeyEvent(event);
         }
     }
-
 }
