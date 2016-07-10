@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="tag_line">Androidエンジニアが主役のカンファレンス</string>
     <string name="session_detail">セッション詳細</string>
 
@@ -115,4 +115,22 @@
     <string name="session_feedback_submit_success">送信しました。</string>
     <string name="session_feedback_submit_link">フィードバックを送信</string>
 
+    <!-- VIDEO FIXME: translation please! -->
+    <string name="video">Video</string>
+    <string name="video_audio">Audio</string>
+    <string name="video_text">Text</string>
+    <string name="video_logging">Logging</string>
+    <string name="video_retry">Retry</string>
+    <string name="video_error_drm_not_supported">Protected content not supported on API levels below 18</string>
+    <string name="video_error_drm_unsupported_scheme">This device does not support the required DRM scheme</string>
+    <string name="video_error_drm_unknown">An unknown DRM error occurred</string>
+    <string name="video_error_no_decoder">This device does not provide a decoder for <xliff:g id="mime_type">%1$s</xliff:g></string>
+    <string name="video_error_no_secure_decoder">This device does not provide a secure decoder for <xliff:g id="mime_type">%1$s</xliff:g></string>
+    <string name="video_error_querying_decoders">Unable to query device decoders</string>
+    <string name="video_error_instantiating_decoder">Unable to instantiate decoder <xliff:g id="decoder_name">%1$s</xliff:g></string>
+    <string name="video_storage_permission_denied">Permission to access storage was denied</string>
+    <string name="video_enable_background_audio">Play in background</string>
+    <string name="video_logging_normal">Normal</string>
+    <string name="video_logging_verbose">Verbose</string>
+    <string name="video_off">[off]</string>
 </resources>
