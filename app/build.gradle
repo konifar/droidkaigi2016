@@ -172,7 +172,7 @@ dependencies {
         transitive = true;
     }
 
-    compile 'com.google.android.exoplayer:exoplayer:r1.5.8'
+    compile 'com.google.android.exoplayer:exoplayer:r1.5.9'
     compile('com.crashlytics.sdk.android:crashlytics:2.5.5@aar') {
         transitive = true;
     }
