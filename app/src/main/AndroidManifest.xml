@@ -79,6 +79,13 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.ColoredStatusBar" />
 
+        <activity
+            android:name=".activity.VideoPlayerActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/PlayerTheme" />
+
         <receiver
             android:name=".receiver.SessionScheduleReceiver"
             android:exported="false" />

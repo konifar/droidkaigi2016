@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="tag_line">Android 엔지니어가 주역 컨퍼런스</string>
     <string name="session_detail">세션 세부 정보</string>
 
@@ -13,7 +13,7 @@
 
     <string name="title">제목</string>
     <string name="description">자세한</string>
-    <string name="slide">슬라이드</string>
+    <string name="slide_and_video">슬라이드</string>
 
     <string name="search_by_category">카테고리에서 찾기</string>
     <string name="search_by_place">위치에서 검색</string>
@@ -115,4 +115,22 @@
     <string name="session_feedback_submit_success">전송했습니다.</string>
     <string name="session_feedback_submit_link">의견을 보내</string>
 
+    <!-- VIDEO FIXME: translation please! -->
+    <string name="video">Video</string>
+    <string name="video_audio">Audio</string>
+    <string name="video_text">Text</string>
+    <string name="video_logging">Logging</string>
+    <string name="video_retry">Retry</string>
+    <string name="video_error_drm_not_supported">Protected content not supported on API levels below 18</string>
+    <string name="video_error_drm_unsupported_scheme">This device does not support the required DRM scheme</string>
+    <string name="video_error_drm_unknown">An unknown DRM error occurred</string>
+    <string name="video_error_no_decoder">This device does not provide a decoder for <xliff:g id="mime_type">%1$s</xliff:g></string>
+    <string name="video_error_no_secure_decoder">This device does not provide a secure decoder for <xliff:g id="mime_type">%1$s</xliff:g></string>
+    <string name="video_error_querying_decoders">Unable to query device decoders</string>
+    <string name="video_error_instantiating_decoder">Unable to instantiate decoder <xliff:g id="decoder_name">%1$s</xliff:g></string>
+    <string name="video_storage_permission_denied">Permission to access storage was denied</string>
+    <string name="video_enable_background_audio">Play in background</string>
+    <string name="video_logging_normal">Normal</string>
+    <string name="video_logging_verbose">Verbose</string>
+    <string name="video_off">[off]</string>
 </resources>

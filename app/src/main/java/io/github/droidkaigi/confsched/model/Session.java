@@ -71,6 +71,11 @@ public class Session {
 
     @Column
     @Nullable
+    @SerializedName("movie_dash_url")
+    public String movieDashUrl;
+
+    @Column
+    @Nullable
     @SerializedName("share_url")
     public String shareUrl;
 
@@ -107,6 +112,10 @@ public class Session {
 
     public boolean hasSlide() {
         return !TextUtils.isEmpty(slideUrl);
+    }
+
+    public boolean hasDashVideo() {
+        return !TextUtils.isEmpty(movieDashUrl);
     }
 
     @Override
