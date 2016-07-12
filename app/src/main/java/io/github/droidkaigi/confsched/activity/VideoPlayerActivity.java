@@ -1,14 +1,11 @@
 package io.github.droidkaigi.confsched.activity;
 
-import android.Manifest.permission;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -157,9 +154,7 @@ public class VideoPlayerActivity extends Activity implements SurfaceHolder.Callb
                 inferContentType(contentUri, intent.getStringExtra(CONTENT_EXT_EXTRA)));
         configureSubtitleView();
         if (player == null) {
-            if (!maybeRequestPermission()) {
-                preparePlayer(true);
-            }
+            preparePlayer(true);
         } else {
             player.setBackgrounded(false);
         }
@@ -207,35 +202,6 @@ public class VideoPlayerActivity extends Activity implements SurfaceHolder.Callb
         releasePlayer();
         preparePlayer(playWhenReady);
         player.setBackgrounded(backgrounded);
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            preparePlayer(true);
-        } else {
-            Toast.makeText(getApplicationContext(), R.string.video_storage_permission_denied,
-                    Toast.LENGTH_LONG).show();
-            finish();
-        }
-    }
-
-    @TargetApi(23)
-    private boolean maybeRequestPermission() {
-        if (requiresPermission(contentUri)) {
-            requestPermissions(new String[]{permission.READ_EXTERNAL_STORAGE}, 0);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    @TargetApi(23)
-    private boolean requiresPermission(Uri uri) {
-        return Util.SDK_INT >= 23
-                && Util.isLocalFileUri(uri)
-                && checkSelfPermission(permission.READ_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED;
     }
 
     private DemoPlayer.RendererBuilder getRendererBuilder() {
