@@ -269,7 +269,8 @@
                     android:textColor="@color/grey600"
                     android:textIsSelectable="true"
                     android:textSize="@dimen/text"
-                    app:sessionDescription="@{viewModel.session}" />
+                    app:textLinkify="@{true}"
+                    app:textRtlConsidered="@{viewModel.session.description}" />
 
                 <View
                     style="@style/Border"
@@ -301,10 +302,11 @@
             android:clickable="true"
             android:onClick="@{viewModel.onClickFab}"
             android:src="@drawable/fab_icon"
+            app:fabSelected="@{viewModel.session.checked}"
             app:fabSize="mini"
             app:layout_anchor="@+id/app_bar"
             app:layout_anchorGravity="bottom|right|end"
-            app:sessionFab="@{viewModel.session}"
+            app:rippleColor="@{viewModel.fabRippleColorResId}"
             app:theme="@style/FabTheme" />
 
     </android.support.design.widget.CoordinatorLayout>

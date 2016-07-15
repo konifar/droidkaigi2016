@@ -98,4 +98,14 @@ public class DataBindingAttributeUtil {
         textView.setText(LocaleUtil.getRtlConsideredText(text));
     }
 
+    @BindingAdapter("textLinkify")
+    public static void setTextLinkify(TextView textView, boolean isLinkify) {
+        if (isLinkify) Linkify.addLinks(textView, Linkify.ALL);
+    }
+
+    @BindingAdapter("fabSelected")
+    public static void setFabSelected(FloatingActionButton fab, boolean isSelected) {
+        fab.setSelected(isSelected);
+    }
+
 }

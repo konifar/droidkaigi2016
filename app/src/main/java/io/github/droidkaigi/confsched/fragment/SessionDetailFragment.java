@@ -76,7 +76,7 @@ public class SessionDetailFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentSessionDetailBinding.inflate(inflater, container, false);
-        viewModel.session = session;
+        viewModel.setSession(session);
         binding.setViewModel(viewModel);
         setHasOptionsMenu(true);
         initToolbar();
