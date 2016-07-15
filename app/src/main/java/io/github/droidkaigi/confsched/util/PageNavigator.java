@@ -1,4 +1,4 @@
-package io.github.droidkaigi.confsched.activity;
+package io.github.droidkaigi.confsched.util;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,6 +11,12 @@ import android.support.v7.app.AppCompatActivity;
 import javax.inject.Inject;
 
 import io.github.droidkaigi.confsched.R;
+import io.github.droidkaigi.confsched.activity.MainActivity;
+import io.github.droidkaigi.confsched.activity.SearchActivity;
+import io.github.droidkaigi.confsched.activity.SessionDetailActivity;
+import io.github.droidkaigi.confsched.activity.SessionFeedbackActivity;
+import io.github.droidkaigi.confsched.activity.VideoPlayerActivity;
+import io.github.droidkaigi.confsched.activity.WebViewActivity;
 import io.github.droidkaigi.confsched.di.scope.ActivityScope;
 import io.github.droidkaigi.confsched.model.Session;
 

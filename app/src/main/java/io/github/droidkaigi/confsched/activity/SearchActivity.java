@@ -42,6 +42,7 @@ import io.github.droidkaigi.confsched.model.SearchResult;
 import io.github.droidkaigi.confsched.model.Session;
 import io.github.droidkaigi.confsched.util.AnalyticsTracker;
 import io.github.droidkaigi.confsched.util.LocaleUtil;
+import io.github.droidkaigi.confsched.util.PageNavigator;
 import io.github.droidkaigi.confsched.widget.ArrayRecyclerAdapter;
 import io.github.droidkaigi.confsched.widget.BindingHolder;
 import io.github.droidkaigi.confsched.widget.itemdecoration.DividerItemDecoration;
@@ -70,7 +71,7 @@ public class SearchActivity extends BaseActivity implements TextWatcher {
     private SearchResultsAdapter adapter;
     private ActivitySearchBinding binding;
 
-    static void start(@NonNull Fragment fragment, int requestCode) {
+    public static void start(@NonNull Fragment fragment, int requestCode) {
         Intent intent = new Intent(fragment.getContext(), SearchActivity.class);
         fragment.startActivityForResult(intent, requestCode);
         fragment.getActivity().overridePendingTransition(0, R.anim.activity_fade_exit);

@@ -16,7 +16,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import io.github.droidkaigi.confsched.R;
-import io.github.droidkaigi.confsched.activity.PageNavigator;
+import io.github.droidkaigi.confsched.util.PageNavigator;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSettingsBinding;
 import io.github.droidkaigi.confsched.prefs.DefaultPrefs;

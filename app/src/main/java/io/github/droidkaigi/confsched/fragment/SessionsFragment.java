@@ -29,7 +29,7 @@ import java.util.TreeMap;
 import javax.inject.Inject;
 
 import io.github.droidkaigi.confsched.R;
-import io.github.droidkaigi.confsched.activity.PageNavigator;
+import io.github.droidkaigi.confsched.util.PageNavigator;
 import io.github.droidkaigi.confsched.activity.SearchActivity;
 import io.github.droidkaigi.confsched.api.DroidKaigiClient;
 import io.github.droidkaigi.confsched.dao.SessionDao;

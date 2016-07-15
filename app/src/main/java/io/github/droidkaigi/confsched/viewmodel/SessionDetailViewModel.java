@@ -6,9 +6,9 @@ import android.view.View;
 
 import javax.inject.Inject;
 
-import io.github.droidkaigi.confsched.activity.PageNavigator;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.model.Session;
+import io.github.droidkaigi.confsched.util.PageNavigator;
 
 public class SessionDetailViewModel implements ViewModel {
 

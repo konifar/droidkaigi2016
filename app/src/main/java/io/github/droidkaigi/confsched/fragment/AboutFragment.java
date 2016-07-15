@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import javax.inject.Inject;
 
 import io.github.droidkaigi.confsched.R;
-import io.github.droidkaigi.confsched.activity.PageNavigator;
+import io.github.droidkaigi.confsched.util.PageNavigator;
 import io.github.droidkaigi.confsched.activity.ContributorsActivity;
 import io.github.droidkaigi.confsched.databinding.FragmentAboutBinding;
 import io.github.droidkaigi.confsched.util.AppUtil;

@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 
 import dagger.Module;
 import dagger.Provides;
-import io.github.droidkaigi.confsched.activity.PageNavigator;
+import io.github.droidkaigi.confsched.util.PageNavigator;
 
 @Module
 public class ActivityModule {
