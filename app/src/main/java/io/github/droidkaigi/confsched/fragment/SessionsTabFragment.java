@@ -48,6 +48,8 @@ public class SessionsTabFragment extends BaseFragment {
     @Inject
     EventBus eventBus;
     @Inject
+    AlarmUtil alermUtil;
+    @Inject
     CompositeSubscription compositeSubscription;
 
     private SessionsAdapter adapter;
@@ -198,7 +200,7 @@ public class SessionsTabFragment extends BaseFragment {
 
         protected void onLikeChanged(@NonNull Session session, int position) {
             dao.updateChecked(session);
-            AlarmUtil.handleSessionAlarm(getContext(), session);
+            alermUtil.handleSessionAlarm(session);
             onChangeSessionListener.onChangeSession(Collections.singletonList(session));
         }
     }

@@ -19,7 +19,6 @@ import dagger.Provides;
 import io.github.droidkaigi.confsched.BuildConfig;
 import io.github.droidkaigi.confsched.api.RequestInterceptor;
 import io.github.droidkaigi.confsched.model.OrmaDatabase;
-import io.github.droidkaigi.confsched.viewmodel.event.EventBus;
 import okhttp3.Cache;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -99,12 +98,6 @@ public class AppModule {
                     }
                 })
                 .build();
-    }
-
-    @Singleton
-    @Provides
-    public EventBus provideEventBus() {
-        return new EventBus();
     }
 
 }

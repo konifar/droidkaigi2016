@@ -53,7 +53,6 @@ public class SessionDetailFragment extends BaseFragment {
         Category category = viewModel.session.category;
         if (category != null) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                // Change theme by category
                 activity.setTheme(category.getThemeResId());
             }
             AppUtil.setTaskDescription(activity, session.title, ContextCompat.getColor(activity, category.getVividColorResId()));

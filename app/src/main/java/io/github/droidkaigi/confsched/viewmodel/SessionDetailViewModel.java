@@ -28,6 +28,7 @@ public class SessionDetailViewModel extends BaseObservable implements ViewModel 
     private final PageNavigator navigator;
     private final SessionDao dao;
     private final EventBus eventBus;
+    private final AlarmUtil alarmUtil;
 
     @Bindable
     public Session session;
@@ -38,11 +39,13 @@ public class SessionDetailViewModel extends BaseObservable implements ViewModel 
     public SessionDetailViewModel(Context context,
                                   PageNavigator navigator,
                                   SessionDao dao,
-                                  EventBus eventBus) {
+                                  EventBus eventBus,
+                                  AlarmUtil alarmUtil) {
         this.context = context;
         this.navigator = navigator;
         this.dao = dao;
         this.eventBus = eventBus;
+        this.alarmUtil = alarmUtil;
     }
 
     public void setSession(Session session) {
@@ -88,7 +91,7 @@ public class SessionDetailViewModel extends BaseObservable implements ViewModel 
         notifyPropertyChanged(BR.session);
         dao.updateChecked(session);
         eventBus.post(new SessionSelectedChangedEvent(session));
-        AlarmUtil.handleSessionAlarm(context, session);
+        alarmUtil.handleSessionAlarm(session);
     }
 
     public String sessionTimeRange() {

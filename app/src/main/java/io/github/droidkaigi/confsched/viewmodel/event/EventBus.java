@@ -1,11 +1,20 @@
 package io.github.droidkaigi.confsched.viewmodel.event;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import rx.Observable;
 import rx.subjects.PublishSubject;
 import rx.subjects.SerializedSubject;
 import rx.subjects.Subject;
 
+@Singleton
 public class EventBus {
+
+    @Inject
+    public EventBus() {
+        //
+    }
 
     private final Subject<Object, Object> bus = new SerializedSubject<>(PublishSubject.create());
 
