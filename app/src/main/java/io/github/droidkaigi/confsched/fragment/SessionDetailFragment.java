@@ -3,6 +3,7 @@ package io.github.droidkaigi.confsched.fragment;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.databinding.Observable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -64,12 +65,33 @@ public class SessionDetailFragment extends BaseFragment {
         AppUtil.setTaskDescription(activity, session.title, ContextCompat.getColor(activity, session.category.getVividColorResId()));
     }
 
+    // Receive all viewModel's properties changed.
+    private final Observable.OnPropertyChangedCallback onPropertyChanged = new Observable.OnPropertyChangedCallback() {
+        @Override
+        public void onPropertyChanged(Observable sender, int propertyId) {
+            if (sender == viewModel.observableSession) {
+                setResult(viewModel.session);
+            /*} else if (sender == viewModel.anotherObservableField) {*/
+
+            }
+        }
+    };
+
     @Override
     public void onResume() {
         super.onResume();
         Subscription sub = eventBus.observe(SessionSelectedChangedEvent.class)
                 .subscribe(event -> setResult(event.session));
+
+        viewModel.observableSession.addOnPropertyChangedCallback(onPropertyChanged);
+
         compositeSubscription.add(sub);
+    }
+
+    @Override
+    public void onPause() {
+        viewModel.observableSession.removeOnPropertyChangedCallback(onPropertyChanged);
+        super.onPause();
     }
 
     @Nullable
