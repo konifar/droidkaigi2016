@@ -3,7 +3,7 @@ package io.github.droidkaigi.confsched.viewmodel;
 import android.content.Context;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
-import android.databinding.ObservableInt;
+import android.support.annotation.ColorInt;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.View;
@@ -32,8 +32,6 @@ public class SessionDetailViewModel extends BaseObservable implements ViewModel 
 
     @Bindable
     public Session session;
-    @Bindable
-    public ObservableInt fabRippleColorResId;
 
     @Inject
     public SessionDetailViewModel(Context context,
@@ -50,9 +48,7 @@ public class SessionDetailViewModel extends BaseObservable implements ViewModel 
 
     public void setSession(Session session) {
         this.session = session;
-        this.fabRippleColorResId = new ObservableInt(ContextCompat.getColor(context, session.category.getPaleColorResId()));
         notifyPropertyChanged(BR.session);
-        notifyPropertyChanged(BR.fabRippleColorResId);
     }
 
     @Override
@@ -102,6 +98,14 @@ public class SessionDetailViewModel extends BaseObservable implements ViewModel 
                 DateUtil.getLongFormatDate(displaySTime, context),
                 DateUtil.getHourMinute(displayETime),
                 DateUtil.getMinutes(displaySTime, displayETime));
+    }
+
+    @ColorInt
+    public int fabRippleColor() {
+        int colorResId = session.category != null
+                ? session.category.getPaleColorResId()
+                : R.color.accent100;
+        return ContextCompat.getColor(context, colorResId);
     }
 
     public int slideIconVisibility() {
