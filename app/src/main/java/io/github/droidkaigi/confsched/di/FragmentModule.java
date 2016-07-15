@@ -1,6 +1,5 @@
 package io.github.droidkaigi.confsched.di;
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
@@ -14,11 +13,6 @@ public class FragmentModule {
 
     public FragmentModule(Fragment fragment) {
         this.fragment = fragment;
-    }
-
-    @Provides
-    public Context context() {
-        return fragment.getContext();
     }
 
     @Provides

@@ -57,7 +57,7 @@ public class SearchActivity extends BaseActivity implements TextWatcher {
     @Inject
     AnalyticsTracker analyticsTracker;
     @Inject
-    ActivityNavigator activityNavigator;
+    PageNavigator navigator;
     @Inject
     SessionDao sessionDao;
     @Inject
@@ -268,7 +268,7 @@ public class SearchActivity extends BaseActivity implements TextWatcher {
             bindText(itemBinding.txtSearchResult, searchResult, binding.searchToolbar.getText());
 
             itemBinding.getRoot().setOnClickListener(v ->
-                    activityNavigator.showSessionDetail(SearchActivity.this, searchResult.session, REQ_DETAIL));
+                    navigator.showSessionDetail(SearchActivity.this, searchResult.session, REQ_DETAIL));
         }
 
         private void bindText(TextView textView, SearchResult searchResult, String searchText) {

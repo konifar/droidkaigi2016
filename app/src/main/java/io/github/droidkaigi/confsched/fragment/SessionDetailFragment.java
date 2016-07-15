@@ -23,7 +23,7 @@ import org.parceler.Parcels;
 import javax.inject.Inject;
 
 import io.github.droidkaigi.confsched.R;
-import io.github.droidkaigi.confsched.activity.ActivityNavigator;
+import io.github.droidkaigi.confsched.activity.PageNavigator;
 import io.github.droidkaigi.confsched.activity.VideoPlayerActivity;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSessionDetailBinding;
@@ -37,7 +37,7 @@ public class SessionDetailFragment extends BaseFragment {
     @Inject
     SessionDao dao;
     @Inject
-    ActivityNavigator activityNavigator;
+    PageNavigator navigator;
 
     private FragmentSessionDetailBinding binding;
     private Session session;
@@ -120,7 +120,7 @@ public class SessionDetailFragment extends BaseFragment {
             setResult();
             AlarmUtil.handleSessionAlarm(getActivity(), session);
         });
-        binding.txtFeedback.setOnClickListener(v -> activityNavigator.showFeedback(getActivity(), session));
+        binding.txtFeedback.setOnClickListener(v -> navigator.showFeedback(session));
         binding.iconSlide.setOnClickListener(this::onClickIconSlide);
         binding.iconMovie.setOnClickListener(this::onClickIconMovie);
     }

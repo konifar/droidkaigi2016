@@ -13,6 +13,10 @@
         <variable
             name="session"
             type="io.github.droidkaigi.confsched.model.Session" />
+
+        <variable
+            name="viewModel"
+            type="io.github.droidkaigi.confsched.viewmodel.SessionDetailViewModel" />
     </data>
 
     <android.support.design.widget.CoordinatorLayout

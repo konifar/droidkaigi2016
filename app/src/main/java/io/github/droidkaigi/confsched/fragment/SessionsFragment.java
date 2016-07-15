@@ -29,7 +29,7 @@ import java.util.TreeMap;
 import javax.inject.Inject;
 
 import io.github.droidkaigi.confsched.R;
-import io.github.droidkaigi.confsched.activity.ActivityNavigator;
+import io.github.droidkaigi.confsched.activity.PageNavigator;
 import io.github.droidkaigi.confsched.activity.SearchActivity;
 import io.github.droidkaigi.confsched.api.DroidKaigiClient;
 import io.github.droidkaigi.confsched.dao.SessionDao;
@@ -57,7 +57,7 @@ public class SessionsFragment extends BaseFragment implements StackedPageListene
     @Inject
     CompositeSubscription compositeSubscription;
     @Inject
-    ActivityNavigator activityNavigator;
+    PageNavigator navigator;
     @Inject
     MainContentStateBrokerProvider brokerProvider;
     private SessionsPagerAdapter adapter;
@@ -217,7 +217,7 @@ public class SessionsFragment extends BaseFragment implements StackedPageListene
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item_search:
-                activityNavigator.showSearch(this, REQ_SEARCH);
+                navigator.showSearch(this, REQ_SEARCH);
                 break;
         }
         return super.onOptionsItemSelected(item);

@@ -1,12 +1,11 @@
 package io.github.droidkaigi.confsched.di;
 
-import android.app.Activity;
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 
 import dagger.Module;
 import dagger.Provides;
+import io.github.droidkaigi.confsched.activity.PageNavigator;
 
 @Module
 public class ActivityModule {
@@ -18,18 +17,18 @@ public class ActivityModule {
     }
 
     @Provides
-    public Activity activity() {
-        return activity;
-    }
-
-    @Provides
-    public Context context() {
+    public AppCompatActivity activity() {
         return activity;
     }
 
     @Provides
     LayoutInflater layoutInflater() {
         return activity.getLayoutInflater();
+    }
+
+    @Provides
+    public PageNavigator providePageNavigator(AppCompatActivity activity) {
+        return new PageNavigator(activity);
     }
 
 }

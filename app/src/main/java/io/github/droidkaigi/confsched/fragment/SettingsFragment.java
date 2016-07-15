@@ -16,7 +16,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import io.github.droidkaigi.confsched.R;
-import io.github.droidkaigi.confsched.activity.ActivityNavigator;
+import io.github.droidkaigi.confsched.activity.PageNavigator;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSettingsBinding;
 import io.github.droidkaigi.confsched.prefs.DefaultPrefs;
@@ -28,7 +28,7 @@ public class SettingsFragment extends BaseFragment {
     public static final String TAG = SettingsFragment.class.getSimpleName();
 
     @Inject
-    ActivityNavigator activityNavigator;
+    PageNavigator navigator;
     @Inject
     SessionDao dao;
 
@@ -107,7 +107,7 @@ public class SettingsFragment extends BaseFragment {
 
     private void restart() {
         Activity activity = getActivity();
-        activityNavigator.showMain(activity, true);
+        navigator.showMain(activity, true);
         activity.finish();
     }
 
