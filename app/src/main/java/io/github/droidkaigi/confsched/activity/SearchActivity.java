@@ -278,8 +278,7 @@ public class SearchActivity extends BaseActivity implements TextWatcher {
 
             bindText(itemBinding.txtSearchResult, searchResult, binding.searchToolbar.getText());
 
-            itemBinding.getRoot().setOnClickListener(v ->
-                    navigator.showSessionDetail(SearchActivity.this, searchResult.session, REQ_DETAIL));
+            itemBinding.getRoot().setOnClickListener(v -> navigator.showSessionDetail(searchResult.session));
         }
 
         private void bindText(TextView textView, SearchResult searchResult, String searchText) {

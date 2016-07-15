@@ -1,6 +1,5 @@
 package io.github.droidkaigi.confsched.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -28,16 +27,6 @@ public class SessionDetailActivity extends BaseActivity {
         Intent intent = new Intent(context, SessionDetailActivity.class);
         intent.putExtra(Session.class.getSimpleName(), Parcels.wrap(session));
         return intent;
-    }
-
-    public static void startForResult(@NonNull Activity activity, @NonNull Session session, int requestCode) {
-        Intent intent = createIntent(activity, session);
-        activity.startActivityForResult(intent, requestCode);
-    }
-
-    public static void startForResult(@NonNull Fragment fragment, @NonNull Session session, int requestCode) {
-        Intent intent = createIntent(fragment.getContext(), session);
-        fragment.startActivityForResult(intent, requestCode);
     }
 
     @Override

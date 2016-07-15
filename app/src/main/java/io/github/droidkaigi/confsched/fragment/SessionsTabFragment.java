@@ -193,8 +193,7 @@ public class SessionsTabFragment extends BaseFragment {
                 }
             });
 
-            binding.cardView.setOnClickListener(v ->
-                    navigator.showSessionDetail(SessionsTabFragment.this, session, REQ_DETAIL));
+            binding.cardView.setOnClickListener(v -> navigator.showSessionDetail(session));
         }
 
         protected void onLikeChanged(@NonNull Session session, int position) {
