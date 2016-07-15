@@ -44,13 +44,13 @@ public class SessionDetailViewModel implements ViewModel {
         navigator.showFeedback(session);
     }
 
-    public void onClickSlideIcon() {
+    public void onClickSlideIcon(@SuppressWarnings("unused") View view) {
         if (session.hasSlide()) {
             navigator.showBrowser(session.slideUrl);
         }
     }
 
-    public void onClickMovieIcon() {
+    public void onClickMovieIcon(@SuppressWarnings("unused") View view) {
         if (session.hasDashVideo()) {
             navigator.showVideoPlayer(session);
         }

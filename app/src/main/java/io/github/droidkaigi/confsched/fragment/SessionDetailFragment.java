@@ -31,6 +31,7 @@ import io.github.droidkaigi.confsched.model.Session;
 import io.github.droidkaigi.confsched.util.AlarmUtil;
 import io.github.droidkaigi.confsched.util.AppUtil;
 import io.github.droidkaigi.confsched.util.IntentUtil;
+import io.github.droidkaigi.confsched.viewmodel.SessionDetailViewModel;
 
 public class SessionDetailFragment extends BaseFragment {
 
@@ -38,6 +39,8 @@ public class SessionDetailFragment extends BaseFragment {
     SessionDao dao;
     @Inject
     PageNavigator navigator;
+    @Inject
+    SessionDetailViewModel viewModel;
 
     private FragmentSessionDetailBinding binding;
     private Session session;
@@ -67,6 +70,8 @@ public class SessionDetailFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentSessionDetailBinding.inflate(inflater, container, false);
+        viewModel.setSession(session);
+        binding.setViewModel(viewModel);
         setHasOptionsMenu(true);
         initToolbar();
         initLayout();
@@ -120,9 +125,6 @@ public class SessionDetailFragment extends BaseFragment {
             setResult();
             AlarmUtil.handleSessionAlarm(getActivity(), session);
         });
-        binding.txtFeedback.setOnClickListener(v -> navigator.showFeedback(session));
-        binding.iconSlide.setOnClickListener(this::onClickIconSlide);
-        binding.iconMovie.setOnClickListener(this::onClickIconMovie);
     }
 
     private void onClickIconSlide(View view) {

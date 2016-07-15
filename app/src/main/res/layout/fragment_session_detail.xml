@@ -234,6 +234,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:contentDescription="@string/slide_and_video"
+                        android:onClick="@{viewModel.onClickSlideIcon}"
                         android:padding="@dimen/spacing"
                         android:visibility="@{session.hasSlide() ? View.VISIBLE : View.GONE}"
                         app:srcCompat="@drawable/ic_note_black_24dp_vector" />
@@ -245,6 +246,7 @@
                         android:layout_toEndOf="@id/icon_slide"
                         android:layout_toRightOf="@id/icon_slide"
                         android:contentDescription="@string/slide_and_video"
+                        android:onClick="@{viewModel.onClickMovieIcon}"
                         android:padding="@dimen/spacing"
                         android:visibility="@{session.hasDashVideo() ? View.VISIBLE : View.GONE}"
                         app:srcCompat="@drawable/ic_theaters_black_24dp_vector" />
@@ -284,6 +286,7 @@
                     android:background="@drawable/clickable"
                     android:clickable="true"
                     android:gravity="center"
+                    android:onClick="@{viewModel.onClickFeedbackButton}"
                     android:padding="@dimen/spacing"
                     android:text="@string/send_feedback"
                     android:textColor="@color/grey600"
