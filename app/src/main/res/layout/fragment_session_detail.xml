@@ -103,9 +103,9 @@
                     android:focusableInTouchMode="true"
                     android:lines="1"
                     android:padding="@dimen/spacing"
+                    android:text="@{viewModel.sessionTimeRange}"
                     android:textColor="@color/grey500"
-                    android:textSize="@dimen/text"
-                    app:sessionDetailTimeRange="@{viewModel.session}" />
+                    android:textSize="@dimen/text" />
 
                 <org.apmem.tools.layouts.FlowLayout
                     android:id="@+id/tag_container"
@@ -218,7 +218,7 @@
                     android:paddingRight="@dimen/spacing"
                     android:paddingStart="@dimen/spacing"
                     android:text="@string/slide_and_video"
-                    android:visibility="@{viewModel.session.hasSlide() ? View.VISIBLE : View.GONE}"
+                    android:visibility="@{viewModel.slideIconVisibility}"
                     app:categoryVividColor="@{viewModel.session.category}" />
 
                 <RelativeLayout
@@ -232,7 +232,7 @@
                         android:contentDescription="@string/slide_and_video"
                         android:onClick="@{viewModel.onClickSlideIcon}"
                         android:padding="@dimen/spacing"
-                        android:visibility="@{viewModel.session.hasSlide() ? View.VISIBLE : View.GONE}"
+                        android:visibility="@{viewModel.slideIconVisibility}"
                         app:srcCompat="@drawable/ic_note_black_24dp_vector" />
 
                     <ImageView
@@ -244,7 +244,7 @@
                         android:contentDescription="@string/slide_and_video"
                         android:onClick="@{viewModel.onClickMovieIcon}"
                         android:padding="@dimen/spacing"
-                        android:visibility="@{viewModel.session.hasDashVideo() ? View.VISIBLE : View.GONE}"
+                        android:visibility="@{viewModel.dashVideoIconVisibility}"
                         app:srcCompat="@drawable/ic_theaters_black_24dp_vector" />
 
                 </RelativeLayout>
