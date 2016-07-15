@@ -16,7 +16,7 @@ public class SessionDetailViewModel implements ViewModel {
     private final PageNavigator navigator;
     private final SessionDao dao;
 
-    private Session session;
+    public Session session;
 
     @Inject
     public SessionDetailViewModel(Context context, PageNavigator navigator, SessionDao dao) {

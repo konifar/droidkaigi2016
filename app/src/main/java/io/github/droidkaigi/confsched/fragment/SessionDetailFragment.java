@@ -23,8 +23,6 @@ import org.parceler.Parcels;
 import javax.inject.Inject;
 
 import io.github.droidkaigi.confsched.R;
-import io.github.droidkaigi.confsched.activity.PageNavigator;
-import io.github.droidkaigi.confsched.activity.VideoPlayerActivity;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSessionDetailBinding;
 import io.github.droidkaigi.confsched.model.Session;
@@ -37,8 +35,6 @@ public class SessionDetailFragment extends BaseFragment {
 
     @Inject
     SessionDao dao;
-    @Inject
-    PageNavigator navigator;
     @Inject
     SessionDetailViewModel viewModel;
 
@@ -116,7 +112,6 @@ public class SessionDetailFragment extends BaseFragment {
     }
 
     private void initLayout() {
-        binding.setSession(session);
         binding.fab.setOnClickListener(v -> {
             boolean checked = !binding.fab.isSelected();
             binding.fab.setSelected(checked);
@@ -125,19 +120,6 @@ public class SessionDetailFragment extends BaseFragment {
             setResult();
             AlarmUtil.handleSessionAlarm(getActivity(), session);
         });
-    }
-
-    private void onClickIconSlide(View view) {
-        if (session.hasSlide()) {
-            IntentUtil.toBrowser(getContext(), session.slideUrl);
-        }
-    }
-
-    private void onClickIconMovie(View view) {
-        if (session.hasDashVideo()) {
-            Intent intent = VideoPlayerActivity.createIntent(getContext(), session.movieDashUrl);
-            startActivity(intent);
-        }
     }
 
     private void setResult() {

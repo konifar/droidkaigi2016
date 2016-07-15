@@ -11,10 +11,6 @@
         <import type="io.github.droidkaigi.confsched.util.DateUtil" />
 
         <variable
-            name="session"
-            type="io.github.droidkaigi.confsched.model.Session" />
-
-        <variable
             name="viewModel"
             type="io.github.droidkaigi.confsched.viewmodel.SessionDetailViewModel" />
     </data>
@@ -37,11 +33,11 @@
                 android:layout_height="match_parent"
                 android:background="@color/white"
                 android:fitsSystemWindows="true"
-                app:categoryVividColor="@{session.category}"
+                app:categoryVividColor="@{viewModel.session.category}"
                 app:expandedTitleMarginBottom="@dimen/spacing_large"
                 app:expandedTitleTextAppearance="@style/SessionDetailToolbarTitle"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                app:title="@{session.title}">
+                app:title="@{viewModel.session.title}">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -69,7 +65,7 @@
                         android:layout_alignStart="@id/img_cover"
                         android:layout_alignTop="@id/img_cover"
                         android:fitsSystemWindows="true"
-                        app:coverFadeBackground="@{session.category}" />
+                        app:coverFadeBackground="@{viewModel.session.category}" />
 
                 </RelativeLayout>
 
@@ -109,7 +105,7 @@
                     android:padding="@dimen/spacing"
                     android:textColor="@color/grey500"
                     android:textSize="@dimen/text"
-                    app:sessionDetailTimeRange="@{session}" />
+                    app:sessionDetailTimeRange="@{viewModel.session}" />
 
                 <org.apmem.tools.layouts.FlowLayout
                     android:id="@+id/tag_container"
@@ -129,7 +125,7 @@
                         android:layout_marginRight="@dimen/spacing_small"
                         android:layout_marginTop="@dimen/spacing_xsmall"
                         android:background="@drawable/tag_language"
-                        android:text="@{session.place.name}" />
+                        android:text="@{viewModel.session.place.name}" />
 
                     <io.github.droidkaigi.confsched.widget.CategoryView
                         android:id="@+id/txt_category"
@@ -137,7 +133,7 @@
                         android:layout_marginEnd="@dimen/spacing_small"
                         android:layout_marginRight="@dimen/spacing_small"
                         android:layout_marginTop="@dimen/spacing_xsmall"
-                        app:category="@{session.category}" />
+                        app:category="@{viewModel.session.category}" />
 
                     <TextView
                         android:id="@+id/txt_language"
@@ -146,7 +142,7 @@
                         android:layout_marginRight="@dimen/spacing_small"
                         android:layout_marginTop="@dimen/spacing_xsmall"
                         android:background="@drawable/tag_language"
-                        android:text="@{session.getLanguageResId()}"
+                        android:text="@{viewModel.session.getLanguageResId()}"
                         android:textColor="@color/grey600" />
 
                 </org.apmem.tools.layouts.FlowLayout>
@@ -167,7 +163,7 @@
                         style="@style/SessionDetailTitle"
                         android:layout_marginTop="@dimen/spacing_small"
                         android:text="@string/speaker"
-                        app:categoryVividColor="@{session.category}" />
+                        app:categoryVividColor="@{viewModel.session.category}" />
 
                     <ImageView
                         android:id="@+id/img_speaker"
@@ -177,7 +173,7 @@
                         android:layout_marginTop="@dimen/spacing"
                         android:contentDescription="@string/speaker"
                         app:speakerImageSize="@{@dimen/user_image_large}"
-                        app:speakerImageUrl="@{session.speaker.imageUrl}" />
+                        app:speakerImageUrl="@{viewModel.session.speaker.imageUrl}" />
 
                     <TextView
                         android:id="@+id/txt_speaker_name"
@@ -193,7 +189,7 @@
                         android:layout_toRightOf="@id/img_speaker"
                         android:layout_toStartOf="@+id/speaker_sns_icons"
                         android:gravity="center_vertical"
-                        app:textRtlConsidered="@{session.speaker.name}" />
+                        app:textRtlConsidered="@{viewModel.session.speaker.name}" />
 
                     <io.github.droidkaigi.confsched.widget.SpeakerSnsIconsView
                         android:id="@+id/speaker_sns_icons"
@@ -209,7 +205,7 @@
                         android:layout_marginRight="@dimen/spacing_small_negative"
                         android:layout_marginStart="@dimen/spacing"
                         android:gravity="center_vertical"
-                        app:speakerSnsIcons="@{session.speaker}" />
+                        app:speakerSnsIcons="@{viewModel.session.speaker}" />
 
                 </RelativeLayout>
 
@@ -222,8 +218,8 @@
                     android:paddingRight="@dimen/spacing"
                     android:paddingStart="@dimen/spacing"
                     android:text="@string/slide_and_video"
-                    android:visibility="@{session.hasSlide() ? View.VISIBLE : View.GONE}"
-                    app:categoryVividColor="@{session.category}" />
+                    android:visibility="@{viewModel.session.hasSlide() ? View.VISIBLE : View.GONE}"
+                    app:categoryVividColor="@{viewModel.session.category}" />
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -236,7 +232,7 @@
                         android:contentDescription="@string/slide_and_video"
                         android:onClick="@{viewModel.onClickSlideIcon}"
                         android:padding="@dimen/spacing"
-                        android:visibility="@{session.hasSlide() ? View.VISIBLE : View.GONE}"
+                        android:visibility="@{viewModel.session.hasSlide() ? View.VISIBLE : View.GONE}"
                         app:srcCompat="@drawable/ic_note_black_24dp_vector" />
 
                     <ImageView
@@ -248,7 +244,7 @@
                         android:contentDescription="@string/slide_and_video"
                         android:onClick="@{viewModel.onClickMovieIcon}"
                         android:padding="@dimen/spacing"
-                        android:visibility="@{session.hasDashVideo() ? View.VISIBLE : View.GONE}"
+                        android:visibility="@{viewModel.session.hasDashVideo() ? View.VISIBLE : View.GONE}"
                         app:srcCompat="@drawable/ic_theaters_black_24dp_vector" />
 
                 </RelativeLayout>
@@ -262,7 +258,7 @@
                     android:paddingRight="@dimen/spacing"
                     android:paddingStart="@dimen/spacing"
                     android:text="@string/description"
-                    app:categoryVividColor="@{session.category}" />
+                    app:categoryVividColor="@{viewModel.session.category}" />
 
                 <TextView
                     android:id="@+id/txt_description"
@@ -273,7 +269,7 @@
                     android:textColor="@color/grey600"
                     android:textIsSelectable="true"
                     android:textSize="@dimen/text"
-                    app:sessionDescription="@{session}" />
+                    app:sessionDescription="@{viewModel.session}" />
 
                 <View
                     style="@style/Border"
@@ -291,7 +287,7 @@
                     android:text="@string/send_feedback"
                     android:textColor="@color/grey600"
                     android:textSize="@dimen/text_xlarge"
-                    app:categoryVividColor="@{session.category}" />
+                    app:categoryVividColor="@{viewModel.session.category}" />
 
             </LinearLayout>
 
@@ -307,7 +303,7 @@
             app:fabSize="mini"
             app:layout_anchor="@+id/app_bar"
             app:layout_anchorGravity="bottom|right|end"
-            app:sessionFab="@{session}"
+            app:sessionFab="@{viewModel.session}"
             app:theme="@style/FabTheme" />
 
     </android.support.design.widget.CoordinatorLayout>
