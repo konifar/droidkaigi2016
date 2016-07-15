@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 
 import javax.inject.Inject;
 
@@ -61,7 +62,9 @@ public class PageNavigator {
         activity.startActivity(intent);
     }
 
-    public void showShareChooser(@NonNull String url) {
+    public void showShareChooser(String url) {
+        if (TextUtils.isEmpty(url)) return;
+
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT, url + " " + HASH_TAG);

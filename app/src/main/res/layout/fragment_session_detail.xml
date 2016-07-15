@@ -299,6 +299,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
+            android:onClick="@{viewModel.onClickFab}"
             android:src="@drawable/fab_icon"
             app:fabSize="mini"
             app:layout_anchor="@+id/app_bar"

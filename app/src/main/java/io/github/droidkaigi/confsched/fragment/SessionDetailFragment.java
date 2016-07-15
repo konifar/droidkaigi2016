@@ -10,7 +10,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,20 +22,23 @@ import org.parceler.Parcels;
 import javax.inject.Inject;
 
 import io.github.droidkaigi.confsched.R;
-import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSessionDetailBinding;
 import io.github.droidkaigi.confsched.model.Session;
-import io.github.droidkaigi.confsched.util.AlarmUtil;
 import io.github.droidkaigi.confsched.util.AppUtil;
-import io.github.droidkaigi.confsched.util.IntentUtil;
 import io.github.droidkaigi.confsched.viewmodel.SessionDetailViewModel;
+import io.github.droidkaigi.confsched.viewmodel.event.EventBus;
+import io.github.droidkaigi.confsched.viewmodel.event.SessionSelectedChangedEvent;
+import rx.Subscription;
+import rx.subscriptions.CompositeSubscription;
 
 public class SessionDetailFragment extends BaseFragment {
 
     @Inject
-    SessionDao dao;
-    @Inject
     SessionDetailViewModel viewModel;
+    @Inject
+    EventBus eventBus;
+    @Inject
+    CompositeSubscription compositeSubscription;
 
     private FragmentSessionDetailBinding binding;
     private Session session;
@@ -62,16 +64,30 @@ public class SessionDetailFragment extends BaseFragment {
         AppUtil.setTaskDescription(activity, session.title, ContextCompat.getColor(activity, session.category.getVividColorResId()));
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        Subscription sub = eventBus.observe(SessionSelectedChangedEvent.class)
+                .subscribe(event -> setResult(event.session));
+        compositeSubscription.add(sub);
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentSessionDetailBinding.inflate(inflater, container, false);
-        viewModel.setSession(session);
+        viewModel.session = session;
         binding.setViewModel(viewModel);
         setHasOptionsMenu(true);
         initToolbar();
-        initLayout();
         return binding.getRoot();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        compositeSubscription.unsubscribe();
+        viewModel.destroy();
     }
 
     @Override
@@ -82,7 +98,7 @@ public class SessionDetailFragment extends BaseFragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
-        if (session != null && !TextUtils.isEmpty(session.shareUrl)) {
+        if (viewModel.shouldShowShareMenuItem()) {
             menuInflater.inflate(R.menu.menu_session_detail, menu);
         }
     }
@@ -91,9 +107,7 @@ public class SessionDetailFragment extends BaseFragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item_share:
-                if (!TextUtils.isEmpty(session.shareUrl)) {
-                    IntentUtil.share(getContext(), session.shareUrl);
-                }
+                viewModel.onClickShareMenuItem();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -111,18 +125,7 @@ public class SessionDetailFragment extends BaseFragment {
         }
     }
 
-    private void initLayout() {
-        binding.fab.setOnClickListener(v -> {
-            boolean checked = !binding.fab.isSelected();
-            binding.fab.setSelected(checked);
-            session.checked = checked;
-            dao.updateChecked(session);
-            setResult();
-            AlarmUtil.handleSessionAlarm(getActivity(), session);
-        });
-    }
-
-    private void setResult() {
+    private void setResult(Session session) {
         Intent intent = new Intent();
         intent.putExtra(Session.class.getSimpleName(), Parcels.wrap(session));
         getActivity().setResult(Activity.RESULT_OK, intent);
