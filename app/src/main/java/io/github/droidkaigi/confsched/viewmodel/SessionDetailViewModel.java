@@ -83,12 +83,10 @@ public class SessionDetailViewModel extends BaseObservable implements ViewModel 
         }
     }
 
-    public void onClickFab(View fab) {
-        boolean checked = !fab.isSelected();
-        fab.setSelected(checked);
-        session.checked = checked;
+    public void onClickFab(@SuppressWarnings("unused") View view) {
+        session.checked = !session.checked;
+        notifyPropertyChanged(BR.session);
         dao.updateChecked(session);
-        // TODO This is not smart way. I want to solve by using two way binding.
         eventBus.post(new SessionSelectedChangedEvent(session));
         AlarmUtil.handleSessionAlarm(context, session);
     }

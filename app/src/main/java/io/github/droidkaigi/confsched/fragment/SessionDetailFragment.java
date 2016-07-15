@@ -2,7 +2,6 @@ package io.github.droidkaigi.confsched.fragment;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -23,25 +22,17 @@ import javax.inject.Inject;
 
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.databinding.FragmentSessionDetailBinding;
+import io.github.droidkaigi.confsched.model.Category;
 import io.github.droidkaigi.confsched.model.Session;
 import io.github.droidkaigi.confsched.util.AppUtil;
 import io.github.droidkaigi.confsched.viewmodel.SessionDetailViewModel;
-import io.github.droidkaigi.confsched.viewmodel.event.EventBus;
-import io.github.droidkaigi.confsched.viewmodel.event.SessionSelectedChangedEvent;
-import rx.Subscription;
-import rx.subscriptions.CompositeSubscription;
 
 public class SessionDetailFragment extends BaseFragment {
 
     @Inject
     SessionDetailViewModel viewModel;
-    @Inject
-    EventBus eventBus;
-    @Inject
-    CompositeSubscription compositeSubscription;
 
     private FragmentSessionDetailBinding binding;
-    private Session session;
 
     public static SessionDetailFragment create(@NonNull Session session) {
         SessionDetailFragment fragment = new SessionDetailFragment();
@@ -54,29 +45,25 @@ public class SessionDetailFragment extends BaseFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        session = Parcels.unwrap(getArguments().getParcelable(Session.class.getSimpleName()));
+        Session session = Parcels.unwrap(getArguments().getParcelable(Session.class.getSimpleName()));
+        viewModel.setSession(session);
+
         Activity activity = getActivity();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            // Change theme by category
-            activity.setTheme(session.category.getThemeResId());
+        Category category = viewModel.session.category;
+        if (category != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                // Change theme by category
+                activity.setTheme(category.getThemeResId());
+            }
+            AppUtil.setTaskDescription(activity, session.title, ContextCompat.getColor(activity, category.getVividColorResId()));
         }
-        AppUtil.setTaskDescription(activity, session.title, ContextCompat.getColor(activity, session.category.getVividColorResId()));
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Subscription sub = eventBus.observe(SessionSelectedChangedEvent.class)
-                .subscribe(event -> setResult(event.session));
-        compositeSubscription.add(sub);
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentSessionDetailBinding.inflate(inflater, container, false);
-        viewModel.setSession(session);
         binding.setViewModel(viewModel);
         setHasOptionsMenu(true);
         initToolbar();
@@ -86,7 +73,6 @@ public class SessionDetailFragment extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        compositeSubscription.unsubscribe();
         viewModel.destroy();
     }
 
@@ -123,12 +109,6 @@ public class SessionDetailFragment extends BaseFragment {
             bar.setDisplayShowTitleEnabled(false);
             bar.setHomeButtonEnabled(true);
         }
-    }
-
-    private void setResult(Session session) {
-        Intent intent = new Intent();
-        intent.putExtra(Session.class.getSimpleName(), Parcels.wrap(session));
-        getActivity().setResult(Activity.RESULT_OK, intent);
     }
 
 }
