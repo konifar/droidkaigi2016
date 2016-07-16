@@ -61,9 +61,7 @@ public class SessionDetailViewModel extends BaseObservable implements ViewModel 
     }
 
     public void onClickShareMenuItem() {
-        if (shouldShowShareMenuItem()) {
-            navigator.showShareChooser(session.shareUrl);
-        }
+        navigator.showShareChooser(session.shareUrl);
     }
 
     public void onClickFeedbackButton(@SuppressWarnings("unused") View view) {
@@ -104,7 +102,7 @@ public class SessionDetailViewModel extends BaseObservable implements ViewModel 
     public int fabRippleColor() {
         int colorResId = session.category != null
                 ? session.category.getPaleColorResId()
-                : R.color.accent100;
+                : R.color.indigo500_alpha_54;
         return ContextCompat.getColor(context, colorResId);
     }
 
