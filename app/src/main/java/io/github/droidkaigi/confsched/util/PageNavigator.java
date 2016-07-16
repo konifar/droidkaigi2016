@@ -33,12 +33,9 @@ public class PageNavigator {
         this.activity = activity;
     }
 
-    public void showSessionDetail(@NonNull Activity activity, @NonNull Session session, int requestCode) {
-        SessionDetailActivity.startForResult(activity, session, requestCode);
-    }
-
-    public void showSessionDetail(@NonNull Fragment fragment, @NonNull Session session, int requestCode) {
-        SessionDetailActivity.startForResult(fragment, session, requestCode);
+    public void showSessionDetail(@NonNull Session session) {
+        Intent intent = SessionDetailActivity.createIntent(activity, session);
+        activity.startActivity(intent);
     }
 
     public void showMain(@NonNull Activity activity, boolean shouldRefresh) {

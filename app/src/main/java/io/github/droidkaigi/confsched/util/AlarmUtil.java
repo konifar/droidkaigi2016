@@ -9,48 +9,59 @@ import org.parceler.Parcels;
 
 import java.util.concurrent.TimeUnit;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import io.github.droidkaigi.confsched.model.Session;
 import io.github.droidkaigi.confsched.receiver.SessionScheduleReceiver;
 
+@Singleton
 public class AlarmUtil {
 
     private static final long REMIND_DURATION_MINUTES_FOR_START = TimeUnit.MINUTES.toMillis(5);
 
-    public static void handleSessionAlarm(Context context, Session session) {
+    private Context context;
+
+    @Inject
+    public AlarmUtil(Context context) {
+        this.context = context;
+    }
+
+    public void handleSessionAlarm(Session session) {
         if (session.checked) {
-            registerSessionAlarm(context, session);
+            registerSessionAlarm(session);
         } else {
-            unregisterSessionAlarm(context, session);
+            unregisterSessionAlarm(session);
         }
     }
 
-    public static void registerSessionAlarm(Context context, Session session) {
+    private void registerSessionAlarm(Session session) {
         if (!session.shouldNotify(REMIND_DURATION_MINUTES_FOR_START)) {
             return;
         }
 
-        PendingIntent sender = buildSessionAlarmSender(context, session);
+        PendingIntent sender = buildSessionAlarmSender(session);
 
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
-        long triggerAtMillis = calculateStartNotifyTime(session, context);
+        long triggerAtMillis = calculateStartNotifyTime(session);
         alarmManager.set(AlarmManager.RTC, triggerAtMillis, sender);
     }
 
-    public static void unregisterSessionAlarm(Context context, Session session) {
-        PendingIntent sender = buildSessionAlarmSender(context, session);
+    private void unregisterSessionAlarm(Session session) {
+        PendingIntent sender = buildSessionAlarmSender(session);
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         alarmManager.cancel(sender);
     }
 
-    private static PendingIntent buildSessionAlarmSender(Context context, Session session) {
+    private PendingIntent buildSessionAlarmSender(Session session) {
         Intent intent = new Intent(context, SessionScheduleReceiver.class);
         intent.putExtra(Session.class.getSimpleName(), Parcels.wrap(session));
         return PendingIntent.getBroadcast(context, session.id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
     }
 
-    private static long calculateStartNotifyTime(Session session, Context context) {
+    private long calculateStartNotifyTime(Session session) {
         return session.getDisplaySTime(context).getTime() - REMIND_DURATION_MINUTES_FOR_START;
     }
 }

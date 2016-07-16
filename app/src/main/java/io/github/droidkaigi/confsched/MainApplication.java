@@ -4,7 +4,6 @@ import android.app.Application;
 import android.support.annotation.NonNull;
 
 import com.crashlytics.android.Crashlytics;
-import com.jakewharton.threetenabp.AndroidThreeTen;
 
 import io.fabric.sdk.android.Fabric;
 import io.github.droidkaigi.StethoWrapper;
@@ -33,8 +32,6 @@ public class MainApplication extends Application {
         Fabric.with(this, new Crashlytics());
 
         new StethoWrapper(this).setup();
-
-        AndroidThreeTen.init(this);
 
         LocaleUtil.initLocale(this);
     }

@@ -22,15 +22,19 @@ import java.util.List;
 import javax.inject.Inject;
 
 import io.github.droidkaigi.confsched.R;
-import io.github.droidkaigi.confsched.util.PageNavigator;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSessionsTabBinding;
 import io.github.droidkaigi.confsched.databinding.ItemSessionBinding;
 import io.github.droidkaigi.confsched.model.Session;
 import io.github.droidkaigi.confsched.util.AlarmUtil;
+import io.github.droidkaigi.confsched.util.PageNavigator;
+import io.github.droidkaigi.confsched.viewmodel.event.EventBus;
+import io.github.droidkaigi.confsched.viewmodel.event.SessionSelectedChangedEvent;
 import io.github.droidkaigi.confsched.widget.ArrayRecyclerAdapter;
 import io.github.droidkaigi.confsched.widget.BindingHolder;
 import io.github.droidkaigi.confsched.widget.itemdecoration.SpaceItemDecoration;
+import rx.Subscription;
+import rx.subscriptions.CompositeSubscription;
 
 public class SessionsTabFragment extends BaseFragment {
 
@@ -41,6 +45,12 @@ public class SessionsTabFragment extends BaseFragment {
     SessionDao dao;
     @Inject
     PageNavigator navigator;
+    @Inject
+    EventBus eventBus;
+    @Inject
+    AlarmUtil alermUtil;
+    @Inject
+    CompositeSubscription compositeSubscription;
 
     private SessionsAdapter adapter;
     private FragmentSessionsTabBinding binding;
@@ -62,6 +72,16 @@ public class SessionsTabFragment extends BaseFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         sessions = Parcels.unwrap(getArguments().getParcelable(ARG_SESSIONS));
+
+        Subscription sub = eventBus.observe(SessionSelectedChangedEvent.class)
+                .subscribe(event -> refreshSession(event.session));
+        compositeSubscription.add(sub);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        compositeSubscription.unsubscribe();
     }
 
     @Override
@@ -109,6 +129,11 @@ public class SessionsTabFragment extends BaseFragment {
                 }
                 break;
         }
+    }
+
+    private void refreshSession(Session session) {
+        adapter.refresh(session);
+        onChangeSessionListener.onChangeSession(Collections.singletonList(session));
     }
 
     public void scrollUpToTop() {
@@ -170,13 +195,12 @@ public class SessionsTabFragment extends BaseFragment {
                 }
             });
 
-            binding.cardView.setOnClickListener(v ->
-                    navigator.showSessionDetail(SessionsTabFragment.this, session, REQ_DETAIL));
+            binding.cardView.setOnClickListener(v -> navigator.showSessionDetail(session));
         }
 
         protected void onLikeChanged(@NonNull Session session, int position) {
             dao.updateChecked(session);
-            AlarmUtil.handleSessionAlarm(getContext(), session);
+            alermUtil.handleSessionAlarm(session);
             onChangeSessionListener.onChangeSession(Collections.singletonList(session));
         }
     }

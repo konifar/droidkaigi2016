@@ -43,10 +43,14 @@ import io.github.droidkaigi.confsched.model.Session;
 import io.github.droidkaigi.confsched.util.AnalyticsTracker;
 import io.github.droidkaigi.confsched.util.LocaleUtil;
 import io.github.droidkaigi.confsched.util.PageNavigator;
+import io.github.droidkaigi.confsched.viewmodel.event.EventBus;
+import io.github.droidkaigi.confsched.viewmodel.event.SessionSelectedChangedEvent;
 import io.github.droidkaigi.confsched.widget.ArrayRecyclerAdapter;
 import io.github.droidkaigi.confsched.widget.BindingHolder;
 import io.github.droidkaigi.confsched.widget.itemdecoration.DividerItemDecoration;
 import rx.Observable;
+import rx.Subscription;
+import rx.subscriptions.CompositeSubscription;
 
 public class SearchActivity extends BaseActivity implements TextWatcher {
 
@@ -65,6 +69,10 @@ public class SearchActivity extends BaseActivity implements TextWatcher {
     PlaceDao placeDao;
     @Inject
     CategoryDao categoryDao;
+    @Inject
+    EventBus eventBus;
+    @Inject
+    CompositeSubscription compositeSubscription;
 
     List<Session> statusChangedSessions = new ArrayList<>();
 
@@ -88,6 +96,16 @@ public class SearchActivity extends BaseActivity implements TextWatcher {
         initPlacesAndCategoriesView();
 
         loadData();
+
+        Subscription sub = eventBus.observe(SessionSelectedChangedEvent.class)
+                .subscribe(event -> statusChangedSessions.add(event.session));
+        compositeSubscription.add(sub);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        compositeSubscription.unsubscribe();
     }
 
     @Override
@@ -206,14 +224,6 @@ public class SearchActivity extends BaseActivity implements TextWatcher {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
-            case REQ_DETAIL: {
-                if (resultCode != Activity.RESULT_OK) {
-                    return;
-                }
-                Session session = Parcels.unwrap(data.getParcelableExtra(Session.class.getSimpleName()));
-                statusChangedSessions.add(session);
-                break;
-            }
             case REQ_SEARCH_PLACES_AND_CATEGORIES_VIEW: {
                 if (resultCode != Activity.RESULT_OK) {
                     return;
@@ -268,8 +278,7 @@ public class SearchActivity extends BaseActivity implements TextWatcher {
 
             bindText(itemBinding.txtSearchResult, searchResult, binding.searchToolbar.getText());
 
-            itemBinding.getRoot().setOnClickListener(v ->
-                    navigator.showSessionDetail(SearchActivity.this, searchResult.session, REQ_DETAIL));
+            itemBinding.getRoot().setOnClickListener(v -> navigator.showSessionDetail(searchResult.session));
         }
 
         private void bindText(TextView textView, SearchResult searchResult, String searchText) {
