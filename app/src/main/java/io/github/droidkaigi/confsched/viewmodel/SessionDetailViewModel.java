@@ -2,6 +2,7 @@ package io.github.droidkaigi.confsched.viewmodel;
 
 import android.content.Context;
 import android.databinding.BindingAdapter;
+import android.databinding.ObservableField;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
@@ -30,6 +31,8 @@ public class SessionDetailViewModel implements ViewModel {
     private final PageNavigator navigator;
     private final SessionDao dao;
     private final EventBus eventBus;
+
+    public final ObservableField<Session> observableSession = new ObservableField<>();
 
     public Session session;
 
@@ -78,10 +81,11 @@ public class SessionDetailViewModel implements ViewModel {
     public void onClickFab(View fab) {
         boolean checked = !fab.isSelected();
         fab.setSelected(checked);
+
+        session = new Session(session); // create new instance for raise notifyPropertyChanged
         session.checked = checked;
         dao.updateChecked(session);
-        // TODO This is not smart way. I want to solve by using two way binding.
-        eventBus.post(new SessionSelectedChangedEvent(session));
+        observableSession.set(session);
         AlarmUtil.handleSessionAlarm(context, session);
     }
 

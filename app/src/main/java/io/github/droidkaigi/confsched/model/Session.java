@@ -85,6 +85,27 @@ public class Session {
     public Session() {
     }
 
+    /***
+     * The copy constructor
+     * @param session copy from
+     */
+    public Session(Session session) {
+        id = session.id;
+        title = session.title;
+        description = session.description;
+        speaker = session.speaker;
+        stime = session.stime;
+        etime = session.etime;
+        category = session.category;
+        place = session.place;
+        languageId = session.languageId;
+        slideUrl = session.slideUrl;
+        movieUrl = session.movieUrl;
+        movieDashUrl = session.movieDashUrl;
+        shareUrl = session.shareUrl;
+        checked = session.checked;
+    }
+
     public Date getDisplaySTime(Context context) {
         return LocaleUtil.getDisplayDate(stime, context);
     }
