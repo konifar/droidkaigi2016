@@ -1,0 +1,136 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="tag_line">Android 엔지니어가 주역 컨퍼런스</string>
+    <string name="session_detail">세션 세부 정보</string>
+
+    <string name="open">필</string>
+    <string name="close">닫기</string>
+    <string name="ok">좋아요</string>
+    <string name="cancel">좋아요</string>
+    <string name="share">공유</string>
+
+    <string name="speaker">스피커</string>
+    <string name="session_time_range">%1$s 〜 %2$s（%3$s분）</string>
+
+    <string name="title">제목</string>
+    <string name="description">자세한</string>
+    <string name="slide_and_video">슬라이드</string>
+
+    <string name="search_by_category">카테고리에서 찾기</string>
+    <string name="search_by_place">위치에서 검색</string>
+
+    <string name="icon">아이콘</string>
+
+    <string name="send_feedback">의견 쓰기</string>
+
+    <string name="all_sessions">모든 세션</string>
+    <string name="my_schedule">내 일정</string>
+    <string name="map">지도</string>
+    <string name="settings">설정</string>
+    <string name="sponsors">스폰서</string>
+    <string name="about">자세한</string>
+    <string name="search">검색</string>
+
+    <string name="sessions_network_error">세션로드에 실패했습니다. 잠시 시간을두고 나서보십시오.</string>
+
+    <string name="map_main_name">접수 · 기조 강연 회장</string>
+    <string name="map_main_building">70 주년 기념 강당</string>
+    <string name="map_ab_name">A · B 회장</string>
+    <string name="map_ab_building">남 2 호관</string>
+    <string name="map_cd_name">C · D 회장</string>
+    <string name="map_cd_building">남쪽 4 호관</string>
+    <string name="map_party_name">친목회 회장</string>
+    <string name="map_party_building">공대 쿠라마 회관 (구 라마 홀)</string>
+    <string name="map_address">도쿄 공업 대학 오 오카야마 캠퍼스\n도쿄도 메 구로구 오 오카야마2&#8211;12&#8211;1</string>
+    <string name="map_fine_location_denied">위치를 파악하기 위해 권한을 부여하십시오.</string>
+    <string name="map_fine_location_never_askagain">이 기능이 필요한 경우 설정 화면에서 권한을 다시 부여합니다.</string>
+    <string name="map_fine_location_rationale">현재 위치를 표시하기 위해 위치 정보 권한이 필요합니다.</string>
+    <string name="map_button_allow">허가</string>
+    <string name="map_button_deny">거부</string>
+
+    <string name="lang_ar">@string/lang_ar_in_ko</string>
+    <string name="lang_en">@string/lang_en_in_ko</string>
+    <string name="lang_ja">@string/lang_ja_in_ko</string>
+    <string name="lang_ko">@string/lang_ko_in_ko</string>
+
+    <string name="settings_language">언어 설정</string>
+    <string name="settings_language_description">표시 언어를 변경할 수 있습니다. 변경 후에는 응용 프로그램이 다시 시작됩니다.</string>
+    <string name="settings_notification_group">통지</string>
+    <string name="settings_notification">알림 설정</string>
+    <string name="settings_notification_description">통지를 받을지 여부를 설정할 수 있습니다.</string>
+    <string name="settings_heads_up_notification">헤드 업 통지</string>
+    <string name="settings_heads_up_notification_description">헤드 업 알림을 사용할지 여부를 설정할 수 있습니다.</string>
+    <string name="settings_local_time">현지 시간을 표시</string>
+    <string name="settings_local_time_description">체크하면 세션의 시간은 당신의 장치에 설정된 현지 시간으로 표시됩니다.</string>
+
+    <string name="sponsor_category_platinum">플래티넘 스폰서</string>
+    <string name="sponsor_category_video">비디오 스폰서</string>
+    <string name="sponsor_category_food">푸드 스폰서</string>
+    <string name="sponsor_category_normal">서포터즈</string>
+
+    <string name="about_conference">DroidKaigi 대해</string>
+    <string name="about_conference_descriptions">DroidKaigi는 엔지니어가 주역의 Android 컨퍼런스입니다. 이번 회기를 이틀 동안 국내외 엔지니어의 세션을 예정하고 있습니다.\n\n회기 중 세션 (여러 룸) 이외에도 협찬 기업의 각종 출전 수 있습니다.\n\nAndroid의 활용도는 다양 혼자는 너무 커버 다 할 수 없습니다. 컨퍼런스를 통해 업계 전반에 걸쳐 지식을 공유하고 더 나은 소프트웨어 개발에 연결해 보겠습니다.</string>
+    <string name="about_rep">대표자：%1$s</string>
+    <string name="about_social">소셜</string>
+    <string name="about_license">라이센스</string>
+    <string name="about_youtube">YouTube 공식 채널</string>
+    <string name="about_github_repository">GitHub 저장소</string>
+    <string name="about_contributors">멋진 개발자 목록</string>
+    <string name="about_questionnaire">설문</string>
+    <string name="about_version_prefix">V%1$s</string>
+
+    <string name="contributors_load_error">개발자 목록을 가져 오는 데 실패했습니다.</string>
+
+    <plurals name="number_with_brackets">
+        <item quantity="other"> (%1$d명)</item>
+    </plurals>
+
+    <string name="search_hint">키워드로 검색</string>
+
+    <string name="my_schedule_empty">아직 세션이 추가되지 않습니다. 모든 세션에서 듣고 싶은 세션을 선택하자!</string>
+    <string name="my_schedule_go_to_session_list">모든 세션을 볼</string>
+    <string name="my_schedule_conflicted">경쟁하고 있습니다</string>
+
+    <plurals name="schedule_notification_title">
+        <item quantity="other">시작 %1$d 분 전입니다</item>
+    </plurals>
+
+    <string name="session_feedback_accepted_successfully">감사합니다! 의견 전송되었습니다.</string>
+    <string name="session_feedback_below_expectation">실망</string>
+    <string name="session_feedback_beyond_expectation">기대 이상</string>
+    <string name="session_feedback_difficulty">세션의 난이도는 어땠습니까?</string>
+    <string name="session_feedback_easy">기본적으로 너무</string>
+    <string name="session_feedback_expectation_label_text">세션의 설명을 읽고 기대 한대로의 내용 이었습니까?</string>
+    <string name="session_feedback_extremely_relevant">매우 관련이있다</string>
+    <string name="session_feedback_hard">고급 너무</string>
+    <string name="session_feedback_knowledgeable">기술적 인 연구 결과는 얻은 것입니까?</string>
+    <string name="session_feedback_not_accepting">죄송합니다. DroidKaigi 종료 후 날짜가 지나고 있기 때문에 현재는 피드백을 보낼 수 없습니다.</string>
+    <string name="session_feedback_not_at_all_relevant">거의 관련이 없다</string>
+    <string name="session_feedback_other">다른 의견이 있으시면 꼭 가르쳐주세요 (개인이 특정 할 수있는 내용은 쓰지 말아주세요)</string>
+    <string name="session_feedback_other_hint">댓글 쓰기</string>
+    <string name="session_feedback_outstanding_knowledge">연구 결과에 넘쳤다</string>
+    <string name="session_feedback_poor_knowledge">별로 연구 결과는 없었다</string>
+    <string name="session_feedback_relevance">이 세션은 당신의 일이나 프로젝트에 관련이 있었습니까?</string>
+    <string name="session_feedback_submit_error">보내는 동안 오류가 발생했습니다. 네트워크 상태를 확인하고 다시 시도하십시오.</string>
+    <string name="session_feedback_submit_failure">전송에 실패했습니다.</string>
+    <string name="session_feedback_submit_success">전송했습니다.</string>
+    <string name="session_feedback_submit_link">의견을 보내</string>
+
+    <!-- VIDEO FIXME: translation please! -->
+    <string name="video">Video</string>
+    <string name="video_audio">Audio</string>
+    <string name="video_text">Text</string>
+    <string name="video_logging">Logging</string>
+    <string name="video_retry">Retry</string>
+    <string name="video_error_drm_not_supported">Protected content not supported on API levels below 18</string>
+    <string name="video_error_drm_unsupported_scheme">This device does not support the required DRM scheme</string>
+    <string name="video_error_drm_unknown">An unknown DRM error occurred</string>
+    <string name="video_error_no_decoder">This device does not provide a decoder for <xliff:g id="mime_type">%1$s</xliff:g></string>
+    <string name="video_error_no_secure_decoder">This device does not provide a secure decoder for <xliff:g id="mime_type">%1$s</xliff:g></string>
+    <string name="video_error_querying_decoders">Unable to query device decoders</string>
+    <string name="video_error_instantiating_decoder">Unable to instantiate decoder <xliff:g id="decoder_name">%1$s</xliff:g></string>
+    <string name="video_storage_permission_denied">Permission to access storage was denied</string>
+    <string name="video_enable_background_audio">Play in background</string>
+    <string name="video_logging_normal">Normal</string>
+    <string name="video_logging_verbose">Verbose</string>
+    <string name="video_off">[off]</string>
+</resources>

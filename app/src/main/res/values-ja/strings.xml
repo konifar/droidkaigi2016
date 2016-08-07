@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="tag_line">Androidエンジニアが主役のカンファレンス</string>
     <string name="session_detail">セッション詳細</string>
 
@@ -6,7 +6,6 @@
     <string name="close">とじる</string>
     <string name="ok">OK</string>
     <string name="cancel">キャンセル</string>
-    <string name="yes">はい</string>
     <string name="share">シェア</string>
 
     <string name="speaker">スピーカー</string>
@@ -14,6 +13,7 @@
 
     <string name="title">タイトル</string>
     <string name="description">詳細</string>
+    <string name="slide_and_video">スライド</string>
 
     <string name="search_by_category">カテゴリから探す</string>
     <string name="search_by_place">場所から探す</string>
@@ -50,6 +50,7 @@
     <string name="lang_ar">@string/lang_ar_in_ja</string>
     <string name="lang_en">@string/lang_en_in_ja</string>
     <string name="lang_ja">@string/lang_ja_in_ja</string>
+    <string name="lang_ko">@string/lang_ko_in_ja</string>
 
     <string name="settings_language">言語を設定</string>
     <string name="settings_language_description">表示言語を変更できます。変更後はアプリが再起動されます。</string>
@@ -70,7 +71,6 @@
     <string name="about_conference_descriptions">DroidKaigiはエンジニアが主役のAndroidカンファレンスです。今回は会期を2日間、国内外のエンジニアによるセッションを予定しています。\n\n会期中は、セッション（複数ルーム）以外にも協賛企業の各種出展があります。\n\nAndroidの利用シーンは多岐に渡り、一人ではとてもカバーしきれません。カンファレンスを通して業界全体で知見を共有し、より良いソフトウェア開発に繋げていきましょう。</string>
     <string name="about_rep">代表者：%1$s</string>
     <string name="about_social">ソーシャル</string>
-    <string name="about_terms">利用規約</string>
     <string name="about_license">ライセンス</string>
     <string name="about_youtube">YouTube 公式チャンネル</string>
     <string name="about_github_repository">GitHubリポジトリ</string>
@@ -115,4 +115,22 @@
     <string name="session_feedback_submit_success">送信しました。</string>
     <string name="session_feedback_submit_link">フィードバックを送信</string>
 
+    <!-- VIDEO FIXME: translation please! -->
+    <string name="video">Video</string>
+    <string name="video_audio">Audio</string>
+    <string name="video_text">Text</string>
+    <string name="video_logging">Logging</string>
+    <string name="video_retry">Retry</string>
+    <string name="video_error_drm_not_supported">Protected content not supported on API levels below 18</string>
+    <string name="video_error_drm_unsupported_scheme">This device does not support the required DRM scheme</string>
+    <string name="video_error_drm_unknown">An unknown DRM error occurred</string>
+    <string name="video_error_no_decoder">This device does not provide a decoder for <xliff:g id="mime_type">%1$s</xliff:g></string>
+    <string name="video_error_no_secure_decoder">This device does not provide a secure decoder for <xliff:g id="mime_type">%1$s</xliff:g></string>
+    <string name="video_error_querying_decoders">Unable to query device decoders</string>
+    <string name="video_error_instantiating_decoder">Unable to instantiate decoder <xliff:g id="decoder_name">%1$s</xliff:g></string>
+    <string name="video_storage_permission_denied">Permission to access storage was denied</string>
+    <string name="video_enable_background_audio">Play in background</string>
+    <string name="video_logging_normal">Normal</string>
+    <string name="video_logging_verbose">Verbose</string>
+    <string name="video_off">[off]</string>
 </resources>

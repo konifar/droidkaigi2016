@@ -66,6 +66,10 @@ public enum Page {
 
     public static Page forMenuId(MenuItem item) {
         int id = item.getItemId();
+        return forMenuId(id);
+    }
+
+    public static Page forMenuId(int id) {
         for (Page page : values()) {
             if (page.menuId == id) {
                 return page;

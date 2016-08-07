@@ -11,7 +11,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.Editable;
 import android.text.Spannable;
@@ -19,9 +18,12 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.style.TextAppearanceSpan;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
@@ -33,7 +35,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.dao.CategoryDao;
 import io.github.droidkaigi.confsched.dao.PlaceDao;
@@ -49,7 +50,8 @@ import io.github.droidkaigi.confsched.widget.BindingHolder;
 import io.github.droidkaigi.confsched.widget.itemdecoration.DividerItemDecoration;
 import rx.Observable;
 
-public class SearchActivity extends AppCompatActivity implements TextWatcher {
+public class SearchActivity extends BaseActivity implements TextWatcher,
+        TextView.OnEditorActionListener {
 
     public static final String RESULT_STATUS_CHANGED_SESSIONS = "statusChangedSessions";
     private static final int REQ_DETAIL = 1;
@@ -82,7 +84,7 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_search);
-        MainApplication.getComponent(this).inject(this);
+        getComponent().inject(this);
 
         initToolbar();
         initRecyclerView();
@@ -129,6 +131,7 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
         }
 
         binding.searchToolbar.addTextChangedListener(this);
+        binding.searchToolbar.setOnEditorActionListener(this);
     }
 
     private void initRecyclerView() {
@@ -201,6 +204,14 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
             binding.searchPlacesAndCategoriesView.setVisibility(View.GONE);
             binding.recyclerView.setVisibility(View.VISIBLE);
         }
+    }
+
+    @Override public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+        if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+        }
+        return false;
     }
 
     @Override

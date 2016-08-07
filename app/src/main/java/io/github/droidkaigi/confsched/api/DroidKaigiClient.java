@@ -72,6 +72,8 @@ public class DroidKaigiClient {
                 return service.getSessionsJa();
             case LocaleUtil.LANG_AR_ID:
                 return service.getSessionsAr();
+            case LocaleUtil.LANG_KO_ID:
+                return service.getSessionsKo();
             case LocaleUtil.LANG_EN_ID:
                 return service.getSessionsEn();
             default:
@@ -94,6 +96,9 @@ public class DroidKaigiClient {
 
         @GET(SESSIONS_API_ROUTES + "sessions_en.json")
         Observable<List<Session>> getSessionsEn();
+
+        @GET(SESSIONS_API_ROUTES + "sessions_ko.json")
+        Observable<List<Session>> getSessionsKo();
 
         @GET(SESSIONS_API_ROUTES + "sessions_ar.json")
         Observable<List<Session>> getSessionsAr();

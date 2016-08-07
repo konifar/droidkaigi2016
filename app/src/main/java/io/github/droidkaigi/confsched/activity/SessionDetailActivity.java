@@ -8,20 +8,18 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import org.parceler.Parcels;
 
 import javax.inject.Inject;
 
-import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.fragment.SessionDetailFragment;
 import io.github.droidkaigi.confsched.model.Session;
 import io.github.droidkaigi.confsched.util.AnalyticsTracker;
 
-public class SessionDetailActivity extends AppCompatActivity {
+public class SessionDetailActivity extends BaseActivity {
 
     @Inject
     AnalyticsTracker analyticsTracker;
@@ -46,7 +44,7 @@ public class SessionDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         DataBindingUtil.setContentView(this, R.layout.activity_session_detail);
-        MainApplication.getComponent(this).inject(this);
+        getComponent().inject(this);
 
         Session session = Parcels.unwrap(getIntent().getParcelableExtra(Session.class.getSimpleName()));
         replaceFragment(SessionDetailFragment.create(session));

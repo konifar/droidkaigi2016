@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
@@ -34,6 +33,7 @@ import java.util.Map;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.databinding.FragmentMapBinding;
 import io.github.droidkaigi.confsched.model.PlaceMap;
+import io.github.droidkaigi.confsched.util.ResourceUtil;
 import permissions.dispatcher.NeedsPermission;
 import permissions.dispatcher.OnNeverAskAgain;
 import permissions.dispatcher.OnPermissionDenied;
@@ -45,7 +45,7 @@ import rx.Observable;
 import static io.github.droidkaigi.confsched.fragment.MapFragmentPermissionsDispatcher.initGoogleMapWithCheck;
 
 @RuntimePermissions
-public class MapFragment extends Fragment {
+public class MapFragment extends BaseFragment {
 
     public static final LatLng LAT_LNG_CENTER = new LatLng(35.604757, 139.683788);
     private static final int DEFAULT_ZOOM = 17;
@@ -90,9 +90,9 @@ public class MapFragment extends Fragment {
         menuInflater.inflate(R.menu.menu_map, menu);
 
         if (binding.mapSearchView.isVisible()) {
-            menu.findItem(R.id.item_search).setIcon(R.drawable.ic_place_white_24dp);
+            menu.findItem(R.id.item_search).setIcon(R.drawable.ic_place_white_24dp_vector);
         } else {
-            menu.findItem(R.id.item_search).setIcon(R.drawable.ic_view_list_white_24dp);
+            menu.findItem(R.id.item_search).setIcon(R.drawable.ic_view_list_white_24dp_vector);
         }
     }
 
@@ -171,7 +171,7 @@ public class MapFragment extends Fragment {
             MarkerOptions options = new MarkerOptions()
                     .position(new LatLng(placeMap.latitude, placeMap.longitude))
                     .title(getString(placeMap.nameRes))
-                    .icon(BitmapDescriptorFactory.fromResource(placeMap.markerRes))
+                    .icon(BitmapDescriptorFactory.fromBitmap(ResourceUtil.getBitmap(getContext(), placeMap.markerRes)))
                     .snippet(getString(placeMap.buildingNameRes));
             Marker marker = googleMap.addMarker(options);
             markers.put(placeMap.nameRes, marker);

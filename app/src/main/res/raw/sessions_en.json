@@ -21,8 +21,9 @@
       "name": "Keynote venue"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://speakerdeck.com/player/b2127cb508e94238b114512447997aeb",
+    "movie_url": "https://www.youtube.com/watch?v=kArtZzDz1xU",
+    "movie_dash_url": "https://manifest.googlevideo.com/api/manifest/dash/initcwndbps/2632500/id/o-AE9RZgFZZANkR7IkphApmRboitWzzC4-tsg9NhuCOb5K/pl/17/source/youtube/mv/m/key/yt6/signature/96E2E5BF1EF5F2E36FE4BF385FBA675121D8A26D.D6B0F02FC33138432A63AE0B0D1AB39DE8D7986B/mm/31/ip/112.138.237.132/mn/sn-8pjuv35p-ogul/ms/au/sver/3/sparams/as%2Chfr%2Cid%2Cinitcwndbps%2Cip%2Cipbits%2Citag%2Cmm%2Cmn%2Cms%2Cmv%2Cpcm2cms%2Cpl%2Cplayback_host%2Crequiressl%2Csource%2Cexpire/itag/0/ipbits/0/as/fmp4_audio_clear%2Cwebm_audio_clear%2Cwebm2_audio_clear%2Cfmp4_sd_hd_clear%2Cwebm2_sd_hd_clear/expire/1468186731/pcm2cms/yes/requiressl/yes/hfr/1/mt/1468164822/upn/dRZOVDIaTsg/playback_host/r3---sn-8pjuv35p-ogul.googlevideo.com/fexp/3300115%2C3300130%2C3300164%2C3313267%2C9406989%2C9416126%2C9416891%2C9422596%2C9428398%2C9431012%2C9433096%2C9433380%2C9433946%2C9435526%2C9435876%2C9437066%2C9437552%2C9439652",
     "share_url": ""
   },
   {
@@ -47,8 +48,8 @@
       "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/Ahb0jhlbUJ8lXU",
+    "movie_url": "https://www.youtube.com/watch?v=_Rp6kNxAHrU",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-11-30-12-00-a"
   },
   {
@@ -73,8 +74,8 @@
       "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/ugJ3ZL8tILVQiu",
+    "movie_url": "https://www.youtube.com/watch?v=6e8EdzmqpOY",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-11-30-12-00-b"
   },
   {
@@ -99,8 +100,8 @@
       "name": "Room C"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "http://www.slideshare.net/koba206/droidkaigi2016-tvandroidtips",
+    "movie_url": "https://www.youtube.com/watch?v=lpjFL6o-Ltw",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-11-30-12-00-c"
   },
   {
@@ -125,8 +126,8 @@
       "name": "Room D"
     },
     "language_id": "en",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://speakerdeck.com/player/a98be0657c764ca592db89a94a81649d",
+    "movie_url": "https://www.youtube.com/watch?v=NqNR3inViNQ",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-11-30-12-00-d"
   },
   {
@@ -151,7 +152,7 @@
       "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/7j1eC1iFXp5VFO",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-13-00-13-50-a"
   },
@@ -177,8 +178,8 @@
       "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/hG84lSXDVf0BC",
+    "movie_url": "https://www.youtube.com/watch?v=bFn8YV74-JU",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-13-00-13-50-b"
   },
   {
@@ -203,8 +204,8 @@
       "name": "Room C"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/avaxsZrDKhAmax",
+    "movie_url": "https://www.youtube.com/watch?v=V7bwZQ6S4VE",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-13-00-13-50-c"
   },
   {
@@ -229,8 +230,8 @@
       "name": "Room D"
     },
     "language_id": "en",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://speakerdeck.com/player/732d71403b174583b831a7615d65eaea",
+    "movie_url": "https://www.youtube.com/watch?v=ssXBBNaGeIU",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-13-00-13-50-d"
   },
   {
@@ -255,8 +256,8 @@
       "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://speakerdeck.com/player/2f64526f0b364719b73c37513aaacecc",
+    "movie_url": "https://www.youtube.com/watch?v=dP1beWS2148",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-14-00-14-50-a"
   },
   {
@@ -281,8 +282,8 @@
       "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/Iave17dGTLRBk9",
+    "movie_url": "https://www.youtube.com/watch?v=dSRlAZp1nsQ",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-14-00-14-50-b"
   },
   {
@@ -307,8 +308,8 @@
       "name": "Room D"
     },
     "language_id": "en",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "http://chiuki.github.io/advanced-android-espresso/#/",
+    "movie_url": "https://www.youtube.com/watch?v=2tkGpKzBtoM",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-14-00-14-50-d"
   },
   {
@@ -333,8 +334,8 @@
       "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/tdrJqeaLBcw5YA",
+    "movie_url": "https://www.youtube.com/watch?v=7fHpErIHEoE",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-10-15-40-a"
   },
   {
@@ -359,8 +360,8 @@
       "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://speakerdeck.com/player/2611fd17c59f428eb491335e34a27cab",
+    "movie_url": "https://www.youtube.com/watch?v=yO5MJIQEvbg",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-10-15-40-b"
   },
   {
@@ -385,8 +386,8 @@
       "name": "Room C"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/8n9D5g4J5Z32TJ",
+    "movie_url": "https://www.youtube.com/watch?v=kevup8HmVtI",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-10-15-40-c"
   },
   {
@@ -411,8 +412,8 @@
       "name": "Room D"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://speakerdeck.com/player/a1a8aa45f862421d931bb766f5858dec",
+    "movie_url": "https://www.youtube.com/watch?v=-se_bY-IPMQ",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-10-15-40-d"
   },
   {
@@ -437,8 +438,8 @@
       "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/lV25KCMJfyOX9m",
+    "movie_url": "https://www.youtube.com/watch?v=lEvDGU73nT8",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-50-16-20-a"
   },
   {
@@ -463,8 +464,8 @@
       "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://speakerdeck.com/player/c58b6a6646054b3d9b8ef814e437659a",
+    "movie_url": "https://www.youtube.com/watch?v=U7dK-qJ1N9I",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-50-16-20-b"
   },
   {
@@ -489,8 +490,8 @@
       "name": "Room D"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/echzTfR6rDwePU",
+    "movie_url": "https://www.youtube.com/watch?v=WMEmprduJrg",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-15-50-16-20-d"
   },
   {
@@ -515,8 +516,8 @@
       "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/2Sq95Uh3Ig3xmW",
+    "movie_url": "https://www.youtube.com/watch?v=wAYDeZUd97w",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-16-30-17-00-a"
   },
   {
@@ -541,8 +542,8 @@
       "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "ttps://speakerdeck.com/konifar/shi-jian-android-studiopuraguinkai-fa",
+    "movie_url": "https://www.youtube.com/watch?v=JfT3c6Ey_z4",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-16-30-17-00-b"
   },
   {
@@ -567,8 +568,8 @@
       "name": "Room D"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/LMpcZGdip7KC5u",
+    "movie_url": "https://www.youtube.com/watch?v=bVxV68lNtn4",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-18-16-30-17-00-d"
   },
   {
@@ -593,8 +594,8 @@
       "name": "Keynote venue"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "http://yaraki.github.io/slides/droidkaigi2016/",
+    "movie_url": "https://www.youtube.com/watch?v=PJSB4xCc3Dg",
     "share_url": ""
   },
   {
@@ -619,8 +620,8 @@
       "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://speakerdeck.com/player/bcf1ec63bc54422ea4795d6cd4ff93de",
+    "movie_url": "https://www.youtube.com/watch?v=dhe7P7QYnRE",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-11-30-12-00-a"
   },
   {
@@ -645,8 +646,8 @@
       "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://speakerdeck.com/player/a0bbeb39b9074cb4a678efdffdfa872c",
+    "movie_url": "https://www.youtube.com/watch?v=v0iFsSARZhY",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-11-30-12-00-b"
   },
   {
@@ -672,7 +673,7 @@
     },
     "language_id": "ja",
     "slide_url": "",
-    "movie_url": "",
+    "movie_url": "https://www.youtube.com/watch?v=cLjbUqmyop0",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-11-30-12-00-c"
   },
   {
@@ -697,8 +698,8 @@
       "name": "Room D"
     },
     "language_id": "en",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/A7pzaPn7U0rgOR",
+    "movie_url": "https://www.youtube.com/watch?v=F6D83onWyaU",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-11-30-12-00-d"
   },
   {
@@ -723,8 +724,8 @@
       "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/pfRLx8bQCqPPxx",
+    "movie_url": "https://www.youtube.com/watch?v=AyF8r0DGqsc",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-13-00-13-50-a"
   },
   {
@@ -749,8 +750,8 @@
       "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://speakerdeck.com/player/b6d9c2bb763f4726b44fd5c85279a5ab",
+    "movie_url": "https://www.youtube.com/watch?v=-IzcFjacK_c",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-13-00-13-50-b"
   },
   {
@@ -775,8 +776,8 @@
       "name": "Room C"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://speakerdeck.com/player/128612dc41bd48798330d6053fbde247",
+    "movie_url": "https://www.youtube.com/watch?v=36I2sEPmCJg",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-13-00-13-50-c"
   },
   {
@@ -801,8 +802,8 @@
       "name": "Room D"
     },
     "language_id": "en",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://speakerdeck.com/player/63a22ceda2264f728fc74500ae431ec3",
+    "movie_url": "https://www.youtube.com/watch?v=8QxfFs6liug",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-13-00-13-50-d"
   },
   {
@@ -827,8 +828,8 @@
       "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://speakerdeck.com/player/c4201091a99549ee81aff6025596fbca",
+    "movie_url": "https://www.youtube.com/watch?v=pKYA8y_uGgs",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-14-00-14-50-a"
   },
   {
@@ -853,8 +854,8 @@
       "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://speakerdeck.com/player/0f3f017ef45847a18a8ed2ae2c06d306",
+    "movie_url": "https://www.youtube.com/watch?v=9NCryjyLKtA",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-14-00-14-50-b"
   },
   {
@@ -879,8 +880,8 @@
       "name": "Room C"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://speakerdeck.com/player/b734d74df6d44ae889650f5873c6d03a",
+    "movie_url": "https://www.youtube.com/watch?v=FG1DCyTZ-M4",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-14-00-14-50-c"
   },
   {
@@ -905,8 +906,8 @@
       "name": "Room D"
     },
     "language_id": "en",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/r5Ma9ancrDT62k",
+    "movie_url": "https://www.youtube.com/watch?v=e4RCTgZq2Cs",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-14-00-14-50-d"
   },
   {
@@ -931,8 +932,8 @@
       "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/N5KMx4rno59FnB",
+    "movie_url": "https://www.youtube.com/watch?v=UelNBQvSY6c",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-10-15-40-a"
   },
   {
@@ -957,8 +958,8 @@
       "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://speakerdeck.com/player/690a62854be343358f5af0df4f7e054f",
+    "movie_url": "https://www.youtube.com/watch?v=q_cLTk8PFIg",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-10-15-40-b"
   },
   {
@@ -983,8 +984,8 @@
       "name": "Room C"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://speakerdeck.com/player/45c463463fbe47518576240a53622cdc",
+    "movie_url": "https://www.youtube.com/watch?v=lmti0rNxbmI",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-10-15-40-c"
   },
   {
@@ -1009,8 +1010,8 @@
       "name": "Room D"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/yaq1d2WI0gmJso",
+    "movie_url": "https://www.youtube.com/watch?v=GMAXZPndBo0",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-10-15-40-d"
   },
   {
@@ -1035,8 +1036,8 @@
       "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://speakerdeck.com/player/6e57ee81c3e249578556a89c0fe11005",
+    "movie_url": "https://www.youtube.com/watch?v=d5AhlBIy_pI",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-50-16-20-a"
   },
   {
@@ -1061,14 +1062,14 @@
       "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://speakerdeck.com/player/bd0d9434f0e14e27b3fb7c669c548039",
+    "movie_url": "https://www.youtube.com/watch?v=9k2LYn9O9FY",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-50-16-20-b"
   },
   {
     "id": 42,
-    "title": "Build your custom Rx Observable/Subscriber",
-    "description": "1. 概要\nこの1年で RxJava や RxAndroid の普及が進んでいるが、 提供される Observable や Operator を使うのに比べ、自分で Observable や Operator、Subscriber を作成するハードルは依然と高い。また、そもそも、自分の提供したい機能をどのように RxJava で表したら良いのか、についても考慮が必要となる。たとえば、処理の途中でダイアログを表示して、その選択によって処理を切り替えたい場合、どのようにしたら良いだろうか？ログイン画面のように Activity の遷移が行われるとしたら？カスタム Observable や Subscriber で unsubscribe はどのように扱えば良いだろうか？\n\nこのトークでは、筆者の作成した Nearby API 用 RxJava ライブラリ RxNearby （https://github.com/hkurokawa/RxNearby）を例に、どのように行いたい処理を RxJava に落とし込むのか、カスタム Observable やカスタム Subscriber を作成する際に何に注意すべきか、について解説する。特に、1) RxJava の中心は Subscriber であること、2) Observable が subscribe されたとき、および、observe されたときに、それぞれ、どのような順序で処理が伝わっていくか理解することはライブラリを作る上で重要であり、それらを含んだ内容を考えている。\n\n2. 対象者\n- RxJava 経験者\n- Rx の概念を理解しており、詳細に興味のある人\n\n3. 目次案\n- Nearby API の概説と RxJava でどのように扱うかのアイディア\n- RxNearby の使い方\n- Subscriber から見た Observable および Operator\n- MessageSubscribeOnSubscribe の説明と注意点\n- MessagePublishOperator の説明と注意点",
+    "title": "Build your custom Rx Observable/Operator",
+    "description": "1. 概要\nこの1年で RxJava や RxAndroid の普及が進んでいるが、 提供される Observable や Operator を使うのに比べ、自分でカスタム Observable やカスタム Operator を作成するハードルは依然と高い。また、そもそも、自分の提供したい機能をどのように RxJava で表したら良いのか、についても考慮が必要となる。\n\nこのトークでは、筆者の作成した Nearby API 用 RxJava ライブラリ RxNearby （https://github.com/hkurokawa/RxNearby）を例に、どのように行いたい処理を RxJava に落とし込むのか、カスタム Observable やカスタム Subscriber を作成する際に何に注意すべきか、について解説する。特に、1) RxJava の Observable や Operator の挙動は Subscriber を中心に捉えることで理解しやすくなり、2) subscribe や event emission 時にどのような順序で処理が伝わっていくか把握することはライブラリを作る上で重要である。\n\n2. 対象者\n- RxJava 経験者\n- Rx の概念を理解しており、詳細に興味のある人\n\n3. 目次\n- Observable と Operator の説明\n- Nearby API の説明と RxJava でどのように扱うかのアイディア\n- MessageSubscribeOnSubscribe の説明とそれを通したカスタム Observable を作る上での注意点\n- MessagePublishOperator の説明とそれを通したカスタム Operator を作る上での注意点",
     "speaker": {
       "id": 41,
       "name": "hydrakecat",
@@ -1087,8 +1088,8 @@
       "name": "Room D"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://speakerdeck.com/player/4d8020596e924f6a9b0afbfc3ec45ded",
+    "movie_url": "https://www.youtube.com/watch?v=-QIKWu9xrnc",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-15-50-16-20-d"
   },
   {
@@ -1113,20 +1114,20 @@
       "name": "Room A"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/1PvaMNasau7wtm",
+    "movie_url": "https://www.youtube.com/watch?v=Us3g30KU_SA",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-16-30-17-00-a"
   },
   {
     "id": 44,
-    "title": "「通知オフ」にされない為に。ネイティブアプリの最適な通知について",
-    "description": "【概要】\nデバイスに直接お知らせを配信できるアプリの通知は、メルマガよりも開封率が高いと言われ、\n非アクティブなユーザーに対するリテンションを行う際にも非常に強力な機能です。\nしかし、過度な通知や通知の内容によってはそのアプリの通知をオフにされたり、\n最悪の場合アプリを削除されてしまう原因にもなります。\n\n本発表ではネイティブアプリの最適な通知手段について考察し、実際に通知の開封率を上げる為に効果的だった取り組みと、\nその実装方法について話したいと思います。\n\n【対象者】\n・Android開発 初心者〜中級者\n・業務でアプリを運用している方\n\n【キーワード】\n・GCM\n・Notidfication\n・Wear\n・ローカル通知\n・ポップアップ通知",
+    "title": "Fireside chat",
+    "description": "【概要】\n緊急企画! DroidKaigi official appの開発者達が一堂に会し、\n制作秘話に関して語ります。\n万策尽きかけた現場に起こった奇跡とは…乞うご期待!",
     "speaker": {
       "id": 43,
-      "name": "cooky_ch",
-      "image_url": "https://avatars0.githubusercontent.com/u/3312886?v=3&s=400.jpg",
+      "name": "DroidKaigi developers",
+      "image_url": "https://raw.githubusercontent.com/konifar/droidkaigi2016/master/app/src/main/res/mipmap-xxhdpi/ic_launcher.png",
       "twitter_name": "",
-      "github_name": "cookych"
+      "github_name": ""
     },
     "stime": "2016-02-19 16:30:00",
     "etime": "2016-02-19 17:00:00",
@@ -1139,7 +1140,7 @@
       "name": "Room B"
     },
     "language_id": "ja",
-    "slide_url": "",
+    "slide_url": "http://blog.nkzn.info/entry/2016/02/19/170321",
     "movie_url": "",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-16-30-17-00-b"
   },
@@ -1165,8 +1166,8 @@
       "name": "Room D"
     },
     "language_id": "ja",
-    "slide_url": "",
-    "movie_url": "",
+    "slide_url": "https://www.slideshare.net/slideshow/embed_code/key/e1rpJBrnbN9Sg",
+    "movie_url": "https://www.youtube.com/watch?v=PZGo-rmMR-w",
     "share_url": "https://droidkaigi.github.io/2016/timetable.html#session-2016-02-19-16-30-17-00-d"
   }
 ]

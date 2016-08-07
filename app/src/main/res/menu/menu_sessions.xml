@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/item_search"
-        android:icon="@drawable/ic_search_white_24dp_auto_mirrored"
+        android:icon="@drawable/ic_search_white_24dp_vector"
         android:orderInCategory="100"
         android:title="@string/search"
         app:showAsAction="always" />

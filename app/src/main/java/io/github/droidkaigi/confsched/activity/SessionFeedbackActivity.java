@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,7 +20,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.api.DroidKaigiClient;
 import io.github.droidkaigi.confsched.databinding.ActivitySessionFeedbackBinding;
@@ -32,13 +30,13 @@ import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class SessionFeedbackActivity extends AppCompatActivity {
+public class SessionFeedbackActivity extends BaseActivity {
     private static final String TAG = SessionFeedbackActivity.class.getName();
+    @Inject
+    DroidKaigiClient client;
     private ActivitySessionFeedbackBinding binding;
     private Session session;
     private Subscription subscription;
-    @Inject
-    DroidKaigiClient client;
 
     private static Intent createIntent(@NonNull Context context, @NonNull Session session) {
         Intent intent = new Intent(context, SessionFeedbackActivity.class);
@@ -56,7 +54,7 @@ public class SessionFeedbackActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_session_feedback);
-        MainApplication.getComponent(this).inject(this);
+        getComponent().inject(this);
         session = Parcels.unwrap(getIntent().getParcelableExtra(Session.class.getSimpleName()));
 
         initToolbar(session.title);
@@ -81,7 +79,7 @@ public class SessionFeedbackActivity extends AppCompatActivity {
     }
 
     private void onSubmitFeedbackSuccess(Response<Void> response) {
-        if (response.isSuccess()) {
+        if (response.isSuccessful()) {
             final List<String> pathSegments = response.raw().request().url().pathSegments();
             if (!pathSegments.isEmpty() && "closedform".equals(pathSegments.get(pathSegments.size() - 1))) {
                 showDialog(R.string.session_feedback_submit_failure, R.string.session_feedback_not_accepting, (dialog, which) -> dialog.dismiss());

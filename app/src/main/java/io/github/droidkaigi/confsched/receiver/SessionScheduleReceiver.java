@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.ContextCompat;
 
 import org.parceler.Parcels;
 
@@ -17,7 +18,7 @@ import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.activity.MainActivity;
 import io.github.droidkaigi.confsched.activity.SessionDetailActivity;
 import io.github.droidkaigi.confsched.model.Session;
-import io.github.droidkaigi.confsched.util.PrefUtil;
+import io.github.droidkaigi.confsched.prefs.DefaultPrefs;
 
 public class SessionScheduleReceiver extends BroadcastReceiver {
 
@@ -25,7 +26,7 @@ public class SessionScheduleReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        boolean shouldNotify = PrefUtil.get(context, PrefUtil.KEY_NOTIFICATION_SETTING, true);
+        boolean shouldNotify = DefaultPrefs.get(context).getNotificationFlag();
         if (!shouldNotify) {
             return;
         }
@@ -45,7 +46,7 @@ public class SessionScheduleReceiver extends BroadcastReceiver {
         String title = context.getResources().getQuantityString(
                 R.plurals.schedule_notification_title, REMIND_MINUTES, REMIND_MINUTES);
 
-        boolean headsUp = PrefUtil.get(context, PrefUtil.KEY_HEADS_UP_SETTING, true);
+        boolean headsUp = DefaultPrefs.get(context).getHeadsUpFlag();
 
         Notification notification = new NotificationCompat.Builder(context)
                 .setContentIntent(pendingIntent)
@@ -58,6 +59,7 @@ public class SessionScheduleReceiver extends BroadcastReceiver {
                 .setPriority(headsUp ? NotificationCompat.PRIORITY_HIGH : NotificationCompat.PRIORITY_DEFAULT)
                 .setCategory(NotificationCompat.CATEGORY_EVENT)
                 .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                .setColor(ContextCompat.getColor(context, R.color.theme500))
                 .build();
 
         NotificationManager manager = (NotificationManager) context.getSystemService(Service.NOTIFICATION_SERVICE);

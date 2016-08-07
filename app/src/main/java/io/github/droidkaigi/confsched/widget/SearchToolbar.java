@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
 
+import android.widget.TextView;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.databinding.ToolbarSearchBinding;
 import io.github.droidkaigi.confsched.util.LocaleUtil;
@@ -120,6 +121,10 @@ public class SearchToolbar extends FrameLayout {
 
     public void addTextChangedListener(TextWatcher textWatcher) {
         binding.editSearch.addTextChangedListener(textWatcher);
+    }
+
+    public void setOnEditorActionListener(TextView.OnEditorActionListener actionListener) {
+        binding.editSearch.setOnEditorActionListener(actionListener);
     }
 
     public Toolbar getToolbar() {

@@ -3,14 +3,12 @@ package io.github.droidkaigi.confsched.fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import javax.inject.Inject;
 
-import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.activity.ActivityNavigator;
 import io.github.droidkaigi.confsched.activity.ContributorsActivity;
@@ -18,7 +16,7 @@ import io.github.droidkaigi.confsched.databinding.FragmentAboutBinding;
 import io.github.droidkaigi.confsched.util.AppUtil;
 import io.github.droidkaigi.confsched.util.LocaleUtil;
 
-public class AboutFragment extends Fragment {
+public class AboutFragment extends BaseFragment {
 
     private static final String REP_TWITTER_NAME = "mhidaka";
     private static final String CONF_TWITTER_NAME = "DroidKaigi";
@@ -46,7 +44,7 @@ public class AboutFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        MainApplication.getComponent(this).inject(this);
+        getComponent().inject(this);
     }
 
     private void initView() {
@@ -63,9 +61,6 @@ public class AboutFragment extends Fragment {
         binding.imgTwitterClicker.setOnClickListener(v ->
                 AppUtil.showWebPage(getActivity(), AppUtil.getTwitterUrl(CONF_TWITTER_NAME)));
 
-        binding.txtQuestionnaire.setOnClickListener(v -> {
-            AppUtil.showWebPage(getActivity(), getString(R.string.about_inquiry_url));
-        });
         binding.txtLicense.setOnClickListener(v ->
                 activityNavigator.showWebView(getContext(), LICENSE_URL, getString(R.string.about_license)));
 

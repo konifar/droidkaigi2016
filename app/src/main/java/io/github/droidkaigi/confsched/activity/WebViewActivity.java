@@ -6,7 +6,6 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.webkit.WebView;
@@ -16,7 +15,7 @@ import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.databinding.ActivityWebViewBinding;
 import io.github.droidkaigi.confsched.util.AppUtil;
 
-public class WebViewActivity extends AppCompatActivity {
+public class WebViewActivity extends BaseActivity {
 
     private static final String EXTRA_URL = "url";
     private static final String EXTRA_TITLE = "title";

@@ -7,7 +7,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -23,9 +22,9 @@ import org.parceler.Parcels;
 
 import javax.inject.Inject;
 
-import io.github.droidkaigi.confsched.MainApplication;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.activity.ActivityNavigator;
+import io.github.droidkaigi.confsched.activity.VideoPlayerActivity;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSessionDetailBinding;
 import io.github.droidkaigi.confsched.model.Session;
@@ -33,7 +32,7 @@ import io.github.droidkaigi.confsched.util.AlarmUtil;
 import io.github.droidkaigi.confsched.util.AppUtil;
 import io.github.droidkaigi.confsched.util.IntentUtil;
 
-public class SessionDetailFragment extends Fragment {
+public class SessionDetailFragment extends BaseFragment {
 
     @Inject
     SessionDao dao;
@@ -64,50 +63,20 @@ public class SessionDetailFragment extends Fragment {
         AppUtil.setTaskDescription(activity, session.title, ContextCompat.getColor(activity, session.category.getVividColorResId()));
     }
 
-    private void initToolbar() {
-        AppCompatActivity activity = ((AppCompatActivity) getActivity());
-        activity.setSupportActionBar(binding.toolbar);
-        ActionBar bar = activity.getSupportActionBar();
-        if (bar != null) {
-            bar.setDisplayHomeAsUpEnabled(true);
-            bar.setDisplayShowHomeEnabled(true);
-            bar.setDisplayShowTitleEnabled(false);
-            bar.setHomeButtonEnabled(true);
-        }
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentSessionDetailBinding.inflate(inflater, container, false);
         setHasOptionsMenu(true);
         initToolbar();
-        binding.setSession(session);
-
-        binding.fab.setOnClickListener(v -> {
-            boolean checked = !binding.fab.isSelected();
-            binding.fab.setSelected(checked);
-            session.checked = checked;
-            dao.updateChecked(session);
-            setResult();
-            AlarmUtil.handleSessionAlarm(getActivity(), session);
-        });
-
-        binding.txtFeedback.setOnClickListener(v -> activityNavigator.showFeedback(getActivity(), session));
-
+        initLayout();
         return binding.getRoot();
-    }
-
-    private void setResult() {
-        Intent intent = new Intent();
-        intent.putExtra(Session.class.getSimpleName(), Parcels.wrap(session));
-        getActivity().setResult(Activity.RESULT_OK, intent);
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        MainApplication.getComponent(this).inject(this);
+        getComponent().inject(this);
     }
 
     @Override
@@ -127,6 +96,52 @@ public class SessionDetailFragment extends Fragment {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void initToolbar() {
+        AppCompatActivity activity = ((AppCompatActivity) getActivity());
+        activity.setSupportActionBar(binding.toolbar);
+        ActionBar bar = activity.getSupportActionBar();
+        if (bar != null) {
+            bar.setDisplayHomeAsUpEnabled(true);
+            bar.setDisplayShowHomeEnabled(true);
+            bar.setDisplayShowTitleEnabled(false);
+            bar.setHomeButtonEnabled(true);
+        }
+    }
+
+    private void initLayout() {
+        binding.setSession(session);
+        binding.fab.setOnClickListener(v -> {
+            boolean checked = !binding.fab.isSelected();
+            binding.fab.setSelected(checked);
+            session.checked = checked;
+            dao.updateChecked(session);
+            setResult();
+            AlarmUtil.handleSessionAlarm(getActivity(), session);
+        });
+        binding.txtFeedback.setOnClickListener(v -> activityNavigator.showFeedback(getActivity(), session));
+        binding.iconSlide.setOnClickListener(this::onClickIconSlide);
+        binding.iconMovie.setOnClickListener(this::onClickIconMovie);
+    }
+
+    private void onClickIconSlide(View view) {
+        if (session.hasSlide()) {
+            IntentUtil.toBrowser(getContext(), session.slideUrl);
+        }
+    }
+
+    private void onClickIconMovie(View view) {
+        if (session.hasDashVideo()) {
+            Intent intent = VideoPlayerActivity.createIntent(getContext(), session.movieDashUrl);
+            startActivity(intent);
+        }
+    }
+
+    private void setResult() {
+        Intent intent = new Intent();
+        intent.putExtra(Session.class.getSimpleName(), Parcels.wrap(session));
+        getActivity().setResult(Activity.RESULT_OK, intent);
     }
 
 }

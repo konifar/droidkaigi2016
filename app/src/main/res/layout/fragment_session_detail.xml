@@ -6,6 +6,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <import type="io.github.droidkaigi.confsched.util.DateUtil" />
 
         <variable
@@ -93,9 +95,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_access_time_grey_500_18dp"
+                    android:drawableLeft="@drawable/ic_access_time_grey_500_18dp_vector_state"
                     android:drawablePadding="@dimen/icon_spacing"
-                    android:drawableStart="@drawable/ic_access_time_grey_500_18dp"
+                    android:drawableStart="@drawable/ic_access_time_grey_500_18dp_vector_state"
                     android:ellipsize="end"
                     android:focusable="true"
                     android:focusableInTouchMode="true"
@@ -204,6 +206,44 @@
                         android:layout_marginStart="@dimen/spacing"
                         android:gravity="center_vertical"
                         app:speakerSnsIcons="@{session.speaker}" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/txt_slide_title"
+                    style="@style/SessionDetailTitle"
+                    android:layout_marginTop="@dimen/spacing"
+                    android:paddingEnd="@dimen/spacing"
+                    android:paddingLeft="@dimen/spacing"
+                    android:paddingRight="@dimen/spacing"
+                    android:paddingStart="@dimen/spacing"
+                    android:text="@string/slide_and_video"
+                    android:visibility="@{session.hasSlide() ? View.VISIBLE : View.GONE}"
+                    app:categoryVividColor="@{session.category}" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/icon_slide"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/slide_and_video"
+                        android:padding="@dimen/spacing"
+                        android:visibility="@{session.hasSlide() ? View.VISIBLE : View.GONE}"
+                        app:srcCompat="@drawable/ic_note_black_24dp_vector" />
+
+                    <ImageView
+                        android:id="@+id/icon_movie"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/icon_slide"
+                        android:layout_toRightOf="@id/icon_slide"
+                        android:contentDescription="@string/slide_and_video"
+                        android:padding="@dimen/spacing"
+                        android:visibility="@{session.hasDashVideo() ? View.VISIBLE : View.GONE}"
+                        app:srcCompat="@drawable/ic_theaters_black_24dp_vector" />
 
                 </RelativeLayout>
 

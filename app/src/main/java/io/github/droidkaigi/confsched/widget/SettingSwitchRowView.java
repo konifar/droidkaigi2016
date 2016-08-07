@@ -3,25 +3,19 @@ package io.github.droidkaigi.confsched.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.databinding.DataBindingUtil;
-import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.widget.Checkable;
 import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
 
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.databinding.ViewSettingSwitchRowBinding;
-import io.github.droidkaigi.confsched.util.PrefUtil;
 
-public class SettingSwitchRowView extends RelativeLayout implements Checkable {
+public class SettingSwitchRowView extends RelativeLayout {
 
     private static final String TAG = SettingSwitchRowView.class.getSimpleName();
 
     private ViewSettingSwitchRowBinding binding;
-
-    private String prefKey;
 
     private CompoundButton.OnCheckedChangeListener onCheckedChangeListener;
 
@@ -46,9 +40,8 @@ public class SettingSwitchRowView extends RelativeLayout implements Checkable {
             binding.settingTitle.setText(title);
             binding.settingDescription.setText(description);
 
-            binding.getRoot().setOnClickListener(v -> switchSetting());
+            binding.getRoot().setOnClickListener(v -> toggle());
             binding.settingSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                setSetting(isChecked);
                 if (onCheckedChangeListener != null) {
                     onCheckedChangeListener.onCheckedChanged(buttonView, isChecked);
                 }
@@ -58,31 +51,8 @@ public class SettingSwitchRowView extends RelativeLayout implements Checkable {
         }
     }
 
-    public void init(String prefKey, boolean defaultValue) {
-        this.prefKey = prefKey;
-        boolean isChecked = PrefUtil.get(getContext(), prefKey, defaultValue);
-        binding.settingSwitch.setChecked(isChecked);
-    }
-
-    private void setSetting(boolean isChecked) {
-        if (TextUtils.isEmpty(prefKey)) {
-            Log.d(TAG, "PrefKey must be set. Call init()");
-        } else {
-            PrefUtil.put(getContext(), prefKey, isChecked);
-        }
-    }
-
-    private void switchSetting() {
-        if (TextUtils.isEmpty(prefKey)) {
-            Log.d(TAG, "PrefKey must be set. Call init()");
-        } else {
-            boolean newValue = !PrefUtil.get(getContext(), prefKey, true);
-            setSetting(newValue);
-            binding.settingSwitch.setChecked(newValue);
-        }
-    }
-
-    public void setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener listener) {
+    public void init(boolean defaultValue, CompoundButton.OnCheckedChangeListener listener) {
+        binding.settingSwitch.setChecked(defaultValue);
         onCheckedChangeListener = listener;
     }
 
@@ -101,19 +71,8 @@ public class SettingSwitchRowView extends RelativeLayout implements Checkable {
         }
     }
 
-    @Override
-    public void setChecked(boolean checked) {
-        setSetting(checked);
-        binding.settingSwitch.setChecked(checked);
-    }
-
-    @Override
-    public boolean isChecked() {
-        return binding.settingSwitch.isChecked();
-    }
-
-    @Override
-    public void toggle() {
-        switchSetting();
+    private void toggle() {
+        boolean isChecked = binding.settingSwitch.isChecked();
+        binding.settingSwitch.setChecked(!isChecked);
     }
 }

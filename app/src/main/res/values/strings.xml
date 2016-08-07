@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="tag_line">A conference tailored for Android developers!</string>
     <string name="session_detail">Session Detail</string>
 
@@ -6,7 +6,6 @@
     <string name="close">Close</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
-    <string name="yes">Yes</string>
     <string name="share">Share</string>
 
     <string name="speaker">Speaker</string>
@@ -14,6 +13,7 @@
 
     <string name="title">Title</string>
     <string name="description">Description</string>
+    <string name="slide_and_video">Slide＆Video</string>
 
     <string name="search_by_category">Search by category</string>
     <string name="search_by_place">Search by place</string>
@@ -50,18 +50,27 @@
     <string name="lang_ar_in_ar" translatable="false">العربية</string>
     <string name="lang_en_in_ar" translatable="false">الإنجليزية</string>
     <string name="lang_ja_in_ar" translatable="false">اليابانية</string>
+    <string name="lang_ko_in_ar" translatable="false">الكورية</string>
 
     <string name="lang_ar_in_en" translatable="false">Arabic</string>
     <string name="lang_en_in_en" translatable="false">English</string>
     <string name="lang_ja_in_en" translatable="false">Japanese</string>
+    <string name="lang_ko_in_en" translatable="false">Korean</string>
 
     <string name="lang_ar_in_ja" translatable="false">アラビア語</string>
     <string name="lang_en_in_ja" translatable="false">英語</string>
     <string name="lang_ja_in_ja" translatable="false">日本語</string>
+    <string name="lang_ko_in_ja" translatable="false">韓国語</string>
+
+    <string name="lang_ar_in_ko" translatable="false">아라비아어</string>
+    <string name="lang_en_in_ko" translatable="false">영어</string>
+    <string name="lang_ja_in_ko" translatable="false">일본어</string>
+    <string name="lang_ko_in_ko" translatable="false">한국</string>
 
     <string name="lang_ar">@string/lang_ar_in_en</string>
     <string name="lang_en">@string/lang_en_in_en</string>
     <string name="lang_ja">@string/lang_ja_in_en</string>
+    <string name="lang_ko">@string/lang_ko_in_en</string>
 
     <string name="settings_language">Change language</string>
     <string name="settings_language_description">Choose language in this app. After changed, app will restart.</string>
@@ -82,7 +91,6 @@
     <string name="about_conference_descriptions">For its 2016 edition, DroidKaigi will be held in two days and expects to see famous engineers from Japan and overseas giving talks.\n\nThere will be corporate exhibitions as well other than conference sessions.\n\nAndroid is being used in various situations and in many ways. Why don\'t you come and join us to share your knowledge and create better software?</string>
     <string name="about_rep">REP: %1$s</string>
     <string name="about_social">Social</string>
-    <string name="about_terms">Terms of Use</string>
     <string name="about_license">License</string>
     <string name="about_youtube">YouTube Channel</string>
     <string name="about_github_repository">GitHub Repository</string>
@@ -128,4 +136,23 @@
     <string name="session_feedback_submit_failure">Submit failed</string>
     <string name="session_feedback_submit_success">Submit succeeded</string>
     <string name="session_feedback_submit_link">Submit Feedback</string>
+
+    <!-- Video -->
+    <string name="video">Video</string>
+    <string name="video_audio">Audio</string>
+    <string name="video_text">Text</string>
+    <string name="video_logging">Logging</string>
+    <string name="video_retry">Retry</string>
+    <string name="video_error_drm_not_supported">Protected content not supported on API levels below 18</string>
+    <string name="video_error_drm_unsupported_scheme">This device does not support the required DRM scheme</string>
+    <string name="video_error_drm_unknown">An unknown DRM error occurred</string>
+    <string name="video_error_no_decoder">This device does not provide a decoder for <xliff:g id="mime_type">%1$s</xliff:g></string>
+    <string name="video_error_no_secure_decoder">This device does not provide a secure decoder for <xliff:g id="mime_type">%1$s</xliff:g></string>
+    <string name="video_error_querying_decoders">Unable to query device decoders</string>
+    <string name="video_error_instantiating_decoder">Unable to instantiate decoder <xliff:g id="decoder_name">%1$s</xliff:g></string>
+    <string name="video_storage_permission_denied">Permission to access storage was denied</string>
+    <string name="video_enable_background_audio">Play in background</string>
+    <string name="video_logging_normal">Normal</string>
+    <string name="video_logging_verbose">Verbose</string>
+    <string name="video_off">[off]</string>
 </resources>
