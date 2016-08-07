@@ -77,7 +77,6 @@ android {
             signingConfig signingConfigs.debug
             applicationIdSuffix '.debug'
             versionNameSuffix "-debug"
-            shrinkResources true
             debuggable true
             zipAlignEnabled true
 
