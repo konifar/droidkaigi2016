@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -160,13 +161,19 @@ public class SessionsTabFragment extends BaseFragment {
                 @Override
                 public void liked(LikeButton likeButton) {
                     session.checked = true;
-                    onLikeChanged(session, position);
+                    final int pos = holder.getAdapterPosition();
+                    if (pos != RecyclerView.NO_POSITION) {
+                        onLikeChanged(session, pos);
+                    }
                 }
 
                 @Override
                 public void unLiked(LikeButton likeButton) {
                     session.checked = false;
-                    onLikeChanged(session, position);
+                    final int pos = holder.getAdapterPosition();
+                    if (pos != RecyclerView.NO_POSITION) {
+                        onLikeChanged(session, pos);
+                    }
                 }
             });
 
