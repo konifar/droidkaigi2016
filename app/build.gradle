@@ -157,8 +157,8 @@ dependencies {
     compile 'com.github.hotchemi:permissionsdispatcher:2.1.3'
     apt 'com.github.hotchemi:permissionsdispatcher-processor:2.1.3'
 
-    compile 'com.rejasupotaro:kvs-schema:5.0.0'
-    apt 'com.rejasupotaro:kvs-schema-compiler:5.0.0'
+    compile 'com.rejasupotaro:kvs-schema:5.0.1'
+    apt 'com.rejasupotaro:kvs-schema-compiler:5.0.1'
 
     compile "com.squareup.picasso:picasso:2.5.2"
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
