@@ -79,7 +79,7 @@ public class DataBindingAttributeUtil {
         String timeRange = textView.getContext().getString(R.string.session_time_range,
                 DateUtil.getHourMinute(displaySTime),
                 DateUtil.getHourMinute(displayETime),
-                DateUtil.getMinutes(displaySTime, displayETime));
+                Integer.toString(DateUtil.getMinutes(displaySTime, displayETime)));
         textView.setText(timeRange);
     }
 
@@ -91,7 +91,7 @@ public class DataBindingAttributeUtil {
         String timeRange = textView.getContext().getString(R.string.session_time_range,
                 DateUtil.getLongFormatDate(displaySTime, textView.getContext()),
                 DateUtil.getHourMinute(displayETime),
-                DateUtil.getMinutes(displaySTime, displayETime));
+                Integer.toString(DateUtil.getMinutes(displaySTime, displayETime)));
         textView.setText(timeRange);
     }
 
