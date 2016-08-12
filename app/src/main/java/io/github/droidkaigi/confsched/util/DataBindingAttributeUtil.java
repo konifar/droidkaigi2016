@@ -83,30 +83,6 @@ public class DataBindingAttributeUtil {
         textView.setText(timeRange);
     }
 
-    @BindingAdapter("sessionDetailTimeRange")
-    public static void setSessionDetailTimeRange(TextView textView, @NonNull Session session) {
-        Date displaySTime = session.getDisplaySTime(textView.getContext());
-        Date displayETime = session.getDisplayETime(textView.getContext());
-
-        String timeRange = textView.getContext().getString(R.string.session_time_range,
-                DateUtil.getLongFormatDate(displaySTime, textView.getContext()),
-                DateUtil.getHourMinute(displayETime),
-                DateUtil.getMinutes(displaySTime, displayETime));
-        textView.setText(timeRange);
-    }
-
-    @BindingAdapter("sessionDescription")
-    public static void setSessionDescription(TextView textView, @NonNull Session session) {
-        setTextRtlConsidered(textView, session.description);
-        Linkify.addLinks(textView, Linkify.ALL);
-    }
-
-    @BindingAdapter("sessionFab")
-    public static void setSessionFab(FloatingActionButton fab, @NonNull Session session) {
-        fab.setRippleColor(ContextCompat.getColor(fab.getContext(), session.category.getPaleColorResId()));
-        fab.setSelected(session.checked);
-    }
-
     @BindingAdapter("forceRtlDirection")
     public static void setForceRtlDirection(FlowLayout flowLayout, boolean isCenterVertical) {
         if (LocaleUtil.shouldRtl()) {

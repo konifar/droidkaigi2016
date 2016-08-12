@@ -1,15 +1,14 @@
 package io.github.droidkaigi.confsched.di;
 
-import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.android.gms.analytics.Tracker;
-
-import com.github.gfx.android.orma.migration.ManualStepMigration;
-
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.support.annotation.NonNull;
+
+import com.github.gfx.android.orma.migration.ManualStepMigration;
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.Tracker;
 
 import java.io.File;
 
@@ -18,9 +17,9 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import io.github.droidkaigi.confsched.BuildConfig;
-import io.github.droidkaigi.confsched.activity.ActivityNavigator;
 import io.github.droidkaigi.confsched.api.RequestInterceptor;
 import io.github.droidkaigi.confsched.model.OrmaDatabase;
+import io.github.droidkaigi.confsched.viewmodel.event.EventBus;
 import okhttp3.Cache;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -104,8 +103,8 @@ public class AppModule {
 
     @Singleton
     @Provides
-    public ActivityNavigator provideActivityNavigator() {
-        return new ActivityNavigator();
+    public EventBus provideEventBus() {
+        return new EventBus();
     }
 
 }

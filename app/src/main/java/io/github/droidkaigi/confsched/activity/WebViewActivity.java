@@ -22,7 +22,7 @@ public class WebViewActivity extends BaseActivity {
 
     private ActivityWebViewBinding binding;
 
-    static void start(Context context, @NonNull String url, @NonNull String title) {
+    public static void start(Context context, @NonNull String url, @NonNull String title) {
         if (!TextUtils.isEmpty(url) && !TextUtils.isEmpty(title)) {
             Intent intent = new Intent(context, WebViewActivity.class);
             intent.putExtra(EXTRA_URL, url);

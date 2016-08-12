@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import javax.inject.Inject;
 
 import io.github.droidkaigi.confsched.R;
-import io.github.droidkaigi.confsched.activity.ActivityNavigator;
+import io.github.droidkaigi.confsched.util.PageNavigator;
 import io.github.droidkaigi.confsched.activity.ContributorsActivity;
 import io.github.droidkaigi.confsched.databinding.FragmentAboutBinding;
 import io.github.droidkaigi.confsched.util.AppUtil;
@@ -25,7 +25,7 @@ public class AboutFragment extends BaseFragment {
     private static final String LICENSE_URL = "file:///android_asset/license.html";
 
     @Inject
-    ActivityNavigator activityNavigator;
+    PageNavigator navigator;
 
     private FragmentAboutBinding binding;
 
@@ -62,7 +62,7 @@ public class AboutFragment extends BaseFragment {
                 AppUtil.showWebPage(getActivity(), AppUtil.getTwitterUrl(CONF_TWITTER_NAME)));
 
         binding.txtLicense.setOnClickListener(v ->
-                activityNavigator.showWebView(getContext(), LICENSE_URL, getString(R.string.about_license)));
+                navigator.showWebView(getContext(), LICENSE_URL, getString(R.string.about_license)));
 
         binding.txtGithubRepository.setOnClickListener(v ->
                 AppUtil.showWebPage(getActivity(), AppUtil.getGitHubUrl(CONF_REPOSITORY_NAME)));

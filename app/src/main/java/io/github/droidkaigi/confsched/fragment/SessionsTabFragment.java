@@ -22,7 +22,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import io.github.droidkaigi.confsched.R;
-import io.github.droidkaigi.confsched.activity.ActivityNavigator;
+import io.github.droidkaigi.confsched.util.PageNavigator;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSessionsTabBinding;
 import io.github.droidkaigi.confsched.databinding.ItemSessionBinding;
@@ -40,7 +40,7 @@ public class SessionsTabFragment extends BaseFragment {
     @Inject
     SessionDao dao;
     @Inject
-    ActivityNavigator activityNavigator;
+    PageNavigator navigator;
 
     private SessionsAdapter adapter;
     private FragmentSessionsTabBinding binding;
@@ -171,7 +171,7 @@ public class SessionsTabFragment extends BaseFragment {
             });
 
             binding.cardView.setOnClickListener(v ->
-                    activityNavigator.showSessionDetail(SessionsTabFragment.this, session, REQ_DETAIL));
+                    navigator.showSessionDetail(SessionsTabFragment.this, session, REQ_DETAIL));
         }
 
         protected void onLikeChanged(@NonNull Session session, int position) {

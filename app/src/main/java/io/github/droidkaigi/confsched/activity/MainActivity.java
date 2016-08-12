@@ -51,7 +51,7 @@ public class MainActivity extends BaseActivity
 
     private ActivityMainBinding binding;
 
-    static void start(@NonNull Activity activity, boolean shouldRefresh) {
+    public static void start(@NonNull Activity activity, boolean shouldRefresh) {
         Intent intent = new Intent(activity, MainActivity.class);
         intent.putExtra(EXTRA_SHOULD_REFRESH, shouldRefresh);
         activity.startActivity(intent);
