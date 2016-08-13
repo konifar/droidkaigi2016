@@ -7,7 +7,6 @@ import android.support.test.runner.AndroidJUnit4;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.util.Arrays;
 import java.util.Locale;
 
 import io.github.droidkaigi.confsched.prefs.DefaultPrefs;
@@ -29,7 +28,7 @@ public class LocaleUtilTest {
 
         DefaultPrefs.get(context).removeLanguageId();
         String defaultLanguage = Locale.getDefault().getLanguage().toLowerCase();
-        if (Arrays.asList(LocaleUtil.SUPPORT_LANG).contains(defaultLanguage)) {
+        if (LocaleUtil.SUPPORT_LANG.contains(defaultLanguage)) {
             // eq to Locale.getDefault().getLanguage() when it is supported
             assertThat(LocaleUtil.getCurrentLanguageId(context)).isEqualTo(defaultLanguage);
         } else {
