@@ -116,8 +116,8 @@ To know more about Android-Orma, see [document](http://gfx.github.io/Android-Orm
 
 ## Todo
 This project is under development.
-Issues are managed by waffle.io.
-https://waffle.io/konifar/droidkaigi2016
+Issues are managed by GitHub Project.
+https://github.com/konifar/droidkaigi2016/projects/1
 
 If you have a feature you want or find some bugs, please write an issue.
 
