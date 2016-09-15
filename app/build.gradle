@@ -165,7 +165,7 @@ dependencies {
     compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 
-    compile 'org.apmem.tools:layouts:1.10@aar'
+    compile 'com.google.android:flexbox:0.2.3'
     compile 'com.github.jd-alexander:LikeButton:0.2.0'
     compile 'net.opacapp:multiline-collapsingtoolbar:1.0.0'
     compile('com.github.ozodrukh:CircularReveal:1.3.1@aar') {
