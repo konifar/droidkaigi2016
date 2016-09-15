@@ -68,13 +68,14 @@
                     android:textSize="@dimen/text_small"
                     app:sessionTimeRange="@{session}" />
 
-                <org.apmem.tools.layouts.FlowLayout
+                <com.google.android.flexbox.FlexboxLayout
                     android:id="@+id/tag_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/txt_time"
                     android:layout_marginTop="@dimen/spacing_xsmall"
-                    app:forceRtlDirection="@{true}">
+                    app:flexDirection="row"
+                    app:flexWrap="wrap">
 
                     <TextView
                         android:id="@+id/txt_place"
@@ -103,7 +104,7 @@
                         android:text="@{session.getLanguageResId()}"
                         android:textColor="@color/grey600" />
 
-                </org.apmem.tools.layouts.FlowLayout>
+                </com.google.android.flexbox.FlexboxLayout>
 
                 <TextView
                     android:id="@+id/txt_conflict"

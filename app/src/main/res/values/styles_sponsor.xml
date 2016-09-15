@@ -21,7 +21,11 @@
         <item name="android:paddingEnd" tools:targetApi="jelly_bean_mr1">@dimen/spacing</item>
         <item name="android:paddingLeft">@dimen/spacing</item>
         <item name="android:paddingRight">@dimen/spacing_small</item>
-        <item name="android:paddingStart" tools:targetApi="jelly_bean_mr1">@dimen/spacing_small</item>
+        <item name="android:paddingStart" tools:targetApi="jelly_bean_mr1">@dimen/spacing_small
+        </item>
+        <item name="flexDirection">row</item>
+        <item name="flexWrap">wrap</item>
+        <item name="justifyContent">center</item>
     </style>
 
 </resources>

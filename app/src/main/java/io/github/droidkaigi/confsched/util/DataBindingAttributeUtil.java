@@ -5,11 +5,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
 import android.text.util.Linkify;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,8 +14,6 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout;
-
-import org.apmem.tools.layouts.FlowLayout;
 
 import java.util.Date;
 
@@ -105,16 +100,6 @@ public class DataBindingAttributeUtil {
     public static void setSessionFab(FloatingActionButton fab, @NonNull Session session) {
         fab.setRippleColor(ContextCompat.getColor(fab.getContext(), session.category.getPaleColorResId()));
         fab.setSelected(session.checked);
-    }
-
-    @BindingAdapter("forceRtlDirection")
-    public static void setForceRtlDirection(FlowLayout flowLayout, boolean isCenterVertical) {
-        if (LocaleUtil.shouldRtl()) {
-            ViewCompat.setLayoutDirection(flowLayout, ViewCompat.LAYOUT_DIRECTION_RTL);
-
-            int gravity = isCenterVertical ? GravityCompat.START | Gravity.CENTER_VERTICAL : GravityCompat.START;
-            flowLayout.setGravity(gravity);
-        }
     }
 
     @BindingAdapter("textRtlConsidered")

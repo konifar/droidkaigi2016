@@ -18,7 +18,7 @@
                 style="@style/SponsorCategory"
                 android:text="@string/sponsor_category_platinum" />
 
-            <org.apmem.tools.layouts.FlowLayout
+            <com.google.android.flexbox.FlexboxLayout
                 android:id="@+id/platinum_container"
                 style="@style/SponsorImagesContainer" />
 
@@ -26,7 +26,7 @@
                 style="@style/SponsorCategory"
                 android:text="@string/sponsor_category_video" />
 
-            <org.apmem.tools.layouts.FlowLayout
+            <com.google.android.flexbox.FlexboxLayout
                 android:id="@+id/video_container"
                 style="@style/SponsorImagesContainer" />
 
@@ -34,7 +34,7 @@
                 style="@style/SponsorCategory"
                 android:text="@string/sponsor_category_food" />
 
-            <org.apmem.tools.layouts.FlowLayout
+            <com.google.android.flexbox.FlexboxLayout
                 android:id="@+id/foods_container"
                 style="@style/SponsorImagesContainer" />
 
@@ -42,7 +42,7 @@
                 style="@style/SponsorCategory"
                 android:text="@string/sponsor_category_normal" />
 
-            <org.apmem.tools.layouts.FlowLayout
+            <com.google.android.flexbox.FlexboxLayout
                 android:id="@+id/normal_container"
                 style="@style/SponsorImagesContainer"
                 android:layout_marginBottom="@dimen/spacing_large" />

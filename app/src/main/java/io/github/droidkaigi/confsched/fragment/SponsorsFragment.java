@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.apmem.tools.layouts.FlowLayout;
+import com.google.android.flexbox.FlexboxLayout;
 
 import javax.inject.Inject;
 
@@ -56,7 +56,7 @@ public class SponsorsFragment extends BaseFragment {
                 .forEach(sponsor -> addView(sponsor, binding.normalContainer));
     }
 
-    private void addView(Sponsor sponsor, FlowLayout container) {
+    private void addView(Sponsor sponsor, FlexboxLayout container) {
         SponsorImageView imageView = new SponsorImageView(getActivity());
         imageView.bindData(sponsor, v -> {
             if (TextUtils.isEmpty(sponsor.url))
@@ -64,8 +64,8 @@ public class SponsorsFragment extends BaseFragment {
             analyticsTracker.sendEvent("sponsor", sponsor.url);
             AppUtil.showWebPage(getActivity(), sponsor.url);
         });
-        FlowLayout.LayoutParams params = new FlowLayout.LayoutParams(
-                FlowLayout.LayoutParams.WRAP_CONTENT, FlowLayout.LayoutParams.WRAP_CONTENT);
+        FlexboxLayout.LayoutParams params = new FlexboxLayout.LayoutParams(
+                FlexboxLayout.LayoutParams.WRAP_CONTENT, FlexboxLayout.LayoutParams.WRAP_CONTENT);
         int margin = (int) getResources().getDimension(R.dimen.spacing_small);
         params.setMargins(margin, margin, 0, 0);
         container.addView(imageView, params);
