@@ -148,7 +148,7 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.4.1'
     compile 'io.reactivex:rxjava:1.2.0'
     compile 'io.reactivex:rxandroid:1.2.1'
-    compile "com.jakewharton.threetenabp:threetenabp:1.0.3"
+    compile "com.jakewharton.threetenabp:threetenabp:1.0.4"
     compile "org.parceler:parceler-api:1.0.4"
     apt "org.parceler:parceler:1.0.4"
 
