@@ -1,5 +1,7 @@
 package io.github.droidkaigi.confsched.widget;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.util.AttributeSet;
@@ -8,15 +10,12 @@ import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
-
-import java.util.List;
-
-import io.codetail.animation.SupportAnimator;
 import io.codetail.animation.ViewAnimationUtils;
 import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.databinding.ViewMapSearchBinding;
 import io.github.droidkaigi.confsched.model.PlaceMap;
 import io.github.droidkaigi.confsched.util.LocaleUtil;
+import java.util.List;
 import rx.Observable;
 
 public class MapSearchView extends FrameLayout {
@@ -81,7 +80,7 @@ public class MapSearchView extends FrameLayout {
         if (binding.mapListContainer.getVisibility() == VISIBLE) return;
 
         View container = binding.mapListContainer;
-        SupportAnimator animator = ViewAnimationUtils.createCircularReveal(
+        Animator animator = ViewAnimationUtils.createCircularReveal(
                 container,
                 getRevealCenterX(container),
                 container.getTop(),
@@ -89,28 +88,13 @@ public class MapSearchView extends FrameLayout {
                 (float) Math.hypot(container.getWidth(), container.getHeight()));
         animator.setInterpolator(INTERPOLATOR);
         animator.setDuration(getResources().getInteger(R.integer.view_reveal_mills));
-        animator.addListener(new SupportAnimator.AnimatorListener() {
+        animator.addListener(new AnimatorListenerAdapter() {
             @Override
-            public void onAnimationStart() {
+            public void onAnimationStart(Animator animation) {
                 binding.mapListContainer.setVisibility(VISIBLE);
                 if (onVisibilityChangeListener != null) {
                     onVisibilityChangeListener.onChange();
                 }
-            }
-
-            @Override
-            public void onAnimationEnd() {
-                // Do nothing
-            }
-
-            @Override
-            public void onAnimationCancel() {
-                // Do nothing
-            }
-
-            @Override
-            public void onAnimationRepeat() {
-                // Do nothing
             }
         });
 
@@ -121,7 +105,7 @@ public class MapSearchView extends FrameLayout {
         if (binding.mapListContainer.getVisibility() != VISIBLE) return;
 
         View container = binding.mapListContainer;
-        SupportAnimator animator = ViewAnimationUtils.createCircularReveal(
+        Animator animator = ViewAnimationUtils.createCircularReveal(
                 container,
                 getRevealCenterX(container),
                 container.getTop(),
@@ -129,28 +113,13 @@ public class MapSearchView extends FrameLayout {
                 0);
         animator.setInterpolator(INTERPOLATOR);
         animator.setDuration(getResources().getInteger(R.integer.view_reveal_mills));
-        animator.addListener(new SupportAnimator.AnimatorListener() {
+        animator.addListener(new AnimatorListenerAdapter() {
             @Override
-            public void onAnimationStart() {
-                // Do nothing
-            }
-
-            @Override
-            public void onAnimationEnd() {
+            public void onAnimationEnd(Animator animation) {
                 binding.mapListContainer.setVisibility(INVISIBLE);
                 if (onVisibilityChangeListener != null) {
                     onVisibilityChangeListener.onChange();
                 }
-            }
-
-            @Override
-            public void onAnimationCancel() {
-                // Do nothing
-            }
-
-            @Override
-            public void onAnimationRepeat() {
-                // Do nothing
             }
         });
 
