@@ -167,7 +167,7 @@ dependencies {
 
     compile 'com.google.android:flexbox:0.2.3'
     compile 'com.github.jd-alexander:LikeButton:0.2.0'
-    compile 'net.opacapp:multiline-collapsingtoolbar:1.0.0'
+    compile 'net.opacapp:multiline-collapsingtoolbar:1.2.2'
     compile('com.github.ozodrukh:CircularReveal:2.0.1@aar') {
         transitive = true;
     }
