@@ -2,8 +2,6 @@ package io.github.droidkaigi.confsched.dao;
 
 import android.support.annotation.NonNull;
 
-import com.github.gfx.android.orma.TransactionTask;
-
 import java.util.List;
 
 import javax.inject.Inject;
@@ -32,11 +30,6 @@ public class ContributorDao {
     }
 
     public void upserterAll(@NonNull List<Contributor> contributors) {
-        orma.transactionAsync(new TransactionTask() {
-            @Override
-            public void execute() throws Exception {
-                contributorRelation().upserter().executeAll(contributors);
-            }
-        });
+        orma.transactionAsync(() -> contributorRelation().upserter().executeAll(contributors)).subscribe();
     }
 }

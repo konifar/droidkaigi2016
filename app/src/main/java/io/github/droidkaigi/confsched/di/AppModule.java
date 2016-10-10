@@ -3,6 +3,7 @@ package io.github.droidkaigi.confsched.di;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
 
+import com.github.gfx.android.orma.AccessThreadConstraint;
 import com.github.gfx.android.orma.migration.ManualStepMigration;
 
 import android.app.Application;
@@ -99,6 +100,7 @@ public class AppModule {
                         helper.renameColumn("Session", "categoryId", "category");
                     }
                 })
+                .writeOnMainThread(AccessThreadConstraint.WARNING)
                 .build();
     }
 

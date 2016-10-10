@@ -1,7 +1,5 @@
 package io.github.droidkaigi.confsched.dao;
 
-import com.github.gfx.android.orma.TransactionTask;
-
 import java.util.List;
 
 import javax.inject.Inject;
@@ -104,12 +102,7 @@ public class SessionDao {
 
 
     public void updateAllAsync(List<Session> sessions) {
-        orma.transactionAsync(new TransactionTask() {
-            @Override
-            public void execute() throws Exception {
-                updateAllSync(sessions);
-            }
-        });
+        orma.transactionAsync(() -> updateAllSync(sessions)).subscribe();
     }
 
     public void updateChecked(Session session) {
