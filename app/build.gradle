@@ -152,8 +152,9 @@ dependencies {
     compile "org.parceler:parceler-api:1.0.4"
     apt "org.parceler:parceler:1.0.4"
 
-    apt 'com.github.gfx.android.orma:orma-processor:2.3.2'
-    compile 'com.github.gfx.android.orma:orma:2.3.2'
+    compile 'com.github.gfx.android.orma:orma:3.0.0-rc2'
+    apt 'com.github.gfx.android.orma:orma-processor:3.0.0-rc2'
+
     compile 'com.github.hotchemi:permissionsdispatcher:2.2.0'
     apt 'com.github.hotchemi:permissionsdispatcher-processor:2.2.0'
 
