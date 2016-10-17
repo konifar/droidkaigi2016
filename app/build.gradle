@@ -151,8 +151,8 @@ dependencies {
     compile "org.parceler:parceler-api:1.0.4"
     annotationProcessor "org.parceler:parceler:1.0.4"
 
-    compile 'com.github.gfx.android.orma:orma:3.0.0-rc2'
-    annotationProcessor 'com.github.gfx.android.orma:orma-processor:3.0.0-rc2'
+    compile 'com.github.gfx.android.orma:orma:3.0.0'
+    annotationProcessor 'com.github.gfx.android.orma:orma-processor:3.0.0'
 
     compile 'com.github.hotchemi:permissionsdispatcher:2.2.0'
     annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:2.2.0'
