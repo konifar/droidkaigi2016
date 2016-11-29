@@ -6,6 +6,9 @@ import android.support.annotation.NonNull;
 import com.crashlytics.android.Crashlytics;
 import com.jakewharton.threetenabp.AndroidThreeTen;
 
+import javax.inject.Inject;
+
+import dagger.android.AndroidMemorySensitiveReferenceManager;
 import io.fabric.sdk.android.Fabric;
 import io.github.droidkaigi.StethoWrapper;
 import io.github.droidkaigi.confsched.di.AppComponent;
@@ -16,6 +19,9 @@ import io.github.droidkaigi.confsched.util.LocaleUtil;
 public class MainApplication extends Application {
 
     AppComponent appComponent;
+
+    @Inject
+    AndroidMemorySensitiveReferenceManager manager;
 
     @NonNull
     public AppComponent getComponent() {
@@ -39,4 +45,8 @@ public class MainApplication extends Application {
         LocaleUtil.initLocale(this);
     }
 
+    @Override
+    public void onTrimMemory(int level) {
+        manager.onTrimMemory(level);
+    }
 }

@@ -21,6 +21,8 @@ import dagger.Provides;
 import io.github.droidkaigi.confsched.BuildConfig;
 import io.github.droidkaigi.confsched.activity.ActivityNavigator;
 import io.github.droidkaigi.confsched.api.RequestInterceptor;
+import io.github.droidkaigi.confsched.di.scope.InScope;
+import io.github.droidkaigi.confsched.di.scope.ReleaseWhenUiHidden;
 import io.github.droidkaigi.confsched.model.OrmaDatabase;
 import okhttp3.Cache;
 import okhttp3.Interceptor;
@@ -104,10 +106,10 @@ public class AppModule {
                 .build();
     }
 
-    @Singleton
     @Provides
+    @ReleaseWhenUiHidden
+    @InScope(ReleaseWhenUiHidden.class)
     public ActivityNavigator provideActivityNavigator() {
         return new ActivityNavigator();
     }
-
 }
