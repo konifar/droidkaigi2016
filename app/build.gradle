@@ -154,8 +154,8 @@ dependencies {
     compile 'com.github.gfx.android.orma:orma:3.0.0'
     annotationProcessor 'com.github.gfx.android.orma:orma-processor:3.0.0'
 
-    compile 'com.github.hotchemi:permissionsdispatcher:2.2.1'
-    annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:2.2.1'
+    compile 'com.github.hotchemi:permissionsdispatcher:2.3.0'
+    annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:2.3.0'
 
     compile 'com.rejasupotaro:kvs-schema:5.0.1'
     annotationProcessor 'com.rejasupotaro:kvs-schema-compiler:5.0.1'
