@@ -13,6 +13,8 @@ import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.activity.ActivityNavigator;
 import io.github.droidkaigi.confsched.activity.ContributorsActivity;
 import io.github.droidkaigi.confsched.databinding.FragmentAboutBinding;
+import io.github.droidkaigi.confsched.di.scope.InScope;
+import io.github.droidkaigi.confsched.di.scope.ReleaseWhenUiHidden;
 import io.github.droidkaigi.confsched.util.AppUtil;
 import io.github.droidkaigi.confsched.util.LocaleUtil;
 
@@ -24,7 +26,7 @@ public class AboutFragment extends BaseFragment {
     private static final String CONF_REPOSITORY_NAME = "konifar/droidkaigi2016";
     private static final String LICENSE_URL = "file:///android_asset/license.html";
 
-    @Inject
+    @InScope(ReleaseWhenUiHidden.class)
     ActivityNavigator activityNavigator;
 
     private FragmentAboutBinding binding;

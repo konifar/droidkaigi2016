@@ -41,6 +41,8 @@ import io.github.droidkaigi.confsched.dao.PlaceDao;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.ActivitySearchBinding;
 import io.github.droidkaigi.confsched.databinding.ItemSearchResultBinding;
+import io.github.droidkaigi.confsched.di.scope.InScope;
+import io.github.droidkaigi.confsched.di.scope.ReleaseWhenUiHidden;
 import io.github.droidkaigi.confsched.model.SearchResult;
 import io.github.droidkaigi.confsched.model.Session;
 import io.github.droidkaigi.confsched.util.AnalyticsTracker;
@@ -60,7 +62,7 @@ public class SearchActivity extends BaseActivity implements TextWatcher,
 
     @Inject
     AnalyticsTracker analyticsTracker;
-    @Inject
+    @InScope(ReleaseWhenUiHidden.class)
     ActivityNavigator activityNavigator;
     @Inject
     SessionDao sessionDao;

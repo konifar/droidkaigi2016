@@ -19,6 +19,8 @@ import io.github.droidkaigi.confsched.R;
 import io.github.droidkaigi.confsched.activity.ActivityNavigator;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSettingsBinding;
+import io.github.droidkaigi.confsched.di.scope.InScope;
+import io.github.droidkaigi.confsched.di.scope.ReleaseWhenUiHidden;
 import io.github.droidkaigi.confsched.prefs.DefaultPrefs;
 import io.github.droidkaigi.confsched.util.LocaleUtil;
 import rx.Observable;
@@ -27,7 +29,7 @@ public class SettingsFragment extends BaseFragment {
 
     public static final String TAG = SettingsFragment.class.getSimpleName();
 
-    @Inject
+    @InScope(ReleaseWhenUiHidden.class)
     ActivityNavigator activityNavigator;
     @Inject
     SessionDao dao;

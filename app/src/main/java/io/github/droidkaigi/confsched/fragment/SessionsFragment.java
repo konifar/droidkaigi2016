@@ -34,6 +34,8 @@ import io.github.droidkaigi.confsched.activity.SearchActivity;
 import io.github.droidkaigi.confsched.api.DroidKaigiClient;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSessionsBinding;
+import io.github.droidkaigi.confsched.di.scope.InScope;
+import io.github.droidkaigi.confsched.di.scope.ReleaseWhenUiHidden;
 import io.github.droidkaigi.confsched.model.MainContentStateBrokerProvider;
 import io.github.droidkaigi.confsched.model.Page;
 import io.github.droidkaigi.confsched.model.Session;
@@ -56,7 +58,7 @@ public class SessionsFragment extends BaseFragment implements StackedPageListene
     SessionDao dao;
     @Inject
     CompositeSubscription compositeSubscription;
-    @Inject
+    @InScope(ReleaseWhenUiHidden.class)
     ActivityNavigator activityNavigator;
     @Inject
     MainContentStateBrokerProvider brokerProvider;

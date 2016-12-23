@@ -27,6 +27,8 @@ import io.github.droidkaigi.confsched.activity.ActivityNavigator;
 import io.github.droidkaigi.confsched.activity.VideoPlayerActivity;
 import io.github.droidkaigi.confsched.dao.SessionDao;
 import io.github.droidkaigi.confsched.databinding.FragmentSessionDetailBinding;
+import io.github.droidkaigi.confsched.di.scope.InScope;
+import io.github.droidkaigi.confsched.di.scope.ReleaseWhenUiHidden;
 import io.github.droidkaigi.confsched.model.Session;
 import io.github.droidkaigi.confsched.util.AlarmUtil;
 import io.github.droidkaigi.confsched.util.AppUtil;
@@ -36,7 +38,7 @@ public class SessionDetailFragment extends BaseFragment {
 
     @Inject
     SessionDao dao;
-    @Inject
+    @InScope(ReleaseWhenUiHidden.class)
     ActivityNavigator activityNavigator;
 
     private FragmentSessionDetailBinding binding;
