@@ -90,6 +90,7 @@
 
     <style name="SessionDetailToolbarTitle">
         <item name="android:textSize">@dimen/text_xxlarge</item>
+        <item name="android:textColor">@color/white</item>
         <item name="android:maxLines">4</item>
     </style>
 
