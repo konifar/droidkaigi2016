@@ -107,7 +107,7 @@ public class SettingsFragment extends BaseFragment {
 
     private void restart() {
         Activity activity = getActivity();
-        activityNavigator.showMain(activity, true);
+        activityNavigator.showMain(activity, false);
         activity.finish();
     }
 
