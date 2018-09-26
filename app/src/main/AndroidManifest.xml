@@ -25,6 +25,10 @@
             android:name="io.fabric.ApiKey"
             android:value="eef593299f106222b116410ba972260f992134e5" />
 
+        <meta-data
+            android:name="google_analytics_adid_collection_enabled"
+            android:value="false" />
+
         <activity
             android:name=".activity.MainActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
